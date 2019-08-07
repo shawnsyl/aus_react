@@ -1,0 +1,49 @@
+#navbar {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  border: 0;
+  position: relative;
+}
+
+ul {
+  margin: 0;
+}
+
+#navbar .logo {
+  width: 8%;
+  height: 8%;
+  margin-right: 23px;
+}
+
+#navbar #links {
+  margin-left: 0px;
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+
+  transition: 0.4s ease all, 0s ease background;
+}
+#navbar #links li {
+  font: Roboto;
+  font-size: 20px;
+  padding: 0px;
+  margin-left: 0px;
+  margin-right: 3vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+
+.link_active a:link,
+a:visited {
+  text-decoration: underline;
+  font-weight: bold;
+}
