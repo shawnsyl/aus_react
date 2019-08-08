@@ -45,7 +45,7 @@ textarea {
   background: purple;
 }
 
-span {
+#submit span {
   transition: background-color 0.25s ease;
   width: 100%;
   height: 100%;
