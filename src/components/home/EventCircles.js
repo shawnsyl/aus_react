@@ -42,25 +42,22 @@ class EventCircles extends Component {
           disabled={this.state.event.index === 0}
         />
         <div className="viewer">
-          <div className="events_slider">
-            <div
-              className="events_slider_wrapper"
-              style={{
-                transform: `translateX(-${this.state.event.index *
-                  (273 + 40)}px)`
-                /*transform: `translateX(-${this.state.event.index *
+          <div
+            className="events_slider_wrapper"
+            style={{
+              transform: `translateX(-${this.state.event.index * 424}px)`
+              /*transform: `translateX(-${this.state.event.index *
                 (100 / this.state.events.length)}%)`*/
-              }}
-            >
-              {this.state.events.map(event => (
-                <Circle
-                  key={event.id}
-                  event={event}
-                  isbig={event.index === this.state.event.index ? "_big" : ""}
-                  transform={this.state.transformO}
-                />
-              ))}
-            </div>
+            }}
+          >
+            {this.state.events.map(event => (
+              <Circle
+                key={event.id}
+                event={event}
+                isbig={event.index === this.state.event.index ? "_big" : ""}
+                transform={this.state.transformO}
+              />
+            ))}
           </div>
         </div>
         <button

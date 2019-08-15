@@ -39,8 +39,13 @@ class HomeMain extends Component {
               Student Expression Competition! 16 Designs will be chosen and
               students have the opportunity to paint the 16 buchanan pillars!
             </p>
+            <div id="learn_more">
+              <span>Learn More</span>
+            </div>
           </div>
-          <div className="calendar" />
+          <div className="calendar">
+            <h1>Calendar</h1>
+          </div>
         </div>
       </div>
     );
