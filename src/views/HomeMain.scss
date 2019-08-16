@@ -204,23 +204,18 @@
   flex-grow: 1;
   margin-left: 30vw;
   .event {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 474px;
+    margin: 0;
+    margin-right: -50px;
     transform: scale(0.575949367);
     transition: transform 400ms ease-in-out;
   }
 }
-
 .page2 h1 {
   margin-bottom: 3.5vh;
-}
-
-.page2 .event {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 474px;
-  height: 400px;
-  margin: 0;
-  margin-right: -50px;
 }
 
 .page2 .event_big {
@@ -230,7 +225,6 @@
   margin-top: 0vh;
   transition: all 0.4s ease-in-out;
   width: 474px;
-  height: 474px;
   margin: 0;
   margin-right: -50px;
 }
@@ -326,7 +320,7 @@
   }
 }
 
-.page3 .calendar {
+.page3 .calendar_zone {
   border-radius: 50%;
   background-color: white;
   width: 1002px;
@@ -336,11 +330,65 @@
   margin-top: 9vh;
   margin-left: -5vw;
 
+  display: flex;
+  flex-direction: column;
   h1 {
-    margin-left: 370px;
+    margin-left: 390px;
     margin-top: 85px;
+    margin-bottom: 20px;
     font-size: 48px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     font-weight: normal;
+  }
+}
+
+.page3 .calendar_container {
+  margin-left: 150px;
+  width: 680px;
+  table {
+    //width: 275px;
+    height: auto;
+    text-align: center;
+    font-size: 24px;
+  }
+  th {
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+  .calendar_day {
+    height: 75px;
+    width: 100px;
+  }
+  .calendar_day.today {
+    background-color: #fde05b;
+  }
+  .calendar_navi {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      text-align: center;
+      width: 140px;
+    }
+    .right_arrow {
+      width: 0;
+      height: 0;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 15px solid black;
+      z-index: 999;
+      background-color: transparent;
+    }
+    .left_arrow {
+      width: 0;
+      height: 0;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-right: 15px solid black;
+      background-color: transparent;
+    }
   }
 }

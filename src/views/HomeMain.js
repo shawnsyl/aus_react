@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar.js";
 
 import "./HomeMain.scss";
 import EventCircles from "../components/home/EventCircles.js";
+import Calendar from "../components/home/Calendar.js";
 
 class HomeMain extends Component {
   state = {};
@@ -43,8 +44,9 @@ class HomeMain extends Component {
               <span>Learn More</span>
             </div>
           </div>
-          <div className="calendar">
+          <div className="calendar_zone">
             <h1>Calendar</h1>
+            <Calendar />
           </div>
         </div>
       </div>
