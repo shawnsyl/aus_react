@@ -8,6 +8,7 @@ import {
 
 import Navbar from "./components/Navbar.js";
 import ContactMain from "./views/ContactMain.js";
+import AboutMain from "./views/AboutMain.js";
 import HomeMain from "./views/HomeMain.js";
 import Footer from "./components/Footer.js";
 
@@ -15,19 +16,18 @@ import "./App.css";
 
 class App extends React.Component {
   render() {
-    const { match, location, history } = this.props;
-    console.log(this.props.location);
-
     return (
-      <Router>
-        <div className="App">
+      <div className="App">
+        <Navbar />
+        <Router>
           <Switch>
             <Route exact path="/" component={HomeMain} />
             <Route exact path="/contact" component={ContactMain} />
+            <Route exact path="/about" component={AboutMain} />
           </Switch>
-          <Footer />
-        </div>
-      </Router>
+        </Router>
+        <Footer />
+      </div>
     );
   }
 }

@@ -1,6 +1,14 @@
-.home {
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
+.Home {
+  animation: fadein 1s;
+}
 .page1 {
   top: 0px;
   bottom: 0px;
@@ -9,74 +17,67 @@
 
   display: flex;
   flex-direction: row;
-}
+  img {
+    width: 593px;
+    height: 603px;
+    margin-left: 20px;
+  }
+  .p1text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 125px;
+    margin-left: -125px;
+  }
+  h1 {
+    font-size: 72px;
+    text-transform: uppercase;
+    color: #60246c;
+    letter-spacing: 0.1em;
+    font-stretch: extra-condensed;
+    font-weight: bolder;
+    margin-bottom: 5px;
+  }
+  h2 {
+    font-size: 36px;
+    color: #60246c;
+    letter-spacing: 0.06em;
+    font-weight: normal;
+    margin-bottom: 13px;
+  }
+  p {
+    font-size: 24px;
+    margin-bottom: 5px;
+    letter-spacing: 0.03em;
+  }
+  #learn_more {
+    margin-top: 25px;
+    height: 100%;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: 0.25s;
+    -webkit-transition: 0.25s;
 
-.page1 img {
-  width: 593px;
-  height: 603px;
-  margin-left: 20px;
-}
-
-.page1 .p1text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 125px;
-  margin-left: -125px;
-}
-
-.page1 h1 {
-  font-size: 72px;
-  text-transform: uppercase;
-  color: #60246c;
-  letter-spacing: 0.1em;
-  font-stretch: extra-condensed;
-  font-weight: bolder;
-  margin-bottom: 5px;
-}
-
-.page1 h2 {
-  font-size: 36px;
-  color: #60246c;
-  letter-spacing: 0.06em;
-  font-weight: normal;
-  margin-bottom: 13px;
-}
-
-.page1 p {
-  font-size: 24px;
-  margin-bottom: 5px;
-  letter-spacing: 0.03em;
-}
-
-#learn_more {
-  margin-top: 25px;
-  height: 100%;
-  transform-style: preserve-3d;
-  -webkit-transform-style: preserve-3d;
-  transition: 0.25s;
-  -webkit-transition: 0.25s;
-
-  width: 210px;
-  height: 60px;
-  cursor: pointer;
-  perspective: 500px;
-  -webkit-perspective: 500px;
-}
-
-#learn_more span {
-  transition: background-color 0.25s ease;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  box-sizing: border-box;
-  line-height: 50px;
-  font-size: 17pt;
-  text-align: center;
-  background: #60246c;
-  padding-top: 5px;
-  font-weight: bold;
-  border-radius: 20px;
+    width: 210px;
+    height: 60px;
+    cursor: pointer;
+    perspective: 500px;
+    -webkit-perspective: 500px;
+  }
+  #learn_more span {
+    transition: background-color 0.25s ease;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    line-height: 50px;
+    font-size: 17pt;
+    text-align: center;
+    background: #60246c;
+    padding-top: 5px;
+    font-weight: bold;
+    border-radius: 20px;
+  }
 }
 
 .page2 {
@@ -104,7 +105,7 @@
 
 .page2 .yellow_box {
   width: 100%;
-  height: 360px;
+  height: 500px;
   background-color: #fde05b;
 }
 .page2 h2 {
@@ -123,7 +124,7 @@
   width: 0;
   height: 0;
   position: absolute;
-  margin-top: -17.5%;
+  margin-top: -200px;
   margin-left: 0vw;
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
@@ -136,7 +137,7 @@
   width: 0;
   height: 0;
   position: absolute;
-  margin-top: -17.5%;
+  margin-top: -200px;
   margin-left: 96.5vw;
   border-top: 30px solid transparent;
   border-bottom: 30px solid transparent;
@@ -165,13 +166,13 @@
 
 .viewer {
   overflow: hidden;
-  width: 95vw;
+  width: 94.55vw;
   height: 650px;
   position: relative;
   /*margin: 500px, 40px, 600px, -800px;*/
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: -20%;
+  margin-left: 30px;
+  margin-right: 20px;
+  margin-top: -23%;
   padding: 0px;
 }
 /*
@@ -227,6 +228,34 @@
   width: 474px;
   margin: 0;
   margin-right: -50px;
+
+  img {
+    border-radius: 50%;
+    width: 474px;
+    height: 474px;
+    box-shadow: 12px 12px 6px grey;
+    transition: all 0.4s ease-in-out;
+  }
+  p {
+    text-align: center;
+    width: 474px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    margin: 0;
+    margin-top: 5vh;
+  }
+  .date {
+    text-align: center;
+    width: 474px;
+    font-size: 24px;
+    font-weight: lighter;
+    letter-spacing: 0.1em;
+    margin: 0;
+    margin-top: 1.5vh;
+    animation: fadein 0.4s;
+    opacity: 1;
+  }
 }
 
 .page2 .event img {
@@ -236,15 +265,6 @@
   height: 474px;
   transition: all 0.4s ease-in-out;
 }
-
-.page2 .event_big img {
-  border-radius: 50%;
-  width: 474px;
-  height: 474px;
-  box-shadow: 12px 12px 6px grey;
-  transition: all 0.4s ease-in-out;
-}
-
 .page2 .event p {
   text-align: center;
   width: 273px;
@@ -252,29 +272,6 @@
   font-weight: bold;
   letter-spacing: 0.1em;
   margin-top: 5vh;
-}
-
-.page2 .event_big p {
-  text-align: center;
-  width: 474px;
-  font-size: 24px;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  margin: 0;
-  margin-top: 5vh;
-}
-
-.page2 .event_big .date {
-  text-align: center;
-  width: 474px;
-  font-size: 24px;
-  font-weight: lighter;
-  letter-spacing: 0.1em;
-  margin: 0;
-  margin-top: 1.5vh;
-  -webkit-transition: opacity 0.4s ease-in-out;
-  transition: opacity 0.4s ease-in-out;
-  opacity: 1;
 }
 
 .page3 {
@@ -294,7 +291,7 @@
   height: 1002px;
   box-shadow: 15px 15px 6px rgba(43, 42, 42, 0.3);
   margin-left: -470px;
-  z-index: 999;
+  z-index: 777;
   flex-shrink: 0;
   h1,
   h2,
@@ -341,12 +338,42 @@
     font-weight: normal;
   }
 }
+.learn {
+  margin-left: 500px;
+  margin-top: 25px;
+  height: 100%;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: 0.25s;
+  -webkit-transition: 0.25s;
+
+  width: 200px;
+  height: 60px;
+  cursor: pointer;
+  perspective: 500px;
+  -webkit-perspective: 500px;
+  z-index: 999;
+  span {
+    transition: background-color 0.25s ease;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    box-sizing: border-box;
+    line-height: 50px;
+    font-size: 17pt;
+    text-align: center;
+    background: #60246c;
+    padding-top: 5px;
+    font-weight: bold;
+    border-radius: 20px;
+    z-index: 999;
+  }
+}
 
 .page3 .calendar_container {
   margin-left: 150px;
   width: 680px;
   table {
-    //width: 275px;
     height: auto;
     text-align: center;
     font-size: 24px;

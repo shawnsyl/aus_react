@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import moment from "moment";
 import "../../../node_modules/tail.datetime/css/tail.datetime-harx-light.css";
 import { thisExpression } from "@babel/types";
@@ -11,7 +12,7 @@ class Calendar extends Component {
     dateObject: moment(),
     allmonths: moment.months(),
     showYearNav: false,
-    selectedDay: null
+    selectedDay: moment().format("D")
   };
   daysInMonth = () => {
     return this.state.dateObject.daysInMonth();
@@ -64,11 +65,22 @@ class Calendar extends Component {
     dateObject = moment(dateObject).set("month", newMonth);
     dateObject = moment(dateObject).set("date", 1);
     this.setState({ dateObject: dateObject });
-    console.log(newMonth);
   };
-  ViewDay = () => {
-    let currDay = this.refs.currentDay;
-    currDay.classList.remove("today");
+  ViewDay = e => {
+    let id = e.target.id;
+    let newcurr = document.getElementById(id);
+    let current = document.getElementById(`day_${this.state.selectedDay}`);
+    current.classList.remove("today");
+    newcurr.classList.add("today");
+    let dateObject = Object.assign({}, this.state.dateObject);
+    dateObject = moment(dateObject).set(
+      "date",
+      parseInt(newcurr.id.split("_")[1], 10)
+    );
+    this.setState({
+      selectedDay: newcurr.id.split("_")[1],
+      dateObject: dateObject
+    });
   };
   MonthList = props => {
     let months = [];
@@ -114,7 +126,6 @@ class Calendar extends Component {
     );
   };
   render() {
-    this.state.selectedDay = this.currentDay();
     let weekdayshortname = this.weekdayshort.map(day => {
       return <th key={day}>{day}</th>;
     });
@@ -129,15 +140,18 @@ class Calendar extends Component {
       let currentDay = d == this.currentDay() ? "today" : "";
       daysInMonth.push(
         <td
-          key={d}
+          id={`day_${d}`}
           className={`calendar_day ${currentDay}`}
-          ref={d == this.currentDay() ? "currentDay" : "day_" + d.toString(10)}
-          onClick={this.ViewDay}
+          ref={"day_" + d.toString(10)}
+          onClick={e => {
+            this.ViewDay(e);
+          }}
         >
           {d}
         </td>
       );
     }
+
     let totalSlots = [...blanks, ...daysInMonth];
     let rows = [];
     let cells = [];
@@ -158,7 +172,6 @@ class Calendar extends Component {
     let dayList = rows.map(row => {
       return <tr>{row}</tr>;
     });
-
     return (
       <div className="calendar_container">
         <div className="calendar_navi">

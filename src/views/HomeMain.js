@@ -9,9 +9,10 @@ import Calendar from "../components/home/Calendar.js";
 class HomeMain extends Component {
   state = {};
   render() {
+    /*
+        <Navbar pathname={this.props.location.pathname} />*/
     return (
       <div className="Home">
-        <Navbar pathname={this.props.location.pathname} />
         <div className="page1">
           <img src={require("../imgs/home/hand.png")} />
           <div className="p1text">
@@ -40,7 +41,7 @@ class HomeMain extends Component {
               Student Expression Competition! 16 Designs will be chosen and
               students have the opportunity to paint the 16 buchanan pillars!
             </p>
-            <div id="learn_more">
+            <div className="learn">
               <span>Learn More</span>
             </div>
           </div>

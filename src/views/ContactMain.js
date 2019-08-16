@@ -32,8 +32,7 @@ class ContactMain extends Component {
     console.log(this.props.location);
 
     return (
-      <div>
-        <Navbar pathname={this.props.location.pathname} />
+      <div className="contact">
         <div id="contact_us">
           <div id="contact_head">CONTACT US</div>
           <p>Any comments, questions, or advice?</p>
