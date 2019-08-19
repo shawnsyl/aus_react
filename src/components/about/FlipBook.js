@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 class FlipBook extends Component {
-  state = { selectedPage: "0", lockLeft: false };
+  state = {
+    selectedPage: "0",
+    selectedPositions: new Array(10).fill(false),
+    lockLeft: false
+  };
   FlipPage = e => {
     this.setState({ selectedPage: e.target.id });
   };
@@ -22,9 +26,15 @@ class FlipBook extends Component {
     window.removeEventListener("scroll", this.HandleScroll);
   };
 
+  openPosition = pos => {
+    console.log(pos);
+    const newSelPos = this.state.selectedPositions.slice();
+    newSelPos[pos] = !newSelPos[pos];
+    this.setState({ selectedPositions: newSelPos });
+  };
+
   render() {
-    console.log(this.state.selectedPage);
-    console.log(this.state.lockLeft);
+    console.log(this.state.selectedPositions);
     let page0 = (
       <div>
         <h1>Our Mission Statement</h1>
@@ -139,7 +149,451 @@ class FlipBook extends Component {
     let page4 = (
       <div>
         <h1>Position Descriptions</h1>
-        <p className="r" />
+        <p className="right_content">
+          These position descriptions are in line with the 2019 Code of
+          Procedures and the specific responsibilities, duties, and positions
+          are subject to change at the will of the AUS council. Click the
+          positions below for further information.
+        </p>
+        <br />
+        <div className="role">
+          <h2>
+            President
+            <div
+              className={
+                !this.state.selectedPositions[0] ? "tria" : "tria flipped"
+              }
+              onClick={() => this.openPosition(0)}
+            />
+          </h2>
+          {this.state.selectedPositions[0] ? (
+            <div>
+              <h4>Committees &amp; Projects:</h4>
+              <p className="right_content">
+                The Executive Committee
+                <br />
+                Strategic Planning
+                <br />
+                Governance Committee
+                <br />
+                Executive Management
+                <br />
+                Arts Student Centre Planning &amp; Execution Committee
+                <br />
+              </p>
+              <h4>Duties &amp; Responsibilities:</h4>
+              <p className="right_content">
+                Be the voice and spokesperson for the AUS
+                <br />
+                Chair all the general meetings of the AUS in the absence of the
+                Speaker of Council
+                <br />
+                Responsible for calling and drafting all Council agenda items
+                <br />
+                Supervise and coordinate the Executive of the AUS
+                <br />
+                Sit on all committees as a non-voting member
+                <br />
+                Attend the AMS All Presidents' Meetings
+                <br />
+              </p>
+              <br />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="role">
+          <h2>
+            The Vice President Student Life
+            <div
+              className={
+                !this.state.selectedPositions[1] ? "tria" : "tria flipped"
+              }
+              onClick={() => this.openPosition(1)}
+            />
+          </h2>
+          {this.state.selectedPositions[1] ? (
+            <div>
+              <h4>Committees &amp; Projects:</h4>
+              <p className="right_content">
+                The Student Life Committee
+                <br />
+                Outreach &amp; Spirit
+                <br />
+                stARTup
+                <br />
+                Arts Week
+                <br />
+                The Great Arts Sendoff
+                <br />
+              </p>
+              <h4>Duties &amp; Responsibilities:</h4>
+              <p className="right_content">
+                Planning and executing the (3) main AUS events throughout the
+                year: stARTup, Arts Week , and the Great Arts Sendoff
+                <br />
+                The Planning and execution of supplemental AUS events throughout
+                the year
+                <br />
+                Development of new initiatives to improve student life for Arts
+                Students
+                <br />
+                Assisting departmental clubs in organizing and planning events
+                <br />
+              </p>
+              <br />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="role">
+          <h2>
+            The Vice President Academic
+            <div
+              className={
+                !this.state.selectedPositions[2] ? "tria" : "tria flipped"
+              }
+              onClick={() => this.openPosition(2)}
+            />
+          </h2>
+          {this.state.selectedPositions[2] ? (
+            <div>
+              <h4>Committees &amp; Projects:</h4>
+              <p className="right_content">
+                The Academic Committee
+                <br />
+                The Health &amp; Wellness Committee
+                <br />
+                Mental Health Advocacy Committee
+                <br />
+                Academic Conference
+                <br />
+                Academic Support &amp; Advocacy
+                <br />
+                UBC Career Services
+                <br />
+              </p>
+              <h4>Duties &amp; Responsibilities:</h4>
+              <p className="right_content">
+                Work with the Faculty of Arts on academic initiatives
+                <br />
+                Plan and organize events promoting the well-being of Arts
+                students
+                <br />
+                Act as the liaisons between the AUS and UBC career services
+                <br />
+                Plan and host events surrounding academic conferences, academic
+                support, mental health advocacy, and tutoring within the Arts
+                Undergraduate Society
+                <br />
+              </p>
+              <br />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="role">
+          <h2>
+            The Vice President Administration
+            <div
+              className={
+                !this.state.selectedPositions[3] ? "tria" : "tria flipped"
+              }
+              onClick={() => this.openPosition(3)}
+            />
+          </h2>
+          {this.state.selectedPositions[3] ? (
+            <div>
+              <h4>Committees &amp; Projects:</h4>
+              <p className="right_content">
+                The Administrative Portfolio
+                <br />
+                Building Operations &amp; Management
+                <br />
+                Governance Committee
+                <br />
+                Arts Student Centre Planning &amp; Execution Committee
+                <br />
+                Archives
+                <br />
+                Sustainability Committee
+                <br />
+              </p>
+              <h4>Duties &amp; Responsibilities:</h4>
+              <p className="right_content">
+                Responsible for recording minutes and submitting minutes to the
+                Communications department for website release in the absence of
+                a Clerk of Council
+                <br />
+                Hire a building manager and oversee the maintenance and bookings
+                of MASS and/or the Arts Student Centre
+                <br />
+                Oversee locker rentals and collect revenue
+                <br />
+                Uphold authority to revise and restructure the AUS Code or
+                Procedures and present all changes to Council
+                <br />
+                Oversee all executive transition reports
+                <br />
+                Notify clubs of their duties and responsibilities to remain in
+                good-standing within the society
+              </p>
+              <br />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="role">
+          <h2>
+            The Vice President Engagement
+            <div
+              className={
+                !this.state.selectedPositions[4] ? "tria" : "tria flipped"
+              }
+              onClick={() => this.openPosition(4)}
+            />
+          </h2>
+          {this.state.selectedPositions[4] ? (
+            <div>
+              <h4>Committees &amp; Projects:</h4>
+              <p className="right_content">
+                The Engagement Portfolio
+                <br />
+                Content Creation
+                <br />
+                Advertising &amp; Marketing
+                <br />
+                Brand Management
+                <br />
+                Merchandise Committee
+                <br />
+                Social Media &amp; Website Management
+                <br />
+                Student Engagement &amp; Research
+              </p>
+              <h4>Duties &amp; Responsibilities:</h4>
+              <p className="right_content">
+                Create a unique and recognizable AUS and Arts brand
+                <br />
+                Facilitate student consultations through the use of various
+                research methods (online and on-campus surveys)
+                <br />
+                Increase student awareness of the AUS
+                <br />
+                Expand AUS presence on campus with new and creative initiatives
+                <br />
+                Oversee all forms of content creation and marketing
+                <br />
+                Creation, distribution, and sale of all AUS merchandise
+              </p>
+              <br />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="role">
+          <h2>
+            The Vice President External
+            <div
+              className={
+                !this.state.selectedPositions[5] ? "tria" : "tria flipped"
+              }
+              onClick={() => this.openPosition(5)}
+            />
+          </h2>
+          {this.state.selectedPositions[5] ? (
+            <div>
+              <h4>Committees &amp; Projects:</h4>
+              <p className="right_content">
+                The External Committee
+                <br />
+                Alumni Relations
+                <br />
+                Limitless &amp; International Food Fair
+                <br />
+                Philanthropy
+                <br />
+                Sponsorships
+                <br />
+                Professional Development
+              </p>
+              <h4>Duties &amp; Responsibilities:</h4>
+              <p className="right_content">
+                Act as a liaison between the AUS and all outside parties,
+                including other faculties and their respective Undergraduate
+                Societies
+                <br />
+                Plan and execute annual networking events, more commonly known
+                as Limitless
+                <br />
+                Obtain sponsorship from related external parties for AUS events
+                <br />
+                Maintain relationship and outreach between the AUS and UBC Arts
+                Alumni
+              </p>
+              <br />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="role">
+          <h2>
+            The Vice President Finance
+            <div
+              className={
+                !this.state.selectedPositions[6] ? "tria" : "tria flipped"
+              }
+              onClick={() => this.openPosition(6)}
+            />
+          </h2>
+          {this.state.selectedPositions[6] ? (
+            <div>
+              <h4>Committees &amp; Projects:</h4>
+              <p className="right_content">
+                The Finance Portfolio
+                <br />
+                Budget Committee
+                <br />
+                Grants Committee
+              </p>
+              <h4>Duties &amp; Responsibilities:</h4>
+              <p className="right_content">
+                Responsible for the finance and overall fiscal health of the AUS
+                <br />
+                Act as the sole signing officer of the AUS' main finance account
+                with the Alma Mater Society (AMS)
+                <br />
+                Create and submit the annual budget on schedule and as required
+                by the AMS Finance Commission
+                <br />
+                Sign off on approve expenditures, contracts, and reimbursements
+                <br />
+                Act as a liaison between the AUS and the AMS' office on all
+                financial matters of the society
+                <br />
+                Oversee the grant application process
+              </p>
+              <br />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="role">
+          <h2>
+            The Vice President Internal
+            <div
+              className={
+                !this.state.selectedPositions[7] ? "tria" : "tria flipped"
+              }
+              onClick={() => this.openPosition(7)}
+            />
+          </h2>
+          {this.state.selectedPositions[7] ? (
+            <div>
+              <h4>Committees &amp; Projects:</h4>
+              <p className="right_content">
+                The Internal Portfolio
+                <br />
+                Human Resources
+                <br />
+                Elections
+                <br />
+                Executive &amp; Council Orientation
+                <br />
+                Sustainability Committee
+                <br />
+                Internal Team Building
+              </p>
+              <h4>Duties &amp; Responsibilities:</h4>
+              <p className="right_content">
+                Create an enjoyable and welcoming internal AUS culture
+                <br />
+                Organize team-building events and socials for all internal AUS
+                members throughout the year
+                <br />
+                Oversee the Spring Elections &amp; Fall By-Elections
+                <br />
+                Organize and end-of-year internal social and member recognition
+                ceremony
+                <br />
+                Facilitate sustainability events and initiatives throughout the
+                year
+                <br />
+                Work alongside the VP Administration to ensure proper transition
+                and member turnover
+              </p>
+              <br />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="role">
+          <h2>
+            The Chief AMS Rep
+            <div
+              className={
+                !this.state.selectedPositions[8] ? "tria" : "tria flipped"
+              }
+              onClick={() => this.openPosition(8)}
+            />
+          </h2>
+          {this.state.selectedPositions[8] ? (
+            <div>
+              <h4>Duties &amp; Responsibilities:</h4>
+              <p className="right_content">
+                Highlight topics that are particularly important for Arts
+                students
+                <br />
+                Liaise between the AMS and the AUS Executives
+                <br />
+                Facilitate the AUS' AMS Representatives meetings
+              </p>
+              <br />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
+        <div className="role">
+          <h2>
+            The AMS Representatives (5)
+            <div
+              className={
+                !this.state.selectedPositions[9] ? "tria" : "tria flipped"
+              }
+              onClick={() => this.openPosition(9)}
+            />
+          </h2>
+          {this.state.selectedPositions[9] ? (
+            <div>
+              <h4>Committees &amp; Projects:</h4>
+              <p className="right_content">
+                Varying AMS Committees
+                <br />
+                The Arts AMS Caucus
+              </p>
+              <h4>Duties &amp; Responsibilities:</h4>
+              <p className="right_content">
+                Represent the interests of Arts students in UBC community
+                <br />
+                Chair or become members of their chosen AMS committee
+                <br />
+                Attende bi-weekly Alma Mater Society Council
+              </p>
+              <br />
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
       </div>
     );
     return (
