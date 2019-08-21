@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 
 import FlipBook from "../components/about/FlipBook.js";
+import Members from "../components/about/Members.js";
 import "./AboutMain.scss";
-
-class AboutMain extends Component {
-  state = {};
-  render() {
-    return (
-      <div className="about">
-        <div className="mission">
+/*
+<div className="mission">
           <img className="hand" src={require("../imgs/about/hands.png")} />
           <div className="mission_text">
             <h1>Mission Statement</h1>
@@ -22,9 +18,21 @@ class AboutMain extends Component {
             </p>
           </div>
         </div>
+
+        
         <div className="handbook">
           <h1>AUS Handbook</h1>
           <FlipBook />
+        </div>
+*/
+class AboutMain extends Component {
+  state = {};
+  render() {
+    return (
+      <div className="about">
+        <div className="handbook">
+          <h1>The Team</h1>
+          <Members />
         </div>
       </div>
     );

@@ -60,7 +60,7 @@
   }
   .flipbook {
     margin: auto auto;
-    margin-left: 90px;
+    margin-left: 50px;
     width: 1400px;
     min-height: 300px;
     /*outline: 5px solid pink;*/
@@ -70,13 +70,13 @@
     .left_panel {
       position: relative;
       text-align: right;
-      width: 300px;
+      width: 400px;
       .chapter {
         position: relative;
         cursor: pointer;
         line-height: 48px;
         font-size: 24px;
-        width: 300px;
+        width: 350px;
         display: inline-block;
         .tria {
           width: 0;
@@ -89,7 +89,7 @@
           float: right;
           position: absolute;
           top: 9px;
-          left: 315px;
+          left: 365px;
         }
       }
       .chapter.purple {
@@ -100,7 +100,7 @@
     .left_panel_locked {
       position: fixed;
       text-align: right;
-      left: -10px;
+      left: 50px;
       top: 19px;
       width: 400px;
       .chapter {
@@ -108,7 +108,7 @@
         cursor: pointer;
         line-height: 48px;
         font-size: 24px;
-        width: 300px;
+        width: 350px;
         display: inline-block;
         .tria {
           width: 0;
@@ -121,7 +121,7 @@
           float: right;
           position: absolute;
           top: 9px;
-          left: 315px;
+          left: 365px;
           cursor: pointer;
         }
       }
@@ -139,7 +139,7 @@
       position: fixed;
       border-left: 5px solid #fde05b;
       /*left: 31.9vw;*/
-      left: 435px;
+      left: 495px;
       top: 0px;
       bottom: 0;
     }
@@ -149,23 +149,54 @@
       /*margin-left: 480px;*/
 
       min-height: 200px;
-      width: 780px;
+      width: 800px;
       padding-bottom: 50px;
       h1 {
         color: black;
         font-size: 36px;
         text-align: left;
         text-transform: Capitalize;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         margin-left: 0px;
         margin-bottom: 25px;
+      }
+      .image-cropper {
+        width: 474px;
+        height: 474px;
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 36px;
+      }
+      .my-picture {
+        width: 100%;
+        height: 100%;
+        &#kat {
+          transform: scaleX(1.25);
+        }
+        &#cas {
+          transform: scaleY(1.12);
+        }
+        &#kana {
+          margin-top: 120px;
+          transform: scale(1.5, 1.5) scaleX(0.67);
+        }
+        &#nealie {
+          transform: scaleX(1.3);
+        }
+        &#ali {
+          transform: scaleY(1.07);
+        }
+        &#bai {
+          margin-top: 120px;
+          transform: scaleY(1.508);
+        }
       }
       .right_content {
         width: 100%;
         font-size: 18px;
         letter-spacing: 0.05em;
         line-height: 36px;
-        transform: scale(1, 1);
       }
       .right_content.boldy {
         font-weight: bold;
@@ -205,19 +236,57 @@
     }
     .right_panel_locked {
       position: relative;
-      margin-left: 400px;
+      margin-left: 500px;
 
       min-height: 200px;
-      width: 780px;
+      width: 800px;
       padding-bottom: 50px;
       h1 {
         color: black;
         font-size: 36px;
         text-align: left;
         text-transform: Capitalize;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.05em;
         margin-left: 0px;
         margin-bottom: 25px;
+      }
+      .imeg {
+        width: 440px;
+        height: 440px;
+        border-radius: 50%;
+        background-image: url("C:/Users/Shawn/Documents/aus_react/src/imgs/about/AUS\ -\ Kat.jpg");
+      }
+      .image-cropper {
+        width: 474px;
+        height: 474px;
+        position: relative;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 36px;
+      }
+      .my-picture {
+        width: 100%;
+        height: 100%;
+        &#kat {
+          transform: scaleX(1.25);
+        }
+        &#cas {
+          transform: scaleY(1.12);
+        }
+        &#kana {
+          margin-top: 120px;
+          transform: scale(1.5, 1.5) scaleX(0.67);
+        }
+        &#nealie {
+          transform: scaleX(1.3);
+        }
+        &#ali {
+          transform: scaleY(1.07);
+        }
+        &#bai {
+          margin-top: 120px;
+          transform: scaleY(1.508);
+        }
       }
       .right_content {
         width: 100%;
@@ -261,6 +330,12 @@
         }
       }
     }
+  }
+
+  .members {
+    margin-top: 40px;
+    width: 1400px;
+    min-height: 600px;
   }
 }
 
