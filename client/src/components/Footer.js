@@ -32,6 +32,10 @@ class Footer extends Component {
           <br />
           <p id="copyright">© 2019 BY UBC ARTS UNDERGRADUATE SOCIETY</p>
         </div>
+        <div className="admin_login">
+          <p />
+          {"Admin Login"}
+        </div>
       </div>
     );
   }

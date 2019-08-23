@@ -54,3 +54,13 @@
   font-weight: bold;
   letter-spacing: 0.2em;
 }
+
+.admin_login {
+  position: absolute;
+  top: 278px;
+  left: 1195px;
+  color: white;
+  cursor: pointer;
+  height: auto;
+  width: auto;
+}
