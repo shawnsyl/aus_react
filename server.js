@@ -8,14 +8,18 @@ const MONGO_URL = "mongodb://127.0.0.1:27017/aus_test";
 const calendarRoutes = express.Router();
 
 let Events = require("./events-model");
-let Circles = require("./circles-model");
+//let Circles = require("./circles-model");
 
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect(MONGO_URL, {
-  useNewUrlParser: true
-});
+mongoose
+  .connect(MONGO_URL, {
+    useNewUrlParser: true
+  })
+  .catch(error => {
+    console.log(error);
+  });
 const connection = mongoose.connection;
 
 connection.once("open", function() {
