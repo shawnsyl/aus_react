@@ -18,8 +18,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
         <Router>
+          <Navbar />
           <Switch>
             <Route exact path="/" component={HomeMain} />
             <Route exact path="/contact" component={ContactMain} />

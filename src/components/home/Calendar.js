@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import moment from "moment";
 import "../../../node_modules/tail.datetime/css/tail.datetime-harx-light.css";
 import { thisExpression } from "@babel/types";
+import axios from "axios";
 
 class Calendar extends Component {
   weekdayshort = moment.weekdaysShort();
@@ -12,7 +13,12 @@ class Calendar extends Component {
     dateObject: moment(),
     allmonths: moment.months(),
     showYearNav: false,
-    selectedDay: moment().format("D")
+    selectedDay: moment().format("D"),
+    eventMonth: "",
+    eventDay: "",
+    eventTitle: "",
+    eventDesc: "",
+    year: moment().format("Y")
   };
   daysInMonth = () => {
     return this.state.dateObject.daysInMonth();
@@ -50,13 +56,71 @@ class Calendar extends Component {
       showCalendarTable: !this.state.showCalendarTable
     });
   };
+  GetEventDetail = data => {
+    let p_day = data.day;
+    let month_temp = data.month;
+    let p_desc = data.desc;
+    let p_name = data.name;
+    let p_month =
+      month_temp === "1"
+        ? "January"
+        : month_temp === "2"
+        ? "February"
+        : month_temp === "3"
+        ? "March"
+        : month_temp === "4"
+        ? "April"
+        : month_temp === "5"
+        ? "May"
+        : month_temp === "6"
+        ? "June"
+        : month_temp === "7"
+        ? "July"
+        : month_temp === "8"
+        ? "August"
+        : month_temp === "9"
+        ? "September"
+        : month_temp === "10"
+        ? "October"
+        : month_temp === "11"
+        ? "November"
+        : month_temp === "12"
+        ? "December"
+        : "";
+    console.log(p_month);
+    this.setState({
+      eventMonth: p_month,
+      eventDay: p_day,
+      eventDesc: p_desc,
+      eventName: p_name
+    });
+  };
   NextMonth = () => {
     let monthNo = this.state.dateObject.format("MM");
     let newMonth = parseInt(monthNo, 10);
     let dateObject = Object.assign({}, this.state.dateObject);
     dateObject = moment(dateObject).set("month", newMonth);
     dateObject = moment(dateObject).set("date", 1);
-    this.setState({ dateObject: dateObject });
+    let monthNoNew = (newMonth + 1).toString();
+    this.setState({ dateObject: dateObject, selectedDay: "1" });
+    axios
+      .get("http://localhost:4000/calendar/:" + monthNoNew + "-:1")
+      .then(response => {
+        console.log("GET to /calendar success!");
+        if (response.data.length === 0) {
+          this.setState({
+            eventMonth: "",
+            eventDay: "",
+            eventDesc: "",
+            eventName: ""
+          });
+        } else {
+          this.GetEventDetail(response.data[0]);
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
   PrevMonth = () => {
     let monthNo = this.state.dateObject.format("MM");
@@ -64,10 +128,51 @@ class Calendar extends Component {
     let dateObject = Object.assign({}, this.state.dateObject);
     dateObject = moment(dateObject).set("month", newMonth);
     dateObject = moment(dateObject).set("date", 1);
-    this.setState({ dateObject: dateObject });
+    let monthNoNew = (newMonth + 1).toString();
+    this.setState({ dateObject: dateObject, selectedDay: "1" });
+    axios
+      .get("http://localhost:4000/calendar/:" + monthNoNew + "-:1")
+      .then(response => {
+        console.log("GET to /calendar success!");
+        if (response.data.length === 0) {
+          this.setState({
+            eventMonth: "",
+            eventDay: "",
+            eventDesc: "",
+            eventName: ""
+          });
+        } else {
+          this.GetEventDetail(response.data[0]);
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   };
   ViewDay = e => {
+    let monthNo = this.state.dateObject.format("M");
     let id = e.target.id;
+    let dayNo = id.split("_")[1];
+
+    axios
+      .get("http://localhost:4000/calendar/:" + monthNo + "-:" + dayNo)
+      .then(response => {
+        console.log("GET to /calendar success!");
+        if (response.data.length === 0) {
+          this.setState({
+            eventMonth: "",
+            eventDay: "",
+            eventDesc: "",
+            eventName: ""
+          });
+        } else {
+          this.GetEventDetail(response.data[0]);
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
     let newcurr = document.getElementById(id);
     let current = document.getElementById(`day_${this.state.selectedDay}`);
     current.classList.remove("today");
@@ -126,6 +231,7 @@ class Calendar extends Component {
     );
   };
   render() {
+    console.log(this.state);
     let weekdayshortname = this.weekdayshort.map(day => {
       return <th key={day}>{day}</th>;
     });
@@ -173,20 +279,40 @@ class Calendar extends Component {
       return <tr>{row}</tr>;
     });
     return (
-      <div className="calendar_container">
-        <div className="calendar_navi">
-          <div className="left_arrow" onClick={this.PrevMonth} />
-          <p>{this.month()}</p>
-          <div className="right_arrow" onClick={this.NextMonth} />
+      <div className="events_container">
+        <div className="day_detail">
+          <h1 className={this.state.eventDesc === "" ? "transparent" : ""}>
+            {this.state.eventDesc === "" ? "transparent" : ""}{" "}
+            {this.state.eventMonth} {this.state.eventDay}
+          </h1>
+          <h2>{this.state.eventName}</h2>
+          <p>{this.state.eventDesc}</p>
+          {this.state.eventDesc !== "" ? (
+            <div className="learn">
+              <span>Learn More</span>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
-        <div className="calendar-date" />
+        <div className="calendar_zone">
+          <div className="calendar_container">
+            <h1>Calendar</h1>
+            <div className="calendar_navi">
+              <div className="left_arrow" onClick={this.PrevMonth} />
+              <p>{this.month()}</p>
+              <div className="right_arrow" onClick={this.NextMonth} />
+            </div>
+            <div className="calendar-date" />
 
-        <table className="calendar_tbl">
-          <thead>
-            <tr>{weekdayshortname}</tr>
-          </thead>
-          <tbody>{dayList}</tbody>
-        </table>
+            <table className="calendar_tbl">
+              <thead>
+                <tr>{weekdayshortname}</tr>
+              </thead>
+              <tbody>{dayList}</tbody>
+            </table>
+          </div>
+        </div>
       </div>
     );
   }

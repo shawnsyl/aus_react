@@ -22,10 +22,10 @@ class Form extends Component {
             style={{ height: "235px" }}
             defaultValue={""}
           />
+          <div className="btnwrap">
+            <input type="submit" value="Send" id="submitbtn" />
+          </div>
         </form>
-        <div id="submit">
-          <span>Send</span>
-        </div>
       </div>
     );
   }

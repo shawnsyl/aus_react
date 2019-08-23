@@ -283,7 +283,9 @@
   overflow: hidden;
 }
 
-.page3 .day_detail {
+.page3 .events_container .day_detail {
+  position: static;
+  top: 500px;
   border-radius: 50%;
   background-color: #fde05b;
   text-align: left;
@@ -315,6 +317,14 @@
     font-size: 24px;
     letter-spacing: 0.05em;
   }
+  .transparent {
+    color: transparent;
+  }
+}
+.page3 .events_container {
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
 }
 
 .page3 .calendar_zone {
@@ -373,6 +383,9 @@
 .page3 .calendar_container {
   margin-left: 150px;
   width: 680px;
+  h1 {
+    margin-left: 230px;
+  }
   table {
     height: auto;
     text-align: center;

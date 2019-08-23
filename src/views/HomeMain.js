@@ -32,23 +32,7 @@ class HomeMain extends Component {
           <EventCircles />
         </div>
         <div className="page3">
-          <div className="day_detail">
-            <h1>September 1</h1>
-            <h2>UBC Annual Community Student Expression Competition</h2>
-            <p>
-              The Arts Undergraduate Society, the SEEDS Sustianability Program,
-              and other parners have collaborated for the first Annual community
-              Student Expression Competition! 16 Designs will be chosen and
-              students have the opportunity to paint the 16 buchanan pillars!
-            </p>
-            <div className="learn">
-              <span>Learn More</span>
-            </div>
-          </div>
-          <div className="calendar_zone">
-            <h1>Calendar</h1>
-            <Calendar />
-          </div>
+          <Calendar />
         </div>
       </div>
     );
