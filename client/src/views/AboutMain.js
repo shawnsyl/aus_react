@@ -30,10 +30,41 @@ class AboutMain extends Component {
   render() {
     return (
       <div className="about">
-        <div className="handbook">
-          <h1>The Team</h1>
-          <Members />
-        </div>
+        {this.props.element === "main" ? (
+          <div className="mission">
+            <img className="hand" src={require("../imgs/about/hands.png")} />
+            <div className="mission_text">
+              <h1>Mission Statement</h1>
+              <p>
+                The Arts undergraduate Society aims to improve the social,
+                academic, personal and professional lives of arts students at
+                UBC Vancouver. The society is committed to diversity and
+                inclusivity through transparent governance and advocacy. The AUS
+                strives to provide programming, services, and events for arts
+                students, and a physical space to promote community within the
+                faculty.
+              </p>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+        {this.props.element === "handbook" ? (
+          <div className="handbook">
+            <h1>AUS Handbook</h1>
+            <FlipBook />
+          </div>
+        ) : (
+          ""
+        )}
+        {this.props.element === "team" ? (
+          <div className="handbook">
+            <h1>The Team</h1>
+            <Members />
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     );
   }

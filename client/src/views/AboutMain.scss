@@ -4,6 +4,7 @@
   animation: fadein 1s;
 }
 .mission {
+  animation: fadein 1s;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -17,11 +18,11 @@
   }
   .mission_text {
     position: absolute;
-    z-index: 999;
+    z-index: 555;
     margin: 0 auto;
     left: 90px;
     right: 0;
-    top: 20px; /* Adjust this value to move the positioned div up and down */
+    top: 8px; /* Adjust this value to move the positioned div up and down */
     h1 {
       font-size: 72px;
       color: #60246c;
@@ -46,6 +47,7 @@
   min-height: 50vh;
   display: flex;
   flex-direction: column;
+  animation: fadein 1s;
   h1 {
     margin-left: 90px;
     right: 0;
@@ -60,7 +62,7 @@
   }
   .flipbook {
     margin: auto auto;
-    margin-left: 50px;
+    margin-left: -40px; //(50 to -40)
     width: 1400px;
     min-height: 300px;
     /*outline: 5px solid pink;*/
@@ -100,8 +102,9 @@
     .left_panel_locked {
       position: fixed;
       text-align: right;
-      left: 50px;
-      top: 19px;
+      left: -40px;
+      top: 16px;
+      bottom: 1500px;
       width: 400px;
       .chapter {
         position: relative;
@@ -139,7 +142,7 @@
       position: fixed;
       border-left: 5px solid #fde05b;
       /*left: 31.9vw;*/
-      left: 495px;
+      left: 405px;
       top: 0px;
       bottom: 0;
     }

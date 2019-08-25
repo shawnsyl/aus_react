@@ -23,7 +23,22 @@ class App extends React.Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={HomeMain} />
-            <Route exact path="/about" component={AboutMain} />
+            <Route
+              exact
+              path="/about"
+              render={props => <AboutMain {...props} element="main" />}
+            />
+            <Route
+              exact
+              path="/about/handbook"
+              render={props => <AboutMain {...props} element="handbook" />}
+            />
+
+            <Route
+              exact
+              path="/about/team"
+              render={props => <AboutMain {...props} element="team" />}
+            />
             <Route exact path="/elections" component={ElectionsMain} />
             <Route exact path="/services" component={ServicesMain} />
             <Route exact path="/contact" component={ContactMain} />

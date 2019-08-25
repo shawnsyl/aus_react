@@ -3,7 +3,7 @@
   margin: 0;
   position: relative;
   height: 300px;
-  width: 100%;
+  width: 100vw;
   background: black;
   display: flex;
   align-items: flex-start;

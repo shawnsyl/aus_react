@@ -470,18 +470,6 @@ class Members extends FlipBook {
           </div>
           <div
             className={
-              this.state.selectedPage === "7" ? "chapter purple" : "chapter"
-            }
-            id="7"
-            onClick={e => {
-              this.FlipPage(e);
-            }}
-          >
-            Vice President Internal
-            {this.state.selectedPage === "7" ? <div className="tria" /> : ""}
-          </div>
-          <div
-            className={
               this.state.selectedPage === "8" ? "chapter purple" : "chapter"
             }
             id="8"
@@ -507,7 +495,6 @@ class Members extends FlipBook {
           {this.state.selectedPage === "4" ? page4 : ""}
           {this.state.selectedPage === "5" ? page5 : ""}
           {this.state.selectedPage === "6" ? page6 : ""}
-          {this.state.selectedPage === "7" ? page7 : ""}
           {this.state.selectedPage === "8" ? page8 : ""}
         </div>
       </div>
