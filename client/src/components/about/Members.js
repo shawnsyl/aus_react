@@ -1,17 +1,28 @@
 import React, { Component } from "react";
+import ReactDOM from "react-dom";
 import FlipBook from "./FlipBook";
-
+import $ from "jquery";
+window.$ = $;
 class Members extends FlipBook {
-  state = { lockLeft: false, selectedPage: "0" };
+  state = { lockLeft: "2", selectedPage: "0", left_location: 0 };
   HandleScroll = () => {
     console.log("scroll! ");
     console.log(window.pageYOffset);
-    if (window.pageYOffset >= 270) {
-      this.setState({ lockLeft: true });
+    let newl =
+      ReactDOM.findDOMNode(this.refs["leftPanel"]).getBoundingClientRect().y +
+      window.pageYOffset -
+      225;
+    if (window.pageYOffset >= 188 && !this.isScrolledIntoView($("#footer"))) {
+      this.setState({ lockLeft: "0" }); //lock
+      this.setState({
+        left_location: newl
+      });
+    } else if (this.isScrolledIntoView($("#footer"))) {
+      this.setState({ lockLeft: "1" }); //relock
     } else {
-      this.setState({ lockLeft: false });
+      this.setState({ lockLeft: "2" }); //unlock
     }
-    console.log(this.state.lockLeft);
+    console.log(newl);
   };
 
   componentDidMount = () => {
@@ -19,6 +30,15 @@ class Members extends FlipBook {
   };
   componentWillUnmount = () => {
     window.removeEventListener("scroll", this.HandleScroll);
+  };
+
+  isScrolledIntoView = element => {
+    var pageTop = $(window).scrollTop();
+    var pageBottom = pageTop + $(window).height();
+    var elementTop = $(element).offset().top;
+    var elementBottom = elementTop + $(element).height();
+
+    return elementTop <= pageBottom && elementBottom >= pageTop;
   };
   render() {
     let page0 = (
@@ -382,7 +402,19 @@ class Members extends FlipBook {
     return (
       <div className="flipbook">
         <div
-          className={this.state.lockLeft ? "left_panel_locked" : "left_panel"}
+          ref="leftPanel"
+          className={
+            this.state.lockLeft === "0"
+              ? "left_panel_locked"
+              : this.state.lockLeft === "2"
+              ? "left_panel"
+              : "left_panel_relocked"
+          }
+          style={
+            this.state.lockLeft === "1"
+              ? { marginTop: this.state.left_location }
+              : {}
+          }
         >
           <div
             className={
@@ -482,11 +514,23 @@ class Members extends FlipBook {
           </div>
         </div>
         <div
-          className={this.state.lockLeft ? "line_locked" : "line"}
+          className={
+            this.state.lockLeft === "0"
+              ? "line_locked"
+              : this.state.lockLeft === "2"
+              ? "line"
+              : "line"
+          }
           ref="yl"
         />
         <div
-          className={this.state.lockLeft ? "right_panel_locked" : "right_panel"}
+          className={
+            this.state.lockLeft === "0"
+              ? "right_panel_locked"
+              : this.state.lockLeft === "2"
+              ? "right_panel"
+              : "right_panel"
+          }
         >
           {this.state.selectedPage === "0" ? page0 : ""}
           {this.state.selectedPage === "1" ? page1 : ""}

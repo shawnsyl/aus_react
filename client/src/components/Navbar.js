@@ -2,46 +2,103 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 
 import "./Navbar.scss";
+import { isParenthesizedExpression } from "@babel/types";
 
-class Navbar extends React.PureComponent {
+class MyNavbar extends React.PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      fold: true
+    };
+  }
+  setFold = () => {
+    this.setState({ fold: !this.state.fold });
+    console.log("setfold!");
+  };
   render() {
+    console.log(this.state.fold);
     return (
       <div id="navbar">
         <img src={require("../imgs/white_logo.png")} className="logo" />
-        <ul id="links">
+        <div className="icon" onClick={this.setFold}>
+          <i className="fa fa-bars" />
+        </div>
+        <ul id="links" className={this.state.fold ? "collapse" : "uncollapse"}>
           <li>
-            <NavLink activeClassName="active" exact to="/">
+            <NavLink
+              activeClassName="active"
+              className={this.state.fold ? "fold" : "unfold"}
+              exact
+              to="/"
+              onClick={this.setFold}
+            >
               HOME
             </NavLink>
           </li>
           <li>
             <div className="about_drop_wrap">
-              <NavLink activeClassName="active" to="/about">
+              <NavLink
+                activeClassName="active"
+                className={this.state.fold ? "fold" : "unfold"}
+                to="/about"
+                onClick={this.setFold}
+              >
                 ABOUT
               </NavLink>
               <div className="about_drop_content">
-                <NavLink activeClassName="active" exact to="/about/handbook">
+                <NavLink
+                  activeClassName="active"
+                  className={this.state.fold ? "fold" : "unfold"}
+                  exact
+                  to="/about/handbook"
+                  onClick={this.setFold}
+                >
                   AUS Handbook
                 </NavLink>
 
-                <NavLink activeClassName="active" exact to="/about/team">
+                <NavLink
+                  activeClassName="active"
+                  className={this.state.fold ? "fold" : "unfold"}
+                  exact
+                  to="/about/team"
+                  onClick={this.setFold}
+                >
                   The Team
                 </NavLink>
               </div>
             </div>
           </li>
           <li>
-            <NavLink activeClassName="active" exact to="/elections">
+            <NavLink
+              activeClassName="active"
+              className={this.state.fold ? "fold" : "unfold"}
+              exact
+              to="/elections"
+              onClick={this.setFold}
+            >
               ELECTIONS
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" exact to="/services">
+            <NavLink
+              activeClassName="active"
+              className={this.state.fold ? "fold" : "unfold"}
+              exact
+              to="/services"
+              onClick={this.setFold}
+            >
               STUDENT SERVICES
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" exact to="/contact">
+            <NavLink
+              activeClassName="active"
+              className={this.state.fold ? "fold" : "unfold"}
+              exact
+              to="/contact"
+              onClick={this.setFold}
+            >
               CONTACT
             </NavLink>
           </li>
@@ -51,4 +108,4 @@ class Navbar extends React.PureComponent {
   }
 }
 
-export default Navbar;
+export default MyNavbar;

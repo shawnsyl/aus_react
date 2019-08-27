@@ -6,7 +6,7 @@ import {
   Route
 } from "../node_modules/react-router-dom";
 
-import Navbar from "./components/Navbar.js";
+import MyNavbar from "./components/Navbar.js";
 import ContactMain from "./views/ContactMain.js";
 import AboutMain from "./views/AboutMain.js";
 import HomeMain from "./views/HomeMain.js";
@@ -20,7 +20,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Router>
-          <Navbar />
+          <MyNavbar />
           <Switch>
             <Route exact path="/" component={HomeMain} />
             <Route

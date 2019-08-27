@@ -5,6 +5,14 @@
   border: 0;
   position: relative;
   animation: fadein 1s;
+
+  .mr-2 {
+    width: 40px;
+  }
+
+  i {
+    display: none;
+  }
 }
 @keyframes fadein {
   from {
@@ -17,10 +25,9 @@
 ul {
   margin: 0;
 }
-
 #navbar .logo {
-  width: 8%;
-  height: 8%;
+  width: 60.4px;
+  height: 70.8px;
   margin-right: 23px;
 }
 
@@ -31,7 +38,7 @@ ul {
   display: flex;
   align-items: center;
 
-  transition: 0.4s ease all, 0s ease background;
+  //  transition: 0.4s ease all;
 }
 #navbar #links {
   li {
@@ -54,7 +61,6 @@ ul {
       font-weight: bold;
     }
   }
-
   .about_drop_content a {
     float: none;
     padding: 20px 16px;
@@ -72,6 +78,72 @@ ul {
 
   .about_drop_wrap:hover .about_drop_content {
     display: block;
-    margin-left: -50px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  #navbar {
+    i {
+      display: block;
+      margin-top: 30px;
+      transform: scale(1.5);
+    }
+  }
+  #navbar #links {
+    margin-left: -100px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 90px;
+    z-index: 999;
+    background-color: rgba(190, 189, 189, 0.95);
+    &.collapse {
+      transform: scaleY(0);
+      transform-origin: top center;
+    }
+    &.uncollapse {
+      transform: scaleY(1);
+      transition: 0.3s ease-in;
+    }
+    li {
+      font: Roboto;
+      font-size: 20px;
+      padding: 0px;
+      justify-content: center;
+      align-items: center;
+      text-decoration: none;
+
+      a.fold {
+        display: none;
+        opacity: 0;
+      }
+      a.unfold {
+        padding: 16px 0px;
+        display: block;
+        opacity: 1;
+        transition: 2s ease-in;
+      }
+    }
+    .about_drop_wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .about_drop_content a {
+      border-bottom: none;
+    }
+    .about_drop_content {
+      display: block;
+      position: relative;
+      background-color: transparent;
+      box-shadow: none;
+      text-align: center;
+      background-color: rgba(212, 212, 212, 0.98);
+      width: 100vw;
+    }
+
+    .about_drop_wrap:hover .about_drop_content {
+      margin: 0;
+    }
   }
 }

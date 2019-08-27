@@ -36,18 +36,15 @@ class EventCircles extends Component {
   render() {
     return (
       <div className="events">
-        <button
+        <div
           className="button_left"
-          onClick={() => this.prevEvent()}
-          disabled={this.state.event.index === 0}
+          onClick={this.state.event.index !== 0 ? () => this.prevEvent() : ""}
         />
         <div className="viewer">
           <div
             className="events_slider_wrapper"
             style={{
               transform: `translateX(-${this.state.event.index * 424}px)`
-              /*transform: `translateX(-${this.state.event.index *
-                (100 / this.state.events.length)}%)`*/
             }}
           >
             {this.state.events.map(event => (
@@ -60,10 +57,13 @@ class EventCircles extends Component {
             ))}
           </div>
         </div>
-        <button
+        <div
           className="button_right"
-          onClick={() => this.nextEvent()}
-          disabled={this.state.event.index === this.state.events.length - 1}
+          onClick={
+            this.state.event.index !== this.state.events.length - 1
+              ? () => this.nextEvent()
+              : ""
+          }
         />
       </div>
     );

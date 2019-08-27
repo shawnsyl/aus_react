@@ -28,7 +28,7 @@ class HomeMain extends Component {
         </div>
         <div className="page2">
           <div className="yellow_box" />
-          <h1>News and Events</h1>
+          <div className="eventhead">News and Events</div>
           <EventCircles />
         </div>
         <div className="page3">

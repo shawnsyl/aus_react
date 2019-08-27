@@ -1,20 +1,28 @@
 const express = require("express");
-const app = express();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 mongoose = require("mongoose");
+const passport = require("passport");
 const PORT = 4000;
-const MONGO_URL = "mongodb://127.0.0.1:27017/aus_test";
-const calendarRoutes = express.Router();
+const MONGO_URI = require("./config/keys").mongoURI;
 
-let Events = require("./events-model");
-//let Circles = require("./circles-model");
+//APIs
+const calendar = require("./routes/api/calendar");
+const users = require("./routes/api/users");
 
+//app setup
+const app = express();
 app.use(cors());
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 
+//connect to db
 mongoose
-  .connect(MONGO_URL, {
+  .connect(MONGO_URI, {
     useNewUrlParser: true
   })
   .catch(error => {
@@ -25,30 +33,15 @@ const connection = mongoose.connection;
 connection.once("open", function() {
   console.log("MongoDB database connection established successfully");
 });
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+//route APIs
+app.use("/calendar", calendar);
+app.use("/users", users);
 
-calendarRoutes.route("/").get(function(req, res) {
-  console.log("first get nigga"); /*;
-  res.send();*/
-
-  Events.find(function(err, eventlist) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json(eventlist);
-    }
-  });
-});
-
-calendarRoutes.route("/:monthNo-:dayNo").get(function(req, res) {
-  let monthNo = req.params.monthNo.split(":")[1];
-  let dayNo = req.params.dayNo.split(":")[1];
-  Events.find({ $and: [{ day: dayNo, month: monthNo }] }, function(err, event) {
-    console.log(event);
-    res.json(event);
-  });
-});
-
-app.use("/calendar", calendarRoutes);
+//start server
 app.listen(PORT, function() {
   console.log("Server is running on Port: " + PORT);
 });
