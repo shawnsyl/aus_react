@@ -305,7 +305,7 @@ class Calendar extends Component {
             </div>
             <div className="calendar-date" />
 
-            <table className="calendar_tbl">
+            <table className="striped calendar_tbl">
               <thead>
                 <tr>{weekdayshortname}</tr>
               </thead>

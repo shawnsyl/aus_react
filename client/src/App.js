@@ -13,6 +13,8 @@ import HomeMain from "./views/HomeMain.js";
 import ElectionsMain from "./views/ElectionsMain.js";
 import ServicesMain from "./views/ServicesMain.js";
 import Footer from "./components/Footer.js";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 import "./App.css";
 class App extends React.Component {
@@ -42,9 +44,11 @@ class App extends React.Component {
             <Route exact path="/elections" component={ElectionsMain} />
             <Route exact path="/services" component={ServicesMain} />
             <Route exact path="/contact" component={ContactMain} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
           </Switch>
+          <Footer />
         </Router>
-        <Footer />
       </div>
     );
   }

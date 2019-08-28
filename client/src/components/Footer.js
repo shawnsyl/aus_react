@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 import "./Footer.css";
 class Footer extends Component {
   state = {};
@@ -32,9 +32,10 @@ class Footer extends Component {
           <br />
           <p id="copyright">© 2019 BY UBC ARTS UNDERGRADUATE SOCIETY</p>
         </div>
-        <div className="admin_login">
-          <p />
-          {"Admin Login"}
+        <div>
+          <Link to="/login" className="admin_login">
+            Admin Login
+          </Link>
         </div>
       </div>
     );
