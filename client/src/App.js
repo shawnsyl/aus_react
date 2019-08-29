@@ -17,41 +17,46 @@ import Footer from "./components/Footer.js";
 import Login from "./components/Login";
 import Register from "./components/Register";
 
+import { Provider } from "react-redux";
+import store from "./store";
+
 import "./App.css";
 class App extends React.Component {
   render() {
     return (
-      <div className="App">
+      <Provider store={store}>
         <Router>
-          <MyNavbar />
-          <Switch>
-            <Route exact path="/" component={HomeMain} />
-            <Route
-              exact
-              path="/about"
-              render={props => <AboutMain {...props} element="main" />}
-            />
-            <Route
-              exact
-              path="/about/handbook"
-              render={props => <AboutMain {...props} element="handbook" />}
-            />
+          <div className="App">
+            <MyNavbar />
+            <Switch>
+              <Route exact path="/" component={HomeMain} />
+              <Route
+                exact
+                path="/about"
+                render={props => <AboutMain {...props} element="main" />}
+              />
+              <Route
+                exact
+                path="/about/handbook"
+                render={props => <AboutMain {...props} element="handbook" />}
+              />
 
-            <Route
-              exact
-              path="/about/team"
-              render={props => <AboutMain {...props} element="team" />}
-            />
-            <Route exact path="/elections" component={ElectionsMain} />
-            <Route exact path="/services" component={ServicesMain} />
-            <Route exact path="/contact" component={ContactMain} />
-            <Route exact path="/governance" component={GovernanceMain} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
-          </Switch>
-          <Footer />
+              <Route
+                exact
+                path="/about/team"
+                render={props => <AboutMain {...props} element="team" />}
+              />
+              <Route exact path="/elections" component={ElectionsMain} />
+              <Route exact path="/services" component={ServicesMain} />
+              <Route exact path="/contact" component={ContactMain} />
+              <Route exact path="/governance" component={GovernanceMain} />
+              <Route exact path="/login" component={Login} />
+              <Route exact path="/register" component={Register} />
+            </Switch>
+            <Footer />
+          </div>
         </Router>
-      </div>
+      </Provider>
     );
   }
 }
