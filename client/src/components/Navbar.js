@@ -74,6 +74,17 @@ class MyNavbar extends React.PureComponent {
               activeClassName="active"
               className={this.state.fold ? "fold" : "unfold"}
               exact
+              to="/governance"
+              onClick={this.setFold}
+            >
+              GOVERNANCE
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              activeClassName="active"
+              className={this.state.fold ? "fold" : "unfold"}
+              exact
               to="/elections"
               onClick={this.setFold}
             >
