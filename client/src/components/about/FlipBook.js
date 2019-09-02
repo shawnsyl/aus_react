@@ -603,7 +603,7 @@ class FlipBook extends Component {
         >
           <div
             className={
-              this.state.selectedPage === "0" ? "chapter purple" : "chapter"
+              this.state.selectedPage === "0" ? "chapter purp" : "chapter"
             }
             id="0"
             onClick={e => {
@@ -615,7 +615,7 @@ class FlipBook extends Component {
           </div>
           <div
             className={
-              this.state.selectedPage === "1" ? "chapter purple" : "chapter"
+              this.state.selectedPage === "1" ? "chapter purp" : "chapter"
             }
             id="1"
             onClick={e => {
@@ -627,7 +627,7 @@ class FlipBook extends Component {
           </div>
           <div
             className={
-              this.state.selectedPage === "2" ? "chapter purple" : "chapter"
+              this.state.selectedPage === "2" ? "chapter purp" : "chapter"
             }
             id="2"
             onClick={e => {
@@ -639,7 +639,7 @@ class FlipBook extends Component {
           </div>
           <div
             className={
-              this.state.selectedPage === "3" ? "chapter purple" : "chapter"
+              this.state.selectedPage === "3" ? "chapter purp" : "chapter"
             }
             id="3"
             onClick={e => {
@@ -651,7 +651,7 @@ class FlipBook extends Component {
           </div>
           <div
             className={
-              this.state.selectedPage === "4" ? "chapter purple" : "chapter"
+              this.state.selectedPage === "4" ? "chapter purp" : "chapter"
             }
             id="4"
             onClick={e => {
