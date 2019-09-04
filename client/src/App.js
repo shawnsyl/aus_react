@@ -46,7 +46,25 @@ class App extends React.Component {
                 path="/about/team"
                 render={props => <AboutMain {...props} element="team" />}
               />
-              <Route exact path="/elections" component={ElectionsMain} />
+              <Route
+                exact
+                path="/elections"
+                render={props => <ElectionsMain {...props} element="main" />}
+              />
+              <Route
+                exact
+                path="/elections/candidates"
+                render={props => (
+                  <ElectionsMain {...props} element="candidates" />
+                )}
+              />
+              <Route
+                exact
+                path="/elections/complaints"
+                render={props => (
+                  <ElectionsMain {...props} element="complaints" />
+                )}
+              />
               <Route exact path="/services" component={ServicesMain} />
               <Route exact path="/contact" component={ContactMain} />
               <Route exact path="/governance" component={GovernanceMain} />

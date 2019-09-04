@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import FlipBook from "./FlipBook";
+import ElectionBook from "./ElectionBook";
 import $ from "jquery";
-import Scroller from "./Scroller.js";
+import Scroller from "../about/Scroller.js";
 window.$ = $;
-class Members extends FlipBook {
+
+class Candidates extends ElectionBook {
   state = { lockLeft: "2", selectedPage: "0", left_location: 0 };
   HandleScroll = () => {
     if (
@@ -538,4 +539,4 @@ class Members extends FlipBook {
   }
 }
 
-export default Members;
+export default Candidates;

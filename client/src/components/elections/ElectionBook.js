@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import ReactDOM from "react-dom";
-import Scroller from "./Scroller.js";
-class FlipBook extends Component {
+import Scroller from "../about/Scroller.js";
+class ElectionBook extends Component {
   state = {
     selectedPage: "0",
     selectedPositions: new Array(10).fill(false),
@@ -53,7 +53,6 @@ class FlipBook extends Component {
   };
 
   render() {
-    console.log("lock:", this.state.lockLeft);
     let page0 = (
       <div>
         <h1 className="browser-default">Our Mission Statement</h1>
@@ -726,4 +725,4 @@ class FlipBook extends Component {
     );
   }
 }
-export default FlipBook;
+export default ElectionBook;
