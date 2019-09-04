@@ -2,43 +2,47 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import FlipBook from "./FlipBook";
 import $ from "jquery";
+import Scroller from "./Scroller.js";
 window.$ = $;
 class Members extends FlipBook {
   state = { lockLeft: "2", selectedPage: "0", left_location: 0 };
   HandleScroll = () => {
-    console.log("scroll! ");
-    console.log(window.pageYOffset);
-    let newl =
-      ReactDOM.findDOMNode(this.refs["leftPanel"]).getBoundingClientRect().y +
-      window.pageYOffset -
-      225;
-    if (window.pageYOffset >= 188 && !this.isScrolledIntoView($("#footer"))) {
-      this.setState({ lockLeft: "0" }); //lock
+    if (
+      window.pageYOffset >= 188 &&
+      ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
+      !Scroller.isScrolledIntoView($("#footer"), 0.9)
+    ) {
       this.setState({
-        left_location: newl
+        lockLeft: "0",
+        relockMargin: document.documentElement.scrollTop - 200
       });
-    } else if (this.isScrolledIntoView($("#footer"))) {
+    } else if (
+      ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
+      Scroller.isScrolledIntoView($("#footer"), 0.9)
+    ) {
+      console.log("relocked");
       this.setState({ lockLeft: "1" }); //relock
     } else {
       this.setState({ lockLeft: "2" }); //unlock
     }
-    console.log(newl);
   };
-
+  FlipPage = e => {
+    e.preventDefault();
+    console.log(window.pageYOffset);
+    if (window.pageYOffset >= 188) {
+      this.setState({
+        selectedPage: e.target.id
+      });
+      console.log("locked");
+    } else {
+      this.setState({ selectedPage: e.target.id });
+    }
+  };
   componentDidMount = () => {
     window.addEventListener("scroll", this.HandleScroll);
   };
   componentWillUnmount = () => {
     window.removeEventListener("scroll", this.HandleScroll);
-  };
-
-  isScrolledIntoView = element => {
-    var pageTop = $(window).scrollTop();
-    var pageBottom = pageTop + $(window).height();
-    var elementTop = $(element).offset().top;
-    var elementBottom = elementTop + $(element).height();
-
-    return elementTop <= pageBottom && elementBottom >= pageTop;
   };
   render() {
     let page0 = (
@@ -412,7 +416,7 @@ class Members extends FlipBook {
           }
           style={
             this.state.lockLeft === "1"
-              ? { marginTop: this.state.left_location }
+              ? { marginTop: this.state.relockMargin + "px" }
               : {}
           }
         >

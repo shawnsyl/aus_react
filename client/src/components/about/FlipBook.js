@@ -1,24 +1,44 @@
 import React, { Component } from "react";
+import $ from "jquery";
+import ReactDOM from "react-dom";
+import Scroller from "./Scroller.js";
 class FlipBook extends Component {
   state = {
     selectedPage: "0",
     selectedPositions: new Array(10).fill(false),
-    lockLeft: false
+    lockLeft: "2",
+    relockMargin: 0,
+    prevLock: false
   };
   FlipPage = e => {
-    this.setState({ selectedPage: e.target.id });
+    e.preventDefault();
+    console.log(window.pageYOffset);
+    if (window.pageYOffset >= 188) {
+      this.setState({
+        selectedPage: e.target.id
+      });
+      console.log("locked");
+    } else {
+      this.setState({ selectedPage: e.target.id });
+    }
   };
   HandleScroll = () => {
-    console.log("scroll! ");
-    console.log(window.pageYOffset);
-    if (window.pageYOffset >= 1028) {
-      this.setState({ lockLeft: true });
+    console.log("scroll");
+    if (
+      window.pageYOffset >= 188 &&
+      ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
+      !Scroller.isScrolledIntoView($("#footer"), 0.6)
+    ) {
+      this.setState({
+        lockLeft: "0",
+        relockMargin: document.documentElement.scrollTop - 200
+      });
     } else {
-      this.setState({ lockLeft: false });
+      this.setState({
+        lockLeft: "2"
+      }); //unlock
     }
-    console.log(this.state.lockLeft);
   };
-
   componentDidMount = () => {
     window.addEventListener("scroll", this.HandleScroll);
   };
@@ -27,17 +47,16 @@ class FlipBook extends Component {
   };
 
   openPosition = pos => {
-    console.log(pos);
     const newSelPos = this.state.selectedPositions.slice();
     newSelPos[pos] = !newSelPos[pos];
     this.setState({ selectedPositions: newSelPos });
   };
 
   render() {
-    console.log(this.state.selectedPositions);
+    console.log("lock:", this.state.lockLeft);
     let page0 = (
       <div>
-        <h1>Our Mission Statement</h1>
+        <h1 className="browser-default">Our Mission Statement</h1>
         <p className="right_content">
           The Arts Undergraduate Society aims to improve the social, academic,
           personal and professional lives of arts students at UBC Vancouver. The
@@ -56,8 +75,8 @@ class FlipBook extends Component {
           different departments. From sociology to computer science, and Asian
           studies to cognitive systems, the variety of Arts programs makes this
           faculty a diverse and all- encompassing faculty.
-          <br />
-          <br />
+          <br className="browser-default" />
+          <br className="browser-default" />
           The Faculty of Arts makes up the largest undergraduate society - not
           only at UBC, but in all of Western Canada. In their strategic 5 year
           plan released in 2015, the faculty notes that it wants to continue to
@@ -596,10 +615,26 @@ class FlipBook extends Component {
         </div>
       </div>
     );
+    /*
+    
+            this.state.lockLeft === "0"
+              ? "left_panel_locked"
+              : this.state.lockLeft === "2"
+              ? "left_panel"
+              : "left_panel_relocked"
+    */
     return (
       <div className="flipbook">
         <div
-          className={this.state.lockLeft ? "left_panel_locked" : "left_panel"}
+          ref="leftPanel"
+          className={
+            this.state.lockLeft === "0" ? "left_panel_locked" : "left_panel"
+          }
+          style={
+            this.state.lockLeft === "1"
+              ? { marginTop: this.state.relockMargin + "px" }
+              : {}
+          }
         >
           <div
             className={
@@ -663,11 +698,23 @@ class FlipBook extends Component {
           </div>
         </div>
         <div
-          className={this.state.lockLeft ? "line_locked" : "line"}
+          className={
+            this.state.lockLeft === "0"
+              ? "line_locked"
+              : this.state.lockLeft === "2"
+              ? "line"
+              : "line"
+          }
           ref="yl"
         />
         <div
-          className={this.state.lockLeft ? "right_panel_locked" : "right_panel"}
+          className={
+            this.state.lockLeft === "0"
+              ? "right_panel_locked"
+              : this.state.lockLeft === "2"
+              ? "right_panel"
+              : "right_panel"
+          }
         >
           {this.state.selectedPage === "0" ? page0 : ""}
           {this.state.selectedPage === "1" ? page1 : ""}

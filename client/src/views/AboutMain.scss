@@ -94,7 +94,7 @@
           left: 365px;
         }
       }
-      .chapter.purple {
+      .chapter.purp {
         font-weight: bold;
         color: #60246c;
       }
@@ -103,10 +103,9 @@
       position: fixed;
       text-align: right;
       left: -40px;
-      top: 16px;
-      bottom: 1500px;
+      top: 20px;
       width: 400px;
-      height: 900px;
+      height: 0px;
       .chapter {
         position: relative;
         cursor: pointer;
@@ -138,7 +137,6 @@
       position: relative;
       text-align: right;
       width: 400px;
-      //margin-top: 525px;
       .chapter {
         position: relative;
         cursor: pointer;
@@ -194,6 +192,7 @@
         letter-spacing: 0.05em;
         margin-left: 0px;
         margin-bottom: 25px;
+        margin-top: 0px;
       }
       .image-cropper {
         width: 474px;
@@ -243,8 +242,10 @@
           width: auto;
           font-size: 20px;
           letter-spacing: 0.05em;
-          line-height: 36px;
+          //line-height: 36px;
           display: inline-block;
+          margin: 5px;
+          font-weight: bold;
         }
         .tria {
           width: 0;
@@ -257,12 +258,12 @@
           float: right;
           position: relative;
           cursor: pointer;
-          margin-top: 13px;
+          margin-top: 5px;
           margin-left: 3px;
         }
         h4 {
           font-size: 18px;
-          line-height: 36px;
+          font-weight: bold;
         }
         .tria.flipped {
           transform: rotate(270deg);
@@ -275,7 +276,7 @@
 
       min-height: 200px;
       width: 800px;
-      padding-bottom: 100px;
+      padding-bottom: 80px;
       h1 {
         color: black;
         font-size: 36px;
@@ -284,6 +285,7 @@
         letter-spacing: 0.05em;
         margin-left: 0px;
         margin-bottom: 25px;
+        margin-top: 0px;
       }
       .imeg {
         width: 440px;
@@ -339,8 +341,10 @@
         h2 {
           font-size: 20px;
           letter-spacing: 0.05em;
-          line-height: 40px;
+          //line-height: 36px;
           display: inline-block;
+          margin: 5px;
+          font-weight: bold;
         }
         .tria {
           width: 0;
@@ -352,7 +356,7 @@
           background-color: transparent;
           float: right;
           position: relative;
-          margin-top: 13px;
+          margin-top: 5px;
           margin-left: 3px;
           cursor: pointer;
         }
@@ -361,7 +365,7 @@
         }
         h4 {
           font-size: 18px;
-          line-height: 36px;
+          font-weight: bold;
         }
       }
     }
