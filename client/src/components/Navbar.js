@@ -90,7 +90,7 @@ class MyNavbar extends React.PureComponent {
               >
                 ELECTIONS
               </NavLink>
-              <div className="about_drop_content elections">
+              <div className="about_drop_content" style={{ left: "420px" }}>
                 <NavLink
                   activeClassName="active"
                   className={this.state.fold ? "fold" : "unfold"}

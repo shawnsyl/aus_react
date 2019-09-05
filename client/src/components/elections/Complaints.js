@@ -106,7 +106,6 @@ class Complaints extends Component {
               </p>
               <label class="container">
                 <input type="radio" name="radio" />
-                {/*<span class="checkmark"></span>*/}
                 Yes
               </label>
             </div>

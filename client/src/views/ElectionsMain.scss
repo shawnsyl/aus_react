@@ -81,3 +81,32 @@
     }
   }
 }
+
+.left_panel ul,
+.left_panel_locked ul {
+  color: black;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: normal;
+  margin-top: 0px;
+}
+.right_content {
+  ul,
+  ol {
+    list-style-position: inside;
+  }
+  ol ol {
+    list-style: lower-alpha;
+    margin-left: 44px;
+  }
+  ul ul {
+    list-style: circle;
+    list-style-position: inside;
+    margin-left: 44px;
+  }
+}
+
+h2.subh {
+  font-size: 28px;
+  font-weight: bold;
+}

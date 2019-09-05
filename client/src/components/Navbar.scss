@@ -77,9 +77,6 @@ ul {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 999;
     transition: opacity 0.6s ease-in-out;
-    &.elections {
-      left: 420px;
-    }
   }
   .about_drop_wrap:hover .about_drop_content {
     display: block;
@@ -127,7 +124,7 @@ ul {
         padding: 16px 0px;
         display: block;
         opacity: 1;
-        transition: opacity 2s ease-in;
+        //transition: opacity 2s ease-in;
       }
     }
     .about_drop_wrap {
