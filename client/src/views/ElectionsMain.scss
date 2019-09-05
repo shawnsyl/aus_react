@@ -3,3 +3,81 @@
   flex-direction: column;
   animation: fadein 1s;
 }
+
+.complaints {
+  position: relative;
+  h1 {
+    color: black;
+    font-size: 36px;
+    text-align: left;
+    text-transform: Capitalize;
+    letter-spacing: 0.05em;
+    margin-bottom: 25px;
+    margin-top: 0px;
+  }
+  p,
+  ol {
+    margin-left: 90px;
+    font-size: 24px;
+    letter-spacing: 0.03em;
+    width: 1000px;
+  }
+  ol {
+    margin-left: 120px;
+    list-style-type: lower-roman;
+  }
+  .required {
+    color: red;
+  }
+  label {
+    font-size: 24px;
+    color: black;
+  }
+  input {
+    &#name {
+      width: 550px;
+    }
+    &#email {
+      width: 850px;
+    }
+    &#candidate {
+      width: 550px;
+    }
+  }
+  form {
+    .form-extra {
+      margin-left: -90px;
+      color: black;
+      label {
+        margin-left: 90px;
+      }
+      .container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-size: 24px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      /* Hide the browser's default radio button */
+      .container input {
+        opacity: 1;
+        position: absolute;
+        cursor: pointer;
+        margin-left: -35px;
+        margin-top: 5px;
+        height: 25px;
+        width: 25px;
+      }
+
+      .addfile {
+        cursor: pointer;
+      }
+    }
+  }
+}
