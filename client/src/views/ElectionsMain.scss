@@ -104,9 +104,25 @@
     list-style-position: inside;
     margin-left: 44px;
   }
+  ol.alpha-list {
+    list-style: lower-alpha;
+    list-style-position: inside;
+  }
 }
 
 h2.subh {
   font-size: 28px;
   font-weight: bold;
+}
+a:link {
+  color: #000;
+} /* unvisited link  */
+a:visited {
+  color: #000;
+} /* visited link    */
+a:hover {
+  color: #000;
+} /* mouse over link */
+a:active {
+  color: #000;
 }

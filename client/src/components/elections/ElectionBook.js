@@ -15,7 +15,7 @@ class ElectionBook extends Component {
       window.scrollTo(0, 200);
     }
     if (e.target.id === "2") {
-      this.setState({ lockLeftPerc: 0.98 });
+      this.setState({ lockLeftPerc: 0.95 });
     } else {
       this.setState({ lockLeftPerc: 0.7 });
     }
@@ -71,7 +71,10 @@ class ElectionBook extends Component {
           <br />
           <b>Elections Administrator:</b> Tushita Bagga
           <br />
-          <b>Email:</b> aus.electionsco@gmail.com
+          <b>Email: </b>
+          <a href="mailto:aus.electionsco@gmail.com">
+            aus.electionsco@gmail.com
+          </a>
           <br />
           <b>Facebook:</b> UBC Arts Undergraduate Society Elections
           <br />
@@ -188,7 +191,11 @@ class ElectionBook extends Component {
                 <li>
                   The best way to obtain approval for campaign material is to
                   email a copy, proof, or link to the AUS elections
-                  administrator at aus.electionco@gmail.com.
+                  administrator at
+                  <a href="mailto:aus.electionsco@gmail.com">
+                    aus.electionsco@gmail.com
+                  </a>
+                  .
                 </li>
                 <li>
                   Once we review your material, we will notify you via email/
@@ -370,48 +377,159 @@ class ElectionBook extends Component {
     );
     let page3 = (
       <div>
-        <h1>The Executive</h1>
+        <h1 className="browser-default">Helpful Resources</h1>
         <p className="right_content">
-          The executive of the society consists of the Preisdent, (7) Vice
-          Presidents, and the Chief AMS Rep. The executive team oversees all the
-          day-to-day goverannce and affairs of the undergraduate society.
-          <br />
-          <br />
-          Each Vice President (VP) chairs their portfolio and carries their own
-          individual duties dependent on their position.
-          <br />
-          <br />
-          Each VP is expected to facilitate weekly portfoli meetings, attend
-          Executive meetings, AUS Council, and hold regular office hours.
-        </p>
-        <br />
-        <p className="right_content boldy">
-          The Executive Team consists of the following
-        </p>
-        <p className="right_content">
-          The President
-          <br />
-          The Vice President Finance
-          <br />
-          The Vice President Administration
-          <br />
-          The Vice President Internal
-          <br />
-          The Vice President External
-          <br />
-          The Vice President Academic
-          <br />
-          The Vice President Student Life
-          <br />
-          The Vice President Engagement
-          <br />
-          The Chief AMS Rep
-          <br />
+          <ul className="browser-default">
+            <li>
+              The AMS Market Copying standard can be found online. This chart
+              will help candidates log their expenses for printing and know
+              market prices. Generally, candidates will likely find that
+              printing and copying is their most significant cost of materials
+              during their campaign. AMS Elections has generated a list of
+              “market values” for copying in various sizes that will be used as
+              the maximum values allowed for reimbursement. These values do not
+              include taxes, which will of course be reimbursed. These values
+              are “per copy” values.
+            </li>
+            <li>
+              Items selected for market value are ones that have been
+              traditionally used by many candidates in previous elections.
+            </li>
+            <li>
+              Other campaign materials may be used, provided they are approved
+              by the Elections Committee – please just send a quick email to us
+              and ask.
+            </li>
+            <li>
+              It is the strong hope of the Elections Committee that candidates
+              will use their allocated funds to explore new and comprehensive
+              ways of engaging the electorate. Hint-Hint try not to spend all
+              your money on posters.
+            </li>
+            <li>
+              Each poster is assessed at the market value for that colour and
+              size regardless of the price paid.
+            </li>
+          </ul>
         </p>
       </div>
     );
-    let page4 = <div></div>;
-    console.log(this.state.relockMargin);
+    let page4 = (
+      <div>
+        <h1 className="browser-default">Rule Violation and Complaints</h1>
+        <p className="right_content">
+          <ul className="browser-default">
+            <li>
+              Please go through the election rules that are fully outlined in
+              AUS code and bylaws, not knowing about a rule will not exempt you
+              from penalties.
+            </li>
+            <li>
+              The elections committee will be actively enforcing rules, and
+              encourage other candidates to do so as well, by notifying the
+              committee when other candidates break rules. All complaints must
+              be made through the AUS elections complaint form, which can be
+              found online at the AUS website under the elections tab, within 24
+              hours of the infringement.
+            </li>
+            <li>
+              Some sort of physical evidence must be submitted with every
+              complaint form in order to be seriously considered.
+            </li>
+            <li>
+              Upon receipt of an emailed or hard copy complaint form from any
+              candidate, student, and/or campus staff member, the elections
+              committee will investigate and issue a verdict in the form of a
+              warning or penalty.
+            </li>
+          </ul>
+        </p>
+        <h2 className="browser-default subh">Penalties</h2>
+        <p className="right_content">
+          The type and severity of the penalty is determined by the elections
+          committee and is ultimately the decision of the Elections
+          Administrator. All penalties will be recorded and advertised to the
+          general public via AUS social media pages and the AUS website, when
+          they occur. This can not only be embarrassing, but can be electorally
+          damaging to your campaign as well.
+          <br />
+          <br />
+          Penalties imposed by the Elections Committee include, but are not
+          limited to, the following:
+          <ol className="browser-default alpha-list">
+            <li>Issuing of warnings</li>
+            <li>Posting notice of the infraction on the elections website</li>
+            <li>
+              Suspension or removal of campaigning materials or campaigning
+              privileges.
+            </li>
+            <li>Posting notice of the infraction on the electoral ballot</li>
+            <li>Fines or withholding of financial reimbursements</li>
+            <li>Cancellation of reimbursement</li>
+            <li>Disqualification</li>
+          </ol>
+          <br />
+          The party accused for violation will be given the opportunity to
+          present a defense or explain their actions, the elections committee
+          will decide unanimously whether the defense is valid or not. The
+          meeting minutes for the same shall be uploaded within two hours of the
+          committee meeting onto AUS Elections Facebook Page so as to ensure
+          transparency in the unanimous decision.
+          <br />
+          <br />
+          If a candidate feels that they have been unjustly penalized, they may
+          appeal to the AUS election appeals committee. The elections appeals
+          committee will consist of 1) the speaker of the AUS council, 2) the
+          AUS elections administrator (or the Associate Elections Administrator
+          in their absence) and one person representing the appellant (this may
+          be the appellant themselves or someone speaking officially on their
+          behalf). The speaker of the council shall the be chair of the
+          committee.
+          <br />
+          <br />
+          If still in need of appeal, the appellant may appeal to the AMS
+          Elections Administrator.
+        </p>
+      </div>
+    );
+    let page5 = (
+      <div>
+        <h1 className="browser-default">Election Process and Voting</h1>
+        <p className="right_content">
+          Voting polls will open on Monday March 18th at 12.01AM and close on
+          Friday March 22nd at 5PM, all voting will be done electronically.
+          <br />
+          <br />
+          * The voting URL to distribute to voters is amsvoting.as.it.ubc.ca, it
+          must be included on all campaign material (electronic and physical).
+          Only Arts Undergraduate Students are permitted to vote in AUS
+          elections. Polling stations will be set up at various times and around
+          the Buchanan Arts Buildings as well as at the Nest (pending AMS Nest
+          Booking approval) throughout voting week. Polling stations have a 10
+          meter “buffer zone” where no campaigning will occur, if caught
+          campaigning near a polling station you will receive strict warning
+          from the polling clerk, failure to comply will lead to immediate
+          disqualification.
+          <br />
+          <br />
+          *Voting for Arts Student Senator race will start on Monday March 18th
+          at 12.01AM and close on Friday April 5th at 5PM. The results for the
+          Arts Student Senator race will be announced online.
+          <br />
+          <br />
+          If you have any questions, email{" "}
+          <a href="mailto:aus.electionsco@gmail.com">
+            aus.electionsco@gmail.com
+          </a>
+          . Remember to be creative, kind, and have fun!
+          <br />
+          <br />
+          Note: If the location of an event changes, the elections committee
+          with inform the candidates via email and by changing the event
+          location of Facebook.
+        </p>
+      </div>
+    );
     return (
       <div className="flipbook">
         <div
@@ -539,7 +657,7 @@ class ElectionBook extends Component {
           {this.state.selectedPage === "2" ? page2 : ""}
           {this.state.selectedPage === "3" ? page3 : ""}
           {this.state.selectedPage === "4" ? page4 : ""}
-          {this.state.selectedPage === "5" ? page4 : ""}
+          {this.state.selectedPage === "5" ? page5 : ""}
         </div>
       </div>
     );
