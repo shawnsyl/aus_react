@@ -5,12 +5,28 @@ import $ from "jquery";
 import Scroller from "./Scroller.js";
 window.$ = $;
 class Members extends FlipBook {
-  state = { lockLeft: "2", selectedPage: "0", left_location: 0 };
+  state = {
+    lockLeft: "2",
+    selectedPage: "0",
+    left_location: 0,
+    lockLeftPerc: 0.7
+  };
+  FlipPage = e => {
+    if (window.pageYOffset >= 188) {
+      window.scrollTo(0, 200);
+    }
+    if (e.target.id === "2") {
+      this.setState({ lockLeftPerc: 0.98 });
+    } else {
+      this.setState({ lockLeftPerc: 0.7 });
+    }
+    this.setState({ selectedPage: e.target.id });
+  };
   HandleScroll = () => {
     if (
       window.pageYOffset >= 188 &&
       ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-      !Scroller.isScrolledIntoView($("#footer"), 0.9)
+      !Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
     ) {
       this.setState({
         lockLeft: "0",
@@ -18,9 +34,8 @@ class Members extends FlipBook {
       });
     } else if (
       ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-      Scroller.isScrolledIntoView($("#footer"), 0.9)
+      Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
     ) {
-      console.log("relocked");
       this.setState({ lockLeft: "1" }); //relock
     } else {
       this.setState({ lockLeft: "2" }); //unlock

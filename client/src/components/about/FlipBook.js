@@ -14,13 +14,9 @@ class FlipBook extends Component {
     e.preventDefault();
     console.log(window.pageYOffset);
     if (window.pageYOffset >= 188) {
-      this.setState({
-        selectedPage: e.target.id
-      });
-      console.log("locked");
-    } else {
-      this.setState({ selectedPage: e.target.id });
+      window.scrollTo(0, 200);
     }
+    this.setState({ selectedPage: e.target.id });
   };
   HandleScroll = () => {
     console.log("scroll");
