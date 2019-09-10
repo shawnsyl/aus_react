@@ -95,7 +95,6 @@ class Candidates extends ElectionBook {
     let platforms = [];
     let platformData = [];
     platformData = candidatePlatforms.presidents;
-    console.log(this.state.selectedPresId);
     platformData.map(data => {
       let sublist = [];
       let bullets = [];
@@ -124,14 +123,12 @@ class Candidates extends ElectionBook {
       }
       let mainPlatform = data.mainPlatform.split("\n").map((item, i) => {
         return (
-          <p className="right_content">
-            {item}
+          <>
+            <p>{item}</p>
             <br />
-            <br />
-          </p>
+          </>
         );
       });
-
       platforms.push(
         <div className="right_content">
           {mainPlatform}
@@ -139,16 +136,7 @@ class Candidates extends ElectionBook {
         </div>
       );
     });
-    let presKatTest = platforms[0];
     return <div>{platforms[this.state.selectedPresId]}</div>;
-    /*if (this.state.selectedPres === "Kat Aquino") return presKatTest;
-    else if (this.state.selectedPres === "Bailey Saguin") return presBai;
-    else
-      return (
-        <div>
-          <p className="right_content">placeholder</p>
-        </div>
-      );*/
   };
   candidateClicked = e => {
     e.preventDefault();
@@ -190,89 +178,21 @@ class Candidates extends ElectionBook {
               style={Object.assign(scale, marginTop)}
             />
           </div>
-          {this.state.selectedPres !== data.name ? <p>{data.name}</p> : ""}
+          {this.state.selectedPres !== data.name ? (
+            <p className="candidate-name">{data.name}</p>
+          ) : (
+            ""
+          )}
         </div>
       );
     });
-    /*presPics.push(
-      <div
-        className="profile-container"
-        style={{ outline: "5px red solid", cursor: "pointer" }}
-        onClick={e => {
-          this.candidateClicked(e);
-        }}
-      >
-        <div
-          className="image-cropper"
-          style={{ height: "200px", width: "auto" }}
-        >
-          <img
-            className="my-picture Kat-Aquino"
-            id="0"
-            src={require("../../imgs/about/AUS - Kat.jpg")}
-          />
-        </div>
-        {this.state.selectedPres !== "Kat Aquino" ? <p>Kat Aquino</p> : ""}
-      </div>
-    );*/
-    /*presPics.push(
-      <div
-        className="profile-container"
-        style={{ outline: "5px red solid", cursor: "pointer" }}
-        onClick={e => {
-          this.candidateClicked(e);
-        }}
-      >
-        <div
-          className="image-cropper"
-          style={{ height: "200px", width: "auto" }}
-        >
-          <img
-            className="my-picture Bailey-Saguin"
-            id="1"
-            src={require("../../imgs/about/AUS - Bailey.jpg")}
-            style={{ marginTop: "50px" }}
-          />
-        </div>
-        {this.state.selectedPres !== "Bailey Saguin" ? (
-          <p>Bailey Saguin</p>
-        ) : (
-          ""
-        )}
-      </div>
-    );
-    presPics.push(
-      <div
-        className="profile-container"
-        style={{ outline: "5px red solid", cursor: "pointer" }}
-        onClick={e => {
-          this.candidateClicked(e);
-        }}
-      >
-        <div
-          className="image-cropper"
-          style={{ height: "200px", width: "auto" }}
-        >
-          <img
-            className="my-picture Anila-Chowdhury"
-            id="2"
-            src={require("../../imgs/about/AUS - Kat.jpg")}
-          />
-        </div>
-        {this.state.selectedPres !== "Anila Chowdhury" ? (
-          <p>Anila Chowdhury</p>
-        ) : (
-          ""
-        )}
-      </div>
-    );*/
     let presidentCandidates = (
       <div className="candidate-container">{presPics}</div>
     );
     let page0 = (
       <div>
         <h1>
-          For President{this.state.selectedPres === "" ? "" : ":"}{" "}
+          For President{this.state.selectedPres === "" ? "" : ": "}
           {this.state.selectedPres}
         </h1>
         {this.state.selectedPres === ""
@@ -384,15 +304,15 @@ class Candidates extends ElectionBook {
           </div>
           <div
             className={
-              this.state.selectedPage === "8" ? "chapter purp" : "chapter"
+              this.state.selectedPage === "7" ? "chapter purp" : "chapter"
             }
-            id="8"
+            id="7"
             onClick={e => {
               this.FlipPage(e);
             }}
           >
             Chief AMS Rep
-            {this.state.selectedPage === "8" ? <div className="tria" /> : ""}
+            {this.state.selectedPage === "7" ? <div className="tria" /> : ""}
           </div>
         </div>
         <div
@@ -421,7 +341,7 @@ class Candidates extends ElectionBook {
           {this.state.selectedPage === "4" ? page0 : ""}
           {this.state.selectedPage === "5" ? page0 : ""}
           {this.state.selectedPage === "6" ? page0 : ""}
-          {this.state.selectedPage === "8" ? page0 : ""}
+          {this.state.selectedPage === "7" ? page0 : ""}
         </div>
       </div>
     );
