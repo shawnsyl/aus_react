@@ -101,9 +101,7 @@ class Candidates extends ElectionBook {
       if (data.lists) {
         data.lists.map(x => {
           let section = [];
-          console.log("yo", x);
           x.forEach(element => {
-            console.log("foreach:", element);
             section.push(<li>{element}</li>);
           });
           bullets.push(section);
@@ -111,7 +109,6 @@ class Candidates extends ElectionBook {
       }
       if (data.subheaders) {
         data.subheaders.map((sub, ind) => {
-          console.log("sub", sub);
           sublist.push(
             <div>
               <b>{sub}</b>
