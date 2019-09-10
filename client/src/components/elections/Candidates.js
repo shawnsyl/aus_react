@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import ElectionBook from "./ElectionBook";
 import $ from "jquery";
 import Scroller from "../about/Scroller.js";
+import { candidatePlatforms } from "../../data";
 window.$ = $;
 
 class Candidates extends ElectionBook {
@@ -63,11 +64,9 @@ class Candidates extends ElectionBook {
     }
     if (others1 || others2) {
       theOthers = others1.concat(others2);
-      console.log(theOthers);
     }
     return (
-      <div className="candidate-container">
-        {" "}
+      <div className="candidate-container zoomed">
         <div
           style={{
             transform: "scale(2.2,2.2)",
@@ -93,123 +92,66 @@ class Candidates extends ElectionBook {
     );
   };
   showPlatform = () => {
-    let presKat = (
-      <div>
-        <p className="right_content">
-          Hi everyone! My name is Kat Aquino and I’m running for re-election as
-          your AUS President. <br />
-          <br />
-          Over the past year, I have successfully created a better working
-          relationship with the Faculty – allowing us students to advocate for
-          the issues we find most important. My previous experiences as VP
-          Academic and President has allowed for me to understand the importance
-          of student voices and the role the AUS can have in ensuring they are
-          heard and make tangible and impactful changes.
-          <br />
-          <br />
-          In the next year, I hope to continue my current work by focusing on
-          these priorities:
-          <br />
-          <b>Support Student Wellness</b>
-          <ul className="browser-default">
-            <li>
-              Advocate for a review and an increase of current mental health
-              support systems
-            </li>
-            <li>
-              Collaborate with the Faculty of Arts to make mental health
-              training of Arts faculty and staff mandatory
-            </li>
-          </ul>
-          <br />
-          <b>Empower Student Voices</b>
-          <ul className="browser-default">
-            <li>
-              Increase programming and initiatives centered around the
-              development of diverse and inclusive leadership
-            </li>
-            <li>
-              Collaborate with the AMS and its Indigenous committee to initiate
-              greater engagement and inclusion
-            </li>
-          </ul>
-          <br />
-          <b>Unify the Arts Community</b>
-          <ul className="browser-default">
-            <li>
-              Further develop a unifying Arts identity while ensuring the
-              inclusion of all students’ voices
-            </li>
-            <li>
-              Highlight clubs’ and students’ successes to generate excitement
-              and pride within the Arts community
-            </li>
-          </ul>
-        </p>
-      </div>
-    );
-    let presBai = (
-      <div>
-        <p className="right_content">
-          My name is Bailey Saguin and I am proud and honoured to have to
-          opportunity to run for your Arts Undergraduate Society President!
-          <br />
-          <br />
-          A little bit about me I am a 4th year Psychology Major with a History
-          Minor. I have worked in the AUS for the past 3 years starting from a
-          Member-At-Large within the Student Life Committee, last year as the
-          Sports Coordinator, and this year as the Associate Vice President
-          Student Life.
-          <br />
-          <br />
-          Here are some main highlights from my platform!
-          <br />
-          <b>Support Student Wellness</b>
-          <ul className="browser-default">
-            <li>
-              Reform
-              <ul className="browser-default">
-                <li>
-                  Reform stART up to be a a more cost effective event that
-                  reaches out to more students and maximizes their experience
-                </li>
-              </ul>
-            </li>
-            <li>
-              Community
-              <ul className="browser-default">
-                <li>
-                  Collaborate with various groups on campus to develop events
-                  and services that outreach to a wider range of students with
-                  various interests
-                </li>
-              </ul>
-            </li>
-            <li>
-              Philanthropy
-              <ul className="browser-default">
-                <li>
-                  Implement a year long initiative to support a local
-                  organization through the AUS platform
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <br />
-        </p>
-      </div>
-    );
-    if (this.state.selectedPres === "Kat Aquino") return presKat;
+    let platforms = [];
+    let platformData = [];
+    platformData = candidatePlatforms.presidents;
+    console.log(this.state.selectedPresId);
+    platformData.map(data => {
+      let sublist = [];
+      let bullets = [];
+      if (data.lists) {
+        data.lists.map(x => {
+          let section = [];
+          console.log("yo", x);
+          x.forEach(element => {
+            console.log("foreach:", element);
+            section.push(<li>{element}</li>);
+          });
+          bullets.push(section);
+        });
+      }
+      if (data.subheaders) {
+        data.subheaders.map((sub, ind) => {
+          console.log("sub", sub);
+          sublist.push(
+            <div>
+              <b>{sub}</b>
+              <ul className="browser-default">{bullets[ind]}</ul>
+              <br />
+            </div>
+          );
+        });
+      }
+      let mainPlatform = data.mainPlatform.split("\n").map((item, i) => {
+        return (
+          <p className="right_content">
+            {item}
+            <br />
+            <br />
+          </p>
+        );
+      });
+
+      platforms.push(
+        <div className="right_content">
+          {mainPlatform}
+          {sublist}
+        </div>
+      );
+    });
+    let presKatTest = platforms[0];
+    return <div>{platforms[this.state.selectedPresId]}</div>;
+    /*if (this.state.selectedPres === "Kat Aquino") return presKatTest;
+    else if (this.state.selectedPres === "Bailey Saguin") return presBai;
     else
       return (
         <div>
           <p className="right_content">placeholder</p>
         </div>
-      );
+      );*/
   };
   candidateClicked = e => {
     e.preventDefault();
-    console.log(e.target.id, e.target.className);
     let presName = e.target.className.split(" ")[1].replace("-", " ");
     this.setState({
       selectedPres: presName,
@@ -217,8 +159,42 @@ class Candidates extends ElectionBook {
     });
   };
   render() {
-    let presList = [];
-    presList.push(
+    let presPics = [];
+    let presPlatforms = candidatePlatforms.presidents;
+    presPlatforms.map((data, ind) => {
+      let scale =
+        data.scaleX && data.scaleY
+          ? { transform: `scaleX(${data.scaleX}), scaleY(${data.scaleY})` }
+          : data.scaleX && !data.scaleY
+          ? { transform: `scaleX(${data.scaleX})` }
+          : data.scaleY && !data.scaleX
+          ? { transform: `scaleY(${data.scaleY})` }
+          : "";
+      let marginTop = data.marginTop ? { marginTop: data.marginTop } : "";
+      presPics.push(
+        <div
+          className="profile-container"
+          style={{ outline: "5px red solid", cursor: "pointer" }}
+          onClick={e => {
+            this.candidateClicked(e);
+          }}
+        >
+          <div
+            className="image-cropper"
+            style={{ height: "200px", width: "auto" }}
+          >
+            <img
+              className={`my-picture ${data.class}`}
+              id={ind.toString()}
+              src={data.pic}
+              style={Object.assign(scale, marginTop)}
+            />
+          </div>
+          {this.state.selectedPres !== data.name ? <p>{data.name}</p> : ""}
+        </div>
+      );
+    });
+    /*presPics.push(
       <div
         className="profile-container"
         style={{ outline: "5px red solid", cursor: "pointer" }}
@@ -238,8 +214,8 @@ class Candidates extends ElectionBook {
         </div>
         {this.state.selectedPres !== "Kat Aquino" ? <p>Kat Aquino</p> : ""}
       </div>
-    );
-    presList.push(
+    );*/
+    /*presPics.push(
       <div
         className="profile-container"
         style={{ outline: "5px red solid", cursor: "pointer" }}
@@ -265,7 +241,7 @@ class Candidates extends ElectionBook {
         )}
       </div>
     );
-    presList.push(
+    presPics.push(
       <div
         className="profile-container"
         style={{ outline: "5px red solid", cursor: "pointer" }}
@@ -289,14 +265,9 @@ class Candidates extends ElectionBook {
           ""
         )}
       </div>
-    );
+    );*/
     let presidentCandidates = (
-      <div
-        className="candidate-container"
-        style={{ outline: "5px blue solid" }}
-      >
-        {presList}
-      </div>
+      <div className="candidate-container">{presPics}</div>
     );
     let page0 = (
       <div>
@@ -306,11 +277,10 @@ class Candidates extends ElectionBook {
         </h1>
         {this.state.selectedPres === ""
           ? presidentCandidates
-          : this.candidateSelector(presList)}
+          : this.candidateSelector(presPics)}
         {this.showPlatform()}
       </div>
     );
-    console.log(this.state.selectedPres);
     return (
       <div className="flipbook">
         <div
