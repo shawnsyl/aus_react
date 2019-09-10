@@ -1,4 +1,4 @@
-const homeEventData = {
+export const homeEventData = {
   events: [
     {
       index: 0,
@@ -38,4 +38,29 @@ const homeEventData = {
   ]
 };
 
-export default homeEventData;
+export const calendarEventData = {
+  events: [
+    {
+      month: "9",
+      day: "1",
+      name: "UBC Annual Community Student Expression Competition",
+      desc:
+        "The Arts Undergraduate Society, the SEEDS Sustainability Program, and other parties have collaborated for the first Annual Community Expression Competition! 16 designs will be chosen and students have the opportunity to paint the 16 Buchanan Pillars!",
+      year: "2019"
+    },
+    {
+      month: "9",
+      day: "2",
+      name: "Sept 2 Event",
+      desc: "desc 0",
+      year: "2019"
+    },
+    {
+      month: "10",
+      day: "31",
+      name: "Halloween",
+      desc: "Halloween",
+      year: "2019"
+    }
+  ]
+};

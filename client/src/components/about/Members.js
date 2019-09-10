@@ -9,16 +9,11 @@ class Members extends FlipBook {
     lockLeft: "2",
     selectedPage: "0",
     left_location: 0,
-    lockLeftPerc: 0.7
+    lockLeftPerc: 0.88
   };
   FlipPage = e => {
     if (window.pageYOffset >= 188) {
       window.scrollTo(0, 200);
-    }
-    if (e.target.id === "2") {
-      this.setState({ lockLeftPerc: 0.98 });
-    } else {
-      this.setState({ lockLeftPerc: 0.7 });
     }
     this.setState({ selectedPage: e.target.id });
   };

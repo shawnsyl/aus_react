@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
 import moment from "moment";
 import "../../../node_modules/tail.datetime/css/tail.datetime-harx-light.css";
-import { thisExpression } from "@babel/types";
 import axios from "axios";
+import { calendarEventData } from "../../data.js";
 
 class Calendar extends Component {
   weekdayshort = moment.weekdaysShort();
@@ -103,7 +102,23 @@ class Calendar extends Component {
     dateObject = moment(dateObject).set("date", 1);
     let monthNoNew = (newMonth + 1).toString();
     this.setState({ dateObject: dateObject, selectedDay: "1" });
-    axios
+    console.log(calendarEventData.events);
+    console.log(monthNoNew);
+    console.log(calendarEventData.events[0].month);
+    let found = calendarEventData.events.find(item => {
+      return item.month === monthNoNew && item.day === "1";
+    });
+    if (found) {
+      this.GetEventDetail(found);
+    } else {
+      this.setState({
+        eventMonth: "",
+        eventDay: "",
+        eventDesc: "",
+        eventName: ""
+      });
+    }
+    /*axios
       .get("http://localhost:4000/calendar/:" + monthNoNew + "-:1")
       .then(response => {
         console.log("GET to /calendar success!");
@@ -120,7 +135,7 @@ class Calendar extends Component {
       })
       .catch(function(error) {
         console.log(error);
-      });
+      });*/
   };
   PrevMonth = () => {
     let monthNo = this.state.dateObject.format("MM");
@@ -130,7 +145,20 @@ class Calendar extends Component {
     dateObject = moment(dateObject).set("date", 1);
     let monthNoNew = (newMonth + 1).toString();
     this.setState({ dateObject: dateObject, selectedDay: "1" });
-    axios
+    let found = calendarEventData.events.find(item => {
+      return item.month === monthNoNew && item.day === "1";
+    });
+    if (found) {
+      this.GetEventDetail(found);
+    } else {
+      this.setState({
+        eventMonth: "",
+        eventDay: "",
+        eventDesc: "",
+        eventName: ""
+      });
+    }
+    /*axios
       .get("http://localhost:4000/calendar/:" + monthNoNew + "-:1")
       .then(response => {
         console.log("GET to /calendar success!");
@@ -147,14 +175,27 @@ class Calendar extends Component {
       })
       .catch(function(error) {
         console.log(error);
-      });
+      });*/
   };
   ViewDay = e => {
     let monthNo = this.state.dateObject.format("M");
     let id = e.target.id;
     let dayNo = id.split("_")[1];
 
-    axios
+    let found = calendarEventData.events.find(item => {
+      return item.month === monthNo && item.day === dayNo;
+    });
+    if (found) {
+      this.GetEventDetail(found);
+    } else {
+      this.setState({
+        eventMonth: "",
+        eventDay: "",
+        eventDesc: "",
+        eventName: ""
+      });
+    }
+    /*axios
       .get("http://localhost:4000/calendar/:" + monthNo + "-:" + dayNo)
       .then(response => {
         console.log("GET to /calendar success!");
@@ -171,7 +212,7 @@ class Calendar extends Component {
       })
       .catch(function(error) {
         console.log(error);
-      });
+      });*/
 
     let newcurr = document.getElementById(id);
     let current = document.getElementById(`day_${this.state.selectedDay}`);
@@ -231,7 +272,6 @@ class Calendar extends Component {
     );
   };
   render() {
-    console.log(this.state);
     let weekdayshortname = this.weekdayshort.map(day => {
       return <th key={day}>{day}</th>;
     });

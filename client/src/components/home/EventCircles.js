@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import homeEventData from "../../data";
+import { homeEventData } from "../../data";
 import Circle from "./Circle.js";
 import "../../views/HomeMain.scss";
 

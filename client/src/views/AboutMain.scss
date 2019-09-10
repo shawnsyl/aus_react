@@ -64,7 +64,6 @@
     margin: auto auto;
     margin-left: -40px; //(50 to -40)
     width: 1400px;
-    min-height: 300px;
     /*outline: 5px solid pink;*/
     position: relative;
     display: flex;
@@ -286,12 +285,6 @@
         margin-left: 0px;
         margin-bottom: 25px;
         margin-top: 0px;
-      }
-      .imeg {
-        width: 440px;
-        height: 440px;
-        border-radius: 50%;
-        background-image: url("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS\ -\ Kat.jpg");
       }
       .image-cropper {
         width: 474px;
