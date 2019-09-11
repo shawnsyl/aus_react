@@ -12,7 +12,7 @@ class ElectionBook extends Component {
   FlipPage = e => {
     console.log(e.target.id);
     if (window.pageYOffset >= 188) {
-      window.scrollTo(0, 200);
+      window.scrollTo(0, 0);
     }
     if (e.target.id === "2") {
       this.setState({ lockLeftPerc: 0.95 });

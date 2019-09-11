@@ -11,7 +11,7 @@ class Candidates extends ElectionBook {
     lockLeft: "2",
     selectedPage: "0",
     left_location: 0,
-    lockLeftPerc: 0.88,
+    lockLeftPerc: 0.9,
     selectedPres: "",
     selectedPresId: "",
     candData: candidatePlatforms.president,
@@ -19,7 +19,7 @@ class Candidates extends ElectionBook {
   };
   FlipPage = e => {
     if (window.pageYOffset >= 188) {
-      window.scrollTo(0, 200);
+      window.scrollTo(0, 0);
     }
     this.setState({ selectedPage: e.target.id });
     if (e.target.id === "0") {
@@ -43,7 +43,7 @@ class Candidates extends ElectionBook {
       //vp student life
       this.setState({
         candData: candidatePlatforms.vpStudentLife,
-        forText: "For VP Student Life"
+        forText: "For Vice President Student Life"
       });
       if (candidatePlatforms.vpStudentLife.length > 1) {
         this.setState({
@@ -53,6 +53,108 @@ class Candidates extends ElectionBook {
       } else {
         this.setState({
           selectedPres: candidatePlatforms.vpStudentLife[0].name,
+          selectedPresId: "0"
+        });
+      }
+    } else if (e.target.id === "2") {
+      //vp academic
+      this.setState({
+        candData: candidatePlatforms.vpAcademic,
+        forText: "For Vice President Academic"
+      });
+      if (candidatePlatforms.vpAcademic.length > 1) {
+        this.setState({
+          selectedPres: "",
+          selectedPresId: ""
+        });
+      } else {
+        this.setState({
+          selectedPres: candidatePlatforms.vpAcademic[0].name,
+          selectedPresId: "0"
+        });
+      }
+    } else if (e.target.id === "3") {
+      //vp admin
+      this.setState({
+        candData: candidatePlatforms.vpAdmin,
+        forText: "For Vice President Administration"
+      });
+      if (candidatePlatforms.vpAdmin.length > 1) {
+        this.setState({
+          selectedPres: "",
+          selectedPresId: ""
+        });
+      } else {
+        this.setState({
+          selectedPres: candidatePlatforms.vpAdmin[0].name,
+          selectedPresId: "0"
+        });
+      }
+    } else if (e.target.id === "4") {
+      //vp engagement
+      this.setState({
+        candData: candidatePlatforms.vpEngagement,
+        forText: "For Vice President Engagement"
+      });
+      if (candidatePlatforms.vpEngagement.length > 1) {
+        this.setState({
+          selectedPres: "",
+          selectedPresId: ""
+        });
+      } else {
+        this.setState({
+          selectedPres: candidatePlatforms.vpEngagement[0].name,
+          selectedPresId: "0"
+        });
+      }
+    } else if (e.target.id === "5") {
+      //vp external
+      this.setState({
+        candData: candidatePlatforms.vpExternal,
+        forText: "For Vice President External"
+      });
+      if (candidatePlatforms.vpExternal.length > 1) {
+        this.setState({
+          selectedPres: "",
+          selectedPresId: ""
+        });
+      } else {
+        this.setState({
+          selectedPres: candidatePlatforms.vpExternal[0].name,
+          selectedPresId: "0"
+        });
+      }
+    } else if (e.target.id === "6") {
+      //vp finance
+      this.setState({
+        candData: candidatePlatforms.vpFinance,
+        forText: "For Vice President Finance"
+      });
+      if (candidatePlatforms.vpFinance.length > 1) {
+        this.setState({
+          selectedPres: "",
+          selectedPresId: ""
+        });
+      } else {
+        this.setState({
+          selectedPres: candidatePlatforms.vpFinance[0].name,
+          selectedPresId: "0"
+        });
+      }
+    } else if (e.target.id === "7") {
+      //ams rep
+      this.setState({
+        candData: candidatePlatforms.amsRep,
+        forText: "For AMS Representative"
+      });
+      if (candidatePlatforms.amsRep.length > 1) {
+        this.setState({
+          selectedPres: "",
+          selectedPresId: ""
+        });
+      } else {
+        this.setState({
+          selectedPres: candidatePlatforms.amsRep[0].name,
           selectedPresId: "0"
         });
       }
@@ -68,6 +170,7 @@ class Candidates extends ElectionBook {
         lockLeft: "0",
         relockMargin: document.documentElement.scrollTop - 200
       });
+      console.log("locked");
     } else if (
       ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
       Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
@@ -112,8 +215,7 @@ class Candidates extends ElectionBook {
         <div
           className="others-container"
           style={{
-            width: "400px",
-            outline: "5px solid pink"
+            width: "400px"
           }}
         >
           {theOthers.length !== 0 ? "View Other Candidates" : ""}
@@ -130,20 +232,32 @@ class Candidates extends ElectionBook {
     platformData = this.state.candData;
     console.log(platformData);
     platformData.map(data => {
-      let sublist = [];
+      let subList = [];
       let bullets = [];
-      if (data.lists) {
-        data.lists.map(x => {
-          let section = [];
-          x.forEach(element => {
-            section.push(<li>{element}</li>);
-          });
-          bullets.push(section);
+      let numList = [];
+      let list = [];
+      if (data.list) {
+        data.list.forEach(element => {
+          list.push(<li>{element}</li>);
+        });
+      }
+      if (data.numList) {
+        data.numList.forEach(element => {
+          numList.push(<li>{element}</li>);
         });
       }
       if (data.subheaders) {
+        if (data.sublists) {
+          data.sublists.map(x => {
+            let section = [];
+            x.forEach(element => {
+              section.push(<li>{element}</li>);
+            });
+            bullets.push(section);
+          });
+        }
         data.subheaders.map((sub, ind) => {
-          sublist.push(
+          subList.push(
             <div>
               <b>{sub}</b>
               <ul className="browser-default">{bullets[ind]}</ul>
@@ -153,6 +267,7 @@ class Candidates extends ElectionBook {
         });
       }
       let mainPlatform = data.mainPlatform.split("\n").map((item, i) => {
+        //.replace(/\n/g, "<br />")
         return (
           <>
             <p>{item}</p>
@@ -160,10 +275,39 @@ class Candidates extends ElectionBook {
           </>
         );
       });
+      let subPlatform = <></>;
+      if (data.subPlatform) {
+        subPlatform = data.subPlatform.split("\n").map((item, i) => {
+          //.replace(/\n/g, "<br />")
+          return (
+            <>
+              <p>{item}</p>
+              <br />
+            </>
+          );
+        });
+      }
       platforms.push(
         <div className="right_content">
           {mainPlatform}
-          {sublist}
+          {subList}
+          {data.numList ? (
+            <>
+              <ol className="browser-default">{numList}</ol>
+              <br />
+            </>
+          ) : (
+            ""
+          )}
+          {data.list ? (
+            <>
+              <ul className="browser-default">{list}</ul>
+              <br />
+            </>
+          ) : (
+            ""
+          )}
+          {subPlatform}
         </div>
       );
     });
@@ -182,19 +326,43 @@ class Candidates extends ElectionBook {
     let presPlatforms = this.state.candData;
     //resize/format pic based on data.js
     presPlatforms.map((data, ind) => {
+      if (data.scaleX && !data.scaleY && data.scale)
+        console.log("godfuckingdammit");
       let scale =
-        data.scaleX && data.scaleY
+        data.scaleX && data.scaleY && data.scale
+          ? {
+              transform: `scale(${data.scale[0]}, ${data.scale[1]}), scaleX(${
+                data.scaleX
+              }), scaleY(${data.scaleY})`
+            }
+          : data.scaleX && data.scaleY && !data.scale
           ? { transform: `scaleX(${data.scaleX}), scaleY(${data.scaleY})` }
-          : data.scaleX && !data.scaleY
+          : data.scaleX && !data.scaleY && !data.scale
           ? { transform: `scaleX(${data.scaleX})` }
-          : data.scaleY && !data.scaleX
+          : data.scaleY && !data.scaleX && !data.scale
           ? { transform: `scaleY(${data.scaleY})` }
+          : data.scaleX && !data.scaleY && data.scale
+          ? {
+              transform: `scale(${data.scale[0]}, ${data.scale[1]}), scaleX(${
+                data.scaleX
+              })`
+            }
+          : !data.scaleX && data.scaleY && data.scale
+          ? {
+              transform: `scale(${data.scale[0]}, ${data.scale[1]}), scaleY(${
+                data.scaleY
+              })`
+            }
+          : !data.scaleX && !data.scaleY && data.scale
+          ? {
+              transform: `scale(${data.scale[0]}, ${data.scale[1]})`
+            }
           : "";
       let marginTop = data.marginTop ? { marginTop: data.marginTop } : "";
       presPics.push(
         <div
           className="profile-container"
-          style={{ outline: "5px red solid", cursor: "pointer" }}
+          style={{ cursor: "pointer" }}
           onClick={e => {
             this.candidateClicked(e);
           }}
@@ -221,11 +389,16 @@ class Candidates extends ElectionBook {
     let presidentCandidates = (
       <div className="candidate-container">{presPics}</div>
     );
-    let page0 = (
+    let page = (
       <div>
         <h1>
           {this.state.forText}
           {this.state.selectedPres === "" ? "" : ": "}
+          {this.state.forText.length + this.state.selectedPres.length > 40 ? (
+            <br></br>
+          ) : (
+            ""
+          )}
           {this.state.selectedPres}
         </h1>
         {this.state.selectedPres === ""
@@ -367,14 +540,14 @@ class Candidates extends ElectionBook {
               : "right_panel"
           }
         >
-          {this.state.selectedPage === "0" ? page0 : ""}
-          {this.state.selectedPage === "1" ? page0 : ""}
-          {this.state.selectedPage === "2" ? page0 : ""}
-          {this.state.selectedPage === "3" ? page0 : ""}
-          {this.state.selectedPage === "4" ? page0 : ""}
-          {this.state.selectedPage === "5" ? page0 : ""}
-          {this.state.selectedPage === "6" ? page0 : ""}
-          {this.state.selectedPage === "7" ? page0 : ""}
+          {this.state.selectedPage === "0" ? page : ""}
+          {this.state.selectedPage === "1" ? page : ""}
+          {this.state.selectedPage === "2" ? page : ""}
+          {this.state.selectedPage === "3" ? page : ""}
+          {this.state.selectedPage === "4" ? page : ""}
+          {this.state.selectedPage === "5" ? page : ""}
+          {this.state.selectedPage === "6" ? page : ""}
+          {this.state.selectedPage === "7" ? page : ""}
         </div>
       </div>
     );

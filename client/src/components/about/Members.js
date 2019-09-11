@@ -13,7 +13,7 @@ class Members extends FlipBook {
   };
   FlipPage = e => {
     if (window.pageYOffset >= 188) {
-      window.scrollTo(0, 200);
+      window.scrollTo(0, 0);
     }
     this.setState({ selectedPage: e.target.id });
   };

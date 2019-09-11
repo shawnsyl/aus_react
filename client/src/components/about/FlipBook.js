@@ -15,6 +15,7 @@ class FlipBook extends Component {
     console.log(window.pageYOffset);
     if (window.pageYOffset >= 188) {
       window.scrollTo(0, 200);
+      this.setState({ relockMargin: 0 });
     }
     this.setState({ selectedPage: e.target.id });
   };
@@ -26,8 +27,8 @@ class FlipBook extends Component {
       !Scroller.isScrolledIntoView($("#footer"), 0.6)
     ) {
       this.setState({
-        lockLeft: "0", //lock
-        relockMargin: document.documentElement.scrollTop - 200
+        lockLeft: "0" //lock
+        //relockMargin: document.documentElement.scrollTop - 200
       });
     } else {
       this.setState({
