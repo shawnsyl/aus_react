@@ -66,7 +66,7 @@ export const calendarEventData = {
 };
 
 export const candidatePlatforms = {
-  presidents: [
+  president: [
     {
       name: "Kat Aquino",
       class: "Kat-Aquino",
@@ -122,6 +122,16 @@ export const candidatePlatforms = {
         "Hello my fellow Arts peers! I am a third-year history major and commerce minor with a passion for community engagement. My journey with the AUS began as a naive First-Year Committee member and evolved to include the duties of Philanthropy Coordinator, Associate VP External, stARTup Coordinator and VP External. My experiences outside the AUS include leadership roles in the Panhellenic Council, Global Lounge, Annual Giving Call Centre, Bangladesh Student Association and Period UBC. This year, I want to combine my plethora of past experiences to serve the diverse needs of the mammoth entity that is the Arts student body. I aspire to serve you as your president so that I can champion the voices of Arts students, bolster student leadership among members of the Arts community, cultivate an impact-driven culture, and spread Arts pride! I hope to bring our massive community a little closer and have the AUS serve as the Arts home base. I can’t wait to serve you and help you make the most of your UBC experience! To find out more about my platform, please visit: https://www.facebook.com/events/2256921507895602/",
       pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Kat.jpg"),
       scaleX: 1.25
+    }
+  ],
+  vpStudentLife: [
+    {
+      name: "Cassandra Shayne Avanzado",
+      class: "Cassandra-Shayne-Avanzado",
+      mainPlatform:
+        "My name is Casandra Avanzado and I am running to be your next Vice President of Student Life for the AUS. I am a fourth-year Cognitive Systems major in Psychology. I want to represent YOU as the largest undergraduate society student life portfolio at UBC. As the current Social Director for Student Life, I have worked with the current VP Student Life to enhance the student experience of Arts students. It allowed me to gain experience in the logistical implementation of social life events from a large-scale annual gala to talent shows. I plan to influence the student body through advocating for three core values on my platform: Conscientiousness, Accountability, and Student Experience. I’d like to put student consultation at the forefront, hold preventative accountability on the executive team, and focus on planning events that enrich your personal and academic lives. I am confident that my keen eye for detail, passion for event planning, and commitment to the Arts faculty makes me perfectly qualified to be your next VP Student Life. If elected, I promise to work tirelessly and endlessly to enhance your student experience and to represent you as your next VP Student Life.",
+      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Cas.jpg"),
+      scaleY: 1.12
     }
   ]
 };

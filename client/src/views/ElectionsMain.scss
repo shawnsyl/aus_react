@@ -134,6 +134,9 @@ a {
     justify-content: space-around;
     align-items: center;
   }
+  &.zoomed {
+    min-height: 500px;
+  }
 }
 .profile-container {
   text-align: center;
@@ -160,8 +163,8 @@ a {
   &#ali {
     transform: scaleY(1.07);
   }
-  &.Bailey-Saguin {
-    margin-top: 120px;
-    transform: scaleY(1.508);
-  }
+  //&.Bailey-Saguin {
+  // margin-top: 120px;
+  //transform: scaleY(1.508);
+  //}
 }

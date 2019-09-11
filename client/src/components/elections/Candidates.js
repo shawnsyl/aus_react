@@ -13,17 +13,50 @@ class Candidates extends ElectionBook {
     left_location: 0,
     lockLeftPerc: 0.88,
     selectedPres: "",
-    selectedPresId: ""
+    selectedPresId: "",
+    candData: candidatePlatforms.president,
+    forText: "For President"
   };
   FlipPage = e => {
     if (window.pageYOffset >= 188) {
       window.scrollTo(0, 200);
     }
-    this.setState({
-      selectedPage: e.target.id,
-      selectedPres: "",
-      selectedPresId: ""
-    });
+    this.setState({ selectedPage: e.target.id });
+    if (e.target.id === "0") {
+      //president
+      this.setState({
+        candData: candidatePlatforms.president,
+        forText: "For President"
+      });
+      if (candidatePlatforms.president.length > 1) {
+        this.setState({
+          selectedPres: "",
+          selectedPresId: ""
+        });
+      } else {
+        this.setState({
+          selectedPres: candidatePlatforms.president[0].name,
+          selectedPresId: "0"
+        });
+      }
+    } else if (e.target.id === "1") {
+      //vp student life
+      this.setState({
+        candData: candidatePlatforms.vpStudentLife,
+        forText: "For VP Student Life"
+      });
+      if (candidatePlatforms.vpStudentLife.length > 1) {
+        this.setState({
+          selectedPres: "",
+          selectedPresId: ""
+        });
+      } else {
+        this.setState({
+          selectedPres: candidatePlatforms.vpStudentLife[0].name,
+          selectedPresId: "0"
+        });
+      }
+    }
   };
   HandleScroll = () => {
     if (
@@ -94,7 +127,8 @@ class Candidates extends ElectionBook {
   showPlatform = () => {
     let platforms = [];
     let platformData = [];
-    platformData = candidatePlatforms.presidents;
+    platformData = this.state.candData;
+    console.log(platformData);
     platformData.map(data => {
       let sublist = [];
       let bullets = [];
@@ -145,7 +179,8 @@ class Candidates extends ElectionBook {
   };
   render() {
     let presPics = [];
-    let presPlatforms = candidatePlatforms.presidents;
+    let presPlatforms = this.state.candData;
+    //resize/format pic based on data.js
     presPlatforms.map((data, ind) => {
       let scale =
         data.scaleX && data.scaleY
@@ -189,7 +224,8 @@ class Candidates extends ElectionBook {
     let page0 = (
       <div>
         <h1>
-          For President{this.state.selectedPres === "" ? "" : ": "}
+          {this.state.forText}
+          {this.state.selectedPres === "" ? "" : ": "}
           {this.state.selectedPres}
         </h1>
         {this.state.selectedPres === ""
