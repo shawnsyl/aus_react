@@ -143,7 +143,6 @@ export const candidatePlatforms = {
       pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Kana.jpg"),
       marginTop: "50px",
       scale: [1.005, 1.5]
-      //transform: scale(1.5, 1.5) scaleX(0.67);
     },
     {
       name: "Matthew Ho",
@@ -181,7 +180,7 @@ export const candidatePlatforms = {
       name: "Michelle Choi",
       class: "Michelle-Choi",
       mainPlatform:
-        "❤️✨Hello, beautiful people of Arts! ✨❤️\n My name is Michelle Choi, running to become your VP Engagement. I worked as the AUS first-year rep this year and I realized my passion—helping build an intimate relationship between the ARTS constituency and AUS. In order to boost the communication of our student government, I want to:",
+        "❤️✨ Hello, beautiful people of Arts! ✨❤️\n My name is Michelle Choi, running to become your VP Engagement. I worked as the AUS first-year rep this year and I realized my passion—helping build an intimate relationship between the ARTS constituency and AUS. In order to boost the communication of our student government, I want to:",
       pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Michelle.jpg"),
       scaleY: 1.196,
       list: [

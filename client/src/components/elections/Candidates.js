@@ -170,7 +170,6 @@ class Candidates extends ElectionBook {
         lockLeft: "0",
         relockMargin: document.documentElement.scrollTop - 200
       });
-      console.log("locked");
     } else if (
       ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
       Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
@@ -230,7 +229,6 @@ class Candidates extends ElectionBook {
     let platforms = [];
     let platformData = [];
     platformData = this.state.candData;
-    console.log(platformData);
     platformData.map(data => {
       let subList = [];
       let bullets = [];
@@ -326,8 +324,6 @@ class Candidates extends ElectionBook {
     let presPlatforms = this.state.candData;
     //resize/format pic based on data.js
     presPlatforms.map((data, ind) => {
-      if (data.scaleX && !data.scaleY && data.scale)
-        console.log("godfuckingdammit");
       let scale =
         data.scaleX && data.scaleY && data.scale
           ? {

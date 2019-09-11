@@ -12,15 +12,12 @@ class FlipBook extends Component {
   };
   FlipPage = e => {
     e.preventDefault();
-    console.log(window.pageYOffset);
     if (window.pageYOffset >= 188) {
-      window.scrollTo(0, 200);
-      this.setState({ relockMargin: 0 });
+      window.scrollTo(0, 0);
     }
     this.setState({ selectedPage: e.target.id });
   };
   HandleScroll = () => {
-    console.log("scroll");
     if (
       window.pageYOffset >= 188 &&
       ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
@@ -50,7 +47,6 @@ class FlipBook extends Component {
   };
 
   render() {
-    console.log("lock:", this.state.lockLeft);
     let page0 = (
       <div>
         <h1 className="browser-default">Our Mission Statement</h1>
