@@ -81,16 +81,28 @@ class MyNavbar extends React.PureComponent {
             </NavLink>
           </li>
           <li>
-            <div className="about_drop_wrap">
+            <div
+              className="about_drop_wrap"
+              style={{ outline: "5px blue solid" }}
+            >
               <NavLink
                 activeClassName="active"
-                className={this.state.fold ? "fold" : "unfold"}
+                className={this.state.fold ? "parent fold" : "parent unfold"}
                 to="/elections"
                 onClick={this.setFold}
               >
                 ELECTIONS
               </NavLink>
-              <div className="about_drop_content" style={{ left: "420px" }}>
+              <div className="about_drop_content elec">
+                <NavLink
+                  activeClassName="active"
+                  className={this.state.fold ? "fold" : "unfold"}
+                  exact
+                  to="/elections/handbook"
+                  onClick={this.setFold}
+                >
+                  Election Handbook
+                </NavLink>
                 <NavLink
                   activeClassName="active"
                   className={this.state.fold ? "fold" : "unfold"}

@@ -324,6 +324,8 @@ class Candidates extends ElectionBook {
     let presPlatforms = this.state.candData;
     //resize/format pic based on data.js
     presPlatforms.map((data, ind) => {
+      //set scaling of img
+
       let scale =
         data.scaleX && data.scaleY && data.scale
           ? {
@@ -536,14 +538,7 @@ class Candidates extends ElectionBook {
               : "right_panel"
           }
         >
-          {this.state.selectedPage === "0" ? page : ""}
-          {this.state.selectedPage === "1" ? page : ""}
-          {this.state.selectedPage === "2" ? page : ""}
-          {this.state.selectedPage === "3" ? page : ""}
-          {this.state.selectedPage === "4" ? page : ""}
-          {this.state.selectedPage === "5" ? page : ""}
-          {this.state.selectedPage === "6" ? page : ""}
-          {this.state.selectedPage === "7" ? page : ""}
+          {page}
         </div>
       </div>
     );

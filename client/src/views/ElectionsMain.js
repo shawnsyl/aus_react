@@ -1,14 +1,22 @@
 import React, { Component } from "react";
 
-import ElectionBook from "../components/elections/ElectionBook.js";
-import Candidates from "../components/elections/Candidates.js";
-import Complaints from "../components/elections/Complaints.js";
+import ElectionHome from "../components/elections/ElectionHome";
+import ElectionBook from "../components/elections/ElectionBook";
+import Candidates from "../components/elections/Candidates";
+import Complaints from "../components/elections/Complaints";
 class ElectionsMain extends Component {
   state = {};
   render() {
     return (
       <div className="elections">
         {this.props.element === "main" ? (
+          <>
+            <ElectionHome />
+          </>
+        ) : (
+          ""
+        )}
+        {this.props.element === "handbook" ? (
           <div className="handbook">
             <h1>Election Handbook</h1>
             <ElectionBook />
