@@ -262,3 +262,32 @@ export const candidatePlatforms = {
     }
   ]
 };
+
+export const electionEventData = {
+  openPositions: [
+    "President",
+    "Vice-President Internal",
+    "Vice-President External",
+    "Vice-President Finance",
+    "Vice-President Academic",
+    "Vice-President Administration",
+    "Vice-President Student Life",
+    "Vice-President Engagement",
+    "AMS Representatives",
+    "Arts Student Senator"
+  ],
+  importantDates: [
+    {
+      month: "MAR",
+      day: "8",
+      desc: "Nomination forms due at 4PM in Buchanan D MASS"
+    },
+    {
+      month: "MAR",
+      day: "11",
+      desc: "Candidates debate at 5PM in AMS Nest Room 4301"
+    },
+    { month: "MAR", day: "18", desc: "Polls open midnight" },
+    { month: "MAR", day: "22", desc: "Results party at 5PM" }
+  ]
+};

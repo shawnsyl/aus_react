@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import YellowPage from "./YellowPage";
 
 class ElectionHome extends Component {
   state = {};
@@ -36,6 +37,7 @@ class ElectionHome extends Component {
             </div>
           </div>
         </div>
+        <YellowPage />
       </>
     );
   }
