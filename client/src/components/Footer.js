@@ -32,14 +32,13 @@ class Footer extends Component {
           <br />
           <p id="copyright">© 2019 BY UBC ARTS UNDERGRADUATE SOCIETY</p>
         </div>
-        <div>
-          <Link to="/login" className="admin_login">
-            Admin Login
-          </Link>
-        </div>
       </div>
     );
   }
 }
-
+/**<div>
+          <Link to="/login" className="admin_login">
+            Admin Login
+          </Link>
+        </div> */
 export default Footer;

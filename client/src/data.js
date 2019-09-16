@@ -291,3 +291,56 @@ export const electionEventData = {
     { month: "MAR", day: "22", desc: "Results party at 5PM" }
   ]
 };
+
+export const currentCouncillors = {
+  executives: [
+    {
+      title: "President",
+      name: "Katherine Aquino",
+      email: "aus.president@ubc.ca"
+    },
+    {
+      title: "Vice-President External",
+      name: "Anila Chowdhury",
+      email: "aus.vpexternal@ubc.ca"
+    },
+    {
+      title: "Vice-President Finance",
+      name: "Lucia Liang",
+      email: "aus.vpfinance@ubc.ca"
+    },
+    {
+      title: "Vice-President Academic",
+      name: "Justin Zheng",
+      email: "aus.vpacademic@ubc.ca"
+    },
+    {
+      title: "Vice-President Administration",
+      name: "Jina Marwood",
+      email: "aus.vpadmin@ubc.ca"
+    },
+    {
+      title: "Vice-President Student Life",
+      name: "Jocelyn Yu",
+      email: "aus.vpstudentlife@ubc.ca"
+    },
+    {
+      title: "Director of Communications",
+      name: "Arija Empakeris",
+      email: "aus.vpcommunications@ubc.ca"
+    },
+    {
+      title: "Chief AMS Representative",
+      name: "Jerome Goddard",
+      email: ""
+    }
+  ],
+  amsReps: [
+    "Jerome Goddard",
+    "Andy Wu",
+    "Cole Evans",
+    "Kevin Zhang",
+    "Yash Gurnani"
+  ],
+  senator: "Matthias Leuprecht"
+};
