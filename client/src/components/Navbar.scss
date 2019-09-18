@@ -63,6 +63,7 @@ ul {
   }
   .about_drop_wrap {
     overflow: hidden;
+    text-align: center;
   }
   .about_drop_content a {
     font-weight: normal;
@@ -83,7 +84,7 @@ ul {
     z-index: 888;
     transition: opacity 0.4s ease-in-out;
     &.elec {
-      left: 400px;
+      left: 420px;
     }
   }
   .about_drop_wrap:hover .about_drop_content {

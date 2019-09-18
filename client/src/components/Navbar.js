@@ -95,29 +95,10 @@ class MyNavbar extends React.PureComponent {
                   activeClassName="active"
                   className={this.state.fold ? "fold" : "unfold"}
                   exact
-                  to="/elections/handbook"
-                  onClick={this.setFold}
-                >
-                  Election Handbook
-                </NavLink>
-                <NavLink
-                  activeClassName="active"
-                  className={this.state.fold ? "fold" : "unfold"}
-                  exact
                   to="/elections/candidates"
                   onClick={this.setFold}
                 >
                   Candidates
-                </NavLink>
-
-                <NavLink
-                  activeClassName="active"
-                  className={this.state.fold ? "fold" : "unfold"}
-                  exact
-                  to="/elections/complaints"
-                  onClick={this.setFold}
-                >
-                  Complaints
                 </NavLink>
               </div>
             </div>

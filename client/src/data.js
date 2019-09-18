@@ -288,7 +288,8 @@ export const electionEventData = {
       desc: "Candidates debate at 5PM in AMS Nest Room 4301"
     },
     { month: "MAR", day: "18", desc: "Polls open midnight" },
-    { month: "MAR", day: "22", desc: "Results party at 5PM" }
+    { month: "MAR", day: "22", desc: "Results party at 5PM" },
+    { month: "MAR", day: "25", desc: "Results party at 5PM" }
   ]
 };
 

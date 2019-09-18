@@ -6,10 +6,8 @@ class ElectionHome extends Component {
   state = {};
   showExecs = () => {
     let execData = currentCouncillors.executives;
-
     let execList = [];
     let execEmail = [];
-
     execData.forEach(x => {
       execList.push(
         <p>
@@ -66,12 +64,7 @@ class ElectionHome extends Component {
               <p className="community">Community</p>
               <p className="advocacy">Advocacy</p>
               <div className="hand-cropper">
-                <img
-                  src={require("../../imgs/elections/ivoted-scaled.png")}
-                  style={{
-                    outline: "solid 5px mediumaquamarine"
-                  }}
-                />
+                <img src={require("../../imgs/elections/ivoted-scaled.png")} />
               </div>
             </div>
           </div>
@@ -87,6 +80,39 @@ class ElectionHome extends Component {
           {this.showAmsRep()}
           <h3>Senator</h3>
           <p>{currentCouncillors.senator}</p>
+        </div>
+        <div className="nomination-proc">
+          <h2>Elections Nomination Process</h2>
+          <div className="proc-panels">
+            <div className="panel">
+              <h3>1</h3>
+              <p>
+                Learn about the available positions by reading the AUS Handbook
+              </p>
+              <a href="/elections/handbook">
+                <button className="nom-btn">Learn More</button>
+              </a>
+            </div>
+            <div className="panel">
+              <h3>2</h3>
+              <p style={{ width: "85%" }}>
+                Complete the Nomination Form and submit by Firday, March 8th at
+                5:00 PM.
+              </p>
+              <button className="nom-btn">Nomination Form</button>
+            </div>
+            <div className="panel">
+              <h3>3</h3>
+              <p>
+                If you have any complaints during the campaigning period,
+                complete the General Elections Complaint Form. This will be
+                assessed by the Elections Committee.
+              </p>
+              <a href="/elections/complaints">
+                <button className="nom-btn">Complaint Form</button>
+              </a>
+            </div>
+          </div>
         </div>
       </>
     );

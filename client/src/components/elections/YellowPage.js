@@ -19,7 +19,7 @@ class YellowPage extends Component {
         </div>
       );
     });
-    return <>{events}</>;
+    return <div className="events-panel">{events}</div>;
   };
   showOpenPos = () => {
     let posArray = electionEventData.openPositions;
