@@ -2,9 +2,31 @@ import React, { Component } from "react";
 import moment from "moment";
 import "../../../node_modules/tail.datetime/css/tail.datetime-harx-light.css";
 import axios from "axios";
-import { calendarEventData } from "../../data.js";
+
+const contentful = require("contentful");
 
 class Calendar extends Component {
+  getData = async () => {
+    try {
+      let client = contentful.createClient({
+        // This is the space ID. A space is like a project folder in Contentful terms
+        space: "lo3yxyyk3sy6",
+        // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+        accessToken: "7NX2e5pvhNBSsYVpXrB70QMHi17l7PJLI1xozMcKf1w"
+      });
+      let events = [];
+      client
+        .getEntries({ content_type: "calendarEventData" })
+        .then(response => {
+          response.items.forEach(event => {
+            events.push(event.fields);
+          });
+          this.setState({ data: events });
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  };
   weekdayshort = moment.weekdaysShort();
   state = {
     showCalendarTable: true,
@@ -17,7 +39,11 @@ class Calendar extends Component {
     eventDay: "",
     eventTitle: "",
     eventDesc: "",
-    year: moment().format("Y")
+    year: moment().format("Y"),
+    data: []
+  };
+  componentDidMount = () => {
+    this.getData();
   };
   daysInMonth = () => {
     return this.state.dateObject.daysInMonth();
@@ -102,10 +128,8 @@ class Calendar extends Component {
     dateObject = moment(dateObject).set("date", 1);
     let monthNoNew = (newMonth + 1).toString();
     this.setState({ dateObject: dateObject, selectedDay: "1" });
-    console.log(calendarEventData.events);
-    console.log(monthNoNew);
-    console.log(calendarEventData.events[0].month);
-    let found = calendarEventData.events.find(item => {
+
+    let found = this.state.data.find(item => {
       return item.month === monthNoNew && item.day === "1";
     });
     if (found) {
@@ -145,7 +169,7 @@ class Calendar extends Component {
     dateObject = moment(dateObject).set("date", 1);
     let monthNoNew = (newMonth + 1).toString();
     this.setState({ dateObject: dateObject, selectedDay: "1" });
-    let found = calendarEventData.events.find(item => {
+    let found = this.state.data.find(item => {
       return item.month === monthNoNew && item.day === "1";
     });
     if (found) {
@@ -182,7 +206,7 @@ class Calendar extends Component {
     let id = e.target.id;
     let dayNo = id.split("_")[1];
 
-    let found = calendarEventData.events.find(item => {
+    let found = this.state.data.find(item => {
       return item.month === monthNo && item.day === dayNo;
     });
     if (found) {
@@ -272,6 +296,7 @@ class Calendar extends Component {
     );
   };
   render() {
+    console.log(this.state.data);
     let weekdayshortname = this.weekdayshort.map(day => {
       return <th key={day}>{day}</th>;
     });

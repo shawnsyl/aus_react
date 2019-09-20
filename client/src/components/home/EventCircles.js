@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 
-import { homeEventData } from "../../data";
 import Circle from "./Circle.js";
 import "../../views/HomeMain.scss";
+
 const contentful = require("contentful");
 
 class EventCircles extends Component {
-  //componentDidMount() {
-  //this.getData();
-  //}
   getData = async () => {
     try {
       let client = contentful.createClient({
@@ -17,17 +14,18 @@ class EventCircles extends Component {
         // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
         accessToken: "7NX2e5pvhNBSsYVpXrB70QMHi17l7PJLI1xozMcKf1w"
       });
-      let sortedEvents = [];
+      let eventData = [];
       client.getEntries({ content_type: "homeEventData" }).then(response => {
-        sortedEvents = response.items.sort(
-          (a, b) =>
-            new Date(a.fields.dateobject) - new Date(b.fields.dateobject)
+        response.items.forEach(event => {
+          eventData.push(event.fields);
+        });
+        eventData = eventData.sort(
+          (a, b) => new Date(a.dateobject) - new Date(b.dateobject)
         );
         this.setState({
-          contentfulEvents: sortedEvents,
-          events: sortedEvents
+          events: eventData
         });
-        this.setState({ event: sortedEvents[0] });
+        this.setState({ event: eventData[0], index: 0 });
       });
     } catch (err) {
       console.log(err);
@@ -37,8 +35,8 @@ class EventCircles extends Component {
     super(props);
     this.state = {
       events: [],
-      event: {}, //need to show most recenthomeEventData.events[2]
-      contentfulEvents: [],
+      event: {},
+      index: 0,
       transformO: ""
     };
   }
@@ -50,29 +48,22 @@ class EventCircles extends Component {
     const newIndex = this.state.events.indexOf(this.state.event) + 1;
     this.setState({
       event: this.state.events[newIndex],
+      index: newIndex,
       transformO: ""
     });
-
-    console.log("next");
-    console.log(this.state.transformO);
   };
 
   prevEvent = () => {
     const newIndex = this.state.events.indexOf(this.state.event) - 1;
     this.setState({
       event: this.state.events[newIndex],
+      index: newIndex,
       transformO: "right"
     });
-    console.log("prev");
-    console.log(this.state.transformO);
   };
 
   render() {
-    console.log(
-      "yo",
-      this.state.event,
-      this.state.events.indexOf(this.state.event)
-    );
+    console.log(this.state.events);
     return (
       <div className="events">
         <div
@@ -97,8 +88,7 @@ class EventCircles extends Component {
                 key={event.id}
                 event={event}
                 isbig={
-                  event.fields.index ===
-                  this.state.events.indexOf(this.state.event)
+                  this.state.index === this.state.events.indexOf(event)
                     ? "_big"
                     : ""
                 }

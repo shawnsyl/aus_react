@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import propTypes from "prop-types";
 const Circle = ({ event, isbig }) => {
-  const { caption, date, pic, dateobject, index } = event.fields;
+  const { caption, date, pic, dateobject } = event;
   const bigclass = isbig;
   return (
     <div className={"event" + bigclass}>
