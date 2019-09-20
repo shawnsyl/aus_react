@@ -14,7 +14,7 @@ class Candidates extends ElectionBook {
     lockLeftPerc: 0.9,
     selectedPres: "",
     selectedPresId: "",
-    candData: candidatePlatforms.president,
+    candData: [],
     forText: "For President"
   };
   FlipPage = e => {
@@ -181,6 +181,7 @@ class Candidates extends ElectionBook {
   };
   componentDidMount = () => {
     window.addEventListener("scroll", this.HandleScroll);
+    this.setState({ candData: candidatePlatforms.president });
   };
   componentWillUnmount = () => {
     window.removeEventListener("scroll", this.HandleScroll);
