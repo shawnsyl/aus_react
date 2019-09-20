@@ -112,7 +112,6 @@ class Calendar extends Component {
         : month_temp === "12"
         ? "December"
         : "";
-    console.log(p_month);
     this.setState({
       eventMonth: p_month,
       eventDay: p_day,
