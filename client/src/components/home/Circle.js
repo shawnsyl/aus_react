@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import propTypes from "prop-types";
 const Circle = ({ event, isbig }) => {
-  const { index, id, caption, pic, date } = event;
+  const { caption, date, pic, dateobject, index } = event.fields;
   const bigclass = isbig;
   return (
     <div className={"event" + bigclass}>
       <img
-        src={pic}
+        src={"https://" + pic.fields.file.url}
         style={{
           transformOrigin: `right top`
         }}
       />
-      <p>{caption}</p>
+      <p className="caption">{caption}</p>
       {bigclass !== "" ? <p className="date">{date}</p> : ""}
     </div>
   );
