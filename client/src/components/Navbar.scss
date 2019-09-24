@@ -5,6 +5,7 @@
   border: 0;
   position: relative;
   animation: fadein 1s;
+  margin-top: 12px;
 
   .mr-2 {
     width: 40px;
@@ -26,9 +27,10 @@ ul {
   margin: 0;
 }
 #navbar .logo {
-  width: 60.4px;
-  height: 70.8px;
+  width: 90px; //60.4px;
+  height: 105.497px; //70.8px;
   margin-right: 23px;
+  margin-left: 13px;
 }
 
 #navbar #links {
@@ -47,7 +49,7 @@ ul {
     padding: 0px;
     margin-left: 0px;
     margin-right: 3vw;
-    display: flex;
+    //display: flex;
     justify-content: center;
     align-items: center;
     text-decoration: none;
@@ -55,14 +57,20 @@ ul {
     a:visited {
       text-decoration: none;
       color: black;
+      span {
+        padding-bottom: 3px;
+      }
     }
     a.active {
-      text-decoration: underline;
+      //text-decoration: underline;
       font-weight: bold;
+      span {
+        border-bottom: 2px solid black;
+      }
     }
   }
   .about_drop_wrap {
-    overflow: hidden;
+    //overflow: hidden;
     text-align: center;
   }
   .about_drop_content a {
@@ -77,14 +85,15 @@ ul {
     opacity: 0;
     visibility: hidden;
     position: absolute;
-    left: 130px;
+    top: 70px;
+    left: 168px;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 888;
     transition: opacity 0.4s ease-in-out;
     &.elec {
-      left: 420px;
+      left: 465px;
     }
   }
   .about_drop_wrap:hover .about_drop_content {

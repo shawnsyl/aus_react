@@ -33,7 +33,7 @@ class MyNavbar extends React.PureComponent {
               to="/"
               onClick={this.setFold}
             >
-              HOME
+              <span>HOME</span>
             </NavLink>
           </li>
           <li>
@@ -44,7 +44,7 @@ class MyNavbar extends React.PureComponent {
                 to="/about"
                 onClick={this.setFold}
               >
-                ABOUT
+                <span>ABOUT</span>
               </NavLink>
               <div className="about_drop_content">
                 <NavLink
@@ -54,7 +54,7 @@ class MyNavbar extends React.PureComponent {
                   to="/about/handbook"
                   onClick={this.setFold}
                 >
-                  AUS Handbook
+                  <span>AUS Handbook</span>
                 </NavLink>
 
                 <NavLink
@@ -64,7 +64,7 @@ class MyNavbar extends React.PureComponent {
                   to="/about/team"
                   onClick={this.setFold}
                 >
-                  The Team
+                  <span>The Team</span>
                 </NavLink>
               </div>
             </div>
@@ -77,7 +77,7 @@ class MyNavbar extends React.PureComponent {
               to="/governance"
               onClick={this.setFold}
             >
-              GOVERNANCE
+              <span>GOVERNANCE</span>
             </NavLink>
           </li>
           <li>
@@ -88,7 +88,7 @@ class MyNavbar extends React.PureComponent {
                 to="/elections"
                 onClick={this.setFold}
               >
-                ELECTIONS
+                <span>ELECTIONS</span>
               </NavLink>
               <div className="about_drop_content elec">
                 <NavLink
@@ -98,7 +98,7 @@ class MyNavbar extends React.PureComponent {
                   to="/elections/candidates"
                   onClick={this.setFold}
                 >
-                  Candidates
+                  <span>Candidates</span>
                 </NavLink>
               </div>
             </div>
@@ -111,7 +111,7 @@ class MyNavbar extends React.PureComponent {
               to="/services"
               onClick={this.setFold}
             >
-              STUDENT SERVICES
+              <span>STUDENT SERVICES</span>
             </NavLink>
           </li>
           <li>
@@ -122,7 +122,7 @@ class MyNavbar extends React.PureComponent {
               to="/contact"
               onClick={this.setFold}
             >
-              CONTACT
+              <span>CONTACT</span>
             </NavLink>
           </li>
         </ul>
