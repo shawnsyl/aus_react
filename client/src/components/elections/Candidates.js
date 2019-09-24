@@ -6,7 +6,30 @@ import Scroller from "../about/Scroller.js";
 import { candidatePlatforms } from "../../data";
 window.$ = $;
 
+const contentful = require("contentful");
+
 class Candidates extends ElectionBook {
+  // getData = async () => {
+  //   try {
+  //     let client = contentful.createClient({
+  //       // This is the space ID. A space is like a project folder in Contentful terms
+  //       space: "lo3yxyyk3sy6",
+  //       // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
+  //       accessToken: "7NX2e5pvhNBSsYVpXrB70QMHi17l7PJLI1xozMcKf1w"
+  //     });
+  //     let events = [];
+  //     client
+  //       .getEntries({ content_type: "calendarEventData" })
+  //       .then(response => {
+  //         response.items.forEach(event => {
+  //           events.push(event.fields);
+  //         });
+  //         this.setState({ data: events });
+  //       });
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   state = {
     lockLeft: "2",
     selectedPage: "0",

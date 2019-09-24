@@ -310,14 +310,18 @@ class Calendar extends Component {
       let currentDay = d == this.currentDay() ? "today" : "";
       daysInMonth.push(
         <td
-          id={`day_${d}`}
           className={`calendar_day ${currentDay}`}
           ref={"day_" + d.toString(10)}
-          onClick={e => {
-            this.ViewDay(e);
-          }}
         >
-          {d}
+          <div
+            id={`day_${d}`}
+            onClick={e => {
+              this.ViewDay(e);
+            }}
+            className={currentDay}
+          >
+            {d}
+          </div>
         </td>
       );
     }

@@ -10,7 +10,9 @@ class HomeMain extends Component {
   state = {};
   render() {
     /*
-        <Navbar pathname={this.props.location.pathname} />*/
+        <Navbar pathname={this.props.location.pathname} 
+        
+            <img src={require("../imgs/home/hand.png")} />/>*/
     return (
       <div className="Home">
         <div className="page1">
