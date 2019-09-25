@@ -18,7 +18,7 @@ import Register from "./components/Register";
 
 import { Provider } from "react-redux";
 import store from "./store";
-import { ParallaxProvider, Parallax } from "react-scroll-parallax";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 import "./App.css";
 class App extends React.Component {

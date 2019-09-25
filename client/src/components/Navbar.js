@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
-
+import { Parallax } from "react-scroll-parallax";
 import "./Navbar.scss";
 import { isParenthesizedExpression } from "@babel/types";
 
@@ -26,59 +26,65 @@ class MyNavbar extends React.PureComponent {
         </div>
         <ul id="links" className={this.state.fold ? "collapse" : "uncollapse"}>
           <li>
-            <NavLink
-              activeClassName="active"
-              className={this.state.fold ? "fold" : "unfold"}
-              exact
-              to="/"
-              onClick={this.setFold}
-            >
-              <span>HOME</span>
-            </NavLink>
-          </li>
-          <li>
-            <div className="about_drop_wrap">
+            <Parallax offsetYMax="5px" offsetYMin="-5px">
               <NavLink
                 activeClassName="active"
                 className={this.state.fold ? "fold" : "unfold"}
-                to="/about"
+                exact
+                to="/"
                 onClick={this.setFold}
               >
-                <span>ABOUT</span>
+                <span>HOME</span>
               </NavLink>
-              <div className="about_drop_content">
-                <NavLink
-                  activeClassName="active"
-                  className={this.state.fold ? "fold" : "unfold"}
-                  exact
-                  to="/about/handbook"
-                  onClick={this.setFold}
-                >
-                  <span>AUS Handbook</span>
-                </NavLink>
-
-                <NavLink
-                  activeClassName="active"
-                  className={this.state.fold ? "fold" : "unfold"}
-                  exact
-                  to="/about/team"
-                  onClick={this.setFold}
-                >
-                  <span>The Team</span>
-                </NavLink>
-              </div>
-            </div>
+            </Parallax>
           </li>
           <li>
-            <NavLink
-              activeClassName="active"
-              className={this.state.fold ? "fold" : "unfold"}
-              exact
-              to="/governance"
-              onClick={this.setFold}
-            >
-              <span>GOVERNANCE</span>
-            </NavLink>
+            <Parallax offsetYMax="10px" offsetYMin="-10px">
+              <div className="about_drop_wrap">
+                <NavLink
+                  activeClassName="active"
+                  className={this.state.fold ? "fold" : "unfold"}
+                  to="/about"
+                  onClick={this.setFold}
+                >
+                  <span>ABOUT</span>
+                </NavLink>
+                <div className="about_drop_content">
+                  <NavLink
+                    activeClassName="active"
+                    className={this.state.fold ? "fold" : "unfold"}
+                    exact
+                    to="/about/handbook"
+                    onClick={this.setFold}
+                  >
+                    <span>AUS Handbook</span>
+                  </NavLink>
+
+                  <NavLink
+                    activeClassName="active"
+                    className={this.state.fold ? "fold" : "unfold"}
+                    exact
+                    to="/about/team"
+                    onClick={this.setFold}
+                  >
+                    <span>The Team</span>
+                  </NavLink>
+                </div>
+              </div>
+            </Parallax>
+          </li>
+          <li>
+            <Parallax offsetYMax="15px" offsetYMin="-15px">
+              <NavLink
+                activeClassName="active"
+                className={this.state.fold ? "fold" : "unfold"}
+                exact
+                to="/governance"
+                onClick={this.setFold}
+              >
+                <span>GOVERNANCE</span>
+              </NavLink>
+            </Parallax>
           </li>
           <li>
             <div className="about_drop_wrap">

@@ -12,7 +12,7 @@ class HomeMain extends Component {
     this.page2 = React.createRef();
     this.page3 = React.createRef();
   }
-  scrollToRef = ref => ref.current.scrollIntoView({ behavior: "smooth" }); //window.scrollTo(0, ref.current.offsetTop);
+  scrollToRef = ref => ref.current.scrollIntoView({ behavior: "smooth" });
   render() {
     /*
         <Navbar pathname={this.props.location.pathname} 
