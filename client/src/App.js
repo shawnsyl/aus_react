@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import {
   Switch,
   BrowserRouter as Router,
@@ -19,12 +18,13 @@ import Register from "./components/Register";
 
 import { Provider } from "react-redux";
 import store from "./store";
+import { ParallaxProvider, Parallax } from "react-scroll-parallax";
 
 import "./App.css";
 class App extends React.Component {
   render() {
     return (
-      <Provider store={store}>
+      <ParallaxProvider>
         <Router>
           <div className="App">
             <MyNavbar />
@@ -81,7 +81,7 @@ class App extends React.Component {
             <Footer />
           </div>
         </Router>
-      </Provider>
+      </ParallaxProvider>
     );
   }
 }
