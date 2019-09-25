@@ -39,39 +39,37 @@ class MyNavbar extends React.PureComponent {
             </Parallax>
           </li>
           <li>
-            <Parallax offsetYMax="10px" offsetYMin="-10px">
-              <div className="about_drop_wrap">
+            <div className="about_drop_wrap">
+              <NavLink
+                activeClassName="active"
+                className={this.state.fold ? "fold" : "unfold"}
+                to="/about"
+                onClick={this.setFold}
+              >
+                <span>ABOUT</span>
+              </NavLink>
+              <div className="about_drop_content">
                 <NavLink
                   activeClassName="active"
                   className={this.state.fold ? "fold" : "unfold"}
-                  to="/about"
+                  exact
+                  to="/about/handbook"
                   onClick={this.setFold}
                 >
-                  <span>ABOUT</span>
+                  <span>AUS Handbook</span>
                 </NavLink>
-                <div className="about_drop_content">
-                  <NavLink
-                    activeClassName="active"
-                    className={this.state.fold ? "fold" : "unfold"}
-                    exact
-                    to="/about/handbook"
-                    onClick={this.setFold}
-                  >
-                    <span>AUS Handbook</span>
-                  </NavLink>
 
-                  <NavLink
-                    activeClassName="active"
-                    className={this.state.fold ? "fold" : "unfold"}
-                    exact
-                    to="/about/team"
-                    onClick={this.setFold}
-                  >
-                    <span>The Team</span>
-                  </NavLink>
-                </div>
+                <NavLink
+                  activeClassName="active"
+                  className={this.state.fold ? "fold" : "unfold"}
+                  exact
+                  to="/about/team"
+                  onClick={this.setFold}
+                >
+                  <span>The Team</span>
+                </NavLink>
               </div>
-            </Parallax>
+            </div>
           </li>
           <li>
             <Parallax offsetYMax="15px" offsetYMin="-15px">

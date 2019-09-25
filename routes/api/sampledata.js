@@ -17,6 +17,7 @@ router.route("/:monthNo-:dayNo").get(function(req, res) {
   let monthNo = req.params.monthNo.split(":")[1];
   let dayNo = req.params.dayNo.split(":")[1];
   Events.find({ $and: [{ day: dayNo, month: monthNo }] }, function(err, event) {
+    console.log(event);
     res.json(event);
   });
 });

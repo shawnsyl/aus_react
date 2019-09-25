@@ -15,6 +15,7 @@ import GovernanceMain from "./views/GovernanceMain.js";
 import Footer from "./components/Footer.js";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import axios from "axios";
 
 import { Provider } from "react-redux";
 import store from "./store";
@@ -22,6 +23,34 @@ import { ParallaxProvider } from "react-scroll-parallax";
 
 import "./App.css";
 class App extends React.Component {
+  componentDidMount() {
+    axios
+      .get("http://localhost:5000/calendar/")
+      .then(response => {
+        console.log("GET to /calendar success!");
+        if (response.data.length === 0) {
+          console.log("no data");
+        } else {
+          console.log(response.data);
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+    axios
+      .get("http://localhost:5000/calendar/:" + "9" + "-:" + "1")
+      .then(response => {
+        console.log("GET to /calendar/dates success!");
+        if (response.data.length === 0) {
+          console.log("oops");
+        } else {
+          console.log(response.data);
+        }
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
   render() {
     return (
       <ParallaxProvider>
