@@ -364,15 +364,16 @@
 }
 
 .page3 .events_container .day_detail {
+  // 1294 by 665
   position: static;
   top: 450px;
   border-radius: 50%;
   background-color: #fde05b;
   text-align: left;
-  width: 1002px;
-  height: 1002px;
+  width: 77.28vw; //1002px;
+  height: 77.28vw;
   box-shadow: 15px 15px 6px rgba(43, 42, 42, 0.3);
-  margin-left: -470px;
+  margin-left: -36.32vw; //-470px
   z-index: 777;
   flex-shrink: 0;
   h1,
@@ -383,18 +384,18 @@
   }
   h1 {
     margin-top: 170px;
-    font-size: 36px;
+    font-size: 5.41vh; //36px;
     letter-spacing: 0.1em;
-    margin-bottom: 25px;
+    margin-bottom: 3.76vh; //25px;
   }
   h2 {
-    font-size: 24px;
+    font-size: 3.61vh; //24px;
     font-weight: bold;
     letter-spacing: 0.05em;
-    margin-bottom: 25px;
+    margin-bottom: 3.76vh; //25px;
   }
   p {
-    font-size: 24px;
+    font-size: 3.61vh; //24px;
     letter-spacing: 0.05em;
   }
   .transparent {

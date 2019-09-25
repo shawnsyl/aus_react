@@ -12,12 +12,10 @@ class Button extends Component {
 
   handleHoverOn(e) {
     this.setState({ hover: true });
-    console.log("On");
   }
 
   handleHoverOff(e) {
     this.setState({ hover: false });
-    console.log("Off");
   }
 
   render() {
