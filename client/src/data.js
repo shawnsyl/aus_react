@@ -1,4 +1,4 @@
-export const homeEventData = {
+/*export const homeEventData = {
   events: [
     {
       index: 0,
@@ -63,7 +63,7 @@ export const calendarEventData = {
       year: "2019"
     }
   ]
-};
+};*/
 
 export const candidatePlatforms = {
   president: [
