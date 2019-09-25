@@ -91,7 +91,7 @@ export const candidatePlatforms = {
           "Highlight clubs’ and students’ successes to generate excitement and pride within the Arts community"
         ]
       ],
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Kat.jpg"),
+      pic: require("./imgs/about/AUS - Kat.jpg"),
       scaleX: 1.25
     },
     {
@@ -111,7 +111,7 @@ export const candidatePlatforms = {
           "Implement a year long initiative to support a local organization through the AUS platform"
         ]
       ],
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Bailey.jpg"),
+      pic: require("./imgs/about/AUS - Bailey.jpg"),
       scaleY: 1.508,
       marginTop: "50px"
     },
@@ -120,7 +120,7 @@ export const candidatePlatforms = {
       class: "Anila-Chowdhury",
       mainPlatform:
         "Hello my fellow Arts peers! I am a third-year history major and commerce minor with a passion for community engagement. My journey with the AUS began as a naive First-Year Committee member and evolved to include the duties of Philanthropy Coordinator, Associate VP External, stARTup Coordinator and VP External. My experiences outside the AUS include leadership roles in the Panhellenic Council, Global Lounge, Annual Giving Call Centre, Bangladesh Student Association and Period UBC. This year, I want to combine my plethora of past experiences to serve the diverse needs of the mammoth entity that is the Arts student body. I aspire to serve you as your president so that I can champion the voices of Arts students, bolster student leadership among members of the Arts community, cultivate an impact-driven culture, and spread Arts pride! I hope to bring our massive community a little closer and have the AUS serve as the Arts home base. I can’t wait to serve you and help you make the most of your UBC experience! To find out more about my platform, please visit: https://www.facebook.com/events/2256921507895602/",
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Kat.jpg"),
+      pic: require("./imgs/about/AUS - Kat.jpg"),
       scaleX: 1.25
     }
   ],
@@ -130,7 +130,7 @@ export const candidatePlatforms = {
       class: "Cassandra-Shayne-Avanzado",
       mainPlatform:
         "My name is Casandra Avanzado and I am running to be your next Vice President of Student Life for the AUS. I am a fourth-year Cognitive Systems major in Psychology. I want to represent YOU as the largest undergraduate society student life portfolio at UBC. As the current Social Director for Student Life, I have worked with the current VP Student Life to enhance the student experience of Arts students. It allowed me to gain experience in the logistical implementation of social life events from a large-scale annual gala to talent shows. I plan to influence the student body through advocating for three core values on my platform: Conscientiousness, Accountability, and Student Experience. I’d like to put student consultation at the forefront, hold preventative accountability on the executive team, and focus on planning events that enrich your personal and academic lives. I am confident that my keen eye for detail, passion for event planning, and commitment to the Arts faculty makes me perfectly qualified to be your next VP Student Life. If elected, I promise to work tirelessly and endlessly to enhance your student experience and to represent you as your next VP Student Life.",
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Cas.jpg"),
+      pic: require("./imgs/about/AUS - Cas.jpg"),
       scaleY: 1.12
     }
   ],
@@ -140,7 +140,7 @@ export const candidatePlatforms = {
       class: "Kana-Saarni",
       mainPlatform:
         "Hi! My name is Kana Saarni and I'm a third year Political Science major and am running to be your next AUS VP Academic. Besides being an arts student, I have a passion for photography/videography, ramen, and mental health advocacy/discourse. Having spent the past 2 years within the AUS, and specifically under the Academic Portfolio, I have an understanding of the inner-workings of the team and a passion towards the work that happens within. Going forward within the Academic Portfolio, I would hope to work on mental health advocacy and understanding within the faculty of arts, as well as searching for new ways to open up dialogue about wellness resources. I also hope to search for new pathways for tutoring services, and be the bridge between academic success and professional opportunities for arts students. Lastly, I would like to advocate for academic life and social balance, through the introduction of workshops and resources in relation to university life. I have a lot of exciting things that I would hope to work on as your VP Academic and am committed to the improvement of arts faculty relations!",
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Kana.jpg"),
+      pic: require("./imgs/about/AUS - Kana.jpg"),
       marginTop: "50px",
       scale: [1.005, 1.5]
     },
@@ -149,7 +149,7 @@ export const candidatePlatforms = {
       class: "Matthew-Ho",
       mainPlatform:
         "Hi, I’m Mathew Ho, and I’m running for VP Academic in the AUS Elections. I hope to use my experience in the Faculty of Arts Council, and the AUS as a 3rd year rep, and my experience as part of RHA to improve and rethink current AUS approaches to academic support and representation for students. In short, I will:",
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Kat.jpg"),
+      pic: require("./imgs/about/AUS - Kat.jpg"),
       scaleX: 1.25,
       numList: [
         "Revive the Social Sciences and Humanities conference by expanding presentation mediums",
@@ -165,7 +165,7 @@ export const candidatePlatforms = {
       class: "Pengcheng-Feng",
       mainPlatform:
         "I'm Peter Fang, and I’m running to be your next Vice President of Administration for the UBC Arts Undergraduate Society! As the current AUS outreach director, I executed various outreach initiatives such as the student feedback surveys, arts week promotion strategy, and multiple external collaborations with Superstore and UBC FilmSoc. My campus leadership experience also includes Arts Peer Academic Coach (APAC), Reading Week Student leader, and ORICE Action team. I’m running for this position because I believe by building a more efficient and cohesive internal structure, AUS as an organization will deliver on its goals for greater transparency with its constituents, strengthen existing relationship with departmental club, and create a safe and inclusive space for all Arts students to grow their leadership experiences.\nMy platform includes:",
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Peter.jpg"),
+      pic: require("./imgs/about/AUS - Peter.jpg"),
       list: [
         "Meekison Arts Student Space (MASS) Maintenance Project",
         "Re-structuring online MASS Booking/Locker rental with VP Engagement",
@@ -181,7 +181,7 @@ export const candidatePlatforms = {
       class: "Michelle-Choi",
       mainPlatform:
         "❤️✨ Hello, beautiful people of Arts! ✨❤️\n My name is Michelle Choi, running to become your VP Engagement. I worked as the AUS first-year rep this year and I realized my passion—helping build an intimate relationship between the ARTS constituency and AUS. In order to boost the communication of our student government, I want to:",
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Michelle.jpg"),
+      pic: require("./imgs/about/AUS - Michelle.jpg"),
       scaleY: 1.196,
       list: [
         "Increase AUS presence with MERCH!",
@@ -214,7 +214,7 @@ export const candidatePlatforms = {
           "Ensures events run smoothly, securing career connections for more Arts students"
         ]
       ],
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Nealie.jpg"),
+      pic: require("./imgs/about/AUS - Nealie.jpg"),
       scaleX: 1.3,
       subPlatform: "Thank you! Your VOTE matters"
     }
@@ -225,7 +225,7 @@ export const candidatePlatforms = {
       class: "Ali-Ahmadi",
       mainPlatform:
         "My Name is Ali and I am a second-year student who is planning to double major in philosophy and international relations. My first foray into the ordeals of budgeting and planning was a minor but memorable one. As a member of the Port Moody Youth Focus committee, I contributed to the coordination and budgeting of municipal events. In the past year, I had the pleasure of serving as a student-at-large representative and a member of the AUS finance committee. My role as the grant coordinator rendered the pleasure of being in contact with various council members. With the help of the VP and finance committee members, we provided financial aid to more than 12 recipients. Whether it was covering operational or conference costs, our help lifted a huge financial burden off their shoulders. I would like to continue that tradition and help facilitate more opportunities for students and clubs to enrich their experience beyond the lecture halls. My main goal as VP finance is to not only ensure the transparent and efficient allocation of funds, but also a greater diversity among the council members who are representing the wide variety of activities organized by the largest faculty on the campus.",
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Ali.jpg"),
+      pic: require("./imgs/about/AUS - Ali.jpg"),
       scaleY: 1.83
     }
   ],
@@ -235,7 +235,7 @@ export const candidatePlatforms = {
       class: "Shadi-Saberian",
       mainPlatform:
         "Hello!\nMy name is Shadi and I am a second-year economics and political science student, running to be your AMS representative. I want to represent all my fellow arts students to ensure that we truly are getting the most out of what the AMS can provide for us. As a student myself, I understand how difficult it is to balance your social life, school and work without sacrificing your health. Therefore, I want to make sure that students are given the opportunities to create that balance and thrive in all areas of their lives.",
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Kat.jpg"),
+      pic: require("./imgs/about/AUS - Kat.jpg"),
       scaleX: 1.25
     },
     {
@@ -250,14 +250,14 @@ export const candidatePlatforms = {
       ],
       subPlatform:
         "As an AMS Rep and OCRA VP, I've been actively involved with both the Alma Mater Society and the UBC Residence Hall Association in maintaining open lines of communication with the people I represent. I've served on an array of councils and working groups in previous years, and I’m optimistic that these experiences will translate into my ability to represent you and your interests.\nMy platform predicates itself on three main pillars: Transparency, Accountability, and Efficiency. For more information, visit: https://www.facebook.com/events/2104030563044214/\nYou can email me at:  and I’ll respond within 24 hours. I hope I have your vote!",
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Kevin.jpg")
+      pic: require("./imgs/about/AUS - Kevin.jpg")
     },
     {
       name: "Kia Teimouri",
       class: "Kia-Teimouri",
       mainPlatform:
         "My name is Kia Teimouri and I’m a first-year student intending to major in Political Sciences with a minor in Economics. I’m a proud member of the faculty and a strong supporter of the AUS and its initiatives to better the experiences of its undergraduate members. I intend to push an agenda that directly reflects the needs of our student-body including initiatives around mental health and community engagement and improvements surrounding communication between executives and Arts students. Mental health impacts everybody and is a serious issue here at UBC, and I believe as students we have a duty to care for each other! This is something that I do not take lightly and will fight for, whether it be funding or simply new and creative ways to bring the Arts community together. Community engagement is also an initiative I thoroughly support, specifically by increasing the number of Arts events and creating excitement around the events to increase turnouts. Lastly, communication regarding events, extra-curricular opportunities, and the allocation of our AUS fees is something that needs to be communicated clearly from the executives to Arts students. I will push to increase overall transparency as well as expanding and facilitating this stream of information.",
-      pic: require("C:/Users/Shawn/Documents/aus_react/client/src/imgs/about/AUS - Kat.jpg"),
+      pic: require("./imgs/about/AUS - Kat.jpg"),
       scaleX: 1.25
     }
   ]
