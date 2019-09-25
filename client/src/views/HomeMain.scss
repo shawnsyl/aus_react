@@ -350,14 +350,14 @@
   position: relative;
   .arrow-up {
     position: absolute;
-    top: 740px;
-    left: 1210px;
+    top: 111.28vh;//740px;
+    left: 93.36vw;//1210px;
 
     width: 0;
     height: 0;
-    border-left: 28px solid transparent;
-    border-right: 28px solid transparent;
-    border-bottom: 28px solid #60246c;
+    border-left: 2.16vw /*28px*/ solid transparent;
+    border-right: 2.16vw /*28px*/ solid transparent;
+    border-bottom: 2.16vw /*28px*/ solid #60246c;
 
     cursor: pointer;
   }
