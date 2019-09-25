@@ -343,7 +343,7 @@
 .page3 {
   background-color: #60246c;
   width: 100%;
-  height: 800px;
+  height: 120.30vh;//800px;
   display: inline-flex;
   flex-direction: row;
   overflow: hidden;
@@ -366,7 +366,7 @@
 .page3 .events_container .day_detail {
   // 1294 by 665
   position: static;
-  top: 450px;
+  top: 67.67vh;//450px;
   border-radius: 50%;
   background-color: #fde05b;
   text-align: left;
@@ -379,8 +379,8 @@
   h1,
   h2,
   p {
-    margin-left: 500px;
-    width: 400px;
+    margin-left: 38vw;//500px;
+    width: 30.86vw;//400px;
   }
   h1 {
     margin-top: 170px;
@@ -411,8 +411,8 @@
 .page3 .calendar_zone {
   border-radius: 50%;
   background-color: white;
-  width: 1002px;
-  height: 1002px;
+  width: 77.43vw; //1002px;
+  height: 77.43vw; //1002px;
   box-shadow: -15px -15px 6px rgba(43, 42, 42, 0.3);
   flex-shrink: 0;
   margin-top: 9vh;
@@ -430,15 +430,15 @@
   }
 }
 .learn {
-  margin-left: 500px;
-  margin-top: 25px;
+  margin-left: 38vw;//500px;
+  margin-top: 3.76vh;//25px;
   height: 100%;
   transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
   transition: 0.25s;
   -webkit-transition: 0.25s;
 
-  width: 200px;
+  width: 15.43vw;//200px;
   height: 60px;
   cursor: pointer;
   perspective: 500px;
@@ -464,15 +464,18 @@
 }
 
 .page3 .calendar_container {
-  margin-left: 130px;
-  width: 680px;
+  margin-left: 10.03vw;//130px;
+  width: 52.47vw;//680px;
   h1 {
-    margin-left: 230px;
+    width:100%;
+    border:5px solid blue;
+    margin-left:0;
+    text-align:center;
   }
   table {
     height: auto;
     text-align: center;
-    font-size: 24px;
+    font-size: 3.61vh;//24px;
     border-color: transparent;
     border: none;
   }
@@ -485,13 +488,13 @@
     text-align: center;
   }
   .calendar_day {
-    height: 75px;
-    width: 100px;
+    height: 11.28vh;//75px;
+    width: 7.72vw;//100px;
     div {
       cursor: pointer;
       margin: auto;
-      height: 40px;
-      width: 50px;
+      height: 6.01vh;//40px;
+      width: 3.86vw;//50px;
       text-align: center;
       &.today {
         background-color: #fde05b;
@@ -502,31 +505,33 @@
   //background-color: #fde05b;
   //}
   .calendar_navi {
+    border: 5px solid blue;
     text-align: center;
-    margin-bottom: 25px;
-    font-size: 24px;
+    margin-bottom: 3.76vh;//25px;
+    font-size: 3.61vh;//24px;
     display: flex;
     align-items: center;
     justify-content: center;
     p {
       text-align: center;
-      width: 200px;
+      width: 15.43vw;//200px;
+
     }
     .right_arrow {
       width: 0;
       height: 0;
-      border-top: 15px solid transparent;
-      border-bottom: 15px solid transparent;
-      border-left: 15px solid black;
+      border-top: 1.16vw solid transparent;//15px solid transparent;
+      border-bottom: 1.16vw solid transparent;//15px solid transparent;
+      border-left: 1.16vw solid black;//15px solid black;
       z-index: 999;
       background-color: transparent;
     }
     .left_arrow {
       width: 0;
       height: 0;
-      border-top: 15px solid transparent;
-      border-bottom: 15px solid transparent;
-      border-right: 15px solid black;
+      border-top: 1.16vw solid transparent;//15px solid transparent;
+      border-bottom: 1.16vw solid transparent;//15px solid transparent;
+      border-right: 1.16vw solid black;//15px solid black;
       background-color: transparent;
     }
   }
