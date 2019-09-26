@@ -18,11 +18,19 @@ class FlipBook extends Component {
     this.setState({ selectedPage: e.target.id });
   };
   HandleScroll = () => {
+    console.log(
+      window.pageYOffset,
+      Scroller.isScrolledIntoView($("#footer"), 0.8)
+    );
     if (
-      window.pageYOffset >= 188 &&
+      /*window.pageYOffset >= 100 &&
       ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-      !Scroller.isScrolledIntoView($("#footer"), 0.6)
+      !*/ Scroller.isScrolledIntoView(
+        $("#footer"),
+        0.85
+      )
     ) {
+      console.log("ay");
       this.setState({
         lockLeft: "0" //lock
         //relockMargin: document.documentElement.scrollTop - 200
@@ -621,7 +629,7 @@ class FlipBook extends Component {
         <div
           ref="leftPanel"
           className={
-            this.state.lockLeft === "0" ? "left_panel_locked" : "left_panel"
+            this.state.lockLeft === "0" ? "left_panel_hide" : "left_panel"
           }
           style={
             this.state.lockLeft === "1"
@@ -693,7 +701,7 @@ class FlipBook extends Component {
         <div
           className={
             this.state.lockLeft === "0"
-              ? "line_locked"
+              ? "line"
               : this.state.lockLeft === "2"
               ? "line"
               : "line"
@@ -703,7 +711,7 @@ class FlipBook extends Component {
         <div
           className={
             this.state.lockLeft === "0"
-              ? "right_panel_locked"
+              ? "right_panel"
               : this.state.lockLeft === "2"
               ? "right_panel"
               : "right_panel"
