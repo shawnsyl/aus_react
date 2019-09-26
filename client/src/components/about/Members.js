@@ -9,7 +9,7 @@ class Members extends FlipBook {
     lockLeft: "2",
     selectedPage: "0",
     left_location: 0,
-    lockLeftPerc: 0.88
+    lockLeftPerc: 1
   };
   FlipPage = e => {
     if (window.pageYOffset >= 188) {
@@ -19,9 +19,9 @@ class Members extends FlipBook {
   };
   HandleScroll = () => {
     if (
-      window.pageYOffset >= 188 &&
-      ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-      !Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
+      /*window.pageYOffset >= 188 &&
+      ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&*/
+      Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
     ) {
       this.setState({
         lockLeft: "0",
@@ -406,11 +406,7 @@ class Members extends FlipBook {
         <div
           ref="leftPanel"
           className={
-            this.state.lockLeft === "0"
-              ? "left_panel_locked"
-              : this.state.lockLeft === "2"
-              ? "left_panel"
-              : "left_panel_relocked"
+            this.state.lockLeft === "0" ? "left_panel_hide" : "left_panel"
           }
           style={
             this.state.lockLeft === "1"
