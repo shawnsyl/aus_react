@@ -373,7 +373,7 @@ class Calendar extends Component {
             </div>
             <div className="calendar-date" />
 
-            <table className="striped calendar_tbl">
+            <table className="browser-default calendar_tbl">
               <thead>
                 <tr>{weekdayshortname}</tr>
               </thead>
