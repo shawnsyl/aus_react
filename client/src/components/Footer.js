@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./Footer.css";
+import "./Footer.scss";
 class Footer extends Component {
   state = {};
 
@@ -9,16 +9,27 @@ class Footer extends Component {
       <div id="footer">
         <div id="icons">
           <div id="fb">
-            <img src={require("../imgs/fb.png")} />
+            <a
+              href="https://www.facebook.com/ubcaus/?ref=bookmarks"
+              target="_blank"
+            >
+              <img src={require("../imgs/fb.png")} />
+            </a>
           </div>
           <div id="ig">
-            <img src={require("../imgs/ig.png")} />
+            <a href="https://www.instagram.com/ubcaus/" target="_blank">
+              <img src={require("../imgs/ig.png")} />
+            </a>
           </div>
           <div id="twit">
-            <img src={require("../imgs/twit.png")} />
+            <a href="https://twitter.com/ubcAUS" target="_blank">
+              <img src={require("../imgs/twit.png")} />
+            </a>
           </div>
-          <div id="linkedin">
-            <img src={require("../imgs/linkedin.png")} />
+          <div id="linkedin" target="_blank">
+            <a href="https://www.linkedin.com/groups/3398407/">
+              <img src={require("../imgs/linkedin.png")} />
+            </a>
           </div>
         </div>
         <div id="footer_addr">

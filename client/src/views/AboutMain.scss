@@ -7,37 +7,36 @@
   animation: fadein 1s;
   position: relative;
   width: 100vw;
-  height: 100vh;
-
+  min-height: 100vh;
   .hand {
     position: absolute;
-    width: 593px;
-    height: 603px;
-    margin-left: 77%;
+    width: 45.827vw; //593px;
+    height: 90.677vh; //603px;
+    margin-left: 77vw;
     padding: 0;
   }
   .mission_text {
     position: absolute;
     z-index: 555;
     margin: 0 auto;
-    left: 90px;
+    left: 6.955vw; //90px;
     right: 0;
     top: 8px; /* Adjust this value to move the positioned div up and down */
     h1 {
-      font-size: 72px;
+      font-size: 10.827vh; //72px;
       color: #60246c;
       font-weight: bolder;
       text-transform: uppercase;
       letter-spacing: 0.1em;
 
       transform: scale(1, 0.97);
-      margin-bottom: 45px;
+      margin-bottom: 6.767vh; //45px;
     }
     p {
-      font-size: 24px;
-      line-height: 48px;
+      font-size: 3.61vh; //24px;
+      line-height: 7.218vh; //48px;
       letter-spacing: 0.03em;
-      width: 700px;
+      width: 54.096vw; //700px;
     }
   }
 }

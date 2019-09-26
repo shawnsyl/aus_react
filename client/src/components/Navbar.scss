@@ -86,14 +86,14 @@ ul {
     visibility: hidden;
     position: absolute;
     top: 70px;
-    left: 168px;
+    left: 12.983vw; //168px;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 888;
     transition: opacity 0.4s ease-in-out;
     &.elec {
-      left: 465px;
+      left: 35.935vw; //465px;
     }
   }
   .about_drop_wrap:hover .about_drop_content {
