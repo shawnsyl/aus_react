@@ -368,7 +368,9 @@ class Calendar extends Component {
             <h1>Calendar</h1>
             <div className="calendar_navi">
               <div className="left_arrow" onClick={this.PrevMonth} />
-              <p>{this.month()} 2019</p>
+              <p>
+                {this.month()} {this.year()}
+              </p>
               <div className="right_arrow" onClick={this.NextMonth} />
             </div>
             <div className="calendar-date" />
