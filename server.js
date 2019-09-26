@@ -9,7 +9,7 @@ const path = require("path");
 //APIs
 
 const calendar = require("./routes/api/calendar");
-const users = require("./routes/api/users");
+//const users = require("./routes/api/users");
 
 //app setup
 const app = express();

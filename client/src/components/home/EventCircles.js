@@ -66,6 +66,7 @@ class EventCircles extends Component {
     console.log(this.state.events);
     return (
       <div className="events">
+        <div className="event-button-container">
         <div
           className="button_left"
           onClick={
@@ -74,13 +75,14 @@ class EventCircles extends Component {
               : () => {}
           }
         />
+        </div>
         <div className="viewer">
           <div
             className="events_slider_wrapper"
             style={{
               transform: `translateX(-${this.state.events.indexOf(
                 this.state.event
-              ) * 424}px)`
+              ) * 32.7666151}vw)`
             }}
           >
             {this.state.events.map(event => (
@@ -97,6 +99,8 @@ class EventCircles extends Component {
             ))}
           </div>
         </div>
+        
+        <div className="event-button-container">
         <div
           className="button_right"
           onClick={
@@ -106,6 +110,7 @@ class EventCircles extends Component {
               : () => {}
           }
         />
+        </div>
       </div>
     );
   }
