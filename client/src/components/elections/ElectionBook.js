@@ -7,7 +7,7 @@ class ElectionBook extends Component {
     selectedPage: "0",
     lockLeft: "2",
     relockMargin: 0,
-    lockLeftPerc: 0.7
+    lockLeftPerc: 0.9
   };
   FlipPage = e => {
     console.log(e.target.id);
@@ -15,28 +15,31 @@ class ElectionBook extends Component {
       window.scrollTo(0, 0);
     }
     if (e.target.id === "2") {
-      this.setState({ lockLeftPerc: 0.95 });
+      this.setState({ lockLeftPerc: 0.995 });
     } else {
-      this.setState({ lockLeftPerc: 0.7 });
+      this.setState({ lockLeftPerc: 0.9 });
     }
     this.setState({ selectedPage: e.target.id });
   };
   HandleScroll = () => {
     if (
-      window.pageYOffset >= 188 &&
+      /*window.pageYOffset >= 188 &&
       ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-      !Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
+      !*/ Scroller.isScrolledIntoView(
+        $("#footer"),
+        this.state.lockLeftPerc
+      )
     ) {
       this.setState({
         lockLeft: "0",
         relockMargin: document.documentElement.scrollTop - 200
       });
-    } else if (
+    } /*else if (
       ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
       Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
     ) {
       this.setState({ lockLeft: "1" }); //relock
-    } else {
+    } */ else {
       this.setState({ lockLeft: "2" }); //unlock
     }
   };
@@ -534,13 +537,7 @@ class ElectionBook extends Component {
       <div className="flipbook">
         <div
           ref="leftPanel"
-          className={
-            this.state.lockLeft === "0"
-              ? "left_panel_locked"
-              : this.state.lockLeft === "2"
-              ? "left_panel"
-              : "left_panel_relocked"
-          }
+          className={`left_panel ${this.state.lockLeft === "0" ? "hide" : ""}`}
           style={
             this.state.lockLeft === "1"
               ? { marginTop: this.state.relockMargin + "px" }
@@ -636,7 +633,7 @@ class ElectionBook extends Component {
         <div
           className={
             this.state.lockLeft === "0"
-              ? "line_locked"
+              ? "line"
               : this.state.lockLeft === "2"
               ? "line"
               : "line"
@@ -646,7 +643,7 @@ class ElectionBook extends Component {
         <div
           className={
             this.state.lockLeft === "0"
-              ? "right_panel_locked"
+              ? "right_panel"
               : this.state.lockLeft === "2"
               ? "right_panel"
               : "right_panel"

@@ -196,12 +196,12 @@ class Candidates extends ElectionBook {
         lockLeft: "0",
         relockMargin: document.documentElement.scrollTop - 200
       });
-    } else if (
+    } /*else if (
       ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
       Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
     ) {
       this.setState({ lockLeft: "1" }); //relock
-    } else {
+    } */ else {
       this.setState({ lockLeft: "2" }); //unlock
     }
   };
@@ -436,9 +436,7 @@ class Candidates extends ElectionBook {
       <div className="flipbook">
         <div
           ref="leftPanel"
-          className={
-            this.state.lockLeft === "0" ? "left_panel_hide" : "left_panel"
-          }
+          className={`left_panel ${this.state.lockLeft === "0" ? "hide" : ""}`}
           style={
             this.state.lockLeft === "1"
               ? { marginTop: this.state.relockMargin + "px" }

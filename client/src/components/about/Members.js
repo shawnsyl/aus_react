@@ -406,7 +406,7 @@ class Members extends FlipBook {
         <div
           ref="leftPanel"
           className={
-            this.state.lockLeft === "0" ? "left_panel_hide" : "left_panel"
+            this.state.lockLeft === "0" ? "left_panel hide" : "left_panel"
           }
           style={
             this.state.lockLeft === "1"
