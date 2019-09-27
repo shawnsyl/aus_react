@@ -520,15 +520,7 @@ class ElectionBook extends FlipBook {
     );
     return (
       <div className="flipbook">
-        <div
-          ref="leftPanel"
-          className="left_panel"
-          style={
-            this.state.lockLeft === "1"
-              ? { marginTop: this.state.relockMargin + "px" }
-              : {}
-          }
-        >
+        <div ref="leftPanel" className="left_panel">
           <div
             className={
               this.state.selectedPage === "0" ? "chapter purp" : "chapter"

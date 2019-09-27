@@ -208,6 +208,19 @@
       min-height: 200px;
       width: 800px;
       padding-bottom: 80px;
+      .arrow-up {
+        position: relative;
+        top: 50px; //103.76vh; //690px;
+        left: 780px; //93.51vw; //1210px;
+        width: 0;
+        height: 0;
+        border-left: 2.16vw /*28px*/ solid transparent;
+        border-right: 2.16vw /*28px*/ solid transparent;
+        border-bottom: 2.16vw /*28px*/ solid #fde05b;
+
+        cursor: pointer;
+      }
+
       h1 {
         color: black;
         font-size: 36px;

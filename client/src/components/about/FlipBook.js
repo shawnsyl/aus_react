@@ -18,6 +18,7 @@ class FlipBook extends Component {
     this.line.current.scrollIntoView({ behavior: "smooth" });
     this.setState({ selectedPage: e.target.id });
   };
+  scrollToRef = ref => ref.current.scrollIntoView({ behavior: "smooth" });
   // HandleScroll = () => {
   //   console.log(
   //     window.pageYOffset,
@@ -612,7 +613,7 @@ class FlipBook extends Component {
       </div>
     );
     return (
-      <div className="flipbook" style={{ border: "5px solid blue" }}>
+      <div className="flipbook">
         <div ref="leftPanel" className="left_panel">
           <div
             className={
@@ -682,6 +683,10 @@ class FlipBook extends Component {
           {this.state.selectedPage === "2" ? page2 : ""}
           {this.state.selectedPage === "3" ? page3 : ""}
           {this.state.selectedPage === "4" ? page4 : ""}
+          <div
+            className="arrow-up"
+            onClick={() => this.scrollToRef(this.line)}
+          />
         </div>
       </div>
     );
