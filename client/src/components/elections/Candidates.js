@@ -1,14 +1,13 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import ElectionBook from "./ElectionBook";
+import React from "react";
+
 import $ from "jquery";
-import Scroller from "../about/Scroller.js";
 import { candidatePlatforms } from "../../data";
+import FlipBook from "../about/FlipBook";
 window.$ = $;
 
 const contentful = require("contentful");
 
-class Candidates extends ElectionBook {
+class Candidates extends FlipBook {
   // getData = async () => {
   //   try {
   //     let client = contentful.createClient({
@@ -41,9 +40,8 @@ class Candidates extends ElectionBook {
     forText: "For President"
   };
   FlipPage = e => {
-    if (window.pageYOffset >= 188) {
-      window.scrollTo(0, 0);
-    }
+    e.preventDefault();
+    this.line.current.scrollIntoView({ behavior: "smooth" });
     this.setState({ selectedPage: e.target.id });
     if (e.target.id === "0") {
       //president
@@ -183,34 +181,30 @@ class Candidates extends ElectionBook {
       }
     }
   };
-  HandleScroll = () => {
-    if (
-      /*window.pageYOffset >= 188 &&
-      ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-      !*/ Scroller.isScrolledIntoView(
-        $("#footer"),
-        this.state.lockLeftPerc
-      )
-    ) {
-      this.setState({
-        lockLeft: "0",
-        relockMargin: document.documentElement.scrollTop - 200
-      });
-    } /*else if (
-      ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-      Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
-    ) {
-      this.setState({ lockLeft: "1" }); //relock
-    } */ else {
-      this.setState({ lockLeft: "2" }); //unlock
-    }
-  };
+  // HandleScroll = () => {
+  //   if (
+  //     /*window.pageYOffset >= 188 &&
+  //     ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
+  //     !*/ Scroller.isScrolledIntoView(
+  //       $("#footer"),
+  //       this.state.lockLeftPerc
+  //     )
+  //   ) {
+  //     this.setState({
+  //       lockLeft: "0",
+  //       relockMargin: document.documentElement.scrollTop - 200
+  //     });
+  //   } /*else if (
+  //     ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
+  //     Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
+  //   ) {
+  //     this.setState({ lockLeft: "1" }); //relock
+  //   } */ else {
+  //     this.setState({ lockLeft: "2" }); //unlock
+  //   }
+  // };
   componentDidMount = () => {
-    window.addEventListener("scroll", this.HandleScroll);
     this.setState({ candData: candidatePlatforms.president });
-  };
-  componentWillUnmount = () => {
-    window.removeEventListener("scroll", this.HandleScroll);
   };
   candidateSelector = candidates => {
     let selected = candidates[this.state.selectedPresId];
@@ -436,7 +430,7 @@ class Candidates extends ElectionBook {
       <div className="flipbook">
         <div
           ref="leftPanel"
-          className={`left_panel ${this.state.lockLeft === "0" ? "hide" : ""}`}
+          className="left_panel"
           style={
             this.state.lockLeft === "1"
               ? { marginTop: this.state.relockMargin + "px" }
@@ -540,27 +534,8 @@ class Candidates extends ElectionBook {
             {this.state.selectedPage === "7" ? <div className="tria" /> : ""}
           </div>
         </div>
-        <div
-          className={
-            this.state.lockLeft === "0"
-              ? "line"
-              : this.state.lockLeft === "2"
-              ? "line"
-              : "line"
-          }
-          ref="yl"
-        />
-        <div
-          className={
-            this.state.lockLeft === "0"
-              ? "right_panel"
-              : this.state.lockLeft === "2"
-              ? "right_panel"
-              : "right_panel"
-          }
-        >
-          {page}
-        </div>
+        <div className="line" ref={this.line} />
+        <div className="right_panel">{page}</div>
       </div>
     );
   }

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import $ from "jquery";
-import ReactDOM from "react-dom";
-import Scroller from "./Scroller.js";
+
 class FlipBook extends Component {
+  constructor(props) {
+    super(props);
+    this.line = React.createRef();
+  }
   state = {
     selectedPage: "0",
     selectedPositions: new Array(10).fill(false),
@@ -10,43 +12,36 @@ class FlipBook extends Component {
     relockMargin: 0,
     prevLock: false
   };
+
   FlipPage = e => {
     e.preventDefault();
-    if (window.pageYOffset >= 188) {
-      window.scrollTo(0, 0);
-    }
+    this.line.current.scrollIntoView({ behavior: "smooth" });
     this.setState({ selectedPage: e.target.id });
   };
-  HandleScroll = () => {
-    console.log(
-      window.pageYOffset,
-      Scroller.isScrolledIntoView($("#footer"), 0.8)
-    );
-    if (
-      /*window.pageYOffset >= 100 &&
-      ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-      !*/ Scroller.isScrolledIntoView(
-        $("#footer"),
-        0.85
-      )
-    ) {
-      console.log("ay");
-      this.setState({
-        lockLeft: "0" //lock
-        //relockMargin: document.documentElement.scrollTop - 200
-      });
-    } else {
-      this.setState({
-        lockLeft: "2" //unlock
-      });
-    }
-  };
-  componentDidMount = () => {
-    window.addEventListener("scroll", this.HandleScroll);
-  };
-  componentWillUnmount = () => {
-    window.removeEventListener("scroll", this.HandleScroll);
-  };
+  // HandleScroll = () => {
+  //   console.log(
+  //     window.pageYOffset,
+  //     Scroller.isScrolledIntoView($("#footer"), 0.8)
+  //   );
+  //   if (
+  //     /*window.pageYOffset >= 100 &&
+  //     ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
+  //     !*/ Scroller.isScrolledIntoView(
+  //       $("#footer"),
+  //       0.85
+  //     )
+  //   ) {
+  //     console.log("ay");
+  //     this.setState({
+  //       lockLeft: "0" //lock
+  //       //relockMargin: document.documentElement.scrollTop - 200
+  //     });
+  //   } else {
+  //     this.setState({
+  //       lockLeft: "2" //unlock
+  //     });
+  //   }
+  // };
 
   openPosition = pos => {
     const newSelPos = this.state.selectedPositions.slice();
@@ -616,27 +611,9 @@ class FlipBook extends Component {
         </div>
       </div>
     );
-    /*
-    
-            this.state.lockLeft === "0"
-              ? "left_panel_locked"
-              : this.state.lockLeft === "2"
-              ? "left_panel"
-              : "left_panel_relocked"
-    */
     return (
-      <div className="flipbook">
-        <div
-          ref="leftPanel"
-          className={
-            this.state.lockLeft === "0" ? "left_panel hide" : "left_panel"
-          }
-          style={
-            this.state.lockLeft === "1"
-              ? { marginTop: this.state.relockMargin + "px" }
-              : {}
-          }
-        >
+      <div className="flipbook" style={{ border: "5px solid blue" }}>
+        <div ref="leftPanel" className="left_panel">
           <div
             className={
               this.state.selectedPage === "0" ? "chapter purp" : "chapter"
@@ -698,25 +675,8 @@ class FlipBook extends Component {
             {this.state.selectedPage === "4" ? <div className="tria" /> : ""}
           </div>
         </div>
-        <div
-          className={
-            this.state.lockLeft === "0"
-              ? "line"
-              : this.state.lockLeft === "2"
-              ? "line"
-              : "line"
-          }
-          ref="yl"
-        />
-        <div
-          className={
-            this.state.lockLeft === "0"
-              ? "right_panel"
-              : this.state.lockLeft === "2"
-              ? "right_panel"
-              : "right_panel"
-          }
-        >
+        <div className="line" ref={this.line} />
+        <div className="right_panel">
           {this.state.selectedPage === "0" ? page0 : ""}
           {this.state.selectedPage === "1" ? page1 : ""}
           {this.state.selectedPage === "2" ? page2 : ""}

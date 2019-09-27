@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 import FlipBook from "./FlipBook";
 import $ from "jquery";
-import Scroller from "./Scroller.js";
 window.$ = $;
 class Members extends FlipBook {
   state = {
@@ -12,36 +10,30 @@ class Members extends FlipBook {
     lockLeftPerc: 1
   };
   FlipPage = e => {
-    if (window.pageYOffset >= 188) {
-      window.scrollTo(0, 0);
-    }
+    e.preventDefault();
+    this.line.current.scrollIntoView({ behavior: "smooth" });
     this.setState({ selectedPage: e.target.id });
   };
-  HandleScroll = () => {
-    if (
-      /*window.pageYOffset >= 188 &&
-      ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&!*/
-      Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
-    ) {
-      this.setState({
-        lockLeft: "0",
-        relockMargin: document.documentElement.scrollTop - 200
-      });
-    } else if (
-      ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-      Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
-    ) {
-      this.setState({ lockLeft: "1" }); //relock
-    } else {
-      this.setState({ lockLeft: "2" }); //unlock
-    }
-  };
-  componentDidMount = () => {
-    window.addEventListener("scroll", this.HandleScroll);
-  };
-  componentWillUnmount = () => {
-    window.removeEventListener("scroll", this.HandleScroll);
-  };
+  // HandleScroll = () => {
+  //   if (
+  //     /*window.pageYOffset >= 188 &&
+  //     ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&!*/
+  //     Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
+  //   ) {
+  //     this.setState({
+  //       lockLeft: "0",
+  //       relockMargin: document.documentElement.scrollTop - 200
+  //     });
+  //   } else if (
+  //     ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
+  //     Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
+  //   ) {
+  //     this.setState({ lockLeft: "1" }); //relock
+  //   } else {
+  //     this.setState({ lockLeft: "2" }); //unlock
+  //   }
+  // };
+
   render() {
     let page0 = (
       <div>
@@ -403,17 +395,7 @@ class Members extends FlipBook {
     );
     return (
       <div className="flipbook">
-        <div
-          ref="leftPanel"
-          className={
-            this.state.lockLeft === "0" ? "left_panel hide" : "left_panel"
-          }
-          style={
-            this.state.lockLeft === "1"
-              ? { marginTop: this.state.relockMargin + "px" }
-              : {}
-          }
-        >
+        <div ref="leftPanel" className="left_panel">
           <div
             className={
               this.state.selectedPage === "0" ? "chapter purp" : "chapter"
@@ -511,25 +493,8 @@ class Members extends FlipBook {
             {this.state.selectedPage === "8" ? <div className="tria" /> : ""}
           </div>
         </div>
-        <div
-          className={
-            this.state.lockLeft === "0"
-              ? "line"
-              : this.state.lockLeft === "2"
-              ? "line"
-              : "line"
-          }
-          ref="yl"
-        />
-        <div
-          className={
-            this.state.lockLeft === "0"
-              ? "right_panel"
-              : this.state.lockLeft === "2"
-              ? "right_panel"
-              : "right_panel"
-          }
-        >
+        <div className="line" ref={this.line} />
+        <div className="right_panel">
           {this.state.selectedPage === "0" ? page0 : ""}
           {this.state.selectedPage === "1" ? page1 : ""}
           {this.state.selectedPage === "2" ? page2 : ""}

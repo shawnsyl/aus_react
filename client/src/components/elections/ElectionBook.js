@@ -1,8 +1,6 @@
-import React, { Component } from "react";
-import $ from "jquery";
-import ReactDOM from "react-dom";
-import Scroller from "../about/Scroller.js";
-class ElectionBook extends Component {
+import React from "react";
+import FlipBook from "../about/FlipBook.js";
+class ElectionBook extends FlipBook {
   state = {
     selectedPage: "0",
     lockLeft: "2",
@@ -10,22 +8,15 @@ class ElectionBook extends Component {
     lockLeftPerc: 0.9
   };
   FlipPage = e => {
-    console.log(e.target.id);
-    if (window.pageYOffset >= 188) {
-      window.scrollTo(0, 0);
-    }
-    if (e.target.id === "2") {
-      this.setState({ lockLeftPerc: 0.995 });
-    } else {
-      this.setState({ lockLeftPerc: 0.9 });
-    }
+    e.preventDefault();
+    this.line.current.scrollIntoView({ behavior: "smooth" });
     this.setState({ selectedPage: e.target.id });
   };
-  HandleScroll = () => {
+  /*HandleScroll = () => {
     if (
-      /*window.pageYOffset >= 188 &&
+      window.pageYOffset >= 188 &&
       ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-      !*/ Scroller.isScrolledIntoView(
+      ! Scroller.isScrolledIntoView(
         $("#footer"),
         this.state.lockLeftPerc
       )
@@ -34,21 +25,15 @@ class ElectionBook extends Component {
         lockLeft: "0",
         relockMargin: document.documentElement.scrollTop - 200
       });
-    } /*else if (
+    } else if (
       ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
       Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
     ) {
       this.setState({ lockLeft: "1" }); //relock
-    } */ else {
+    } else {
       this.setState({ lockLeft: "2" }); //unlock
     }
-  };
-  componentDidMount = () => {
-    window.addEventListener("scroll", this.HandleScroll);
-  };
-  componentWillUnmount = () => {
-    window.removeEventListener("scroll", this.HandleScroll);
-  };
+  };*/
   render() {
     console.log(this.state.lockLeftPerc);
     let page0 = (
@@ -537,7 +522,7 @@ class ElectionBook extends Component {
       <div className="flipbook">
         <div
           ref="leftPanel"
-          className={`left_panel ${this.state.lockLeft === "0" ? "hide" : ""}`}
+          className="left_panel"
           style={
             this.state.lockLeft === "1"
               ? { marginTop: this.state.relockMargin + "px" }
@@ -630,25 +615,8 @@ class ElectionBook extends Component {
             {this.state.selectedPage === "5" ? <div className="tria" /> : ""}
           </div>
         </div>
-        <div
-          className={
-            this.state.lockLeft === "0"
-              ? "line"
-              : this.state.lockLeft === "2"
-              ? "line"
-              : "line"
-          }
-          ref="yl"
-        />
-        <div
-          className={
-            this.state.lockLeft === "0"
-              ? "right_panel"
-              : this.state.lockLeft === "2"
-              ? "right_panel"
-              : "right_panel"
-          }
-        >
+        <div className="line" ref={this.line} />
+        <div className="right_panel">
           {this.state.selectedPage === "0" ? page0 : ""}
           {this.state.selectedPage === "1" ? page1 : ""}
           {this.state.selectedPage === "2" ? page2 : ""}
