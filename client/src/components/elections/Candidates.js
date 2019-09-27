@@ -527,7 +527,13 @@ class Candidates extends FlipBook {
           </div>
         </div>
         <div className="line" ref={this.line} />
-        <div className="right_panel">{page}</div>
+        <div className="right_panel">
+          {page}
+          <div
+            className="arrow-up"
+            onClick={() => this.scrollToRef(this.line)}
+          />
+        </div>
       </div>
     );
   }

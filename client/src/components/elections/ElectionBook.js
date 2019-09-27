@@ -615,6 +615,10 @@ class ElectionBook extends FlipBook {
           {this.state.selectedPage === "3" ? page3 : ""}
           {this.state.selectedPage === "4" ? page4 : ""}
           {this.state.selectedPage === "5" ? page5 : ""}
+          <div
+            className="arrow-up"
+            onClick={() => this.scrollToRef(this.line)}
+          />
         </div>
       </div>
     );

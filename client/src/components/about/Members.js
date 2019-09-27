@@ -503,6 +503,10 @@ class Members extends FlipBook {
           {this.state.selectedPage === "5" ? page5 : ""}
           {this.state.selectedPage === "6" ? page6 : ""}
           {this.state.selectedPage === "8" ? page8 : ""}
+          <div
+            className="arrow-up"
+            onClick={() => this.scrollToRef(this.line)}
+          />
         </div>
       </div>
     );
