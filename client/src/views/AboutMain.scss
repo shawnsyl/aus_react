@@ -3,6 +3,22 @@
   flex-direction: column;
   animation: fadein 1s;
 }
+.arrow-up {
+  top: 0; //500px;
+  left: 60.51vw;
+  width: 0;
+  height: 0;
+  border-left: 2.16vw /*28px*/ solid transparent;
+  border-right: 2.16vw /*28px*/ solid transparent;
+  border-bottom: 2.16vw /*28px*/ solid #fde05b;
+
+  opacity: 0.6;
+
+  cursor: pointer;
+  &:hover {
+    opacity: 1;
+  }
+}
 .mission {
   animation: fadein 1s;
   position: relative;
@@ -103,86 +119,6 @@
         color: #60246c;
       }
     }
-    .left_panel.hide {
-      //
-      //this.state.lockLeft === "0" ? "left_panel hide" : "left_panel"
-      //
-      //className={`left_panel ${this.state.lockLeft === "0" ? "hide" : ""}`}
-      opacity: 0;
-      position: fixed; //relative;
-      text-align: right;
-      width: 400px;
-      /*transition: opacity 0.4s ease-in;
-      -ms-transition: opacity 0.4s ease-in;
-      -moz-transition: opacity 0.4s ease-in;
-      -webkit-transition: opacity 0.4s ease-in;*/
-      /*display: none;
-      visibility: hidden;*/
-    }
-    .left_panel_locked {
-      position: fixed;
-      text-align: right;
-      left: -40px;
-      top: 20px;
-      width: 400px;
-      height: 0px;
-      .chapter {
-        position: relative;
-        cursor: pointer;
-        line-height: 48px;
-        font-size: 24px;
-        width: 350px;
-        display: inline-block;
-        .tria {
-          width: 0;
-          height: 0;
-          border-top: 15px solid transparent;
-          border-bottom: 15px solid transparent;
-          border-left: 15px solid #60246c;
-          z-index: 999;
-          background-color: transparent;
-          float: right;
-          position: absolute;
-          top: 9px;
-          left: 365px;
-          cursor: pointer;
-        }
-      }
-      .chapter.purp {
-        font-weight: bold;
-        color: #60246c;
-      }
-    }
-    .left_panel_relocked {
-      position: relative;
-      text-align: right;
-      width: 400px;
-      .chapter {
-        position: relative;
-        cursor: pointer;
-        line-height: 48px;
-        font-size: 24px;
-        width: 350px;
-        display: inline-block;
-        .tria {
-          width: 0;
-          height: 0;
-          border-top: 15px solid transparent;
-          border-bottom: 15px solid transparent;
-          border-left: 15px solid #60246c;
-          z-index: 333;
-          background-color: transparent;
-          float: right;
-          position: absolute;
-          top: 9px;
-          left: 365px;
-        }
-      }
-      .chapter.purp {
-        font-weight: bold;
-        color: #60246c;
-      }
-    }
     .line {
       position: absolute;
       border-left: 5px solid #fde05b;
@@ -192,34 +128,14 @@
       //margin-left: 45px;
       //margin-top: -25px;
     }
-    .line_locked {
-      position: fixed;
-      border-left: 5px solid #fde05b;
-      /*left: 31.9vw;*/
-      left: 405px;
-      top: 0px;
-      bottom: 0;
-    }
     .right_panel {
       position: relative;
-      margin-left: 80px;
+      margin-left: 70px;
       //margin-left: 480px;
 
       min-height: 200px;
-      width: 800px;
+      width: 780px;
       padding-bottom: 80px;
-      .arrow-up {
-        position: relative;
-        top: 50px; //103.76vh; //690px;
-        left: 780px; //93.51vw; //1210px;
-        width: 0;
-        height: 0;
-        border-left: 2.16vw /*28px*/ solid transparent;
-        border-right: 2.16vw /*28px*/ solid transparent;
-        border-bottom: 2.16vw /*28px*/ solid #fde05b;
-
-        cursor: pointer;
-      }
 
       h1 {
         color: black;
@@ -304,99 +220,6 @@
         }
         .tria.flipped {
           transform: rotate(270deg);
-        }
-      }
-    }
-    .right_panel_locked {
-      position: relative;
-      margin-left: 500px;
-
-      min-height: 200px;
-      width: 800px;
-      padding-bottom: 80px;
-      h1 {
-        color: black;
-        font-size: 36px;
-        text-align: left;
-        text-transform: Capitalize;
-        letter-spacing: 0.05em;
-        margin-left: 0px;
-        margin-bottom: 25px;
-        margin-top: 0px;
-      }
-      .image-cropper {
-        width: 474px;
-        height: 474px;
-        position: relative;
-        border-radius: 50%;
-        overflow: hidden;
-        margin-bottom: 36px;
-      }
-      .my-picture {
-        width: 100%;
-        height: 100%;
-        &#kat {
-          transform: scaleX(1.25);
-        }
-        &#cas {
-          transform: scaleY(1.12);
-        }
-        &#kana {
-          margin-top: 120px;
-          transform: scale(1.5, 1.5) scaleX(0.67);
-        }
-        &#nealie {
-          transform: scaleX(1.3);
-        }
-        &#ali {
-          transform: scaleY(1.07);
-        }
-        &#bai {
-          margin-top: 120px;
-          transform: scaleY(1.508);
-        }
-      }
-      .right_content {
-        width: 100%;
-        font-size: 18px;
-        letter-spacing: 0.05em;
-        line-height: 36px;
-        transform: scale(1, 1);
-      }
-      .right_content.boldy {
-        font-weight: bold;
-      }
-      .role {
-        position: relative;
-        width: 100%;
-        h2 {
-          font-size: 20px;
-          letter-spacing: 0.05em;
-          //line-height: 36px;
-          display: inline-block;
-          margin: 5px;
-          font-weight: bold;
-        }
-        .tria {
-          width: 0;
-          height: 0;
-          border-top: 10px solid #fde05b;
-          border-left: 10px solid transparent;
-          border-right: 10px solid transparent;
-          z-index: 999;
-          background-color: transparent;
-          float: right;
-          position: relative;
-          margin-top: 5px;
-          margin-left: 3px;
-          cursor: pointer;
-        }
-        .tria.flipped {
-          transform: rotate(270deg);
-        }
-        h4 {
-          font-size: 18px;
-          font-weight: bold;
         }
       }
     }

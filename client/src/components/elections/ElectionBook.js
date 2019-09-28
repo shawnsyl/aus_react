@@ -1,4 +1,5 @@
 import React from "react";
+import { Sticky } from "react-sticky";
 import FlipBook from "../about/FlipBook.js";
 class ElectionBook extends FlipBook {
   state = {
@@ -615,10 +616,21 @@ class ElectionBook extends FlipBook {
           {this.state.selectedPage === "3" ? page3 : ""}
           {this.state.selectedPage === "4" ? page4 : ""}
           {this.state.selectedPage === "5" ? page5 : ""}
-          <div
-            className="arrow-up"
-            onClick={() => this.scrollToRef(this.line)}
-          />
+          <Sticky bottomOffset={590} height={0}>
+            {({ style }) => (
+              <div
+                style={{
+                  ...style,
+                  width: 0,
+                  height: 0,
+                  marginTop: "580px", //690px;
+                  left: "93.51vw" //1210px;
+                }}
+                className="arrow-up"
+                onClick={() => this.scrollToRef(this.line)}
+              />
+            )}
+          </Sticky>
         </div>
       </div>
     );

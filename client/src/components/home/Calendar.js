@@ -2,27 +2,22 @@ import React, { Component } from "react";
 import moment from "moment";
 import "../../../node_modules/tail.datetime/css/tail.datetime-harx-light.css";
 import axios from "axios";
+import { Client } from "../../contentfulClient";
 
 const contentful = require("contentful");
 
 class Calendar extends Component {
   getData = async () => {
     try {
-      let client = contentful.createClient({
-        // This is the space ID. A space is like a project folder in Contentful terms
-        space: "lo3yxyyk3sy6",
-        // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-        accessToken: "7NX2e5pvhNBSsYVpXrB70QMHi17l7PJLI1xozMcKf1w"
-      });
       let events = [];
-      client
-        .getEntries({ content_type: "calendarEventData" })
-        .then(response => {
+      Client.getEntries({ content_type: "calendarEventData" }).then(
+        response => {
           response.items.forEach(event => {
             events.push(event.fields);
           });
           this.setState({ data: events });
-        });
+        }
+      );
     } catch (err) {
       console.log(err);
     }

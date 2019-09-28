@@ -1,43 +1,60 @@
 import React from "react";
-
+import { Sticky } from "react-sticky";
 import $ from "jquery";
 import { candidatePlatforms } from "../../data";
 import FlipBook from "../about/FlipBook";
+import { Client } from "../../contentfulClient";
+import { MarkdownPreview } from "react-marked-markdown";
 window.$ = $;
 
 const contentful = require("contentful");
-
+const Marked = require("marked");
 class Candidates extends FlipBook {
-  // getData = async () => {
-  //   try {
-  //     let client = contentful.createClient({
-  //       // This is the space ID. A space is like a project folder in Contentful terms
-  //       space: "lo3yxyyk3sy6",
-  //       // This is the access token for this space. Normally you get both ID and the token in the Contentful web app
-  //       accessToken: "7NX2e5pvhNBSsYVpXrB70QMHi17l7PJLI1xozMcKf1w"
-  //     });
-  //     let events = [];
-  //     client
-  //       .getEntries({ content_type: "calendarEventData" })
-  //       .then(response => {
-  //         response.items.forEach(event => {
-  //           events.push(event.fields);
-  //         });
-  //         this.setState({ data: events });
-  //       });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
   state = {
-    lockLeft: "2",
     selectedPage: "0",
     left_location: 0,
     lockLeftPerc: 0.968,
     selectedPres: "",
     selectedPresId: "",
     candData: [],
-    forText: "For President"
+    forText: "For President",
+    testText: ""
+  };
+  presidentData = [];
+  vpStudentLifeData = [];
+  vpAcademicData = [];
+  vpAdminData = [];
+  vpEngagementData = [];
+  vpExternalData = [];
+  vpFinanceData = [];
+  amsRepData = [];
+  getData = async () => {
+    try {
+      let presidentCand = [],
+        vpSLCand = [],
+        vpACand = [],
+        vpAdCand = [],
+        vpECand = [],
+        vpFCand = [],
+        amsRepCand = [];
+      Client.getEntries({ content_type: "presidentCandidate" }).then(
+        response => {
+          response.items.forEach(data => {
+            console.log(data.fields);
+            this.presidentData.push(data.fields);
+          });
+          this.setState({
+            candData: this.presidentData
+          });
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  getMarkDown = text => {
+    let markup = Marked(text);
+    return { __html: markup };
   };
   FlipPage = e => {
     e.preventDefault();
@@ -46,7 +63,7 @@ class Candidates extends FlipBook {
     if (e.target.id === "0") {
       //president
       this.setState({
-        candData: candidatePlatforms.president,
+        candData: this.presidentData, //candidatePlatforms.president,
         forText: "For President"
       });
       if (candidatePlatforms.president.length > 1) {
@@ -204,7 +221,8 @@ class Candidates extends FlipBook {
   //   }
   // };
   componentDidMount = () => {
-    this.setState({ candData: candidatePlatforms.president });
+    this.getData();
+    //this.setState({ candData: candidatePlatforms.president });
   };
   candidateSelector = candidates => {
     let selected = candidates[this.state.selectedPresId];
@@ -250,53 +268,43 @@ class Candidates extends FlipBook {
     let platforms = [];
     let platformData = [];
     platformData = this.state.candData;
-    platformData.map(data => {
-      let subList = [];
-      let bullets = [];
-      let numList = [];
-      let list = [];
-      if (data.list) {
-        data.list.forEach(element => {
-          list.push(<li>{element}</li>);
-        });
-      }
-      if (data.numList) {
-        data.numList.forEach(element => {
-          numList.push(<li>{element}</li>);
-        });
-      }
-      if (data.subheaders) {
-        if (data.sublists) {
-          data.sublists.map(x => {
-            let section = [];
-            x.forEach(element => {
-              section.push(<li>{element}</li>);
-            });
-            bullets.push(section);
+    if (this.state.selectedPage !== "0") {
+      platformData.map(data => {
+        let subList = [];
+        let bullets = [];
+        let numList = [];
+        let list = [];
+        if (data.list) {
+          data.list.forEach(element => {
+            list.push(<li>{element}</li>);
           });
         }
-        data.subheaders.map((sub, ind) => {
-          subList.push(
-            <div>
-              <b>{sub}</b>
-              <ul className="browser-default">{bullets[ind]}</ul>
-              <br />
-            </div>
-          );
-        });
-      }
-      let mainPlatform = data.mainPlatform.split("\n").map((item, i) => {
-        //.replace(/\n/g, "<br />")
-        return (
-          <>
-            <p>{item}</p>
-            <br />
-          </>
-        );
-      });
-      let subPlatform = <></>;
-      if (data.subPlatform) {
-        subPlatform = data.subPlatform.split("\n").map((item, i) => {
+        if (data.numList) {
+          data.numList.forEach(element => {
+            numList.push(<li>{element}</li>);
+          });
+        }
+        if (data.subheaders) {
+          if (data.sublists) {
+            data.sublists.map(x => {
+              let section = [];
+              x.forEach(element => {
+                section.push(<li>{element}</li>);
+              });
+              bullets.push(section);
+            });
+          }
+          data.subheaders.map((sub, ind) => {
+            subList.push(
+              <div>
+                <b>{sub}</b>
+                <ul className="browser-default">{bullets[ind]}</ul>
+                <br />
+              </div>
+            );
+          });
+        }
+        let mainPlatform = data.mainPlatform.split("\n").map((item, i) => {
           //.replace(/\n/g, "<br />")
           return (
             <>
@@ -305,32 +313,60 @@ class Candidates extends FlipBook {
             </>
           );
         });
-      }
-      platforms.push(
-        <div className="right_content">
-          {mainPlatform}
-          {subList}
-          {data.numList ? (
-            <>
-              <ol className="browser-default">{numList}</ol>
-              <br />
-            </>
-          ) : (
-            ""
-          )}
-          {data.list ? (
-            <>
-              <ul className="browser-default">{list}</ul>
-              <br />
-            </>
-          ) : (
-            ""
-          )}
-          {subPlatform}
-        </div>
-      );
-    });
-    return <div>{platforms[this.state.selectedPresId]}</div>;
+        let subPlatform = <></>;
+        if (data.subPlatform) {
+          subPlatform = data.subPlatform.split("\n").map((item, i) => {
+            //.replace(/\n/g, "<br />")
+            return (
+              <>
+                <p>{item}</p>
+                <br />
+              </>
+            );
+          });
+        }
+        platforms.push(
+          <div className="right_content">
+            {mainPlatform}
+            {subList}
+            {data.numList ? (
+              <>
+                <ol className="browser-default">{numList}</ol>
+                <br />
+              </>
+            ) : (
+              ""
+            )}
+            {data.list ? (
+              <>
+                <ul className="browser-default">{list}</ul>
+                <br />
+              </>
+            ) : (
+              ""
+            )}
+            {subPlatform}
+          </div>
+        );
+      });
+      return <div>{platforms[this.state.selectedPresId]}</div>;
+    } else {
+      console.log(platformData);
+      platformData.map(data => {
+        if (data) {
+          console.log(data);
+          console.log(data.mainPlatform);
+          platforms.push(
+            <div className="right_content">
+              <MarkdownPreview value={data.mainPlatform} />
+            </div>
+            //<div className="right_content">ohmigods{data.mainPlatform}</div>
+            //dangerouslySetInnerHTML={this.getMarkDown(data.mainPlatform)}
+          ); //<ReactMarkdown source={data.mainPlatform} />;
+        }
+      });
+      return <div>{platforms[this.state.selectedPresId]}</div>;
+    }
   };
   candidateClicked = e => {
     e.preventDefault();
@@ -529,10 +565,21 @@ class Candidates extends FlipBook {
         <div className="line" ref={this.line} />
         <div className="right_panel">
           {page}
-          <div
-            className="arrow-up"
-            onClick={() => this.scrollToRef(this.line)}
-          />
+          <Sticky bottomOffset={590} height={0}>
+            {({ style }) => (
+              <div
+                style={{
+                  ...style,
+                  width: 0,
+                  height: 0,
+                  marginTop: "580px", //690px;
+                  left: "93.51vw" //1210px;
+                }}
+                className="arrow-up"
+                onClick={() => this.scrollToRef(this.line)}
+              />
+            )}
+          </Sticky>
         </div>
       </div>
     );

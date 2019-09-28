@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Sticky } from "react-sticky";
 
 class FlipBook extends Component {
   constructor(props) {
@@ -613,82 +614,96 @@ class FlipBook extends Component {
       </div>
     );
     return (
-      <div className="flipbook">
-        <div ref="leftPanel" className="left_panel">
-          <div
-            className={
-              this.state.selectedPage === "0" ? "chapter purp" : "chapter"
-            }
-            id="0"
-            onClick={e => {
-              this.FlipPage(e);
-            }}
-          >
-            AUS Mission Statement
-            {this.state.selectedPage === "0" ? <div className="tria" /> : ""}
+      <>
+        <div className="flipbook">
+          <div ref="leftPanel" className="left_panel">
+            <div
+              className={
+                this.state.selectedPage === "0" ? "chapter purp" : "chapter"
+              }
+              id="0"
+              onClick={e => {
+                this.FlipPage(e);
+              }}
+            >
+              AUS Mission Statement
+              {this.state.selectedPage === "0" ? <div className="tria" /> : ""}
+            </div>
+            <div
+              className={
+                this.state.selectedPage === "1" ? "chapter purp" : "chapter"
+              }
+              id="1"
+              onClick={e => {
+                this.FlipPage(e);
+              }}
+            >
+              Faculty of Arts
+              {this.state.selectedPage === "1" ? <div className="tria" /> : ""}
+            </div>
+            <div
+              className={
+                this.state.selectedPage === "2" ? "chapter purp" : "chapter"
+              }
+              id="2"
+              onClick={e => {
+                this.FlipPage(e);
+              }}
+            >
+              AUS Council
+              {this.state.selectedPage === "2" ? <div className="tria" /> : ""}
+            </div>
+            <div
+              className={
+                this.state.selectedPage === "3" ? "chapter purp" : "chapter"
+              }
+              id="3"
+              onClick={e => {
+                this.FlipPage(e);
+              }}
+            >
+              The Executive
+              {this.state.selectedPage === "3" ? <div className="tria" /> : ""}
+            </div>
+            <div
+              className={
+                this.state.selectedPage === "4" ? "chapter purp" : "chapter"
+              }
+              id="4"
+              onClick={e => {
+                this.FlipPage(e);
+              }}
+            >
+              Position Descriptions
+              {this.state.selectedPage === "4" ? <div className="tria" /> : ""}
+            </div>
           </div>
-          <div
-            className={
-              this.state.selectedPage === "1" ? "chapter purp" : "chapter"
-            }
-            id="1"
-            onClick={e => {
-              this.FlipPage(e);
-            }}
-          >
-            Faculty of Arts
-            {this.state.selectedPage === "1" ? <div className="tria" /> : ""}
-          </div>
-          <div
-            className={
-              this.state.selectedPage === "2" ? "chapter purp" : "chapter"
-            }
-            id="2"
-            onClick={e => {
-              this.FlipPage(e);
-            }}
-          >
-            AUS Council
-            {this.state.selectedPage === "2" ? <div className="tria" /> : ""}
-          </div>
-          <div
-            className={
-              this.state.selectedPage === "3" ? "chapter purp" : "chapter"
-            }
-            id="3"
-            onClick={e => {
-              this.FlipPage(e);
-            }}
-          >
-            The Executive
-            {this.state.selectedPage === "3" ? <div className="tria" /> : ""}
-          </div>
-          <div
-            className={
-              this.state.selectedPage === "4" ? "chapter purp" : "chapter"
-            }
-            id="4"
-            onClick={e => {
-              this.FlipPage(e);
-            }}
-          >
-            Position Descriptions
-            {this.state.selectedPage === "4" ? <div className="tria" /> : ""}
+          <div className="line" ref={this.line} />
+
+          <div className="right_panel">
+            {this.state.selectedPage === "0" ? page0 : ""}
+            {this.state.selectedPage === "1" ? page1 : ""}
+            {this.state.selectedPage === "2" ? page2 : ""}
+            {this.state.selectedPage === "3" ? page3 : ""}
+            {this.state.selectedPage === "4" ? page4 : ""}
+            <Sticky bottomOffset={590} height={0}>
+              {({ style }) => (
+                <div
+                  style={{
+                    ...style,
+                    width: 0,
+                    height: 0,
+                    marginTop: "580px", //690px;
+                    left: "93.51vw" //1210px;
+                  }}
+                  className="arrow-up"
+                  onClick={() => this.scrollToRef(this.line)}
+                />
+              )}
+            </Sticky>
           </div>
         </div>
-        <div className="line" ref={this.line} />
-        <div className="right_panel">
-          {this.state.selectedPage === "0" ? page0 : ""}
-          {this.state.selectedPage === "1" ? page1 : ""}
-          {this.state.selectedPage === "2" ? page2 : ""}
-          {this.state.selectedPage === "3" ? page3 : ""}
-          {this.state.selectedPage === "4" ? page4 : ""}
-          <div
-            className="arrow-up"
-            onClick={() => this.scrollToRef(this.line)}
-          />
-        </div>
-      </div>
+      </>
     );
   }
 }
