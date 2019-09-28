@@ -4,7 +4,7 @@ import $ from "jquery";
 import { candidatePlatforms } from "../../data";
 import FlipBook from "../about/FlipBook";
 import { Client } from "../../contentfulClient";
-import { MarkdownPreview } from "react-marked-markdown";
+//import { MarkdownPreview } from "react-marked-markdown";
 window.$ = $;
 
 const contentful = require("contentful");
@@ -30,17 +30,10 @@ class Candidates extends FlipBook {
   amsRepData = [];
   getData = async () => {
     try {
-      let presidentCand = [],
-        vpSLCand = [],
-        vpACand = [],
-        vpAdCand = [],
-        vpECand = [],
-        vpFCand = [],
-        amsRepCand = [];
+      //president
       Client.getEntries({ content_type: "presidentCandidate" }).then(
         response => {
           response.items.forEach(data => {
-            console.log(data.fields);
             this.presidentData.push(data.fields);
           });
           this.setState({
@@ -48,6 +41,58 @@ class Candidates extends FlipBook {
           });
         }
       );
+      //vp student life
+      Client.getEntries({ content_type: "vpStudentLifeCandidate" }).then(
+        response => {
+          response.items.forEach(data => {
+            this.vpStudentLifeData.push(data.fields);
+          });
+        }
+      );
+      //vp academic
+      Client.getEntries({ content_type: "vpAcademicCandidate" }).then(
+        response => {
+          response.items.forEach(data => {
+            this.vpAcademicData.push(data.fields);
+          });
+        }
+      );
+      //vp admin
+      Client.getEntries({ content_type: "vpAdminCandidate" }).then(response => {
+        response.items.forEach(data => {
+          this.vpAdminData.push(data.fields);
+        });
+      });
+      //vp engagement
+      Client.getEntries({ content_type: "vpEngagementCandidate" }).then(
+        response => {
+          response.items.forEach(data => {
+            this.vpEngagementData.push(data.fields);
+          });
+        }
+      );
+      //vp external
+      Client.getEntries({ content_type: "vpExternalCandidate" }).then(
+        response => {
+          response.items.forEach(data => {
+            this.vpExternalData.push(data.fields);
+          });
+        }
+      );
+      //vp finance
+      Client.getEntries({ content_type: "vpFinanceCandidate" }).then(
+        response => {
+          response.items.forEach(data => {
+            this.vpFinanceData.push(data.fields);
+          });
+        }
+      );
+      //amsRep
+      Client.getEntries({ content_type: "amsRepCandidate" }).then(response => {
+        response.items.forEach(data => {
+          this.amsRepData.push(data.fields);
+        });
+      });
     } catch (err) {
       console.log(err);
     }
@@ -66,133 +111,133 @@ class Candidates extends FlipBook {
         candData: this.presidentData, //candidatePlatforms.president,
         forText: "For President"
       });
-      if (candidatePlatforms.president.length > 1) {
+      if (this.presidentData.length > 1) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
         });
       } else {
         this.setState({
-          selectedPres: candidatePlatforms.president[0].name,
+          selectedPres: this.presidentData[0].name,
           selectedPresId: "0"
         });
       }
     } else if (e.target.id === "1") {
       //vp student life
       this.setState({
-        candData: candidatePlatforms.vpStudentLife,
+        candData: this.vpStudentLifeData,
         forText: "For Vice President Student Life"
       });
-      if (candidatePlatforms.vpStudentLife.length > 1) {
+      if (this.vpStudentLifeData.length > 1) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
         });
       } else {
         this.setState({
-          selectedPres: candidatePlatforms.vpStudentLife[0].name,
+          selectedPres: this.vpStudentLifeData[0].name,
           selectedPresId: "0"
         });
       }
     } else if (e.target.id === "2") {
       //vp academic
       this.setState({
-        candData: candidatePlatforms.vpAcademic,
+        candData: this.vpAcademicData,
         forText: "For Vice President Academic"
       });
-      if (candidatePlatforms.vpAcademic.length > 1) {
+      if (this.vpAcademicData.length > 1) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
         });
       } else {
         this.setState({
-          selectedPres: candidatePlatforms.vpAcademic[0].name,
+          selectedPres: this.vpAcademicData[0].name,
           selectedPresId: "0"
         });
       }
     } else if (e.target.id === "3") {
       //vp admin
       this.setState({
-        candData: candidatePlatforms.vpAdmin,
+        candData: this.vpAdminData,
         forText: "For Vice President Administration"
       });
-      if (candidatePlatforms.vpAdmin.length > 1) {
+      if (this.vpAdminData.length > 1) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
         });
       } else {
         this.setState({
-          selectedPres: candidatePlatforms.vpAdmin[0].name,
+          selectedPres: this.vpAdminData[0].name,
           selectedPresId: "0"
         });
       }
     } else if (e.target.id === "4") {
       //vp engagement
       this.setState({
-        candData: candidatePlatforms.vpEngagement,
+        candData: this.vpEngagementData,
         forText: "For Vice President Engagement"
       });
-      if (candidatePlatforms.vpEngagement.length > 1) {
+      if (this.vpEngagementData.length > 1) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
         });
       } else {
         this.setState({
-          selectedPres: candidatePlatforms.vpEngagement[0].name,
+          selectedPres: this.vpEngagementData[0].name,
           selectedPresId: "0"
         });
       }
     } else if (e.target.id === "5") {
       //vp external
       this.setState({
-        candData: candidatePlatforms.vpExternal,
+        candData: this.vpExternalData,
         forText: "For Vice President External"
       });
-      if (candidatePlatforms.vpExternal.length > 1) {
+      if (this.vpExternalData.length > 1) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
         });
       } else {
         this.setState({
-          selectedPres: candidatePlatforms.vpExternal[0].name,
+          selectedPres: this.vpExternalData[0].name,
           selectedPresId: "0"
         });
       }
     } else if (e.target.id === "6") {
       //vp finance
       this.setState({
-        candData: candidatePlatforms.vpFinance,
+        candData: this.vpFinanceData,
         forText: "For Vice President Finance"
       });
-      if (candidatePlatforms.vpFinance.length > 1) {
+      if (this.vpFinanceData.length > 1) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
         });
       } else {
         this.setState({
-          selectedPres: candidatePlatforms.vpFinance[0].name,
+          selectedPres: this.vpFinanceData[0].name,
           selectedPresId: "0"
         });
       }
     } else if (e.target.id === "7") {
       //ams rep
       this.setState({
-        candData: candidatePlatforms.amsRep,
+        candData: this.amsRepData,
         forText: "For AMS Representative"
       });
-      if (candidatePlatforms.amsRep.length > 1) {
+      if (this.amsRepData.length > 1) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
         });
       } else {
         this.setState({
-          selectedPres: candidatePlatforms.amsRep[0].name,
+          selectedPres: this.amsRepData[0].name,
           selectedPresId: "0"
         });
       }
@@ -222,7 +267,6 @@ class Candidates extends FlipBook {
   // };
   componentDidMount = () => {
     this.getData();
-    //this.setState({ candData: candidatePlatforms.president });
   };
   candidateSelector = candidates => {
     let selected = candidates[this.state.selectedPresId];
@@ -256,7 +300,9 @@ class Candidates extends FlipBook {
             width: "400px"
           }}
         >
-          {theOthers.length !== 0 ? "View Other Candidates" : ""}
+          <p className="viewothers">
+            {theOthers.length !== 0 ? "View Other Candidates" : ""}
+          </p>
           {theOthers.map(function(other) {
             return other;
           })}
@@ -268,105 +314,19 @@ class Candidates extends FlipBook {
     let platforms = [];
     let platformData = [];
     platformData = this.state.candData;
-    if (this.state.selectedPage !== "0") {
-      platformData.map(data => {
-        let subList = [];
-        let bullets = [];
-        let numList = [];
-        let list = [];
-        if (data.list) {
-          data.list.forEach(element => {
-            list.push(<li>{element}</li>);
-          });
-        }
-        if (data.numList) {
-          data.numList.forEach(element => {
-            numList.push(<li>{element}</li>);
-          });
-        }
-        if (data.subheaders) {
-          if (data.sublists) {
-            data.sublists.map(x => {
-              let section = [];
-              x.forEach(element => {
-                section.push(<li>{element}</li>);
-              });
-              bullets.push(section);
-            });
-          }
-          data.subheaders.map((sub, ind) => {
-            subList.push(
-              <div>
-                <b>{sub}</b>
-                <ul className="browser-default">{bullets[ind]}</ul>
-                <br />
-              </div>
-            );
-          });
-        }
-        let mainPlatform = data.mainPlatform.split("\n").map((item, i) => {
-          //.replace(/\n/g, "<br />")
-          return (
-            <>
-              <p>{item}</p>
-              <br />
-            </>
-          );
-        });
-        let subPlatform = <></>;
-        if (data.subPlatform) {
-          subPlatform = data.subPlatform.split("\n").map((item, i) => {
-            //.replace(/\n/g, "<br />")
-            return (
-              <>
-                <p>{item}</p>
-                <br />
-              </>
-            );
-          });
-        }
+    platformData.map(data => {
+      if (data) {
         platforms.push(
-          <div className="right_content">
-            {mainPlatform}
-            {subList}
-            {data.numList ? (
-              <>
-                <ol className="browser-default">{numList}</ol>
-                <br />
-              </>
-            ) : (
-              ""
-            )}
-            {data.list ? (
-              <>
-                <ul className="browser-default">{list}</ul>
-                <br />
-              </>
-            ) : (
-              ""
-            )}
-            {subPlatform}
-          </div>
-        );
-      });
-      return <div>{platforms[this.state.selectedPresId]}</div>;
-    } else {
-      console.log(platformData);
-      platformData.map(data => {
-        if (data) {
-          console.log(data);
-          console.log(data.mainPlatform);
-          platforms.push(
-            <div className="right_content">
-              <MarkdownPreview value={data.mainPlatform} />
-            </div>
-            //<div className="right_content">ohmigods{data.mainPlatform}</div>
-            //dangerouslySetInnerHTML={this.getMarkDown(data.mainPlatform)}
-          ); //<ReactMarkdown source={data.mainPlatform} />;
-        }
-      });
-      return <div>{platforms[this.state.selectedPresId]}</div>;
-    }
+          <div
+            className="right_content"
+            dangerouslySetInnerHTML={this.getMarkDown(data.mainPlatform)}
+          ></div>
+          //<div className="right_content">{data.mainPlatform}</div>
+          //<MarkdownPreview value={data.mainPlatform} />
+        ); //<ReactMarkdown source={data.mainPlatform} />;
+      }
+    });
+    return <>{platforms[this.state.selectedPresId]}</>;
   };
   candidateClicked = e => {
     e.preventDefault();
@@ -379,39 +339,16 @@ class Candidates extends FlipBook {
   render() {
     let presPics = [];
     let presPlatforms = this.state.candData;
-    //resize/format pic based on data.js
+    //resize/format pic based on data
     presPlatforms.map((data, ind) => {
       //set scaling of img
-
       let scale =
-        data.scaleX && data.scaleY && data.scale
-          ? {
-              transform: `scale(${data.scale[0]}, ${data.scale[1]}), scaleX(${
-                data.scaleX
-              }), scaleY(${data.scaleY})`
-            }
-          : data.scaleX && data.scaleY && !data.scale
-          ? { transform: `scaleX(${data.scaleX}), scaleY(${data.scaleY})` }
-          : data.scaleX && !data.scaleY && !data.scale
+        data.scaleX && data.scaleY
+          ? { transform: `scale(${data.scaleX}, ${data.scaleY})` }
+          : data.scaleX && !data.scaleY
           ? { transform: `scaleX(${data.scaleX})` }
-          : data.scaleY && !data.scaleX && !data.scale
+          : data.scaleY && !data.scaleX
           ? { transform: `scaleY(${data.scaleY})` }
-          : data.scaleX && !data.scaleY && data.scale
-          ? {
-              transform: `scale(${data.scale[0]}, ${data.scale[1]}), scaleX(${
-                data.scaleX
-              })`
-            }
-          : !data.scaleX && data.scaleY && data.scale
-          ? {
-              transform: `scale(${data.scale[0]}, ${data.scale[1]}), scaleY(${
-                data.scaleY
-              })`
-            }
-          : !data.scaleX && !data.scaleY && data.scale
-          ? {
-              transform: `scale(${data.scale[0]}, ${data.scale[1]})`
-            }
           : "";
       let marginTop = data.marginTop ? { marginTop: data.marginTop } : "";
       presPics.push(
@@ -429,7 +366,7 @@ class Candidates extends FlipBook {
             <img
               className={`my-picture ${data.class}`}
               id={ind.toString()}
-              src={data.pic}
+              src={"https://" + data.pic.fields.file.url}
               style={Object.assign(scale, marginTop)}
             />
           </div>

@@ -142,7 +142,8 @@ export const candidatePlatforms = {
         "Hi! My name is Kana Saarni and I'm a third year Political Science major and am running to be your next AUS VP Academic. Besides being an arts student, I have a passion for photography/videography, ramen, and mental health advocacy/discourse. Having spent the past 2 years within the AUS, and specifically under the Academic Portfolio, I have an understanding of the inner-workings of the team and a passion towards the work that happens within. Going forward within the Academic Portfolio, I would hope to work on mental health advocacy and understanding within the faculty of arts, as well as searching for new ways to open up dialogue about wellness resources. I also hope to search for new pathways for tutoring services, and be the bridge between academic success and professional opportunities for arts students. Lastly, I would like to advocate for academic life and social balance, through the introduction of workshops and resources in relation to university life. I have a lot of exciting things that I would hope to work on as your VP Academic and am committed to the improvement of arts faculty relations!",
       pic: require("./imgs/about/AUS - Kana.jpg"),
       marginTop: "50px",
-      scale: [1.005, 1.5]
+      scaleX: 1.005,
+      scaleY: 1.5
     },
     {
       name: "Matthew Ho",

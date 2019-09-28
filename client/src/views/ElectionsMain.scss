@@ -437,6 +437,17 @@
     list-style: lower-alpha;
     list-style-position: inside;
   }
+  ul li {
+    list-style: disc;
+    margin-left: 44px;
+    ul li {
+      list-style: circle;
+      margin-left: 0;
+    }
+  }
+  strong {
+    font-weight: bold;
+  }
 }
 
 h2.subh {
@@ -455,12 +466,22 @@ a {
   display: flex;
   justify-content: space-between;
   height: auto;
+  font-weight: bold;
   .others-container {
     display: flex;
     flex-direction: column;
     padding-left: 200px;
-    justify-content: space-around;
+
     align-items: center;
+    p.viewothers {
+      color: #60246c;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    p {
+      font-size: 14px;
+      margin-top: -20px;
+    }
   }
   &.zoomed {
     min-height: 500px;
@@ -469,6 +490,11 @@ a {
 .profile-container {
   text-align: center;
   width: 200px;
+  outline: 5px solid blue;
+  p {
+    margin-top: -10px;
+    font-size: 18px;
+  }
 }
 
 .my-picture {
