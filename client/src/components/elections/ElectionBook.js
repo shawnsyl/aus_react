@@ -616,7 +616,14 @@ class ElectionBook extends FlipBook {
           {this.state.selectedPage === "3" ? page3 : ""}
           {this.state.selectedPage === "4" ? page4 : ""}
           {this.state.selectedPage === "5" ? page5 : ""}
-          <Sticky bottomOffset={590} height={0}>
+          
+        </div>
+      </div>
+    );
+  }
+}
+export default ElectionBook;
+/*<Sticky bottomOffset={590} height={0}>
             {({ style }) => (
               <div
                 style={{
@@ -630,10 +637,4 @@ class ElectionBook extends FlipBook {
                 onClick={() => this.scrollToRef(this.line)}
               />
             )}
-          </Sticky>
-        </div>
-      </div>
-    );
-  }
-}
-export default ElectionBook;
+          </Sticky>*/

@@ -7,16 +7,20 @@
   //min-height: 325px;
   background: black;
   vertical-align: top;
-  display: flex;
-  align-content: space-between;
-  flex-shrink: 0;
+  //display: flex;
+  //align-content: space-between;
   min-width: 1294px;
+  white-space: nowrap;
+}
+.wrap{
+  display: inline-block;
+  margin:0;
+  vertical-align:middle;
 }
 #icons {
   width: 65px; //5.023vw; //65px;
-  margin-left: 15px; //1.1591vw; //15px;
-  margin-top: 40px; //3.091vw; //40px;
-  border: 5px solid pink;
+  //margin-left: 15px; //1.1591vw; //15px;
+  //margin-top: 40px; //3.091vw; //40px;
   display: flex;
   flex-direction: column;
   align-content: space-around;

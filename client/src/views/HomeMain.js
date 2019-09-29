@@ -17,6 +17,7 @@ class HomeMain extends Component {
     /*
         <Navbar pathname={this.props.location.pathname} 
         
+        
             <img src={require("../imgs/home/hand.png")} />/>*/
     return (
       <div className="Home">

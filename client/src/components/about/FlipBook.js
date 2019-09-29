@@ -686,21 +686,7 @@ class FlipBook extends Component {
             {this.state.selectedPage === "2" ? page2 : ""}
             {this.state.selectedPage === "3" ? page3 : ""}
             {this.state.selectedPage === "4" ? page4 : ""}
-            <Sticky bottomOffset={590} height={0}>
-              {({ style }) => (
-                <div
-                  style={{
-                    ...style,
-                    width: 0,
-                    height: 0,
-                    marginTop: "580px", //690px;
-                    left: "93.51vw" //1210px;
-                  }}
-                  className="arrow-up"
-                  onClick={() => this.scrollToRef(this.line)}
-                />
-              )}
-            </Sticky>
+            
           </div>
         </div>
       </>
@@ -708,3 +694,20 @@ class FlipBook extends Component {
   }
 }
 export default FlipBook;
+/*
+<Sticky bottomOffset={420}>
+              {({ style }) => (
+                <div
+                  style={{
+                    ...style,
+                    width: 0,
+                    height: 0,
+                    marginTop: "400px", //690px;
+                    left: "93.51vw" //1210px;
+                  }}
+                  className="arrow-up"
+                  onClick={() => this.scrollToRef(this.line)}
+                />
+              )}
+            </Sticky>
+*/

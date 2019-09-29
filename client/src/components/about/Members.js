@@ -504,7 +504,16 @@ class Members extends FlipBook {
           {this.state.selectedPage === "5" ? page5 : ""}
           {this.state.selectedPage === "6" ? page6 : ""}
           {this.state.selectedPage === "8" ? page8 : ""}
-          <Sticky bottomOffset={590} height={0}>
+          
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Members;
+/*
+<Sticky bottomOffset={590} height={0}>
             {({ style }) => (
               <div
                 style={{
@@ -519,10 +528,4 @@ class Members extends FlipBook {
               />
             )}
           </Sticky>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default Members;
+*/

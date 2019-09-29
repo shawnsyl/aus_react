@@ -5,13 +5,13 @@
   position: relative;
 }
 .arrow-up {
-  top: 0; //500px;
-  left: 60.51vw;
+  top: 500px;// 0; //500px;
+  left: 90.51vw;
   width: 0;
   height: 0;
-  border-left: 2.16vw /*28px*/ solid transparent;
-  border-right: 2.16vw /*28px*/ solid transparent;
-  border-bottom: 2.16vw /*28px*/ solid #fde05b;
+  border-left: 28px solid transparent;
+  border-right: 28px  solid transparent;
+  border-bottom: 28px  solid #fde05b;
 
   opacity: 0.6;
 
@@ -30,7 +30,8 @@
 
     position: relative;
     margin: 0;
-    margin-left: 1010.38px; //77vw; //996.38px; //77vw;
+    margin-left: auto; margin-right:0;
+    //margin-left: 77vw;//1010.38px; //77vw; //996.38px; //77vw;
     overflow: hidden;
   }
   .hand {
@@ -40,7 +41,6 @@
     padding: 0;
   }
   .mission_text {
-    outline: 5px solid pink;
     position: relative;
     width: 900px;
     height: auto;
@@ -143,10 +143,9 @@
       position: relative;
       margin-left: 70px;
       //margin-left: 480px;
-
-      min-height: 200px;
       width: 780px;
       padding-bottom: 80px;
+      min-height:416px;
 
       h1 {
         color: black;

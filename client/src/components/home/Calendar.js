@@ -307,12 +307,15 @@ class Calendar extends Component {
         <td
           className={`calendar_day ${currentDay}`}
           ref={"day_" + d.toString(10)}
+        >
+          <div 
+          className={`calendar_day ${currentDay}`}
           id={`day_${d}`}
           onClick={e => {
             this.ViewDay(e);
-          }}
-        >
+          }}>
           {d}
+          </div>
         </td>
       );
     }
@@ -337,6 +340,28 @@ class Calendar extends Component {
     let dayList = rows.map(row => {
       if (row.length > 0) return <tr>{row}</tr>;
     });
+    /*
+    <div className="calendar_zone">
+          <div className="calendar_container">
+            <h1>Calendar</h1>
+            <div className="calendar_navi">
+              <div className="left_arrow" onClick={this.PrevMonth} />
+              <p>
+                {this.month()} {this.year()}
+              </p>
+              <div className="right_arrow" onClick={this.NextMonth} />
+            </div>
+            <div className="calendar-date" />
+
+            <table className="browser-default calendar_tbl">
+              <thead>
+                <tr>{weekdayshortname}</tr>
+              </thead>
+              <tbody>{dayList}</tbody>
+            </table>
+          </div>
+        </div>
+    */
     return (
       <div className="events_container">
         <div className="day_detail">

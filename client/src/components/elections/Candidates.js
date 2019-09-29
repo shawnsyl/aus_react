@@ -502,7 +502,16 @@ class Candidates extends FlipBook {
         <div className="line" ref={this.line} />
         <div className="right_panel">
           {page}
-          <Sticky bottomOffset={590} height={0}>
+          
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Candidates;
+/*
+<Sticky bottomOffset={590} height={0}>
             {({ style }) => (
               <div
                 style={{
@@ -517,10 +526,4 @@ class Candidates extends FlipBook {
               />
             )}
           </Sticky>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default Candidates;
+*/
