@@ -43,15 +43,16 @@ ul {
   //  transition: 0.4s ease all;
 }
 #navbar #links {
+  margin-top: 40px;
+  display: flex;
+  align-items: flex-start;
+  text-align: center;
   li {
     font: Roboto;
     font-size: 20px;
     padding: 0px;
     margin-left: 0px;
-    margin-right: 3vw;
-    //display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-right: 2vw;
     text-decoration: none;
     a,
     a:visited {
@@ -72,6 +73,9 @@ ul {
   .about_drop_wrap {
     //overflow: hidden;
     text-align: center;
+    position: relative;
+    width: 180px;
+    margin-right: 0;
   }
   .about_drop_content a {
     font-weight: normal;
@@ -79,22 +83,23 @@ ul {
     padding: 20px 16px;
     display: block;
     border-bottom: 2px solid rgb(177, 177, 177);
+    background: none;
   }
   .about_drop_content {
     display: block;
+    position: absolute;
     opacity: 0;
     visibility: hidden;
-    position: absolute;
-    top: 70px;
-    left: 12.983vw; //168px;
+    top: 35px;
+    //left: 12.983vw; //168px;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 180px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 888;
     transition: opacity 0.4s ease-in-out;
-    &.elec {
-      left: 35.935vw; //465px;
-    }
+    //&.elec {
+    //left: 35.935vw; //465px;
+    //}
   }
   .about_drop_wrap:hover .about_drop_content {
     display: block;
@@ -102,6 +107,7 @@ ul {
     opacity: 1;
   }
 }
+/*
 @media only screen and (max-width: 1000px) {
   #navbar {
     i {
@@ -178,3 +184,4 @@ ul {
     }
   }
 }
+*/

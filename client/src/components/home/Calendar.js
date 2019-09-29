@@ -339,7 +339,7 @@ class Calendar extends Component {
     });
 
     let dayList = rows.map(row => {
-      return <tr>{row}</tr>;
+      if (row.length > 0) return <tr>{row}</tr>;
     });
     return (
       <div className="events_container">
