@@ -113,6 +113,7 @@ class MyNavbar extends React.PureComponent {
               className={this.state.fold ? "fold" : "unfold"}
               exact
               to="/services"
+              id="student-services"
               onClick={this.setFold}
             >
               <span>STUDENT SERVICES</span>

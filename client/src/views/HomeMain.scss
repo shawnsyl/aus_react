@@ -165,7 +165,7 @@
     letter-spacing: 0.05em;
     font-stretch: extra-condensed;
     font-weight: normal;
-    margin-top: 20px;
+    margin-top: 1.546vw; //20px;
     margin-bottom: 0;
     position: absolute;
   }
@@ -325,31 +325,15 @@
   }
 }
 
-/*
-.events_slider {
-  position: relative;
-  width: 600px;
-  margin-left: 33%;
-  &:after {
-    content: "";
-    display: block;
-    width: 273px;
-    height: 273px;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-}
-*/
-
 .page3 {
   background-color: #60246c;
-  width: 100%;
+  width: 100vw;
   height: 61.824vw; //120.3vh; //800px;
   display: inline-flex;
   flex-direction: row;
   overflow: hidden;
   position: relative;
+  padding-bottom: 100px;
   .arrow-up {
     position: absolute;
     top: 57.187vw; //111.28vh; //740px;
@@ -362,6 +346,9 @@
     border-bottom: 2.16vw /*28px*/ solid #60246c;
     opacity: 1;
     cursor: pointer;
+  }
+  .events_container {
+    width: 100vw;
   }
   .events_container .day_detail {
     // 1294 by 665
@@ -414,15 +401,15 @@
     height: 77.43vw; //1002px;
     box-shadow: -15px -15px 6px rgba(43, 42, 42, 0.3);
     flex-shrink: 0;
-    margin-top: 9vh;
+    margin-top: 4.625vw; //9vh;
     margin-left: -5vw;
 
     display: flex;
     flex-direction: column;
     h1 {
-      margin-top: 12.782vh; //85px;
-      margin-bottom: 3.008vh; //20px;
-      font-size: 7.218vh; //48px;
+      margin-top: 6.569vw; //12.782vh; //85px;
+      margin-bottom: 1.526vw; //3.008vh; //20px;
+      font-size: 3.709vw; //7.218vh; //48px;
       letter-spacing: 0.05em;
       font-weight: normal;
     }
@@ -438,40 +425,44 @@
     }
     table {
       width: 52.087vw; //674px;
-      height: 34.312vw; //444px;
-      height: auto;
+      height: 34.312vw; //30.312vh !important; //444px;
+      //height: auto;
       text-align: center;
       font-size: 1.855vw; //3.61vh; //24px;
       border-collapse: border;
     }
-    tr {
-      border: none;
-      height: 5.1vw; //66px;
-    }
     tbody {
       width: 52.087vw; //674px;
-      height: 34.312vw; //444px;
+      height: 83.33%; //15.312vw; //100%; //444px;
+    }
+    thead {
+      height: 100px;
+      width: 100%;
       tr {
-        height: 5.1vw; //66px;
+        height: 20px;
+        th {
+          font-weight: normal;
+          text-transform: uppercase;
+          text-align: center;
+          height: 0px;
+          border: 1px solid;
+        }
       }
     }
-    th {
-      font-weight: normal;
-      text-transform: uppercase;
-      text-align: center;
-    }
     .calendar_day {
-      height: 5.796vw; //11.28vh; //75px;
-      width: 7.72vw; //100px;
+      //height: 5%; //5.796vw; //11.28vh; //75px;
+      width: 14%; //7.72vw; //100px;
+      border: 1px solid;
+      text-align: center;
+      &.today {
+        background-color: #fde05b;
+      }
+
       div {
         cursor: pointer;
         margin: auto;
         height: 3.091vw; //6.01vh; //40px;
         width: 3.86vw; //50px;
-        text-align: center;
-        &.today {
-          background-color: #fde05b;
-        }
       }
     }
     //.calendar_day.today {
@@ -479,7 +470,7 @@
     //}
     .calendar_navi {
       text-align: center;
-      margin-bottom: 3.76vh; //25px;
+      margin-bottom: 1.932vw; //3.76vh; //25px;
       font-size: 1.855vw; // 3.61vh; //24px;
       display: flex;
       align-items: center;

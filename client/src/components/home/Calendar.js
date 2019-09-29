@@ -307,16 +307,12 @@ class Calendar extends Component {
         <td
           className={`calendar_day ${currentDay}`}
           ref={"day_" + d.toString(10)}
+          id={`day_${d}`}
+          onClick={e => {
+            this.ViewDay(e);
+          }}
         >
-          <div
-            id={`day_${d}`}
-            onClick={e => {
-              this.ViewDay(e);
-            }}
-            className={currentDay}
-          >
-            {d}
-          </div>
+          {d}
         </td>
       );
     }

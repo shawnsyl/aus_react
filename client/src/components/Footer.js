@@ -32,6 +32,7 @@ class Footer extends Component {
             </a>
           </div>
         </div>
+
         <div id="footer_addr">
           <img src={require("../imgs/white_logo.png")} className="logo" />
           <p>Arts Undergraduate Society, UBC</p>
@@ -40,7 +41,6 @@ class Footer extends Component {
           <p>1866 Mail Mall</p>
           <p>Vancouver, BC Canada V6T 1Z1</p>
           <p>Tel 602 822 4403</p>
-          <br />
           <p id="copyright">© 2019 BY UBC ARTS UNDERGRADUATE SOCIETY</p>
         </div>
       </div>

@@ -25,6 +25,7 @@
 }
 ul {
   margin: 0;
+  white-space: nowrap;
 }
 #navbar .logo {
   width: 90px; //60.4px;
@@ -43,17 +44,21 @@ ul {
   //  transition: 0.4s ease all;
 }
 #navbar #links {
-  margin-top: 40px;
-  display: flex;
-  align-items: flex-start;
+  width: 1200px;
+  height: 112px;
   text-align: center;
   li {
     font: Roboto;
+    display: inline-block;
     font-size: 20px;
     padding: 0px;
     margin-left: 0px;
     margin-right: 2vw;
     text-decoration: none;
+    border: 5px solid;
+    &#student-services {
+      width: 185px;
+    }
     a,
     a:visited {
       text-decoration: none;

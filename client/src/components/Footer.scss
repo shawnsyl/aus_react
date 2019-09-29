@@ -2,20 +2,21 @@
   padding: 0;
   margin: 0;
   position: relative;
-  height: 48.871vh; //325px;
-  min-height: 325px;
-  width: 100vw;
+  //height: 25.116vw; //48.871vh; //325px;
+  //width: 100vw; // 1294px;;
+  //min-height: 325px;
   background: black;
+  vertical-align: top;
   display: flex;
-  align-items: flex-start;
-  flex: 1 1 auto;
-  flex-grow: 1;
+  align-content: space-between;
+  flex-shrink: 0;
+  min-width: 1294px;
 }
-
 #icons {
-  width: 65px;
-  margin-left: 15px;
-  margin-top: 40px;
+  width: 65px; //5.023vw; //65px;
+  margin-left: 15px; //1.1591vw; //15px;
+  margin-top: 40px; //3.091vw; //40px;
+  border: 5px solid pink;
   display: flex;
   flex-direction: column;
   align-content: space-around;
@@ -29,8 +30,8 @@
 
 #fb {
   width: 77%;
-  margin-left: 7px;
-  margin-bottom: 12px;
+  margin-left: 7px; //0.54096vw; //7px;
+  margin-bottom: 12px; //0.9274vw; //12px;
 }
 
 #footer_addr {
@@ -43,7 +44,7 @@
 }
 
 #footer_addr .logo {
-  width: 10%;
+  width: 100.5px; //7.767vw; //100.5px; //10%;
   height: auto;
 }
 
@@ -51,19 +52,13 @@
   margin: 0;
   padding: 0;
   letter-spacing: 0.1em;
+  font-size: 16px; //1.236vw; //16px;
 }
 
 #copyright {
+  margin: 0;
+  padding: 0;
   font-weight: bold;
   letter-spacing: 0.2em;
-}
-
-.admin_login {
-  position: absolute;
-  top: 45vh;
-  left: 92vw;
-  color: white;
-  cursor: pointer;
-  height: auto;
-  width: auto;
+  font-size: 16px; //1.236vw; //16px;
 }

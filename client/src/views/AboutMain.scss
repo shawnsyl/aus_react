@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   animation: fadein 1s;
+  position: relative;
 }
 .arrow-up {
   top: 0; //500px;
@@ -22,37 +23,47 @@
 .mission {
   animation: fadein 1s;
   position: relative;
-  width: 100vw;
-  min-height: 100vh;
+  height: auto;
+  .hand-crop {
+    width: 284px;
+    height: 600px;
+
+    position: relative;
+    margin: 0;
+    margin-left: 1010.38px; //77vw; //996.38px; //77vw;
+    overflow: hidden;
+  }
   .hand {
     position: absolute;
-    width: 45.827vw; //593px;
-    height: 90.677vh; //603px;
-    margin-left: 77vw;
+    width: 593px; //45.827vw; //593px;
+    height: 603px; //90.677vh; //603px;
     padding: 0;
   }
   .mission_text {
-    position: absolute;
+    outline: 5px solid pink;
+    position: relative;
+    width: 900px;
+    height: auto;
     z-index: 555;
-    margin: 0 auto;
-    left: 6.955vw; //90px;
-    right: 0;
-    top: 8px; /* Adjust this value to move the positioned div up and down */
+    margin: 0;
+    margin-top: -600px; /* Adjust this value to move the positioned div up and down */
+    margin-left: 80px;
+    height: 600px;
     h1 {
-      font-size: 10.827vh; //72px;
+      font-size: 72px; //10.827vh; //72px;
       color: #60246c;
       font-weight: bolder;
       text-transform: uppercase;
       letter-spacing: 0.1em;
-
       transform: scale(1, 0.97);
       margin-bottom: 6.767vh; //45px;
+      width: 900px;
     }
     p {
-      font-size: 3.61vh; //24px;
-      line-height: 7.218vh; //48px;
+      font-size: 24px; //3.61vh; //24px;
+      line-height: 48px; //7.218vh; //48px;
       letter-spacing: 0.03em;
-      width: 54.096vw; //700px;
+      width: 700px; //54.096vw; //700px;
     }
   }
 }

@@ -11,7 +11,9 @@ class AboutMain extends Component {
       <div className="about">
         {this.props.element === "main" ? (
           <div className="mission">
-            <img className="hand" src={require("../imgs/about/hands.png")} />
+            <div className="hand-crop">
+              <img className="hand" src={require("../imgs/about/hands.png")} />
+            </div>
             <div className="mission_text">
               <h1>Mission Statement</h1>
               <p>
