@@ -9,17 +9,20 @@ const path = require("path");
 //APIs
 
 const calendar = require("./routes/api/calendar");
+const contact = require("./routes/api/contact");
 //const users = require("./routes/api/users");
 
 //app setup
 const app = express();
 app.use(cors());
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
     extended: true
   })
 );
+app.use("/api/calendar", calendar);
+app.use("/contact", contact);
 
 if (process.env.NODE_ENV === "production") {
   console.log("PROD");
@@ -43,7 +46,6 @@ const connection = mongoose.connection;
 connection.once("open", function() {
   console.log("MongoDB database connection established successfully");
 });
-app.use("/api/calendar", calendar);
 /*
 // Passport middleware
 app.use(passport.initialize());

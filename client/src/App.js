@@ -16,17 +16,18 @@ import Footer from "./components/Footer.js";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import axios from "axios";
+import { baseURL } from "./baseURL";
 
 import { Provider } from "react-redux";
 import store from "./store";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 import "./App.css";
-const baseURL = process.env.baseURL || "http://localhost:8080"
 class App extends React.Component {
   componentDidMount() {
+    /*
     axios
-      .get(baseURL+"/api/calendar")
+      .get(baseURL + "/api/calendar")
       .then(response => {
         console.log("GET to /calendar success!");
         if (response.data.length === 0) {
@@ -50,7 +51,7 @@ class App extends React.Component {
       })
       .catch(function(error) {
         console.log(error);
-      });
+      });*/
   }
   render() {
     return (
