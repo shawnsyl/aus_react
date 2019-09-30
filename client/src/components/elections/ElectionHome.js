@@ -109,7 +109,7 @@ class ElectionHome extends Component {
                 assessed by the Elections Committee.
               </p>
               <a href="/elections/complaints">
-                <button className="nom-btn">Complaint Form</button>
+                <button className="nom-btn" style= {{float: "left"}}>Complaint Form</button>
               </a>
             </div>
           </div>

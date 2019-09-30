@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 mongoose = require("mongoose");
 const passport = require("passport");
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 const MONGO_URI = require("./config/keys").mongoURI;
 const path = require("path");
 //APIs
@@ -43,7 +43,7 @@ const connection = mongoose.connection;
 connection.once("open", function() {
   console.log("MongoDB database connection established successfully");
 });
-app.use("/calendar", calendar);
+app.use("/api/calendar", calendar);
 /*
 // Passport middleware
 app.use(passport.initialize());

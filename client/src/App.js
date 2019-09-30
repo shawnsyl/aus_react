@@ -22,10 +22,11 @@ import store from "./store";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 import "./App.css";
+const baseURL = process.env.baseURL || "http://localhost:8080"
 class App extends React.Component {
   componentDidMount() {
     axios
-      .get("http://localhost:5000/calendar/")
+      .get(baseURL+"/api/calendar")
       .then(response => {
         console.log("GET to /calendar success!");
         if (response.data.length === 0) {
@@ -38,7 +39,7 @@ class App extends React.Component {
         console.log(error);
       });
     axios
-      .get("http://localhost:5000/calendar/:" + "9" + "-:" + "1")
+      .get(baseURL + "/api/calendar/:" + "9" + "-:" + "1")
       .then(response => {
         console.log("GET to /calendar/dates success!");
         if (response.data.length === 0) {

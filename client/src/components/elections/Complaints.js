@@ -109,7 +109,7 @@ class Complaints extends Component {
                 Yes
               </label>
             </div>
-            <div className="btnwrap">
+            <div className="btnwrap" style={{float:"left"}}>
               <input
                 type="submit"
                 value="Send"
