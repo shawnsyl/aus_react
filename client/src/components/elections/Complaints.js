@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import "../../views/ElectionsMain.scss";
-
+import { baseURL } from "../../baseURL";
 class Complaints extends Component {
   state = {};
+  fileHandler = e => {
+    e.preventDefault();
+    console.log(e.target.files[0]);
+  };
   HandleClick = e => {
-    console.log("Hellooww world");
     this.refs.fileUploader.click();
   };
   render() {
@@ -32,7 +35,7 @@ class Complaints extends Component {
         <p className="required">*Required</p>
         <br />
         <div id="form_wrap">
-          <form method="" action="">
+          <form id="complaint-form">
             {" "}
             {/*method needs to be post when all working*/}
             <label for="name">
@@ -90,26 +93,24 @@ class Complaints extends Component {
                 Evidence of the aforementioned violation
                 <span className="required">*</span>
               </p>
-              <div className="addfile" onClick={this.HandleClick}>
-                <p style={{ color: "blue" }}>Add File</p>
-                <input
-                  type="file"
-                  id="file"
-                  ref="fileUploader"
-                  style={{ display: "none" }}
-                />
-              </div>
+              <input
+                type="file"
+                id="file"
+                ref="fileUploader"
+                onChange={this.fileHandler}
+                style={{ marginLeft: "95px" }}
+              />
               <br />
               <p>
                 I hereby consent that all information in this form is true to
                 the best of my knowledge<span className="required">*</span>
               </p>
               <label class="container">
-                <input type="radio" name="radio" />
+                <input type="radio" name="radio" required />
                 Yes
               </label>
             </div>
-            <div className="btnwrap" style={{float:"left"}}>
+            <div className="btnwrap" style={{ float: "left" }}>
               <input
                 type="submit"
                 value="Send"
@@ -125,3 +126,11 @@ class Complaints extends Component {
 }
 
 export default Complaints;
+/*
+
+
+              <div className="addfile" onClick={this.HandleClick}>
+              <p style={{ color: "blue" }}>Add File</p>
+                <input type="file" id="file" ref="fileUploader" />
+              </div>
+*/
