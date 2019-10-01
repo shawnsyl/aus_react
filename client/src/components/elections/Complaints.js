@@ -1,11 +1,47 @@
 import React, { Component } from "react";
+import axios from "axios";
+
 import "../../views/ElectionsMain.scss";
 import { baseURL } from "../../baseURL";
+const FormData = require("form-data");
 class Complaints extends Component {
-  state = {};
+  state = {
+    selectedFile: null
+  };
+  resetForm = () => {
+    document.getElementById("complaint-form").reset();
+  };
   fileHandler = e => {
     e.preventDefault();
-    console.log(e.target.files[0]);
+    console.log(e.target.files);
+    this.setState({ selectedFile: e.target.files });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    let data = new FormData();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const candidate = document.getElementById("candidate").value;
+    const desc = document.getElementById("desc").value;
+    data.set("name", name);
+    data.set("email", email);
+    data.set("candidate", candidate);
+    data.set("desc", desc);
+    this.state.selectedFile.forEach(file => {
+      data.append("file", this.state.selectedFile);
+    });
+    axios({
+      method: "POST",
+      url: baseURL + "/send/complaint",
+      data: data
+    }).then(response => {
+      if (response.data.msg === "success") {
+        alert("Message Sent.");
+        this.resetForm();
+      } else if (response.data.msg === "fail") {
+        alert("Message failed to send.");
+      }
+    });
   };
   HandleClick = e => {
     this.refs.fileUploader.click();
@@ -35,9 +71,7 @@ class Complaints extends Component {
         <p className="required">*Required</p>
         <br />
         <div id="form_wrap">
-          <form id="complaint-form">
-            {" "}
-            {/*method needs to be post when all working*/}
+          <form id="complaint-form" onSubmit={this.handleSubmit} method="POST">
             <label for="name">
               First Name <span className="required">*</span>
             </label>{" "}
@@ -99,13 +133,14 @@ class Complaints extends Component {
                 ref="fileUploader"
                 onChange={this.fileHandler}
                 style={{ marginLeft: "95px" }}
+                multiple
               />
               <br />
               <p>
                 I hereby consent that all information in this form is true to
                 the best of my knowledge<span className="required">*</span>
               </p>
-              <label class="container">
+              <label className="container">
                 <input type="radio" name="radio" required />
                 Yes
               </label>

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
 import axios from "axios";
+
 import "./Form.css";
 import { baseURL } from "../../baseURL";
 class Form extends Component {
@@ -18,7 +18,7 @@ class Form extends Component {
     console.log(name, email, subject, message);
     axios({
       method: "POST",
-      url: baseURL + "/contact/send",
+      url: baseURL + "/send/contact",
       data: {
         name: name,
         email: email,
@@ -37,11 +37,7 @@ class Form extends Component {
   render() {
     return (
       <div id="form_wrap">
-        <form
-          id="contact-form"
-          onSubmit={this.handleSubmit.bind(this)}
-          method="POST"
-        >
+        <form id="contact-form" onSubmit={this.handleSubmit} method="POST">
           <input
             type="text"
             name="name"
