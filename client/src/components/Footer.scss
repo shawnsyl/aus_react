@@ -4,7 +4,7 @@
   position: relative;
   background: black;
   vertical-align: top;
-  min-width: 1294px;
+  min-width: 100%;
   white-space: nowrap;
 }
 .wrap {
@@ -74,4 +74,20 @@
   font-weight: bold;
   letter-spacing: 0.2em;
   font-size: 16px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #icons {
+    width: 100vw * 65/1294;
+  }
+  #fb {
+    margin-left: 100vw * 7/1294;
+    margin-bottom: 100vw * 12/1294;
+  }
+  #footer_addr .logo {
+    width: 100vw * 96/1294;
+  }
+  #footer_addr p {
+    font-size: 100vw * 16/1294;
+  }
 }

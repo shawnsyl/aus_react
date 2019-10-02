@@ -288,6 +288,7 @@ class Calendar extends Component {
     );
   };
   render() {
+    console.log(this.currentDay());
     let weekdayshortname = this.weekdayshort.map(day => {
       return <th key={day}>{day}</th>;
     });
@@ -299,10 +300,11 @@ class Calendar extends Component {
 
     let daysInMonth = [];
     for (let d = 1; d <= this.daysInMonth(); d++) {
-      let currentDay = d === this.currentDay() ? "today" : "";
+      let currentDay = d.toString() === this.currentDay() ? "today" : "";
       daysInMonth.push(
         <td
           className={`calendar_day ${currentDay}`}
+          id={`day_${d}`}
           ref={"day_" + d.toString(10)}
         >
           <div

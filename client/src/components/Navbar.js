@@ -19,119 +19,110 @@ class MyNavbar extends React.PureComponent {
     console.log(this.state.fold);
     return (
       <div id="navbar">
+        <div className="icon" onClick={this.setFold}>
+          <i className="fa fa-bars" />
+        </div>
         <img
           src={require("../imgs/white_logo.png")}
           className="logo"
           alt="UBC AUS Logo"
         />
-        <div className="icon" onClick={this.setFold}>
-          <i className="fa fa-bars" />
-        </div>
-        <ul id="links" className={this.state.fold ? "collapse" : "uncollapse"}>
-          <li style={{ width: "80px", marginRight: "-40px" }}>
-            <NavLink
-              activeClassName="active"
-              className="home"
-              exact
-              to="/"
-              onClick={this.setFold}
-            >
-              <span>HOME</span>
-            </NavLink>
-          </li>
-          <li style={{ marginRight: "-45px" }}>
-            <div className="about_drop_wrap">
-              <NavLink
-                activeClassName="active"
-                className={this.state.fold ? "fold" : "unfold"}
-                to="/about"
-                onClick={this.setFold}
-              >
-                <span>ABOUT</span>
+        <div id="link-container">
+          <ul
+            id="links"
+            className={this.state.fold ? "collapse" : "uncollapse"}
+          >
+            <li className="home">
+              <NavLink activeClassName="active" className="home" exact to="/">
+                <span>HOME</span>
               </NavLink>
-              <div className="about_drop_content">
+            </li>
+            <li className="about">
+              <div className="about_drop_wrap">
                 <NavLink
                   activeClassName="active"
                   className={this.state.fold ? "fold" : "unfold"}
-                  exact
-                  to="/about/handbook"
-                  onClick={this.setFold}
+                  to="/about"
                 >
-                  <span>AUS Handbook</span>
+                  <span>ABOUT</span>
                 </NavLink>
+                <div className="about_drop_content">
+                  <NavLink
+                    activeClassName="active"
+                    className={this.state.fold ? "fold" : "unfold"}
+                    exact
+                    to="/about/handbook"
+                  >
+                    <span>AUS Handbook</span>
+                  </NavLink>
 
+                  <NavLink
+                    activeClassName="active"
+                    className={this.state.fold ? "fold" : "unfold"}
+                    exact
+                    to="/about/team"
+                  >
+                    <span>The Team</span>
+                  </NavLink>
+                </div>
+              </div>
+            </li>
+            <li className="governance">
+              <Parallax offsetYMax="15px" offsetYMin="-15px">
                 <NavLink
                   activeClassName="active"
                   className={this.state.fold ? "fold" : "unfold"}
                   exact
-                  to="/about/team"
-                  onClick={this.setFold}
+                  to="/governance"
                 >
-                  <span>The Team</span>
+                  <span>GOVERNANCE</span>
                 </NavLink>
+              </Parallax>
+            </li>
+            <li className="elections">
+              <div className="about_drop_wrap">
+                <NavLink
+                  activeClassName="active"
+                  className={this.state.fold ? "parent fold" : "parent unfold"}
+                  to="/elections"
+                >
+                  <span>ELECTIONS</span>
+                </NavLink>
+                <div className="about_drop_content elec">
+                  <NavLink
+                    activeClassName="active"
+                    className={this.state.fold ? "fold" : "unfold"}
+                    exact
+                    to="/elections/candidates"
+                  >
+                    <span>Candidates</span>
+                  </NavLink>
+                </div>
               </div>
-            </div>
-          </li>
-          <li style={{ marginRight: "-28px" }}>
-            <Parallax offsetYMax="15px" offsetYMin="-15px">
+            </li>
+            <li>
               <NavLink
                 activeClassName="active"
                 className={this.state.fold ? "fold" : "unfold"}
                 exact
-                to="/governance"
-                onClick={this.setFold}
+                to="/services"
+                id="student-services"
               >
-                <span>GOVERNANCE</span>
+                <span>STUDENT SERVICES</span>
               </NavLink>
-            </Parallax>
-          </li>
-          <li>
-            <div className="about_drop_wrap" style={{ marginRight: "-10px" }}>
+            </li>
+            <li>
               <NavLink
                 activeClassName="active"
-                className={this.state.fold ? "parent fold" : "parent unfold"}
-                to="/elections"
-                onClick={this.setFold}
+                className={this.state.fold ? "fold" : "unfold"}
+                exact
+                to="/contact"
               >
-                <span>ELECTIONS</span>
+                <span>CONTACT</span>
               </NavLink>
-              <div className="about_drop_content elec">
-                <NavLink
-                  activeClassName="active"
-                  className={this.state.fold ? "fold" : "unfold"}
-                  exact
-                  to="/elections/candidates"
-                  onClick={this.setFold}
-                >
-                  <span>Candidates</span>
-                </NavLink>
-              </div>
-            </div>
-          </li>
-          <li>
-            <NavLink
-              activeClassName="active"
-              className={this.state.fold ? "fold" : "unfold"}
-              exact
-              to="/services"
-              id="student-services"
-              onClick={this.setFold}
-            >
-              <span>STUDENT SERVICES</span>
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              activeClassName="active"
-              className={this.state.fold ? "fold" : "unfold"}
-              exact
-              to="/contact"
-              onClick={this.setFold}
-            >
-              <span>CONTACT</span>
-            </NavLink>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     );
   }
