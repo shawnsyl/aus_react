@@ -4,8 +4,15 @@ class ServicesMain extends Component {
   state = {};
   render() {
     return (
-      <div>
-        <h1>Student Services</h1>
+      <div
+        style={{
+          width: "100%",
+          height: "450px",
+          backgroundColor: "#fde05b",
+          textAlign: "center"
+        }}
+      >
+        <h1 style={{ color: "#60246c" }}>Under Construction!</h1>
       </div>
     );
   }

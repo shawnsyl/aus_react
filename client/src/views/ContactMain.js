@@ -2,16 +2,21 @@ import React, { Component } from "react";
 
 import Button from "../components/contact/Button.js";
 import Form from "../components/contact/Form.js";
-import Navbar from "../components/Navbar.js";
 
 import "./ContactMain.css";
 import "../components/contact/Button.css";
 
 class ContactMain extends Component {
   render() {
-    const phone = <img src={require("../imgs/contact/phone.png")} />;
-    const email = <img src={require("../imgs/contact/email.png")} />;
-    const location = <img src={require("../imgs/contact/location.png")} />;
+    const phone = (
+      <img src={require("../imgs/contact/phone.png")} alt="phone img" />
+    );
+    const email = (
+      <img src={require("../imgs/contact/email.png")} alt="email img" />
+    );
+    const location = (
+      <img src={require("../imgs/contact/location.png")} alt="location img" />
+    );
     const call = <p>CALL US</p>;
     const emailus = <p>E-MAIL US</p>;
     const drop = <p>DROP BY</p>;
@@ -28,8 +33,6 @@ class ContactMain extends Component {
         V6T 1Z1
       </p>
     );
-
-    console.log(this.props.location);
 
     return (
       <div className="contact">

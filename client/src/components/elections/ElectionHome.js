@@ -64,7 +64,10 @@ class ElectionHome extends Component {
               <p className="community">Community</p>
               <p className="advocacy">Advocacy</p>
               <div className="hand-cropper">
-                <img src={require("../../imgs/elections/ivoted-scaled.png")} />
+                <img
+                  src={require("../../imgs/elections/ivoted-scaled.png")}
+                  alt="I Voted"
+                />
               </div>
             </div>
           </div>
@@ -109,7 +112,9 @@ class ElectionHome extends Component {
                 assessed by the Elections Committee.
               </p>
               <a href="/elections/complaints">
-                <button className="nom-btn" style= {{float: "left"}}>Complaint Form</button>
+                <button className="nom-btn" style={{ float: "left" }}>
+                  Complaint Form
+                </button>
               </a>
             </div>
           </div>

@@ -1,13 +1,11 @@
 import React from "react";
 import { Sticky } from "react-sticky";
 import $ from "jquery";
-import { candidatePlatforms } from "../../data";
 import FlipBook from "../about/FlipBook";
 import { Client } from "../../contentfulClient";
 //import { MarkdownPreview } from "react-marked-markdown";
 window.$ = $;
 
-const contentful = require("contentful");
 const Marked = require("marked");
 class Candidates extends FlipBook {
   state = {
@@ -243,28 +241,6 @@ class Candidates extends FlipBook {
       }
     }
   };
-  // HandleScroll = () => {
-  //   if (
-  //     /*window.pageYOffset >= 188 &&
-  //     ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-  //     !*/ Scroller.isScrolledIntoView(
-  //       $("#footer"),
-  //       this.state.lockLeftPerc
-  //     )
-  //   ) {
-  //     this.setState({
-  //       lockLeft: "0",
-  //       relockMargin: document.documentElement.scrollTop - 200
-  //     });
-  //   } /*else if (
-  //     ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-  //     Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
-  //   ) {
-  //     this.setState({ lockLeft: "1" }); //relock
-  //   } */ else {
-  //     this.setState({ lockLeft: "2" }); //unlock
-  //   }
-  // };
   componentDidMount = () => {
     this.getData();
   };
@@ -368,6 +344,7 @@ class Candidates extends FlipBook {
               id={ind.toString()}
               src={"https://" + data.pic.fields.file.url}
               style={Object.assign(scale, marginTop)}
+              alt="Candidate profile"
             />
           </div>
           {this.state.selectedPres !== data.name ? (
@@ -500,10 +477,7 @@ class Candidates extends FlipBook {
           </div>
         </div>
         <div className="line" ref={this.line} />
-        <div className="right_panel">
-          {page}
-          
-        </div>
+        <div className="right_panel">{page}</div>
       </div>
     );
   }

@@ -63,18 +63,17 @@ class EventCircles extends Component {
   };
 
   render() {
-    console.log(this.state.events);
     return (
       <div className="events">
         <div className="event-button-container">
-        <div
-          className="button_left"
-          onClick={
-            this.state.events.indexOf(this.state.event) !== 0
-              ? () => this.prevEvent()
-              : () => {}
-          }
-        />
+          <div
+            className="button_left"
+            onClick={
+              this.state.events.indexOf(this.state.event) !== 0
+                ? () => this.prevEvent()
+                : () => {}
+            }
+          />
         </div>
         <div className="viewer">
           <div
@@ -82,7 +81,7 @@ class EventCircles extends Component {
             style={{
               transform: `translateX(-${this.state.events.indexOf(
                 this.state.event
-              ) * 424}px)`
+              ) * 424}px)` //424px
             }}
           >
             {this.state.events.map(event => (
@@ -99,17 +98,17 @@ class EventCircles extends Component {
             ))}
           </div>
         </div>
-        
+
         <div className="event-button-container">
-        <div
-          className="button_right"
-          onClick={
-            this.state.events.indexOf(this.state.event) !==
-            this.state.events.length - 1
-              ? () => this.nextEvent()
-              : () => {}
-          }
-        />
+          <div
+            className="button_right"
+            onClick={
+              this.state.events.indexOf(this.state.event) !==
+              this.state.events.length - 1
+                ? () => this.nextEvent()
+                : () => {}
+            }
+          />
         </div>
       </div>
     );

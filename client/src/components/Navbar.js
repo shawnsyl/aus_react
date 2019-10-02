@@ -1,8 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { Parallax } from "react-scroll-parallax";
 import "./Navbar.scss";
-import { isParenthesizedExpression } from "@babel/types";
 
 class MyNavbar extends React.PureComponent {
   constructor(props) {
@@ -20,25 +19,27 @@ class MyNavbar extends React.PureComponent {
     console.log(this.state.fold);
     return (
       <div id="navbar">
-        <img src={require("../imgs/white_logo.png")} className="logo" />
+        <img
+          src={require("../imgs/white_logo.png")}
+          className="logo"
+          alt="UBC AUS Logo"
+        />
         <div className="icon" onClick={this.setFold}>
           <i className="fa fa-bars" />
         </div>
         <ul id="links" className={this.state.fold ? "collapse" : "uncollapse"}>
-          <li>
-            <Parallax offsetYMax="5px" offsetYMin="-5px">
-              <NavLink
-                activeClassName="active"
-                className={this.state.fold ? "fold" : "unfold"}
-                exact
-                to="/"
-                onClick={this.setFold}
-              >
-                <span>HOME</span>
-              </NavLink>
-            </Parallax>
+          <li style={{ width: "80px", marginRight: "-40px" }}>
+            <NavLink
+              activeClassName="active"
+              className="home"
+              exact
+              to="/"
+              onClick={this.setFold}
+            >
+              <span>HOME</span>
+            </NavLink>
           </li>
-          <li>
+          <li style={{ marginRight: "-45px" }}>
             <div className="about_drop_wrap">
               <NavLink
                 activeClassName="active"
@@ -71,7 +72,7 @@ class MyNavbar extends React.PureComponent {
               </div>
             </div>
           </li>
-          <li>
+          <li style={{ marginRight: "-28px" }}>
             <Parallax offsetYMax="15px" offsetYMin="-15px">
               <NavLink
                 activeClassName="active"
@@ -85,7 +86,7 @@ class MyNavbar extends React.PureComponent {
             </Parallax>
           </li>
           <li>
-            <div className="about_drop_wrap">
+            <div className="about_drop_wrap" style={{ marginRight: "-10px" }}>
               <NavLink
                 activeClassName="active"
                 className={this.state.fold ? "parent fold" : "parent unfold"}

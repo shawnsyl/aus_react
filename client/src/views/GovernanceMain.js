@@ -3,7 +3,21 @@ import React, { Component } from "react";
 class GovernanceMain extends Component {
   state = {};
   render() {
-    return <h1>Governance</h1>;
+    return (
+      <div
+        style={{
+          width: "100%",
+          height: "800px",
+          backgroundColor: "#fde05b",
+          textAlign: "center"
+        }}
+      >
+        {/*<div style={{ backgroundColor: "red", height: "81.25%" }}></div>*/}
+        <h1 style={{ color: "#60246c", height: "81.25%" }}>
+          Under Construction!
+        </h1>
+      </div>
+    );
   }
 }
 
