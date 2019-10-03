@@ -199,8 +199,16 @@ class Example extends React.Component {
                   </DropdownToggle>
                 </NavItem>
                 <DropdownMenu right className="about-dropdown">
-                  <DropdownItem href="/elections/candidates">
-                    Candidates
+                  <DropdownItem>
+                    <NavLink
+                      activeClassName="active"
+                      className="about"
+                      exact
+                      to="/elections/candidates"
+                      onClick={this.collapse}
+                    >
+                      Candidates
+                    </NavLink>
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>

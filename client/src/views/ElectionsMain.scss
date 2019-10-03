@@ -576,6 +576,11 @@ a {
   .image-cropper {
     width: 200px !important;
     height: 200px !important;
+    img {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
   }
 }
 
@@ -648,7 +653,7 @@ a {
         ul {
           width: 100%;
           ul {
-            width: 105%;
+            width: 110%;
           }
         }
       }

@@ -602,6 +602,7 @@
       p {
         text-align: center;
         width: 200px;
+        padding-top: 15px;
       }
       .right_arrow {
         width: 0;
@@ -664,6 +665,10 @@
 
 @media (min-width: 320px) and (max-width: 480px) {
   .page1 {
+    .arrow-down {
+      display: none;
+      visibility: hidden;
+    }
     img {
       width: 45.8426%; //593px;
       height: 46.5996908%; //603px;
@@ -696,6 +701,11 @@
     }
   }
   .page2 {
+    .arrow-up,
+    .arrow-down {
+      display: none;
+      visibility: hidden;
+    }
     .eventhead {
       font-size: 20px;
     }
@@ -750,6 +760,8 @@
   .page3 {
     height: 100vw * 800/1294;
     .arrow-up {
+      display: none;
+      visibility: hidden;
       border-left: 100vw * (28/1294) solid transparent;
       border-right: 100vw * (28/1294) solid transparent;
       border-bottom: 100vw * (28/1294) solid #fde05b;
@@ -805,6 +817,7 @@
             margin-bottom: 100vw * 20/1294;
           }
           table {
+            margin-top: -20px;
             width: 100% * 674/680;
             height: 100vw * 444/1294;
             max-height: 100vw * 444/1294;
@@ -823,10 +836,10 @@
             }
           }
           thead {
-            height: 100vw * 100/1294;
+            height: 100vw * 50/1294;
             width: 100%;
             tr {
-              height: 100vw * 10/1294;
+              height: 100vw * 1/1294;
               border-collapse: border;
               border: none;
               th {
@@ -844,20 +857,20 @@
             }
           }
           .calendar_navi {
-            margin-bottom: 100vw * 25/1294;
+            margin-bottom: 10vw * 25/1294;
             font-size: 100vw * 24/1294;
             p {
               width: 100vw * 200/1294;
             }
             .right_arrow {
-              border-top: 100vw * 15/1294 solid transparent;
-              border-bottom: 100vw * 15/1294 solid transparent;
-              border-left: 100vw * 15/1294 solid black;
+              border-top: 150vw * 15/1294 solid transparent;
+              border-bottom: 150vw * 15/1294 solid transparent;
+              border-left: 150vw * 15/1294 solid black;
             }
             .left_arrow {
-              border-top: 100vw * 15/1294 solid transparent;
-              border-bottom: 100vw * 15/1294 solid transparent;
-              border-right: 100vw * 15/1294 solid black;
+              border-top: 150vw * 15/1294 solid transparent;
+              border-bottom: 150vw * 15/1294 solid transparent;
+              border-right: 150vw * 15/1294 solid black;
             }
           }
         }
