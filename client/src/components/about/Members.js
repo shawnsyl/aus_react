@@ -14,6 +14,10 @@ class Members extends FlipBook {
     e.preventDefault();
     this.line.current.scrollIntoView({ behavior: "smooth" });
     this.setState({ selectedPage: e.target.id });
+    const side = document.getElementById("mobile-chapters");
+    side.classList.toggle("open-chap");
+    const co = document.getElementById("chapter-opener");
+    co.classList.toggle("toggled");
   };
   // HandleScroll = () => {
   //   if (
@@ -396,6 +400,13 @@ class Members extends FlipBook {
     );
     return (
       <div className="flipbook">
+        <div
+          className="chapter-opener"
+          id="chapter-opener"
+          onClick={e => {
+            this.sideOpener(e);
+          }}
+        ></div>
         <div ref="leftPanel" className="left_panel">
           <div
             className={
@@ -495,6 +506,104 @@ class Members extends FlipBook {
           </div>
         </div>
         <div className="line" ref={this.line} />
+        <div className="mobile-chapters" id="mobile-chapters">
+          <div
+            className={
+              this.state.selectedPage === "0" ? "chapter purp" : "chapter"
+            }
+            id="0"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            President
+            {this.state.selectedPage === "0" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "1" ? "chapter purp" : "chapter"
+            }
+            id="1"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President Student Life
+            {this.state.selectedPage === "1" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "2" ? "chapter purp" : "chapter"
+            }
+            id="2"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President Academic
+            {this.state.selectedPage === "2" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "3" ? "chapter purp" : "chapter"
+            }
+            id="3"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President Administration
+            {this.state.selectedPage === "3" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "4" ? "chapter purp" : "chapter"
+            }
+            id="4"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President Engagement
+            {this.state.selectedPage === "4" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "5" ? "chapter purp" : "chapter"
+            }
+            id="5"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President External
+            {this.state.selectedPage === "5" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "6" ? "chapter purp" : "chapter"
+            }
+            id="6"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President Finance
+            {this.state.selectedPage === "6" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "8" ? "chapter purp" : "chapter"
+            }
+            id="8"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Chief AMS Rep
+            {this.state.selectedPage === "8" ? <div className="tria" /> : ""}
+          </div>
+        </div>{" "}
         <div className="right_panel">
           {this.state.selectedPage === "0" ? page0 : ""}
           {this.state.selectedPage === "1" ? page1 : ""}
@@ -504,7 +613,6 @@ class Members extends FlipBook {
           {this.state.selectedPage === "5" ? page5 : ""}
           {this.state.selectedPage === "6" ? page6 : ""}
           {this.state.selectedPage === "8" ? page8 : ""}
-          
         </div>
       </div>
     );

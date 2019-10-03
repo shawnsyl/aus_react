@@ -12,6 +12,10 @@ class ElectionBook extends FlipBook {
     e.preventDefault();
     this.line.current.scrollIntoView({ behavior: "smooth" });
     this.setState({ selectedPage: e.target.id });
+    const side = document.getElementById("mobile-chapters");
+    side.classList.toggle("open-chap");
+    const co = document.getElementById("chapter-opener");
+    co.classList.toggle("toggled");
   };
   /*HandleScroll = () => {
     if (
@@ -521,6 +525,13 @@ class ElectionBook extends FlipBook {
     );
     return (
       <div className="flipbook">
+        <div
+          className="chapter-opener"
+          id="chapter-opener"
+          onClick={e => {
+            this.sideOpener(e);
+          }}
+        ></div>
         <div ref="leftPanel" className="left_panel">
           <div
             className={
@@ -609,6 +620,93 @@ class ElectionBook extends FlipBook {
           </div>
         </div>
         <div className="line" ref={this.line} />
+        <div className="mobile-chapters" id="mobile-chapters">
+          <div
+            className={
+              this.state.selectedPage === "0" ? "chapter purp" : "chapter"
+            }
+            id="0"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            The Elections Committee
+            {this.state.selectedPage === "0" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "1" ? "chapter purp" : "chapter"
+            }
+            id="1"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Candidate Bio and Photo
+            {this.state.selectedPage === "1" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "2" ? "chapter purp" : "chapter"
+            }
+            id="2"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Campaining
+            {this.state.selectedPage === "2" ? <div className="tria" /> : ""}
+            {this.state.selectedPage === "2" ? (
+              <div>
+                <ul>
+                  <li>Approval of Campaign Material</li>
+                  <li>Physical Campaign Material</li>
+                  <li>Posters</li>
+                  <li>Slates</li>
+                  <li>Campaign Reimbursements</li>
+                </ul>
+              </div>
+            ) : (
+              ""
+            )}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "3" ? "chapter purp" : "chapter"
+            }
+            id="3"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Helpful Resources
+            {this.state.selectedPage === "3" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "4" ? "chapter purp" : "chapter"
+            }
+            id="4"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Rule Violation and Complaints
+            {this.state.selectedPage === "4" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "5" ? "chapter purp" : "chapter"
+            }
+            id="5"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Election Process and Voting
+            {this.state.selectedPage === "5" ? <div className="tria" /> : ""}
+          </div>
+        </div>
         <div className="right_panel">
           {this.state.selectedPage === "0" ? page0 : ""}
           {this.state.selectedPage === "1" ? page1 : ""}
@@ -616,7 +714,6 @@ class ElectionBook extends FlipBook {
           {this.state.selectedPage === "3" ? page3 : ""}
           {this.state.selectedPage === "4" ? page4 : ""}
           {this.state.selectedPage === "5" ? page5 : ""}
-          
         </div>
       </div>
     );

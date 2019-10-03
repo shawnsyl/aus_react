@@ -597,3 +597,37 @@ a {
     transform: scaleY(1.07);
   }
 }
+@media (min-width: 320px) and (max-width: 480px) {
+  .right_content {
+    ul,
+    ol {
+      list-style-position: inside;
+    }
+    ol ol {
+      list-style: lower-alpha;
+      margin-left: 20px;
+    }
+    ul ul {
+      list-style: circle;
+      list-style-position: inside;
+      margin-left: 20px;
+    }
+    ol.alpha-list {
+      list-style: lower-alpha;
+      list-style-position: inside;
+    }
+    ul {
+      li {
+        list-style: disc;
+        margin-left: 20px;
+        width: 80%;
+        white-space: normal;
+        ul li {
+          list-style: circle;
+          margin-left: 0;
+          width: 75%;
+        }
+      }
+    }
+  }
+}

@@ -381,7 +381,7 @@
       }
       .mobile-chapters {
         width: 100% * 1294/1300;
-        margin-left: -3400vw * 40/1294;
+        margin-left: -3450vw * 40/1294;
         text-align: center;
         display: block;
         top: 50%;
@@ -408,6 +408,11 @@
       }
       .right_panel {
         margin-left: 60px;
+        width: 100%;
+        .image-cropper {
+          width: 200px;
+          height: 200px;
+        }
       }
       h1 {
         font-size: 12px;
