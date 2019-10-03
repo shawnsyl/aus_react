@@ -73,18 +73,20 @@ ul {
   margin-left: 0px;
   list-style: none;
 
-  display: -webkit-box;
+  // display: -webkit-box;
 
-  display: -ms-flexbox;
+  // display: -ms-flexbox;
 
-  display: flex;
+  // display: flex;
+  // align-items: flex-start;
 }
 #navbar #links {
   width: 100%;
+
   height: 50px;
   text-align: center;
   margin-top: 33px;
-  margin-left: -20px;
+  margin-left: -260px;
   .home {
     width: 80px;
     margin-right: -24px;
@@ -104,7 +106,7 @@ ul {
     font-size: 20px;
     padding: 0px;
     margin-left: 0px;
-
+    vertical-align: top;
     text-decoration: none;
     width: 168px;
     a,
@@ -246,7 +248,7 @@ ul {
     #links {
       height: 100vw * 50/1294;
       margin-top: 100vw * 33/1294;
-      margin-left: -100vw * 20/1294;
+      margin-left: -100vw * 260/1294;
       li {
         font-size: 100vw * 20/1294;
         width: 100vw * 168/1294;

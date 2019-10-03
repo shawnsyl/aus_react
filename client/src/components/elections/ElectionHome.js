@@ -82,7 +82,7 @@ class ElectionHome extends Component {
           {this.showExecs()}
           {this.showAmsRep()}
           <h3>Senator</h3>
-          <p>{currentCouncillors.senator}</p>
+          <p className="senator">{currentCouncillors.senator}</p>
         </div>
         <div className="nomination-proc">
           <h2>Elections Nomination Process</h2>
