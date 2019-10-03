@@ -9,6 +9,7 @@
   -webkit-animation: fadein 1s;
   animation: fadein 1s;
   position: relative;
+  width: 100%;
 }
 .arrow-up {
   top: 500px;
@@ -31,6 +32,7 @@
   animation: fadein 1s;
   position: relative;
   height: auto;
+  width: 100%;
   .hand-crop {
     width: 284px;
     height: 600px;
@@ -315,5 +317,32 @@
   to {
     color: #60246c;
     font-weight: bold;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .mission {
+    .hand-crop {
+      width: 100vw * 568/1294;
+      height: 100vw * 1200/1294;
+      .hand {
+        width: 100vw * 1186/1294;
+        height: 100vw * 1206/1294;
+      }
+    }
+    .mission_text {
+      margin-top: -100vw * 1200/1294;
+      width: 100% * 900/1294;
+      margin-left: 100vw * 80/1294;
+      h1 {
+        font-size: 36px;
+        width: 100%;
+      }
+      p {
+        font-size: 16px;
+        line-height: 32px;
+        width: 100%;
+      }
+    }
   }
 }
