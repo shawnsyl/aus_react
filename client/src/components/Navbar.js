@@ -2,18 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { Parallax } from "react-scroll-parallax";
 import "./Navbar.scss";
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
-} from "reactstrap";
 
 class MyNavbar extends React.PureComponent {
   constructor(props) {

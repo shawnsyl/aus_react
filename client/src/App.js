@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import {
   Switch,
@@ -5,7 +6,6 @@ import {
   Route
 } from "../node_modules/react-router-dom";
 import { StickyContainer, Sticky } from "react-sticky";
-import MyNavbar from "./components/Navbar.js";
 import NewNav from "./components/NewNav";
 import ContactMain from "./views/ContactMain.js";
 import AboutMain from "./views/AboutMain.js";
@@ -16,11 +16,6 @@ import GovernanceMain from "./views/GovernanceMain.js";
 import Footer from "./components/Footer.js";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import axios from "axios";
-import { baseURL } from "./baseURL";
-
-import { Provider } from "react-redux";
-import store from "./store";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 import "./App.css";
@@ -60,7 +55,8 @@ class App extends React.Component {
         <Router>
           <div className="App">
             <StickyContainer>
-              <MyNavbar />
+              <NewNav />
+              <br />
               <Switch>
                 <Route exact path="/" component={HomeMain} />
                 <Route
