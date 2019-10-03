@@ -50,5 +50,32 @@
 }
 
 #buttons .button .hoveron {
+  color: white;
   margin-top: 60px;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  #buttons .button {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  #buttons img {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  #buttons p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 9px;
+  }
+
+  #buttons .button:hover,
+  .button:active {
+    background: #60246c;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  #buttons .button .hoveron {
+    margin-top: 20px;
+  }
 }

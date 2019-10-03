@@ -701,6 +701,17 @@ a {
       .textchanger {
         font-size: 15px;
         min-height: 50px;
+
+        &:hover,
+        &:active {
+          .question {
+            display: none;
+          }
+          .answer {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
       }
 
       .hand-cropper {
@@ -762,14 +773,13 @@ a {
     .open-positions {
       width: calc(47.04% - 100vw * 110 / 1294);
       height: calc(100% - 100vw * 100 / 1294);
-
       margin: 100vw * 50/1294 100vw * 80/1294 100vw * 50/1294 100vw * 70/1294;
       h2 {
         font-size: 18px;
       }
       p {
         font-size: 12px;
-        line-height: 24px;
+        line-height: 12px;
       }
     }
     .yline {
@@ -865,6 +875,7 @@ a {
       margin-bottom: 10px;
     }
     .exec-container {
+      width: 80%;
       p {
         font-size: 120vw * 18/1294;
       }
@@ -882,7 +893,7 @@ a {
   }
 
   .nomination-proc {
-    height: 200vw * 500/1294;
+    height: 250vw * 500/1294;
     h2 {
       font-size: 18px;
       margin-top: 25px;

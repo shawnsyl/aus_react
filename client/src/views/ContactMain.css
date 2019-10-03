@@ -49,3 +49,13 @@ h3 {
   margin-left: 6vw;
   font-size: 24px;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #contact_us #contact_head {
+    font-size: 36px;
+  }
+
+  #contact_us p {
+    font-size: 20px;
+  }
+}
