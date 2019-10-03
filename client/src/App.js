@@ -6,6 +6,7 @@ import {
 } from "../node_modules/react-router-dom";
 import { StickyContainer, Sticky } from "react-sticky";
 import MyNavbar from "./components/Navbar.js";
+import NewNav from "./components/NewNav";
 import ContactMain from "./views/ContactMain.js";
 import AboutMain from "./views/AboutMain.js";
 import HomeMain from "./views/HomeMain.js";

@@ -39,6 +39,29 @@ ul {
   margin: 0;
   white-space: nowrap;
 }
+#navbar {
+  background-color: rgba(0, 0, 0, 0);
+  background-image: -webkit-gradient(
+    linear,
+    50% 0%,
+    50% 100%,
+    color-stop(0%, rgba(0, 0, 0, 0)),
+    color-stop(100%, rgba(0, 0, 0, 0))
+  );
+  background-image: -webkit-linear-gradient(
+    270deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  border-width: 0px;
+  -webkit-box-shadow: 0px 0px;
+  box-shadow: 0px 0px;
+}
 #navbar .logo {
   width: 90px;
   height: 105.497px;
@@ -212,79 +235,59 @@ ul {
 */
 @media (min-width: 320px) and (max-width: 480px) {
   #navbar {
-    width: 100vw;
-    i {
-      display: block;
-      margin-top: 10px;
-      transform: scale(1.5);
+    margin-top: 100vw * 12/1294;
+    margin-bottom: -100vw * 25/1294;
+    .logo {
+      width: 100vw * 90/1294;
+      height: 100vw * 105.497/1294;
+      margin-right: 100vw * 23/1294;
+      margin-left: 100vw * 13/1294;
     }
-  }
-  #navbar #link-container {
-    position: fixed;
-    width: 100%;
-    border: 5px solid;
-    z-index: 999;
     #links {
-      display: flex;
-      flex-direction: column;
+      height: 100vw * 50/1294;
+      margin-top: 100vw * 33/1294;
+      margin-left: -100vw * 20/1294;
+      li {
+        font-size: 100vw * 20/1294;
+        width: 100vw * 168/1294;
+        a,
+        a:visited {
+          text-decoration: none;
+          color: black;
+          span {
+            padding-bottom: 100vw * 3/1294;
+          }
+        }
+        a.active {
+          font-weight: bold;
+          span {
+            border-bottom: 100vw * 2/1294 solid black;
+          }
+        }
+      }
 
       .about_drop_wrap {
-        position: relative;
-        margin-right: 0;
-        text-align: center;
-        height: auto;
-        .about_drop_content {
-          height: 0;
+        height: 100vw * 50/1294;
+      }
+      .about_drop_content {
+        top: 100vw * 5/1294;
+        a {
+          padding: 100vw * 16/1294 100vw * 12/1294;
         }
       }
       .home {
-        width: 100%;
-        margin: 0;
+        width: 100vw * 80/1294;
+        margin-right: -100vw * 24/1294;
       }
       .about {
-        width: 100%;
-        margin: 0;
+        margin-right: -100vw * 48.859/1294;
       }
       .governance {
-        width: 100%;
-        margin: 0;
+        margin-right: -100vw * 28/1294;
       }
       .elections {
-        width: 100%;
-        margin: 0;
+        margin-right: -100vw * 10/1294;
       }
     }
-    li {
-      width: 100%;
-    }
   }
-  // #navbar {
-  //   margin-top: 100vw * 12/1294;
-  //   margin-bottom: -100vw * 25/1294;
-  //   .logo {
-  //     width: 100vw * 90/1294;
-  //     height: 100vw * 105.497/1294;
-  //     margin-right: 100vw * 23/1294;
-  //     margin-left: 100vw * 13/1294;
-  //   }
-  // }
-  // #links {
-  //   outline: 2px solid;
-  //   height: 100vw * 50/1294;
-  //   margin-top: -305px;
-  //   margin-left: 100vw * 20/1294;
-  //   .home {
-  //     width: 4vw;
-  //     margin-right: -3.91vw;
-  //   }
-  //   .about {
-  //     margin-right: -3.775888vw;
-  //   }
-  //   .governance {
-  //     margin-right: -2.163833vw;
-  //   }
-  //   .elections {
-  //     margin-right: -0.7727975vw;
-  //   }
-  // }
 }
