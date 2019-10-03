@@ -534,6 +534,8 @@ a {
   justify-content: space-between;
   height: auto;
   font-weight: bold;
+  &.zoomed {
+  }
   .others-container {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -544,6 +546,7 @@ a {
     flex-direction: column;
     padding-left: 200px;
 
+    width: 400px;
     -webkit-box-align: center;
 
     -ms-flex-align: center;
@@ -569,6 +572,10 @@ a {
   p {
     margin-top: -10px;
     font-size: 18px;
+  }
+  .image-cropper {
+    width: 200px !important;
+    height: 200px !important;
   }
 }
 
@@ -627,6 +634,58 @@ a {
           margin-left: 0;
           width: 75%;
         }
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .right_panel {
+    .show-candidate {
+      h1 {
+        width: 80%;
+      }
+      .right_content {
+        ul {
+          width: 100%;
+          ul {
+            width: 105%;
+          }
+        }
+      }
+    }
+  }
+  .candidate-container {
+    width: 96% !important;
+    max-width: 96% !important;
+    margin-left: -15px;
+    margin-bottom: -220px;
+    .profile-container {
+      text-align: center;
+      width: 85px;
+      p {
+        word-break: normal;
+        width: 100%;
+      }
+      .image-cropper {
+        width: 85px !important;
+        height: 85px !important;
+      }
+      .candidate-name {
+        font-size: 10px;
+      }
+    }
+    .others-container {
+      width: 100px;
+      padding-left: 40px;
+      text-align: center;
+      p {
+        word-break: normal;
+        width: 100%;
+      }
+      p.viewothers {
+        font-size: 10px;
+        width: 100%;
+        word-break: normal;
       }
     }
   }
