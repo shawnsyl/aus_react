@@ -27,9 +27,11 @@ class Complaints extends Component {
     data.set("email", email);
     data.set("candidate", candidate);
     data.set("desc", desc);
-    this.state.selectedFile.forEach(file => {
-      data.append("file", this.state.selectedFile);
+    const files = [...this.state.selectedFile];
+    files.forEach(file => {
+      data.append("file", file);
     });
+
     axios({
       method: "POST",
       url: baseURL + "/send/complaint",
