@@ -13,11 +13,21 @@ class FlipBook extends Component {
     relockMargin: 0,
     prevLock: false
   };
-
+  sideOpener = e => {
+    e.preventDefault();
+    const side = document.getElementById("mobile-chapters");
+    side.classList.toggle("open-chap");
+    const co = document.getElementById("chapter-opener");
+    co.classList.toggle("toggled");
+  };
   FlipPage = e => {
     e.preventDefault();
     this.line.current.scrollIntoView({ behavior: "smooth" });
     this.setState({ selectedPage: e.target.id });
+    const side = document.getElementById("mobile-chapters");
+    side.classList.toggle("open-chap");
+    const co = document.getElementById("chapter-opener");
+    co.classList.toggle("toggled");
   };
   scrollToRef = ref => ref.current.scrollIntoView({ behavior: "smooth" });
   // HandleScroll = () => {
@@ -616,6 +626,13 @@ class FlipBook extends Component {
     return (
       <>
         <div className="flipbook">
+          <div
+            className="chapter-opener"
+            id="chapter-opener"
+            onClick={e => {
+              this.sideOpener(e);
+            }}
+          ></div>
           <div ref="leftPanel" className="left_panel">
             <div
               className={
@@ -679,14 +696,74 @@ class FlipBook extends Component {
             </div>
           </div>
           <div className="line" ref={this.line} />
-
+          <div className="mobile-chapters" id="mobile-chapters">
+            <div
+              className={
+                this.state.selectedPage === "0" ? "chapter purp" : "chapter"
+              }
+              id="0"
+              onClick={e => {
+                this.FlipPage(e);
+              }}
+            >
+              AUS Mission Statement
+              {this.state.selectedPage === "0" ? <div className="tria" /> : ""}
+            </div>
+            <div
+              className={
+                this.state.selectedPage === "1" ? "chapter purp" : "chapter"
+              }
+              id="1"
+              onClick={e => {
+                this.FlipPage(e);
+              }}
+            >
+              Faculty of Arts
+              {this.state.selectedPage === "1" ? <div className="tria" /> : ""}
+            </div>
+            <div
+              className={
+                this.state.selectedPage === "2" ? "chapter purp" : "chapter"
+              }
+              id="2"
+              onClick={e => {
+                this.FlipPage(e);
+              }}
+            >
+              AUS Council
+              {this.state.selectedPage === "2" ? <div className="tria" /> : ""}
+            </div>
+            <div
+              className={
+                this.state.selectedPage === "3" ? "chapter purp" : "chapter"
+              }
+              id="3"
+              onClick={e => {
+                this.FlipPage(e);
+              }}
+            >
+              The Executive
+              {this.state.selectedPage === "3" ? <div className="tria" /> : ""}
+            </div>
+            <div
+              className={
+                this.state.selectedPage === "4" ? "chapter purp" : "chapter"
+              }
+              id="4"
+              onClick={e => {
+                this.FlipPage(e);
+              }}
+            >
+              Position Descriptions
+              {this.state.selectedPage === "4" ? <div className="tria" /> : ""}
+            </div>
+          </div>{" "}
           <div className="right_panel">
             {this.state.selectedPage === "0" ? page0 : ""}
             {this.state.selectedPage === "1" ? page1 : ""}
             {this.state.selectedPage === "2" ? page2 : ""}
             {this.state.selectedPage === "3" ? page3 : ""}
             {this.state.selectedPage === "4" ? page4 : ""}
-            
           </div>
         </div>
       </>
