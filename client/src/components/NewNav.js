@@ -111,8 +111,7 @@ class Example extends React.Component {
                     style={{
                       border: "none",
                       outline: "none",
-                      backgroundColor: "transparent",
-                      TransitionEvent: "none"
+                      backgroundColor: "transparent"
                     }}
                     outline="none"
                     nav

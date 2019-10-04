@@ -26,14 +26,16 @@ class Form extends Component {
         message: message
       },
       headers: { "Content-Type": "application/json" }
-    }).then(response => {
-      if (response.data.msg === "success") {
-        alert("Message Sent.");
-        this.resetForm();
-      } else if (response.data.msg === "fail") {
-        alert("Message failed to send.");
-      }
-    });
+    })
+      .then(response => {
+        if (response.data.msg === "success") {
+          alert("Message Sent.");
+          this.resetForm();
+        } else if (response.data.msg === "fail") {
+          alert("Message failed to send.");
+        }
+      })
+      .catch(err => console.log(err));
   };
   render() {
     return (

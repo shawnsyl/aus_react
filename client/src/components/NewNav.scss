@@ -1,12 +1,31 @@
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 nav.navbar,
 .dropdown-menu {
   z-index: 999999;
 }
-.active {
+a.active {
   font-weight: bold;
   text-decoration: underline;
 }
-
+li#about-drop.dropdown.nav-item {
+  transition: none;
+}
 .logo {
   //width: 100vw * 90/ (1.5)/1294;
   //height: 100vw * 105.497/ (1.5)/1294;
@@ -15,7 +34,10 @@ nav.navbar,
   margin-right: 100vw * 23/1294;
   margin-left: 100vw * 13/1294;
 }
-
+nav.mynav {
+  -webkit-animation: fadein 1s;
+  animation: fadein 1s;
+}
 ul.navbar-nav {
   li.nav-item {
     font-size: 40px;

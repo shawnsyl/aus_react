@@ -35,7 +35,8 @@ class Complaints extends Component {
     axios({
       method: "POST",
       url: baseURL + "/send/complaint",
-      data: data
+      data: data,
+      headers: { "Content-Type": "multipart/form-data" }
     }).then(response => {
       if (response.data.msg === "success") {
         alert("Message Sent.");
