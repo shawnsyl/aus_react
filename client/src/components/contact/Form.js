@@ -24,7 +24,8 @@ class Form extends Component {
         email: email,
         subject: subject,
         message: message
-      }
+      },
+      headers: { "Content-Type": "application/json" }
     }).then(response => {
       if (response.data.msg === "success") {
         alert("Message Sent.");
