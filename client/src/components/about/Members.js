@@ -1,6 +1,7 @@
 import React from "react";
 import { Sticky } from "react-sticky";
 import FlipBook from "./FlipBook";
+import { Client } from "../../contentfulClient";
 import $ from "jquery";
 window.$ = $;
 class Members extends FlipBook {
@@ -10,6 +11,15 @@ class Members extends FlipBook {
     left_location: 0,
     lockLeftPerc: 1
   };
+
+  presidentData = [];
+  vpStudentLifeData = [];
+  vpAcademicData = [];
+  vpAdminData = [];
+  vpEngagementData = [];
+  vpExternalData = [];
+  vpFinanceData = [];
+  amsRepData = [];
   FlipPage = e => {
     e.preventDefault();
     this.line.current.scrollIntoView({ behavior: "smooth" });
