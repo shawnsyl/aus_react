@@ -11,6 +11,7 @@ class GovernanceMain extends Component {
           backgroundColor: "#fde05b",
           textAlign: "center"
         }}
+        className="handbook"
       >
         {/*<div style={{ backgroundColor: "red", height: "81.25%" }}></div>*/}
         <h1 style={{ color: "#60246c", height: "81.25%" }}>
