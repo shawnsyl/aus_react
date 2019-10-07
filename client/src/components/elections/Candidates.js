@@ -15,8 +15,7 @@ class Candidates extends FlipBook {
     selectedPres: "",
     selectedPresId: "",
     candData: [],
-    forText: "For President",
-    testText: ""
+    forText: "For President"
   };
   presidentData = [];
   vpStudentLifeData = [];
