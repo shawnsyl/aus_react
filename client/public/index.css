@@ -5,5 +5,5 @@
 }
 
 body.stop-transitions * {
-  transition: none !important;
+  transition: none !important; /*asdf*/
 }
