@@ -377,7 +377,7 @@ class Candidates extends FlipBook {
     return (
       <>
         {
-          /*remove from here*/
+          /*REMOVE FROM HERE*/
           <div
             style={{
               width: "100%",
@@ -391,7 +391,7 @@ class Candidates extends FlipBook {
               Under Construction!
             </h1>
           </div>
-          /*to here*/
+          /*TO HERE*/
           /*
       <div className="flipbook">
         <div

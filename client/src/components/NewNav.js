@@ -104,14 +104,16 @@ class Example extends React.Component {
                 }}
                 isOpen={this.state.aboutdropdownOpen}
                 id="about-drop"
+                style={{ animation: "none" }}
               >
-                <NavItem style={{ marginTop: "-7.5px" }}>
+                <NavItem style={{ marginTop: "-7.5px", animation: "none" }}>
                   <DropdownToggle
                     className="drop-toggle"
                     style={{
                       border: "none",
                       outline: "none",
-                      backgroundColor: "transparent"
+                      backgroundColor: "transparent",
+                      animation: "none"
                     }}
                     outline="none"
                     nav
