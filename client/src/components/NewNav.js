@@ -24,7 +24,8 @@ class Example extends React.Component {
     this.state = {
       isOpen: false,
       aboutdropdownOpen: false,
-      electionsdropdownOpen: false
+      electionsdropdownOpen: false,
+      governancedropdownOpen: false
     };
   }
   toggle() {
@@ -52,6 +53,8 @@ class Example extends React.Component {
       this.setState({ aboutdropdownOpen: true });
     else if (e.currentTarget.id === "elections-drop")
       this.setState({ electionsdropdownOpen: true });
+    else if (e.currentTarget.id === "governance-drop")
+      this.setState({ governancedropdownOpen: true });
   };
 
   onMouseLeave(e) {
@@ -61,6 +64,8 @@ class Example extends React.Component {
       this.setState({ aboutdropdownOpen: false });
     else if (e.currentTarget.id === "elections-drop")
       this.setState({ electionsdropdownOpen: false });
+    else if (e.currentTarget.id === "governance-drop")
+      this.setState({ governancedropdownOpen: false });
   }
 
   render() {
@@ -118,22 +123,23 @@ class Example extends React.Component {
                     outline="none"
                     nav
                   >
-                    <NavLink
-                      activeClassName="active"
-                      className="about"
-                      exact
-                      to="/about"
-                      onClick={this.collapse}
-                    >
-                      ABOUT
-                    </NavLink>
+                    <NavLink>ABOUT</NavLink>
                   </DropdownToggle>
                 </NavItem>
                 <DropdownMenu right className="about-dropdown">
                   <DropdownItem>
                     <NavLink
                       activeClassName="active"
-                      className="about"
+                      exact
+                      to="/about"
+                      onClick={this.collapse}
+                    >
+                      Mission Statement
+                    </NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink
+                      activeClassName="active"
                       exact
                       to="/about/handbook"
                       onClick={this.collapse}
@@ -144,7 +150,6 @@ class Example extends React.Component {
                   <DropdownItem>
                     <NavLink
                       activeClassName="active"
-                      className="about"
                       exact
                       to="/about/team"
                       onClick={this.collapse}
@@ -154,17 +159,47 @@ class Example extends React.Component {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
-              <NavItem>
-                <NavLink
-                  activeClassName="active"
-                  className={this.state.fold ? "fold" : "unfold"}
-                  exact
-                  to="/governance"
-                  onClick={this.collapse}
-                >
-                  GOVERNANCE
-                </NavLink>
-              </NavItem>
+              <UncontrolledDropdown
+                nav
+                inNavbar
+                onMouseOver={e => {
+                  this.onMouseEnter(e);
+                }}
+                onMouseLeave={e => {
+                  this.onMouseLeave(e);
+                }}
+                isOpen={this.state.governancedropdownOpen}
+                id="governance-drop"
+                style={{ animation: "none" }}
+              >
+                <NavItem style={{ marginTop: "-7.5px", animation: "none" }}>
+                  <DropdownToggle
+                    className="drop-toggle"
+                    style={{
+                      border: "none",
+                      outline: "none",
+                      backgroundColor: "transparent",
+                      animation: "none"
+                    }}
+                    outline="none"
+                    nav
+                  >
+                    <NavLink>GOVERNANCE</NavLink>
+                  </DropdownToggle>
+                </NavItem>
+                <DropdownMenu right className="governance-dropdown">
+                  <DropdownItem>
+                    <NavLink
+                      activeClassName="active"
+                      exact
+                      to="/governance/constitution"
+                      onClick={this.collapse}
+                    >
+                      Constitution
+                    </NavLink>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
               <UncontrolledDropdown
                 nav
                 inNavbar
@@ -190,7 +225,6 @@ class Example extends React.Component {
                   >
                     <NavLink
                       activeClassName="active"
-                      className="about"
                       exact
                       to="/elections"
                       onClick={this.collapse}
@@ -203,7 +237,6 @@ class Example extends React.Component {
                   <DropdownItem>
                     <NavLink
                       activeClassName="active"
-                      className="about"
                       exact
                       to="/elections/candidates"
                       onClick={this.collapse}

@@ -77,6 +77,13 @@ class App extends React.Component {
                 />
                 <Route
                   exact
+                  path="/governance/constitution"
+                  render={props => (
+                    <GovernanceMain {...props} element="constitution" />
+                  )}
+                />
+                <Route
+                  exact
                   path="/elections"
                   render={props => <ElectionsMain {...props} element="main" />}
                 />
