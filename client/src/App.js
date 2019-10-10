@@ -16,6 +16,7 @@ import GovernanceMain from "./views/GovernanceMain.js";
 import Footer from "./components/Footer.js";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Onboarding from "./views/Onboarding";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 import "./App.css";
@@ -55,10 +56,16 @@ class App extends React.Component {
         <Router>
           <div className="App">
             <StickyContainer>
-              <NewNav />
-              <br />
+              {window.location.pathname !== "/" ? (
+                <>
+                  <NewNav /> <br />
+                </>
+              ) : (
+                ""
+              )}
               <Switch>
-                <Route exact path="/" component={HomeMain} />
+                <Route exact path="/" component={Onboarding} />
+                <Route exact path="/home" component={HomeMain} />
                 <Route
                   exact
                   path="/about"
@@ -122,7 +129,7 @@ class App extends React.Component {
                 <Route exact path="/register" component={Register} />
               </Switch>
             </StickyContainer>
-            <Footer />
+            {window.location.pathname !== "/" ? <Footer /> : ""}
           </div>
         </Router>
       </ParallaxProvider>

@@ -63,6 +63,7 @@ class Footer extends Component {
             <p>Vancouver, BC Canada V6T 1Z1</p>
             <p>Tel 602 822 4403</p>
             <p id="copyright">© 2019 BY UBC ARTS UNDERGRADUATE SOCIETY</p>
+            <p>Made by Yamo</p>
           </div>
         </span>
       </div>

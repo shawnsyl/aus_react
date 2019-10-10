@@ -78,11 +78,13 @@ class Example extends React.Component {
           className="mynav bg-white"
           style={{ marginTop: "20px" }}
         >
-          <img
-            src={require("../imgs/white_logo.png")}
-            className="logo"
-            alt="UBC AUS Logo"
-          />
+          <a href="/">
+            <img
+              src={require("../imgs/white_logo.png")}
+              className="logo"
+              alt="UBC AUS Logo"
+            />
+          </a>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar className="bg-white">
             <Nav className="ml" navbar>
@@ -92,7 +94,7 @@ class Example extends React.Component {
                   activeClassName="active"
                   className="home"
                   exact
-                  to="/"
+                  to="/home"
                   onClick={this.collapse}
                 >
                   HOME
