@@ -26,13 +26,13 @@ class HomeMain extends Component {
           <div className="p1text">
             <h1>Bleed Purple</h1>
             <h2>UBC Arts Undergraduate Society</h2>
-            <p>AUS Elections are coming up!</p>
-            <p>Nomination period ends on Friday March 8th, at 5:00 PM.</p>
-
-            <div id="learn_more">
-              <span>Learn More</span>
-            </div>
+            <a href="/about">
+              <div id="learn_more">
+                <span>Learn More</span>
+              </div>
+            </a>
           </div>
+
           <div
             className="arrow-down"
             onClick={() => this.scrollToRef(this.page2)}

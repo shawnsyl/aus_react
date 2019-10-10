@@ -3,15 +3,28 @@ import propTypes from "prop-types";
 const Circle = ({ event, isbig }) => {
   const { caption, date, pic } = event;
   const bigclass = isbig;
+  console.log(event);
+  let scale =
+    event.scaleX && event.scaleY
+      ? { transform: `scale(${event.scaleX}, ${event.scaleY})` }
+      : event.scaleX && !event.scaleY
+      ? { transform: `scaleX(${event.scaleX})` }
+      : event.scaleY && !event.scaleX
+      ? { transform: `scaleY(${event.scaleY})` }
+      : "";
+
+  let style = Object.assign(scale, {
+    transformOrigin: `right top`
+  });
   return (
     <div className={"event" + bigclass}>
-      <img
-        src={"https://" + pic.fields.file.url}
-        style={{
-          transformOrigin: `right top`
-        }}
-        alt={"event img for " + caption}
-      />
+      <div className="img-crop">
+        <img
+          src={"https://" + pic.fields.file.url}
+          style={style}
+          alt={"event img for " + caption}
+        />
+      </div>
       <p className="caption">{caption}</p>
       {bigclass !== "" ? <p className="date">{date}</p> : ""}
     </div>
