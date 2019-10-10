@@ -1,5 +1,6 @@
 .governance {
   width: 100%;
+  position: relative;
   padding-left: 80px;
   .hand-crop {
     width: 284px;
@@ -9,18 +10,38 @@
     margin: 0;
     margin-left: auto;
     margin-right: 0;
-    margin-bottom: -600px;
     overflow: hidden;
+    margin-bottom: -600px;
+    .hand {
+      position: absolute;
+      width: auto;
+      height: 603px;
+      margin-left: -290px;
+      padding: 0;
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+    }
   }
-  .hand {
-    position: absolute;
-    width: auto;
-    height: 603px;
-    margin-left: -290px;
-    padding: 0;
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
+  .meeting-crop {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    margin: 0;
+    margin-left: auto;
+    margin-right: 0;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: -350px;
+    margin-top: -150px;
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      margin: 0 auto;
+      transform: scaleX(1.5);
+    }
   }
+
   ul.obj {
     li {
       font-size: 18px;
@@ -46,22 +67,97 @@
     font-size: 18px;
     line-height: 36px;
     letter-spacing: 0.03em;
+    &.stay {
+      font-size: 24px;
+      line-height: 24px;
+    }
   }
   h2 {
     font-size: 24px;
     line-height: 36px;
     letter-spacing: 0.03em;
     font-weight: bold;
+    &.year {
+      color: #60246c;
+    }
   }
   p,
   h2,
   ul {
     width: 810px;
   }
+  div.meeting-container {
+    min-height: 600px;
+
+    div.month-container {
+      font-size: 18px;
+      height: 40px;
+      p {
+        display: inline;
+        font-weight: bold;
+      }
+      div.tria {
+        position: relative;
+        top: 10%;
+        left: 5px;
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid #fde05b;
+        cursor: pointer;
+        -webkit-transition: -webkit-transform 0.4s ease-in-out;
+        transition: -webkit-transform 0.4s ease-in-out;
+        -o-transition: transform 0.4s ease-in-out;
+        transition: transform 0.4s ease-in-out;
+        transition: transform 0.4s ease-in-out,
+          -webkit-transform 0.4s ease-in-out;
+        &.flipped {
+          -webkit-transform: rotate(90deg);
+          -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+        }
+      }
+    }
+    div.date-children {
+      display: none;
+      opacity: 0;
+      padding-left: 30px;
+      &.view {
+        display: block;
+        opacity: 1;
+      }
+      div.date-container {
+        font-size: 18px;
+        height: 30px;
+        a,
+        p {
+          position: relative;
+          display: inline;
+          left: 10px;
+          cursor: pointer;
+          text-decoration: none;
+        }
+        div.tria {
+          position: relative;
+          top: 10%;
+          display: inline-block;
+          width: 0;
+          height: 0;
+          border-top: 10px solid transparent;
+          border-bottom: 10px solid transparent;
+          border-left: 10px solid #60246c;
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
   .governance {
+    outline: 1px solid pink;
+    width: 97%;
     padding-left: 100vw * 80/1294;
     .hand-crop {
       z-index: -1;
@@ -75,6 +171,12 @@
         margin-left: -100vw * 580/1294;
       }
     }
+    .meeting-crop {
+      width: 100vw * 500/1294;
+      height: 100vw * 500/1294;
+      margin-bottom: -100vw * 380/1294;
+      margin-top: -100vw * 120/1294;
+    }
     h1 {
       font-size: 36px;
       width: 100%;
@@ -83,6 +185,13 @@
     h2,
     ul {
       width: 100%;
+    }
+    div.meeting-container {
+      min-height: 100vw * 600/1294;
+      div.month-container {
+        font-size: 12px;
+        height: 36px;
+      }
     }
   }
 }

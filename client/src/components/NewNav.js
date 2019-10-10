@@ -123,7 +123,7 @@ class Example extends React.Component {
                     outline="none"
                     nav
                   >
-                    <NavLink>ABOUT</NavLink>
+                    <NavLink activeClassName="active">ABOUT</NavLink>
                   </DropdownToggle>
                 </NavItem>
                 <DropdownMenu right className="about-dropdown">
@@ -196,6 +196,16 @@ class Example extends React.Component {
                       onClick={this.collapse}
                     >
                       Constitution
+                    </NavLink>
+                  </DropdownItem>
+                  <DropdownItem>
+                    <NavLink
+                      activeClassName="active"
+                      exact
+                      to="/governance/meeting_minutes"
+                      onClick={this.collapse}
+                    >
+                      Meeting Minutes
                     </NavLink>
                   </DropdownItem>
                 </DropdownMenu>
