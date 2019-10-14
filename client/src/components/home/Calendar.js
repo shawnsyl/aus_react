@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import moment from "moment";
 import "../../../node_modules/tail.datetime/css/tail.datetime-harx-light.css";
-import axios from "axios";
-import { Client } from "../../contentfulClient";
 
-const contentful = require("contentful");
+import { Client } from "../../contentfulClient";
 
 class Calendar extends Component {
   getData = async () => {
@@ -265,7 +263,7 @@ class Calendar extends Component {
     let cells = [];
 
     months.forEach((day, i) => {
-      if (i % 3 !== 0 || i == 0) {
+      if (i % 3 !== 0 || i === 0) {
         cells.push(day);
       } else {
         rows.push(cells);
@@ -290,7 +288,7 @@ class Calendar extends Component {
     );
   };
   render() {
-    console.log(this.state.data);
+    console.log(this.currentDay());
     let weekdayshortname = this.weekdayshort.map(day => {
       return <th key={day}>{day}</th>;
     });
@@ -302,19 +300,21 @@ class Calendar extends Component {
 
     let daysInMonth = [];
     for (let d = 1; d <= this.daysInMonth(); d++) {
-      let currentDay = d == this.currentDay() ? "today" : "";
+      let currentDay = d.toString() === this.currentDay() ? "today" : "";
       daysInMonth.push(
         <td
           className={`calendar_day ${currentDay}`}
+          id={`day_${d}`}
           ref={"day_" + d.toString(10)}
         >
-          <div 
-          className={`calendar_day ${currentDay}`}
-          id={`day_${d}`}
-          onClick={e => {
-            this.ViewDay(e);
-          }}>
-          {d}
+          <div
+            className={`calendar_day ${currentDay}`}
+            id={`day_${d}`}
+            onClick={e => {
+              this.ViewDay(e);
+            }}
+          >
+            {d}
           </div>
         </td>
       );

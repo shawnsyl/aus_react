@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import {
   Switch,
@@ -5,7 +6,7 @@ import {
   Route
 } from "../node_modules/react-router-dom";
 import { StickyContainer, Sticky } from "react-sticky";
-import MyNavbar from "./components/Navbar.js";
+import NewNav from "./components/NewNav";
 import ContactMain from "./views/ContactMain.js";
 import AboutMain from "./views/AboutMain.js";
 import HomeMain from "./views/HomeMain.js";
@@ -15,18 +16,15 @@ import GovernanceMain from "./views/GovernanceMain.js";
 import Footer from "./components/Footer.js";
 import Login from "./components/Login";
 import Register from "./components/Register";
-import axios from "axios";
-
-import { Provider } from "react-redux";
-import store from "./store";
+import Onboarding from "./views/Onboarding";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 import "./App.css";
-const baseURL = process.env.baseURL || "http://localhost:8080"
 class App extends React.Component {
   componentDidMount() {
+    /*
     axios
-      .get(baseURL+"/api/calendar")
+      .get(baseURL + "/api/calendar")
       .then(response => {
         console.log("GET to /calendar success!");
         if (response.data.length === 0) {
@@ -50,7 +48,7 @@ class App extends React.Component {
       })
       .catch(function(error) {
         console.log(error);
-      });
+      });*/
   }
   render() {
     return (
@@ -58,9 +56,16 @@ class App extends React.Component {
         <Router>
           <div className="App">
             <StickyContainer>
-              <MyNavbar />
+              {window.location.pathname !== "/" ? (
+                <>
+                  <NewNav /> <br />
+                </>
+              ) : (
+                ""
+              )}
               <Switch>
-                <Route exact path="/" component={HomeMain} />
+                <Route exact path="/" component={Onboarding} />
+                <Route exact path="/home" component={HomeMain} />
                 <Route
                   exact
                   path="/about"
@@ -76,6 +81,20 @@ class App extends React.Component {
                   exact
                   path="/about/team"
                   render={props => <AboutMain {...props} element="team" />}
+                />
+                <Route
+                  exact
+                  path="/governance/constitution"
+                  render={props => (
+                    <GovernanceMain {...props} element="constitution" />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/governance/meeting_minutes"
+                  render={props => (
+                    <GovernanceMain {...props} element="meeting" />
+                  )}
                 />
                 <Route
                   exact
@@ -110,7 +129,7 @@ class App extends React.Component {
                 <Route exact path="/register" component={Register} />
               </Switch>
             </StickyContainer>
-            <Footer />
+            {window.location.pathname !== "/" ? <Footer /> : ""}
           </div>
         </Router>
       </ParallaxProvider>

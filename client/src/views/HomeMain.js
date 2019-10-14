@@ -22,17 +22,17 @@ class HomeMain extends Component {
     return (
       <div className="Home">
         <div className="page1" ref={this.page1}>
-          <img src={require("../imgs/home/hand.png")} />
+          <img src={require("../imgs/home/hand.png")} alt="home hand img" />
           <div className="p1text">
             <h1>Bleed Purple</h1>
             <h2>UBC Arts Undergraduate Society</h2>
-            <p>AUS Elections are coming up!</p>
-            <p>Nomination period ends on Friday March 8th, at 5:00 PM.</p>
-
-            <div id="learn_more">
-              <span>Learn More</span>
-            </div>
+            <a href="/about">
+              <div id="learn_more">
+                <span>Learn More</span>
+              </div>
+            </a>
           </div>
+
           <div
             className="arrow-down"
             onClick={() => this.scrollToRef(this.page2)}

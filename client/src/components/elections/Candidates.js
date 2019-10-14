@@ -1,13 +1,11 @@
 import React from "react";
 import { Sticky } from "react-sticky";
 import $ from "jquery";
-import { candidatePlatforms } from "../../data";
 import FlipBook from "../about/FlipBook";
 import { Client } from "../../contentfulClient";
 //import { MarkdownPreview } from "react-marked-markdown";
 window.$ = $;
 
-const contentful = require("contentful");
 const Marked = require("marked");
 class Candidates extends FlipBook {
   state = {
@@ -17,8 +15,7 @@ class Candidates extends FlipBook {
     selectedPres: "",
     selectedPresId: "",
     candData: [],
-    forText: "For President",
-    testText: ""
+    forText: "For President"
   };
   presidentData = [];
   vpStudentLifeData = [];
@@ -105,6 +102,10 @@ class Candidates extends FlipBook {
     e.preventDefault();
     this.line.current.scrollIntoView({ behavior: "smooth" });
     this.setState({ selectedPage: e.target.id });
+    const side = document.getElementById("mobile-chapters");
+    side.classList.toggle("open-chap");
+    const co = document.getElementById("chapter-opener");
+    co.classList.toggle("toggled");
     if (e.target.id === "0") {
       //president
       this.setState({
@@ -243,28 +244,6 @@ class Candidates extends FlipBook {
       }
     }
   };
-  // HandleScroll = () => {
-  //   if (
-  //     /*window.pageYOffset >= 188 &&
-  //     ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-  //     !*/ Scroller.isScrolledIntoView(
-  //       $("#footer"),
-  //       this.state.lockLeftPerc
-  //     )
-  //   ) {
-  //     this.setState({
-  //       lockLeft: "0",
-  //       relockMargin: document.documentElement.scrollTop - 200
-  //     });
-  //   } /*else if (
-  //     ReactDOM.findDOMNode(this.refs["yl"]).getBoundingClientRect().top <= 0 &&
-  //     Scroller.isScrolledIntoView($("#footer"), this.state.lockLeftPerc)
-  //   ) {
-  //     this.setState({ lockLeft: "1" }); //relock
-  //   } */ else {
-  //     this.setState({ lockLeft: "2" }); //unlock
-  //   }
-  // };
   componentDidMount = () => {
     this.getData();
   };
@@ -294,12 +273,7 @@ class Candidates extends FlipBook {
         >
           {selected}
         </div>
-        <div
-          className="others-container"
-          style={{
-            width: "400px"
-          }}
-        >
+        <div className="others-container">
           <p className="viewothers">
             {theOthers.length !== 0 ? "View Other Candidates" : ""}
           </p>
@@ -361,13 +335,14 @@ class Candidates extends FlipBook {
         >
           <div
             className="image-cropper"
-            style={{ height: "200px", width: "auto" }}
+            //style={{ height: "200px", width: "auto" }}
           >
             <img
               className={`my-picture ${data.class}`}
               id={ind.toString()}
               src={"https://" + data.pic.fields.file.url}
               style={Object.assign(scale, marginTop)}
+              alt="Candidate profile"
             />
           </div>
           {this.state.selectedPres !== data.name ? (
@@ -382,7 +357,7 @@ class Candidates extends FlipBook {
       <div className="candidate-container">{presPics}</div>
     );
     let page = (
-      <div>
+      <div className="show-candidate">
         <h1>
           {this.state.forText}
           {this.state.selectedPres === "" ? "" : ": "}
@@ -400,7 +375,32 @@ class Candidates extends FlipBook {
       </div>
     );
     return (
+      <>
+        {
+          /*REMOVE FROM HERE*/
+          <div
+            style={{
+              width: "100%",
+              height: "800px",
+              backgroundColor: "#fde05b",
+              textAlign: "center"
+            }}
+          >
+            {/*<div style={{ backgroundColor: "red", height: "81.25%" }}></div>*/}
+            <h1 style={{ color: "#60246c", height: "81.25%" }}>
+              Under Construction!
+            </h1>
+          </div>
+          /*TO HERE*/
+          /*
       <div className="flipbook">
+        <div
+          className="chapter-opener"
+          id="chapter-opener"
+          onClick={e => {
+            this.sideOpener(e);
+          }}
+        ></div>
         <div ref="leftPanel" className="left_panel">
           <div
             className={
@@ -500,11 +500,108 @@ class Candidates extends FlipBook {
           </div>
         </div>
         <div className="line" ref={this.line} />
-        <div className="right_panel">
-          {page}
-          
-        </div>
-      </div>
+        <div className="mobile-chapters" id="mobile-chapters">
+          <div
+            className={
+              this.state.selectedPage === "0" ? "chapter purp" : "chapter"
+            }
+            id="0"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            President
+            {this.state.selectedPage === "0" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "1" ? "chapter purp" : "chapter"
+            }
+            id="1"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President Student Life
+            {this.state.selectedPage === "1" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "2" ? "chapter purp" : "chapter"
+            }
+            id="2"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President Academic
+            {this.state.selectedPage === "2" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "3" ? "chapter purp" : "chapter"
+            }
+            id="3"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President Administration
+            {this.state.selectedPage === "3" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "4" ? "chapter purp" : "chapter"
+            }
+            id="4"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President Engagement
+            {this.state.selectedPage === "4" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "5" ? "chapter purp" : "chapter"
+            }
+            id="5"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President External
+            {this.state.selectedPage === "5" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "6" ? "chapter purp" : "chapter"
+            }
+            id="6"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President Finance
+            {this.state.selectedPage === "6" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "7" ? "chapter purp" : "chapter"
+            }
+            id="7"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Chief AMS Rep
+            {this.state.selectedPage === "7" ? <div className="tria" /> : ""}
+          </div>
+        </div>{" "}
+        <div className="right_panel">{page}</div>
+      </div>*/
+        }
+      </>
     );
   }
 }

@@ -1,10 +1,52 @@
 import React, { Component } from "react";
-import "../../views/ElectionsMain.scss";
+import axios from "axios";
 
+import "../../views/ElectionsMain.scss";
+import { baseURL } from "../../baseURL";
+const FormData = require("form-data");
 class Complaints extends Component {
-  state = {};
+  state = {
+    selectedFile: null
+  };
+  resetForm = () => {
+    document.getElementById("complaint-form").reset();
+  };
+  fileHandler = e => {
+    e.preventDefault();
+    console.log(e.target.files);
+    this.setState({ selectedFile: e.target.files });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    let data = new FormData();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const candidate = document.getElementById("candidate").value;
+    const desc = document.getElementById("desc").value;
+    data.set("name", name);
+    data.set("email", email);
+    data.set("candidate", candidate);
+    data.set("desc", desc);
+    const files = [...this.state.selectedFile];
+    files.forEach(file => {
+      data.append("file", file);
+    });
+
+    axios({
+      method: "POST",
+      url: baseURL + "/send/complaint",
+      data: data,
+      headers: { "Content-Type": "multipart/form-data" }
+    }).then(response => {
+      if (response.data.msg === "success") {
+        alert("Message Sent.");
+        this.resetForm();
+      } else if (response.data.msg === "fail") {
+        alert("Message failed to send.");
+      }
+    });
+  };
   HandleClick = e => {
-    console.log("Hellooww world");
     this.refs.fileUploader.click();
   };
   render() {
@@ -32,9 +74,7 @@ class Complaints extends Component {
         <p className="required">*Required</p>
         <br />
         <div id="form_wrap">
-          <form method="" action="">
-            {" "}
-            {/*method needs to be post when all working*/}
+          <form id="complaint-form" onSubmit={this.handleSubmit} method="POST">
             <label for="name">
               First Name <span className="required">*</span>
             </label>{" "}
@@ -90,26 +130,25 @@ class Complaints extends Component {
                 Evidence of the aforementioned violation
                 <span className="required">*</span>
               </p>
-              <div className="addfile" onClick={this.HandleClick}>
-                <p style={{ color: "blue" }}>Add File</p>
-                <input
-                  type="file"
-                  id="file"
-                  ref="fileUploader"
-                  style={{ display: "none" }}
-                />
-              </div>
+              <input
+                type="file"
+                id="file"
+                ref="fileUploader"
+                onChange={this.fileHandler}
+                style={{ marginLeft: "95px" }}
+                multiple
+              />
               <br />
               <p>
                 I hereby consent that all information in this form is true to
                 the best of my knowledge<span className="required">*</span>
               </p>
-              <label class="container">
-                <input type="radio" name="radio" />
+              <label className="container">
+                <input type="radio" name="radio" required />
                 Yes
               </label>
             </div>
-            <div className="btnwrap" style={{float:"left"}}>
+            <div className="btnwrap" style={{ float: "left" }}>
               <input
                 type="submit"
                 value="Send"
@@ -125,3 +164,11 @@ class Complaints extends Component {
 }
 
 export default Complaints;
+/*
+
+
+              <div className="addfile" onClick={this.HandleClick}>
+              <p style={{ color: "blue" }}>Add File</p>
+                <input type="file" id="file" ref="fileUploader" />
+              </div>
+*/

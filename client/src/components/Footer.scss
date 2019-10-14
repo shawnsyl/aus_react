@@ -2,53 +2,63 @@
   padding: 0;
   margin: 0;
   position: relative;
-  //height: 25.116vw; //48.871vh; //325px;
-  //width: 100vw; // 1294px;;
-  //min-height: 325px;
   background: black;
   vertical-align: top;
-  //display: flex;
-  //align-content: space-between;
-  min-width: 1294px;
+  min-width: 100%;
   white-space: nowrap;
 }
-.wrap{
+.wrap {
   display: inline-block;
-  margin:0;
-  vertical-align:middle;
+  margin: 0;
+  vertical-align: middle;
 }
 #icons {
-  width: 65px; //5.023vw; //65px;
-  //margin-left: 15px; //1.1591vw; //15px;
-  //margin-top: 40px; //3.091vw; //40px;
+  width: 65px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -ms-flex-line-pack: distribute;
   align-content: space-around;
 }
 
 #icons img {
   width: 100%;
   vertical-align: middle;
+  -o-object-fit: scale-down;
   object-fit: scale-down;
 }
 
 #fb {
   width: 77%;
-  margin-left: 7px; //0.54096vw; //7px;
-  margin-bottom: 12px; //0.9274vw; //12px;
+  margin-left: 7px;
+  margin-bottom: 12px;
+  margin-top: 3px;
 }
 
 #footer_addr {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   color: white;
   font-family: Roboto;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-flex: 0.84;
+  -ms-flex-positive: 0.84;
   flex-grow: 0.84;
 }
 
 #footer_addr .logo {
-  width: 100.5px; //7.767vw; //100.5px; //10%;
+  width: 60px;
   height: auto;
 }
 
@@ -56,7 +66,7 @@
   margin: 0;
   padding: 0;
   letter-spacing: 0.1em;
-  font-size: 16px; //1.236vw; //16px;
+  font-size: 16px;
 }
 
 #copyright {
@@ -64,5 +74,21 @@
   padding: 0;
   font-weight: bold;
   letter-spacing: 0.2em;
-  font-size: 16px; //1.236vw; //16px;
+  font-size: 16px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #icons {
+    width: 100vw * 65/1294;
+  }
+  #fb {
+    margin-left: 100vw * 7/1294;
+    margin-bottom: 100vw * 12/1294;
+  }
+  #footer_addr .logo {
+    width: 100vw * 96/1294;
+  }
+  #footer_addr p {
+    font-size: 8px; //100vw * 16/1294;
+  }
 }

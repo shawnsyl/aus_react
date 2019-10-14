@@ -1,25 +1,44 @@
 #buttons {
   margin-top: 8vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
   justify-content: space-evenly;
 }
 
 #buttons .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   text-align: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
   border-radius: 50%;
   width: 315px;
   height: 315px;
   background: #fde05b;
+  -webkit-transition: background 0.25s ease;
+  -o-transition: background 0.25s ease;
   transition: background 0.25s ease;
 }
 
 #buttons .button:hover {
   background: #60246c;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -31,5 +50,32 @@
 }
 
 #buttons .button .hoveron {
+  color: white;
   margin-top: 60px;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  #buttons .button {
+    width: 100px !important;
+    height: 100px !important;
+  }
+  #buttons img {
+    width: 45px !important;
+    height: 45px !important;
+  }
+  #buttons p {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 9px;
+  }
+
+  #buttons .button:hover,
+  .button:active {
+    background: #60246c;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  #buttons .button .hoveron {
+    margin-top: 20px;
+  }
 }

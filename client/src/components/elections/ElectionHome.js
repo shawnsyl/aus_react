@@ -43,6 +43,25 @@ class ElectionHome extends Component {
   render() {
     return (
       <>
+        {
+          /*remove from here*/
+          <div className="handbook">
+            <div
+              style={{
+                width: "100%",
+                height: "800px",
+                backgroundColor: "#fde05b",
+                textAlign: "center"
+              }}
+            >
+              {/*<div style={{ backgroundColor: "red", height: "81.25%" }}></div>*/}
+              <h1 style={{ color: "#60246c", height: "81.25%" }}>
+                Under Construction!
+              </h1>
+            </div>
+          </div>
+          /*to here*/
+          /*
         <div className="elections-top">
           <h1>Elections Info</h1>
           <div className="top-wrapper">
@@ -64,7 +83,10 @@ class ElectionHome extends Component {
               <p className="community">Community</p>
               <p className="advocacy">Advocacy</p>
               <div className="hand-cropper">
-                <img src={require("../../imgs/elections/ivoted-scaled.png")} />
+                <img
+                  src={require("../../imgs/elections/ivoted-scaled.png")}
+                  alt="I Voted"
+                />
               </div>
             </div>
           </div>
@@ -79,7 +101,7 @@ class ElectionHome extends Component {
           {this.showExecs()}
           {this.showAmsRep()}
           <h3>Senator</h3>
-          <p>{currentCouncillors.senator}</p>
+          <p className="senator">{currentCouncillors.senator}</p>
         </div>
         <div className="nomination-proc">
           <h2>Elections Nomination Process</h2>
@@ -109,11 +131,14 @@ class ElectionHome extends Component {
                 assessed by the Elections Committee.
               </p>
               <a href="/elections/complaints">
-                <button className="nom-btn" style= {{float: "left"}}>Complaint Form</button>
+                <button className="nom-btn" style={{ float: "left" }}>
+                  Complaint Form
+                </button>
               </a>
             </div>
           </div>
-        </div>
+      </div>*/
+        }
       </>
     );
   }

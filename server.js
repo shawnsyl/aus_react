@@ -6,24 +6,28 @@ const passport = require("passport");
 const PORT = process.env.PORT || 8080;
 const MONGO_URI = require("./config/keys").mongoURI;
 const path = require("path");
+//const formidable = require("express-formidable");
 //APIs
 
 const calendar = require("./routes/api/calendar");
+const send = require("./routes/api/send");
 //const users = require("./routes/api/users");
 
 //app setup
 const app = express();
 app.use(cors());
-//app.use(bodyParser.json());
+app.use(express.json());
 app.use(
   bodyParser.urlencoded({
     extended: true
   })
 );
+//app.use(formidable());
+app.use("/api/calendar", calendar);
+app.use("/send", send);
 
 if (process.env.NODE_ENV === "production") {
-  console.log("PROD");
-  app.use(express.static("client/build"));
+  app.use(express.static("./client/build"));
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
@@ -43,7 +47,6 @@ const connection = mongoose.connection;
 connection.once("open", function() {
   console.log("MongoDB database connection established successfully");
 });
-app.use("/api/calendar", calendar);
 /*
 // Passport middleware
 app.use(passport.initialize());

@@ -1,23 +1,36 @@
 .elections {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-animation: fadein 1s;
   animation: fadein 1s;
 }
 .elections-top {
   position: relative;
   margin: 0 auto;
-  //left: 90px;
   right: 0;
   top: 0px;
   width: 100%;
   height: auto;
   .top-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    width: 100%;
   }
   h1 {
-    width: 1000px;
+    width: 100% * 1000/1294;
     position: relative;
     left: 90px;
     font-size: 72px;
@@ -26,10 +39,15 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
 
+    -webkit-transform: scale(1, 0.97);
+
+    -ms-transform: scale(1, 0.97);
+
     transform: scale(1, 0.97);
   }
 
   .textchanger {
+    width: 100% * 1000/1294;
     -o-transition: 0.5s;
     -ms-transition: 0.5s;
     -moz-transition: 0.5s;
@@ -39,7 +57,6 @@
     font-style: Roboto;
     transition: 0.5s;
     font-size: 30px;
-    width: 1000px;
     height: 90px;
     text-align: center;
     &:hover {
@@ -54,6 +71,8 @@
     .answer {
       visibility: hidden;
       opacity: 0;
+      -webkit-transition: visibility 0s, opacity 0.5s linear;
+      -o-transition: visibility 0s, opacity 0.5s linear;
       transition: visibility 0s, opacity 0.5s linear;
     }
   }
@@ -112,23 +131,33 @@
 
 .yellow-page {
   width: 100%;
-  height: 800px;
+  height: 900px;
   background-color: #fde05b;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   padding: 0;
   margin: 0;
 }
 .white-page {
-  width: 92.1875%; //92,1875
-  height: 87.5%; //87.5
+  width: 92.1875%;
+  height: 87.5%;
   background-color: white;
   margin: 0;
   padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  margin-left: -15px;
   .open-positions {
     width: calc(47.04% - 110px);
     height: calc(100% - 100px);
@@ -194,10 +223,14 @@
       letter-spacing: 1px;
     }
     .cal-row {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
 
       width: 100%;
       height: 81px;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
       justify-content: space-between;
       margin-bottom: 50px;
       div {
@@ -212,8 +245,12 @@
       .desc {
         text-align: start;
         width: 80%;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        align-items: center;
+        -webkit-box-align: flex-start;
+        -ms-flex-align: flex-start;
+        align-items: flex-start;
       }
     }
   }
@@ -253,12 +290,16 @@
     }
   }
   .exec-container {
-    width: 800px;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    //-webkit-box-pack: justify;
+    //-ms-flex-pack: justify;
+    //justify-content: space-between;
     .exec-list,
     .exec-email {
-      width: 380px;
+      width: 50%;
     }
     margin-bottom: 20px;
   }
@@ -283,17 +324,31 @@
   .proc-panels {
     width: 100%;
     height: calc(100% - 85px);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     .panel {
       height: calc(100% - 80px);
       width: 330px;
-      margin-right: 50px;
+      margin: auto 25px;
       text-align: center;
+      -ms-flex-line-pack: center;
       align-content: center;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
       flex-direction: column;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center;
       h3 {
         margin: 0;
@@ -322,11 +377,14 @@
         letter-spacing: 0.1em;
 
         border-radius: 5px;
+        -webkit-box-sizing: border-box;
         box-sizing: border-box;
         line-height: 50px;
         font-size: 17pt;
         border: none;
         &:hover {
+          -webkit-box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+            0 17px 50px 0 rgba(0, 0, 0, 0.19);
           box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
             0 17px 50px 0 rgba(0, 0, 0, 0.19);
         }
@@ -336,6 +394,7 @@
 }
 .complaints {
   position: relative;
+  width: 100%;
   h1 {
     color: black;
     font-size: 36px;
@@ -350,7 +409,7 @@
     margin-left: 90px;
     font-size: 24px;
     letter-spacing: 0.03em;
-    width: 1000px;
+    width: 100% * 1000/1294;
   }
   ol {
     margin-left: 120px;
@@ -376,7 +435,7 @@
   }
   form {
     .form-extra {
-      margin-left: -90px;
+      margin-left: -100% * 90/1294;
       color: black;
       label {
         margin-left: 90px;
@@ -421,6 +480,7 @@
   margin-top: 0px;
 }
 .right_content {
+  display: block;
   ul,
   ol {
     list-style-position: inside;
@@ -438,12 +498,16 @@
     list-style: lower-alpha;
     list-style-position: inside;
   }
-  ul li {
-    list-style: disc;
-    margin-left: 44px;
-    ul li {
-      list-style: circle;
-      margin-left: 0;
+  ul {
+    li {
+      list-style: disc;
+      margin-left: 44px;
+
+      white-space: normal;
+      ul li {
+        list-style: circle;
+        margin-left: 0;
+      }
     }
   }
   strong {
@@ -464,14 +528,28 @@ a {
   }
 }
 .candidate-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   height: auto;
   font-weight: bold;
   .others-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     padding-left: 200px;
+
+    width: 400px;
+    -webkit-box-align: center;
+
+    -ms-flex-align: center;
 
     align-items: center;
     p.viewothers {
@@ -495,30 +573,374 @@ a {
     margin-top: -10px;
     font-size: 18px;
   }
+  .image-cropper {
+    width: 200px !important;
+    height: 200px !important;
+    img {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+    }
+  }
 }
 
 .my-picture {
   width: 100%;
   height: 100%;
-  //&.Kat-Aquino,
-  //&.Anila-Chowdhury {
-  //  transform: scaleX(1.25);
-  //}
   &#cas {
+    -webkit-transform: scaleY(1.12);
+    -ms-transform: scaleY(1.12);
     transform: scaleY(1.12);
   }
   &#kana {
     margin-top: 120px;
+    -webkit-transform: scale(1.5, 1.5) scaleX(0.67);
+    -ms-transform: scale(1.5, 1.5) scaleX(0.67);
     transform: scale(1.5, 1.5) scaleX(0.67);
   }
   &#nealie {
+    -webkit-transform: scaleX(1.3);
+    -ms-transform: scaleX(1.3);
     transform: scaleX(1.3);
   }
   &#ali {
+    -webkit-transform: scaleY(1.07);
+    -ms-transform: scaleY(1.07);
     transform: scaleY(1.07);
   }
-  //&.Bailey-Saguin {
-  // margin-top: 120px;
-  //transform: scaleY(1.508);
-  //}
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .right_content {
+    ul,
+    ol {
+      list-style-position: inside;
+    }
+    ol ol {
+      list-style: lower-alpha;
+      margin-left: 20px;
+    }
+    ul ul {
+      list-style: circle;
+      list-style-position: inside;
+      margin-left: 20px;
+    }
+    ol.alpha-list {
+      list-style: lower-alpha;
+      list-style-position: inside;
+    }
+    ul {
+      li {
+        list-style: disc;
+        margin-left: 20px;
+        width: 80%;
+        white-space: normal;
+        ul li {
+          list-style: circle;
+          margin-left: 0;
+          width: 75%;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .right_panel {
+    .show-candidate {
+      h1 {
+        width: 80%;
+      }
+      .right_content {
+        ul {
+          width: 100%;
+          ul {
+            width: 110%;
+          }
+        }
+      }
+    }
+  }
+  .candidate-container {
+    width: 96% !important;
+    max-width: 96% !important;
+    margin-left: -15px;
+    margin-bottom: -220px;
+    .profile-container {
+      text-align: center;
+      width: 85px;
+      p {
+        word-break: normal;
+        width: 100%;
+      }
+      .image-cropper {
+        width: 85px !important;
+        height: 85px !important;
+      }
+      .candidate-name {
+        font-size: 10px;
+      }
+    }
+    .others-container {
+      width: 100px;
+      padding-left: 40px;
+      text-align: center;
+      p {
+        word-break: normal;
+        width: 100%;
+      }
+      p.viewothers {
+        font-size: 10px;
+        width: 100%;
+        word-break: normal;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .elections-top {
+    h1 {
+      left: 100vw * 90/1294;
+      font-size: 36px;
+    }
+    .top-wrapper {
+      .textchanger {
+        font-size: 15px;
+        min-height: 50px;
+
+        &:hover,
+        &:active {
+          .question {
+            display: none;
+          }
+          .answer {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+
+      .hand-cropper {
+        position: absolute;
+        width: 200vw * 402/1294;
+        height: 200vw * 345/1294;
+        left: 200vw * 200/1294;
+        top: 200vw * 100/1294;
+        overflow: hidden;
+        img {
+          position: absolute;
+          width: 200vw * 402/1294;
+          height: 200vw * 345/1294;
+        }
+      }
+      .hand-container {
+        height: 200vw * 445/1294;
+        width: 200vw * 800/1294;
+        p {
+          text-transform: uppercase;
+          position: absolute;
+          font-size: 200vw * 20/1294;
+          font-weight: bold;
+          z-index: 999;
+          &.leadership {
+            left: 200vw * 320/1294;
+            top: 200vw * 60/1294;
+          }
+          &.academia {
+            left: 200vw * 190/1294;
+            top: 200vw * 120/1294;
+          }
+          &.diversity {
+            left: 200vw * 480/1294;
+            top: 200vw * 125/1294;
+          }
+          &.inclusivity {
+            left: 200vw * 100/1294;
+            top: 200vw * 230/1294;
+          }
+          &.fun {
+            left: 200vw * 500/1294;
+            top: 200vw * 260/1294;
+          }
+          &.community {
+            left: 200vw * 102/1294;
+            top: 200vw * 355/1294;
+          }
+          &.advocacy {
+            left: 200vw * 565/1294;
+            top: 200vw * 360/1294;
+          }
+        }
+      }
+    }
+  }
+  .yellow-page {
+    height: 600px;
+    .open-positions {
+      width: calc(47.04% - 100vw * 110 / 1294);
+      height: calc(100% - 100vw * 100 / 1294);
+      margin: 100vw * 50/1294 100vw * 80/1294 100vw * 50/1294 100vw * 70/1294;
+      h2 {
+        font-size: 18px;
+      }
+      p {
+        font-size: 12px;
+        line-height: 12px;
+      }
+    }
+    .yline {
+      width: calc(6.87% - 100vw * 67.5 / 1294);
+      height: calc(100% - 100vw * 97 / 1294);
+      margin: 100vw * 48.5/1294 100vw * 55/1294 100vw * 48.5/1294 0px;
+      border-left: 100vw * 5/1294 solid #fde05b;
+    }
+    .events-panel {
+      &::-webkit-scrollbar {
+        width: 100vw * 10/1294;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+      }
+
+      /* Handle on hover */
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    }
+    .upcoming-dates {
+      width: calc(46% - 100vw * 97.5 / 1294);
+      height: calc(100% - 100vw * 100 / 1294);
+
+      margin: 100vw * 50/1294 100vw * 70/1294 100vw * 50/1294 0px;
+      h2 {
+        font-size: 18px;
+        margin-top: 0;
+        margin-bottom: 25px;
+        padding: 0;
+        font-weight: bold;
+        letter-spacing: 1px/2;
+      }
+      .cal-row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        width: 100%;
+        min-height: 40px;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        margin-bottom: 100vw * 50/1294;
+        div {
+          padding-top: 100vw * 5/1294;
+
+          font-size: 12px; // 100vw * 24/1294;
+          height: 100%;
+        }
+        .date {
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+        .desc {
+          text-align: start;
+          width: 75%;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: flex-start;
+          -ms-flex-align: flex-start;
+          align-items: flex-start;
+        }
+      }
+    }
+  }
+  .current-councillors {
+    padding-top: 25px;
+    padding-left: 40px;
+    padding-bottom: 25px;
+    h2 {
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+    p {
+      font-size: 9px;
+      &.intro {
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+    }
+    h3 {
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .exec-container {
+      width: 80%;
+      p {
+        font-size: 120vw * 18/1294;
+      }
+    }
+    .amsrep-container {
+      p {
+        font-size: 120vw * 18/1294;
+      }
+      margin-bottom: 20px;
+    }
+
+    p.senator {
+      font-size: 120vw * 18/1294;
+    }
+  }
+
+  .nomination-proc {
+    height: 250vw * 500/1294;
+    h2 {
+      font-size: 18px;
+      margin-top: 25px;
+      margin-left: 40px;
+    }
+    .proc-panels {
+      height: calc(100% - 100vw * 85 / 1294);
+      .panel {
+        height: calc(100% - 100vw * 80 / 1294);
+        width: 100vw * 330/1294;
+        margin: auto 100vw * 25/1294;
+        h3 {
+          font-size: 36px;
+        }
+        p {
+          font-size: 9px;
+        }
+        .nom-btn {
+          margin-top: 20px;
+          height: 150vw * 70/1294;
+          line-height: 200vw * 50/1294;
+          font-size: 150vw * (17 * 4/3)/1294;
+        }
+      }
+    }
+  }
+
+  .complaints {
+    p,
+    ol {
+      margin-left: 45px;
+    }
+    input {
+      &#name {
+        width: 100vw * 550/1294;
+      }
+      &#email {
+        width: 100vw * 800/1294;
+      }
+      &#candidate {
+        width: 100vw * 550/1294;
+      }
+    }
+  }
 }
