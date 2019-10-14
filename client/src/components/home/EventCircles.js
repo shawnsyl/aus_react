@@ -81,11 +81,7 @@ class EventCircles extends Component {
             style={{
               transform: `translateX(-${this.state.events.indexOf(
                 this.state.event
-<<<<<<< HEAD
-              ) * (32.5)}vw)` //424px
-=======
               ) * 32.5}vw)` //424px
->>>>>>> d168a53aa43fedf5ab34532444363a9aad5a29a4
             }}
           >
             {this.state.events.map(event => (
