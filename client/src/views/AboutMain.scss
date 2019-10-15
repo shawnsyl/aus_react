@@ -10,21 +10,21 @@
   animation: fadein 1s;
   position: relative;
   width: 100%;
-}
-.arrow-up {
-  top: 500px;
-  left: 90.51vw;
-  width: 0;
-  height: 0;
-  border-left: 28px solid transparent;
-  border-right: 28px solid transparent;
-  border-bottom: 28px solid #fde05b;
-
-  opacity: 0.6;
-
-  cursor: pointer;
-  &:hover {
-    opacity: 1;
+  .arrow-up {
+    top: 500px;
+    left: 90.51vw;
+    width: 0;
+    height: 0;
+    border-left: 28px solid transparent;
+    border-right: 28px solid transparent;
+    border-bottom: 28px solid #fde05b;
+  
+    opacity: 0.6;
+  
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 .mission {
