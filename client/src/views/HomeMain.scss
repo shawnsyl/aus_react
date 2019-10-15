@@ -233,7 +233,7 @@
     -webkit-box-align: start;
     -ms-flex-align: start;
     align-items: flex-start;
-    height: 690px;
+    height: 720px;
     //background-color: blue;
     margin: auto auto;
     margin-top: 0;
@@ -295,7 +295,7 @@
       .events_slider_wrapper {
         position: absolute;
         content: "";
-        width: 1150px;
+        width:100%;
         height: 100%;
         margin: 0px;
         -webkit-transition: -webkit-transform 400ms
@@ -495,7 +495,7 @@
       margin-top: 170px;
       font-size: 36px;
       letter-spacing: 0.1em;
-      //margin-bottom: 25px;
+      margin-bottom: 25px;
     }
     h2 {
       font-size: 24px;
@@ -719,14 +719,14 @@
       visibility: hidden;
     }
     .eventhead {
-      font-size: 20px;
+      font-size: 15px;
     }
     .yellow_box {
       height: 100vw * (390/1294);
       margin-bottom: -100vw * (370/1294); //px;
     }
     .events {
-      height: 100vw * (690/1294);
+      height: 100vw * (750/1294);
       .event-button-container {
         width: 100vw * (30/1294); //2.318%; //30px;
         height: 100vw * (650/1294); //650px; //81.25%; //97.7443%; //650px;
@@ -747,7 +747,7 @@
       }
       .viewer {
         width: 100vw * (1150/1294); //1150px;
-        height: 100vw * (690/1294); //650px; //81.25%; //97.7443%; //650px;
+        height: 100vw * (750/1294); //650px; //81.25%; //97.7443%; //650px;
         .events_slider_wrapper {
           .event,
           .event_big {
@@ -755,14 +755,20 @@
             height: 100vw * (690/1294);
             margin-right: -100vw * (50/1249); //-50px;
             p {
-              font-size: 100vw * (24/1294); //px;
+              font-size:10px;// 100vw * (24/1294); //px;
             }
             .date {
-              font-size: 100vw * (24/1294);
-            } //px;}
-            img {
-              width: 100vw * (474/1294); //100%; //474px;
-              height: 100vw * (474/1294);
+              font-size: 10px;
+            } 
+            .img-crop {
+              width: 100vw*474/1294;
+              height: 100vw*474/1294;
+              img {
+                display: block;
+                margin: 0 auto;
+                width: 100vw*474/1294;
+                height: 100vw*474/1294;
+              }
             }
           }
         }
