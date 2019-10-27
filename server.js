@@ -59,17 +59,19 @@ require("./config/passport")(passport);
 
 app.use("/users", users);
 */
+
+
 //start server
-// app.listen(PORT, function() {
-//   console.log("Server is running on Port: " + PORT);
-// });
+app.listen(PORT, function() {
+  console.log("Express server is running on Port: " + PORT);
+});
 //var privateKey  = fs.readFileSync('./ssl/selfsigned.key', 'utf8');
 //var certificate = fs.readFileSync('./ssl/selfsigned.crt', 'utf8');
 //var credentials = {key: privateKey, cert: certificate};
 //var httpsServer = https.createServer(credentials, app);
-var httpServer = http.createServer(app);
-httpServer.listen(PORT, 
-  ()=>{
-    console.log("Server is running on Port: " + PORT);
-  }
-)
+// var httpServer = http.createServer(app);
+// httpServer.listen(PORT, 
+//   ()=>{
+//     console.log("Http server is running on Port: " + PORT);
+//   }
+// )
