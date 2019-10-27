@@ -1,3 +1,4 @@
+const fs = require("fs");
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -6,6 +7,8 @@ const passport = require("passport");
 const PORT = process.env.PORT || 8080;
 const MONGO_URI = require("./config/keys").mongoURI;
 const path = require("path");
+const https = require("https");
+const http = require("http");
 //const formidable = require("express-formidable");
 //APIs
 
@@ -57,6 +60,16 @@ require("./config/passport")(passport);
 app.use("/users", users);
 */
 //start server
-app.listen(PORT, function() {
-  console.log("Server is running on Port: " + PORT);
-});
+// app.listen(PORT, function() {
+//   console.log("Server is running on Port: " + PORT);
+// });
+var privateKey  = fs.readFileSync('./ssl/selfsigned.key', 'utf8');
+var certificate = fs.readFileSync('./ssl/selfsigned.crt', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+var httpsServer = https.createServer(credentials, app);
+var httpServer = http.createServer(app);
+httpServer.listen(PORT, 
+  ()=>{
+    console.log("Server is running on Port: " + PORT);
+  }
+)
