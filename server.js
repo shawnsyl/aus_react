@@ -63,10 +63,10 @@ app.use("/users", users);
 // app.listen(PORT, function() {
 //   console.log("Server is running on Port: " + PORT);
 // });
-var privateKey  = fs.readFileSync('./ssl/selfsigned.key', 'utf8');
-var certificate = fs.readFileSync('./ssl/selfsigned.crt', 'utf8');
-var credentials = {key: privateKey, cert: certificate};
-var httpsServer = https.createServer(credentials, app);
+//var privateKey  = fs.readFileSync('./ssl/selfsigned.key', 'utf8');
+//var certificate = fs.readFileSync('./ssl/selfsigned.crt', 'utf8');
+//var credentials = {key: privateKey, cert: certificate};
+//var httpsServer = https.createServer(credentials, app);
 var httpServer = http.createServer(app);
 httpServer.listen(PORT, 
   ()=>{
