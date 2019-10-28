@@ -64,6 +64,7 @@ app.use("/users", users);
 //start server
 app.listen(PORT, function() {
   console.log("Express server is running on Port: " + PORT);
+  
 });
 //var privateKey  = fs.readFileSync('./ssl/selfsigned.key', 'utf8');
 //var certificate = fs.readFileSync('./ssl/selfsigned.crt', 'utf8');
