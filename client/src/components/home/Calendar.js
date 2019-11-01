@@ -16,6 +16,7 @@ class Calendar extends Component {
           this.setState({ data: events });
         }
       );
+      console.log(events);
     } catch (err) {
       console.log(err);
     }
@@ -32,6 +33,7 @@ class Calendar extends Component {
     eventDay: "",
     eventTitle: "",
     eventDesc: "",
+    eventLink: "",
     year: moment().format("Y"),
     data: []
   };
@@ -105,11 +107,13 @@ class Calendar extends Component {
         : month_temp === "12"
         ? "December"
         : "";
+    let p_link = data.eventLink;
     this.setState({
       eventMonth: p_month,
       eventDay: p_day,
       eventDesc: p_desc,
-      eventName: p_name
+      eventName: p_name,
+      evenLink: p_link
     });
   };
   NextMonth = () => {
@@ -131,7 +135,8 @@ class Calendar extends Component {
         eventMonth: "",
         eventDay: "",
         eventDesc: "",
-        eventName: ""
+        eventName: "",
+        eventLink: ""
       });
     }
     /*axios
@@ -171,7 +176,8 @@ class Calendar extends Component {
         eventMonth: "",
         eventDay: "",
         eventDesc: "",
-        eventName: ""
+        eventName: "",
+        eventLink: ""
       });
     }
     /*axios
@@ -208,7 +214,8 @@ class Calendar extends Component {
         eventMonth: "",
         eventDay: "",
         eventDesc: "",
-        eventName: ""
+        eventName: "",
+        eventLink: ""
       });
     }
     /*axios
@@ -371,10 +378,12 @@ class Calendar extends Component {
           </h1>
           <h2>{this.state.eventName}</h2>
           <p>{this.state.eventDesc}</p>
-          {this.state.eventDesc !== "" ? (
-            <div className="learn">
-              <span>Learn More</span>
-            </div>
+          {this.state.eventDesc !== "" && this.state.eventLink !== "" ? (
+            <a href={this.state.eventLink} target="_blank">
+              <div className="learn">
+                <span>Learn More</span>
+              </div>
+            </a>
           ) : (
             ""
           )}
