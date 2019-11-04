@@ -23,6 +23,7 @@ class Members extends FlipBook {
   vpAdminData = [];
   vpEngagementData = [];
   vpExternalData = [];
+  vpInternalData = [];
   vpFinanceData = [];
   amsRepData = [];
   getData = async () => {
@@ -64,6 +65,12 @@ class Members extends FlipBook {
       Client.getEntries({ content_type: "vpExternal" }).then(response => {
         response.items.forEach(data => {
           this.vpExternalData.push(data.fields);
+        });
+      });
+      //vp internal
+      Client.getEntries({ content_type: "vpInternal" }).then(response => {
+        response.items.forEach(data => {
+          this.vpInternalData.push(data.fields);
         });
       });
       //vp finance
@@ -151,6 +158,15 @@ class Members extends FlipBook {
         selectedMember: this.vpExternalData[0].name
       });
     } else if (e.target.id === "6") {
+      //vp external
+      this.setState({
+        candData: this.vpExternalData,
+        title: "Vice President Internal"
+      });
+      this.setState({
+        selectedMember: this.vpExternalData[0].name
+      });
+    } else if (e.target.id === "7") {
       //vp finance
       this.setState({
         candData: this.vpFinanceData,
@@ -159,7 +175,7 @@ class Members extends FlipBook {
       this.setState({
         selectedMember: this.vpFinanceData[0].name
       });
-    } else if (e.target.id === "7") {
+    } else if (e.target.id === "8") {
       //ams rep
       this.setState({
         candData: this.amsRepData,
@@ -707,7 +723,7 @@ class Members extends FlipBook {
               this.FlipPage(e);
             }}
           >
-            Vice President Finance
+            Vice President Internal
             {this.state.selectedPage === "6" ? <div className="tria" /> : ""}
           </div>
           <div
@@ -719,13 +735,25 @@ class Members extends FlipBook {
               this.FlipPage(e);
             }}
           >
-            Chief AMS Rep
+            Vice President Finance
             {this.state.selectedPage === "7" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "8" ? "chapter purp" : "chapter"
+            }
+            id="8"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Chief AMS Rep
+            {this.state.selectedPage === "8" ? <div className="tria" /> : ""}
           </div>
         </div>
         <div className="line" ref={this.line} />
         <div className="mobile-chapters" id="mobile-chapters">
-          <div
+        <div
             className={
               this.state.selectedPage === "0" ? "chapter purp" : "chapter"
             }
@@ -806,12 +834,24 @@ class Members extends FlipBook {
               this.FlipPage(e);
             }}
           >
-            Vice President Finance
+            Vice President Internal
             {this.state.selectedPage === "6" ? <div className="tria" /> : ""}
           </div>
           <div
             className={
               this.state.selectedPage === "7" ? "chapter purp" : "chapter"
+            }
+            id="7"
+            onClick={e => {
+              this.FlipPage(e);
+            }}
+          >
+            Vice President Finance
+            {this.state.selectedPage === "7" ? <div className="tria" /> : ""}
+          </div>
+          <div
+            className={
+              this.state.selectedPage === "8" ? "chapter purp" : "chapter"
             }
             id="8"
             onClick={e => {
@@ -819,7 +859,7 @@ class Members extends FlipBook {
             }}
           >
             Chief AMS Rep
-            {this.state.selectedPage === "7" ? <div className="tria" /> : ""}
+            {this.state.selectedPage === "8" ? <div className="tria" /> : ""}
           </div>
         </div>{" "}
         <div className="right_panel">
