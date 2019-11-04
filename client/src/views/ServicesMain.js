@@ -4,11 +4,16 @@ import { Client } from "../contentfulClient";
 class ServicesMain extends Component {
   state = {
     clubOperationsGrant: "",
+    clubOperationsGrantYear: "",
     departmentalClubGrant: "",
+    departmentalClubGrantYear: "",
     clubSocialGrant: "",
+    clubSocialGrantYear: "",
     departmentalSocialGrant: "",
+    departmentalSocialGrantYear:"",
     studentConference: "",
-    reimbursementForm: ""
+    reimbursementForm: "",
+    reimbursementFormYear: ""
   };
 
   getFiles = () => {
@@ -16,7 +21,7 @@ class ServicesMain extends Component {
       .then(asset => {
         console.log(asset);
         console.log(asset.fields.file.url);
-        this.setState({ clubOperationsGrant: asset.fields.file.url });
+        this.setState({ clubOperationsGrant: asset.fields.file.url, clubOperationsGrantYear: asset.fields.description });
       })
       .catch(console.error);
 
@@ -24,7 +29,7 @@ class ServicesMain extends Component {
       .then(asset => {
         console.log(asset);
         console.log(asset.fields.file.url);
-        this.setState({ departmentalClubGrant: asset.fields.file.url });
+        this.setState({ departmentalClubGrant: asset.fields.file.url, departmentalClubGrantYear: asset.fields.description });
       })
       .catch(console.error);
 
@@ -32,7 +37,7 @@ class ServicesMain extends Component {
       .then(asset => {
         console.log(asset);
         console.log(asset.fields.file.url);
-        this.setState({ clubSocialGrant: asset.fields.file.url });
+        this.setState({ clubSocialGrant: asset.fields.file.url, clubSocialGrantYear: asset.fields.description });
       })
       .catch(console.error);
 
@@ -40,7 +45,7 @@ class ServicesMain extends Component {
       .then(asset => {
         console.log(asset);
         console.log(asset.fields.file.url);
-        this.setState({ departmentalSocialGrant: asset.fields.file.url });
+        this.setState({ departmentalSocialGrant: asset.fields.file.url, departmentalSocialGrantYear: asset.fields.description });
       })
       .catch(console.error);
 
@@ -56,7 +61,7 @@ class ServicesMain extends Component {
       .then(asset => {
         console.log(asset);
         console.log(asset.fields.file.url);
-        this.setState({ reimbursementForm: asset.fields.file.url });
+        this.setState({ reimbursementForm: asset.fields.file.url, reimbursementFormYear: asset.fields.description });
       })
       .catch(console.error);
   };
@@ -78,14 +83,14 @@ class ServicesMain extends Component {
           </p>
           <p>To apply, download and complete the following documents:</p>
           <a className="button" href={this.state.clubOperationsGrant} download>
-            2016 Club Operations Grant
+            {this.state.clubOperationsGrantYear} Club Operations Grant
           </a>
           <a
             className="button"
             href={this.state.departmentalClubGrant}
             download
           >
-            2016 Departmental Club Grant
+            {this.state.departmentalClubGrantYear} Departmental Club Grant
           </a>
           <p>
             Please email Grants Coordinator Sarah-Louise Carter at
@@ -105,7 +110,7 @@ class ServicesMain extends Component {
           </p>
           <p>To apply, download and complete the following documents:</p>
           <a className="button" href={this.state.clubSocialGrant} download>
-            2016 Club Social/Academic Grant
+            {this.state.clubSocialGrantYear} Club Social/Academic Grant
           </a>
           <a
             className="button"
@@ -165,7 +170,7 @@ class ServicesMain extends Component {
                 href={this.state.reimbursementForm}
                 download
               >
-                2016 Reimbursement Form
+                {this.state.reimbursementFormYear} Reimbursement Form
               </a>
             </li>
             <li>
