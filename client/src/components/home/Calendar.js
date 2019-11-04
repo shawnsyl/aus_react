@@ -379,7 +379,7 @@ class Calendar extends Component {
           <h2>{this.state.eventName}</h2>
           <p>{this.state.eventDesc}</p>
           {this.state.eventDesc !== "" && this.state.eventLink !== "" ? (
-            <a href={this.state.eventLink} target="_blank">
+            <a href={this.state.eventLink} target="_blank" rel="noopener noreferrer">
               <div className="learn">
                 <span>Learn More</span>
               </div>
