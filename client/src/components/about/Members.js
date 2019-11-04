@@ -160,11 +160,11 @@ class Members extends FlipBook {
     } else if (e.target.id === "6") {
       //vp external
       this.setState({
-        candData: this.vpExternalData,
+        candData: this.vpInternalData,
         title: "Vice President Internal"
       });
       this.setState({
-        selectedMember: this.vpExternalData[0].name
+        selectedMember: this.vpInternalData[0] ? this.vpInternalData[0].name : ""
       });
     } else if (e.target.id === "7") {
       //vp finance
