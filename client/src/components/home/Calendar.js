@@ -1,22 +1,47 @@
-import React, { Component } from "react";
+import React, {
+  Component
+} from "react";
 import moment from "moment";
 import "../../../node_modules/tail.datetime/css/tail.datetime-harx-light.css";
 
-import { Client } from "../../contentfulClient";
+import {
+  Client
+} from "../../contentfulClient";
 
 class Calendar extends Component {
   getData = async () => {
     try {
       let events = [];
-      Client.getEntries({ content_type: "calendarEventData" }).then(
+      Client.getEntries({
+        content_type: "calendarEventData"
+      }).then(
         response => {
           response.items.forEach(event => {
             events.push(event.fields);
           });
-          this.setState({ data: events });
+          this.setState({
+            data: events
+          });
         }
       );
-      console.log(events);
+      let monthNo = moment().format("M");
+      let dayNo = moment().format("D");
+      console.log(this.state.data);
+      let found = this.state.data.find(item => {
+        return item.month === monthNo && item.day === dayNo;
+      });
+      console.log(found);
+      if (found) {
+        this.GetEventDetail(found);
+      } else {
+        this.setState({
+          eventMonth: "",
+          eventDay: "",
+          eventDesc: "",
+          eventName: "",
+          eventLink: ""
+        });
+      }
     } catch (err) {
       console.log(err);
     }
@@ -35,7 +60,9 @@ class Calendar extends Component {
     eventDesc: "",
     eventLink: "",
     year: moment().format("Y"),
-    data: []
+    data: [],
+    eventList: [],
+    eventIndex: -1
   };
   componentDidMount = () => {
     this.getData();
@@ -76,45 +103,134 @@ class Calendar extends Component {
       showCalendarTable: !this.state.showCalendarTable
     });
   };
-  GetEventDetail = data => {
-    let p_day = data.day;
-    let month_temp = data.month;
-    let p_desc = data.desc;
-    let p_name = data.name;
+  onPrev = () => {
+    const {eventList, eventIndex} = this.state;
+    const p_day = eventList[eventIndex-1].day;
+    const month_temp = eventList[eventIndex-1].month;
+    const p_desc = eventList[eventIndex-1].desc;
+    const p_name = eventList[eventIndex-1].name;
+    const p_link = eventList[eventIndex-1].eventLink;
     let p_month =
-      month_temp === "1"
-        ? "January"
-        : month_temp === "2"
-        ? "February"
-        : month_temp === "3"
-        ? "March"
-        : month_temp === "4"
-        ? "April"
-        : month_temp === "5"
-        ? "May"
-        : month_temp === "6"
-        ? "June"
-        : month_temp === "7"
-        ? "July"
-        : month_temp === "8"
-        ? "August"
-        : month_temp === "9"
-        ? "September"
-        : month_temp === "10"
-        ? "October"
-        : month_temp === "11"
-        ? "November"
-        : month_temp === "12"
-        ? "December"
-        : "";
-    let p_link = data.eventLink;
+      month_temp === "1" ?
+      "January" :
+      month_temp === "2" ?
+      "February" :
+      month_temp === "3" ?
+      "March" :
+      month_temp === "4" ?
+      "April" :
+      month_temp === "5" ?
+      "May" :
+      month_temp === "6" ?
+      "June" :
+      month_temp === "7" ?
+      "July" :
+      month_temp === "8" ?
+      "August" :
+      month_temp === "9" ?
+      "September" :
+      month_temp === "10" ?
+      "October" :
+      month_temp === "11" ?
+      "November" :
+      month_temp === "12" ?
+      "December" :
+      "";
     this.setState({
       eventMonth: p_month,
       eventDay: p_day,
       eventDesc: p_desc,
       eventName: p_name,
-      evenLink: p_link
+      eventLink: p_link,
+      eventIndex: eventIndex - 1
     });
+  }
+  onNext = () => {
+    const {eventList, eventIndex} = this.state;
+    const p_day = eventList[eventIndex+1].day;
+    const month_temp = eventList[eventIndex+1].month;
+    const p_desc = eventList[eventIndex+1].desc;
+    const p_name = eventList[eventIndex+1].name;
+    const p_link = eventList[eventIndex+1].eventLink;
+    let p_month =
+      month_temp === "1" ?
+      "January" :
+      month_temp === "2" ?
+      "February" :
+      month_temp === "3" ?
+      "March" :
+      month_temp === "4" ?
+      "April" :
+      month_temp === "5" ?
+      "May" :
+      month_temp === "6" ?
+      "June" :
+      month_temp === "7" ?
+      "July" :
+      month_temp === "8" ?
+      "August" :
+      month_temp === "9" ?
+      "September" :
+      month_temp === "10" ?
+      "October" :
+      month_temp === "11" ?
+      "November" :
+      month_temp === "12" ?
+      "December" :
+      "";
+    this.setState({
+      eventMonth: p_month,
+      eventDay: p_day,
+      eventDesc: p_desc,
+      eventName: p_name,
+      eventLink: p_link,
+      eventIndex: eventIndex + 1
+    });
+  }
+  GetEventDetail = data => {
+    let p_day = data[0].day;
+    let month_temp = data[0].month;
+    let p_desc = data[0].desc;
+    let p_name = data[0].name;
+    let p_month =
+      month_temp === "1" ?
+      "January" :
+      month_temp === "2" ?
+      "February" :
+      month_temp === "3" ?
+      "March" :
+      month_temp === "4" ?
+      "April" :
+      month_temp === "5" ?
+      "May" :
+      month_temp === "6" ?
+      "June" :
+      month_temp === "7" ?
+      "July" :
+      month_temp === "8" ?
+      "August" :
+      month_temp === "9" ?
+      "September" :
+      month_temp === "10" ?
+      "October" :
+      month_temp === "11" ?
+      "November" :
+      month_temp === "12" ?
+      "December" :
+      "";
+    let p_link = data[0].eventLink;
+    this.setState({
+      eventMonth: p_month,
+      eventDay: p_day,
+      eventDesc: p_desc,
+      eventName: p_name,
+      eventLink: p_link
+    });
+    if (data.length > 1) {
+      this.setState({eventList: data, eventIndex: 0});
+    } else {
+      this.setState({eventList: [], eventIndex: -1});
+    }
   };
   NextMonth = () => {
     let monthNo = this.state.dateObject.format("MM");
@@ -123,7 +239,10 @@ class Calendar extends Component {
     dateObject = moment(dateObject).set("month", newMonth);
     dateObject = moment(dateObject).set("date", 1);
     let monthNoNew = (newMonth + 1).toString();
-    this.setState({ dateObject: dateObject, selectedDay: "1" });
+    this.setState({
+      dateObject: dateObject,
+      selectedDay: "1"
+    });
 
     let found = this.state.data.find(item => {
       return item.month === monthNoNew && item.day === "1";
@@ -136,27 +255,11 @@ class Calendar extends Component {
         eventDay: "",
         eventDesc: "",
         eventName: "",
-        eventLink: ""
+        eventLink: "",
+        eventList: [],
+        eventIndex: -1
       });
     }
-    /*axios
-      .get("http://localhost:4000/calendar/:" + monthNoNew + "-:1")
-      .then(response => {
-        console.log("GET to /calendar success!");
-        if (response.data.length === 0) {
-          this.setState({
-            eventMonth: "",
-            eventDay: "",
-            eventDesc: "",
-            eventName: ""
-          });
-        } else {
-          this.GetEventDetail(response.data[0]);
-        }
-      })
-      .catch(function(error) {
-        console.log(error);
-      });*/
   };
   PrevMonth = () => {
     let monthNo = this.state.dateObject.format("MM");
@@ -165,7 +268,10 @@ class Calendar extends Component {
     dateObject = moment(dateObject).set("month", newMonth);
     dateObject = moment(dateObject).set("date", 1);
     let monthNoNew = (newMonth + 1).toString();
-    this.setState({ dateObject: dateObject, selectedDay: "1" });
+    this.setState({
+      dateObject: dateObject,
+      selectedDay: "1"
+    });
     let found = this.state.data.find(item => {
       return item.month === monthNoNew && item.day === "1";
     });
@@ -177,37 +283,20 @@ class Calendar extends Component {
         eventDay: "",
         eventDesc: "",
         eventName: "",
-        eventLink: ""
+        eventLink: "",
+        eventList: [],
+        eventIndex: -1
       });
     }
-    /*axios
-      .get("http://localhost:4000/calendar/:" + monthNoNew + "-:1")
-      .then(response => {
-        console.log("GET to /calendar success!");
-        if (response.data.length === 0) {
-          this.setState({
-            eventMonth: "",
-            eventDay: "",
-            eventDesc: "",
-            eventName: ""
-          });
-        } else {
-          this.GetEventDetail(response.data[0]);
-        }
-      })
-      .catch(function(error) {
-        console.log(error);
-      });*/
   };
   ViewDay = e => {
     let monthNo = this.state.dateObject.format("M");
     let id = e.target.id;
     let dayNo = id.split("_")[1];
-
-    let found = this.state.data.find(item => {
+    let found = this.state.data.filter(item => {
       return item.month === monthNo && item.day === dayNo;
     });
-    if (found) {
+    if (found.length > 0) {
       this.GetEventDetail(found);
     } else {
       this.setState({
@@ -215,28 +304,11 @@ class Calendar extends Component {
         eventDay: "",
         eventDesc: "",
         eventName: "",
-        eventLink: ""
+        eventLink: "",
+        eventList: [],
+        eventIndex: -1
       });
     }
-    /*axios
-      .get("http://localhost:4000/calendar/:" + monthNo + "-:" + dayNo)
-      .then(response => {
-        console.log("GET to /calendar success!");
-        if (response.data.length === 0) {
-          this.setState({
-            eventMonth: "",
-            eventDay: "",
-            eventDesc: "",
-            eventName: ""
-          });
-        } else {
-          this.GetEventDetail(response.data[0]);
-        }
-      })
-      .catch(function(error) {
-        console.log(error);
-      });*/
-
     let newcurr = document.getElementById(id);
     let current = document.getElementById(`day_${this.state.selectedDay}`);
     current.classList.remove("today");
@@ -295,7 +367,7 @@ class Calendar extends Component {
     );
   };
   render() {
-    console.log(this.currentDay());
+    console.log(this.state.eventList);
     let weekdayshortname = this.weekdayshort.map(day => {
       return <th key={day}>{day}</th>;
     });
@@ -375,10 +447,9 @@ class Calendar extends Component {
           <h1 className={this.state.eventDesc === "" ? "transparent" : ""}>
             {this.state.eventDesc === "" ? "transparent" : ""}{" "}
             {this.state.eventMonth} {this.state.eventDay}
-          </h1>
-          <h2>{this.state.eventName}</h2>
+          </h1><h2>{this.state.eventName}</h2>
           <p>{this.state.eventDesc}</p>
-          {this.state.eventDesc !== "" && this.state.eventLink !== "" ? (
+          {this.state.eventDesc && this.state.eventLink ? (
             <a href={this.state.eventLink} target="_blank" rel="noopener noreferrer">
               <div className="learn">
                 <span>Learn More</span>
@@ -387,6 +458,14 @@ class Calendar extends Component {
           ) : (
             ""
           )}
+          <div className="prevNext-container">
+            {this.state.eventList.length > 0 && this.state.eventIndex > 0? <div className="learn" style={{width: "120px", height: "45px"}} onClick={this.onPrev}>
+              <span className="choose">Previous</span>
+            </div> : null}
+            {this.state.eventList.length > 0 && this.state.eventIndex < this.state.eventList.length - 1 ? <div className="learn" style={{width: "120px", height: "45px"}} onClick={this.onNext}>
+              <span className="choose">Next</span>
+            </div> : null}
+          </div>
         </div>
         <div className="calendar_zone">
           <div className="calendar_container">
