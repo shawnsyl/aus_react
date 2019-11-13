@@ -100,7 +100,7 @@ class ServicesMain extends Component {
     const month = monthNames[grantDate.getMonth()];
     const date = grantDate.getDate();
     const day = dayNames[grantDate.getDay()];
-    const hours = grantDate.getHours() < 12 ? grantDate.getHours() : grantDate.getHours() - 12;
+    const hours = grantDate.getHours() === 0 ? 12 : grantDate.getHours() < 12 ? grantDate.getHours() : grantDate.getHours() - 12;
     const minutes = grantDate.getMinutes();
     const ampm = grantDate.getHours() < 12 ? "AM" : "PM"
     const year = grantDate.getFullYear();
