@@ -13,7 +13,11 @@ class ServicesMain extends Component {
     departmentalSocialGrantYear:"",
     studentConference: "",
     reimbursementForm: "",
-    reimbursementFormYear: ""
+    reimbursementFormYear: "",
+    grantsCoordinator: "",
+    grantDeadline : null,
+    schoolYear: -1,
+    vpFinance: ""
   };
 
   getFiles = () => {
@@ -65,10 +69,52 @@ class ServicesMain extends Component {
       })
       .catch(console.error);
   };
+  getData = () => {
+    Client.getEntries({
+      content_type: "studentServices"
+    }).then(
+      response => {
+        const resp = response.items[0].fields;
+        this.setState({
+          grantsCoordinator: resp.grantsCoordinator,
+          grantDeadline: resp.grantDeadline,
+          schoolYear: resp.schoolYear,
+          vpFinance: resp.vpFinance
+       })
+
+      }
+    )
+  };
+  
+  formatDate = () => {
+    const {grantDeadline} = this.state;
+    const grantDate = new Date(Date.parse(grantDeadline));
+    const monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+    const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    const month = monthNames[grantDate.getMonth()];
+    const date = grantDate.getDate();
+    const day = dayNames[grantDate.getDay()];
+    const hours = grantDate.getHours() < 12 ? grantDate.getHours() : grantDate.getHours() - 12;
+    const minutes = grantDate.getMinutes();
+    const ampm = grantDate.getHours() < 12 ? "AM" : "PM"
+    const year = grantDate.getFullYear();
+    
+    return day + ", " + month + " " + date + ", " + year + " at " + hours + ":" + minutes + ampm
+  }
+
   componentDidMount() {
     this.getFiles();
+    this.getData();
   }
+  
   render() {
+    console.log(this.state);
     return (
       <>
         <div className="services">
@@ -93,9 +139,9 @@ class ServicesMain extends Component {
             {this.state.departmentalClubGrantYear} Departmental Club Grant
           </a>
           <p>
-            Please email Grants Coordinator Sarah-Louise Carter at
+            Please email Grants Coordinator {this.state.grantsCoordinator} at
             aus.grants@ubc.ca if you have any questions or concerns. The
-            deadline is Saturday, October 29, 2016 at 11:59PM.
+            deadline is {this.state.grantDeadline ? this.formatDate() : null}.
           </p>
         </div>
         <div className="section2">
@@ -120,9 +166,9 @@ class ServicesMain extends Component {
             2016 Departmental Club Grant
           </a>
           <p>
-            Please email Grants Coordinator Sarah-Louise Carter at
+            Please email Grants Coordinator {this.state.grantsCoordinator} at
             aus.grants@ubc.ca if you have any questions or concerns. The
-            deadline is Saturday, October 29, 2016 at 11:59PM.
+            deadline is {this.state.grantDeadline ? this.formatDate() : null}.
           </p>
         </div>
         <div className="section3">
@@ -144,14 +190,14 @@ class ServicesMain extends Component {
             until the budgeted amount runs out. Apply early to ensure funding.
           </p>
           <p>
-            Please email Grants Coordinator Sarah-Louise Carter at
+            Please email Grants Coordinator {this.state.grantsCoordinator} at
             aus.grants@ubc.ca if you have any questions or concerns. There is no
             deadline for Conference applications.
           </p>
           <p>
-            The AUS Conference Grants for the 2016/2017 school year have all
+            The AUS Conference Grants for the {this.state.schoolYear}/{this.state.schoolYear+1} school year have all
             been distributed. These grants will be available again to students
-            at the start of the 2017/2018 school year.
+            at the start of the {this.state.schoolYear+1}/{this.state.schoolYear+2} school year.
           </p>
         </div>
         <div className="section4">
@@ -178,8 +224,7 @@ class ServicesMain extends Component {
               are not available then a credit card statement is needed
             </li>
             <li>
-              Submit all documentation to the mailbox of VP Finance Marina
-              Tischenko found in Buchanan D Mass AUS Student Office
+              Submit all documentation to the mailbox of VP Finance {this.state.vpFinance} found in Buchanan D Mass AUS Student Office
             </li>
           </ol>
           <p>

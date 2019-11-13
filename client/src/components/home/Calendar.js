@@ -19,29 +19,29 @@ class Calendar extends Component {
           response.items.forEach(event => {
             events.push(event.fields);
           });
+          let monthNo = moment().format("M");
+          let dayNo = moment().format("D");
+          let found = events.filter(item => {
+            return item.month === monthNo && item.day === dayNo;
+          });
+          console.log(found);
+          if (found) {
+            this.GetEventDetail(found);
+          } else {
+            this.setState({
+              eventMonth: "",
+              eventDay: "",
+              eventDesc: "",
+              eventName: "",
+              eventLink: ""
+            });
+          }
           this.setState({
             data: events
           });
         }
       );
-      let monthNo = moment().format("M");
-      let dayNo = moment().format("D");
-      console.log(this.state.data);
-      let found = this.state.data.find(item => {
-        return item.month === monthNo && item.day === dayNo;
-      });
-      console.log(found);
-      if (found) {
-        this.GetEventDetail(found);
-      } else {
-        this.setState({
-          eventMonth: "",
-          eventDay: "",
-          eventDesc: "",
-          eventName: "",
-          eventLink: ""
-        });
-      }
+      
     } catch (err) {
       console.log(err);
     }
