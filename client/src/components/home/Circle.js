@@ -14,7 +14,7 @@ const Circle = ({ event, isbig }) => {
       : "";
 
   let style = Object.assign(scale, {
-    transformOrigin: `right top`
+    transformOrigin: `center`
   });
   return (
     <div className={"event" + bigclass}>
