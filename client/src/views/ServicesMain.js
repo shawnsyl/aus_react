@@ -234,8 +234,7 @@ class ServicesMain extends Component {
             will result in a forfeit of the amount owed to you.
           </p>
           <p>
-            If you have any questions or concerns please email VP Finance Marina
-            Tischenko at aus.vpfinance@ubc.ca
+            If you have any questions or concerns please email VP Finance {this.state.vpFinance} at aus.vpfinance@ubc.ca
           </p>
         </div>
       </>
