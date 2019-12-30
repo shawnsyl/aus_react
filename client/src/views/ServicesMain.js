@@ -78,7 +78,7 @@ class ServicesMain extends Component {
         const resp = response.items[0].fields;
         this.setState({
           grantsCoordinator: resp.grantsCoordinator,
-          grantsCoordinatorEmail: resp.grantsCoordinator,
+          grantsCoordinatorEmail: resp.grantsCoordinatorEmail,
           grantDeadline: resp.grantDeadline,
           schoolYear: resp.schoolYear,
           vpFinance: resp.vpFinance
