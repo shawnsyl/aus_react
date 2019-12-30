@@ -15,6 +15,7 @@ class ServicesMain extends Component {
     reimbursementForm: "",
     reimbursementFormYear: "",
     grantsCoordinator: "",
+    grantsCoordinatorEmail: "",
     grantDeadline : null,
     schoolYear: -1,
     vpFinance: ""
@@ -77,6 +78,7 @@ class ServicesMain extends Component {
         const resp = response.items[0].fields;
         this.setState({
           grantsCoordinator: resp.grantsCoordinator,
+          grantsCoordinatorEmail: resp.grantsCoordinator,
           grantDeadline: resp.grantDeadline,
           schoolYear: resp.schoolYear,
           vpFinance: resp.vpFinance
@@ -140,7 +142,7 @@ class ServicesMain extends Component {
           </a>
           <p>
             Please email Grants Coordinator {this.state.grantsCoordinator} at
-            aus.grants@ubc.ca if you have any questions or concerns. The
+            {this.state.grantsCoordinatorEmail} if you have any questions or concerns. The
             deadline is {this.state.grantDeadline ? this.formatDate() : null}.
           </p>
         </div>
@@ -167,7 +169,7 @@ class ServicesMain extends Component {
           </a>
           <p>
             Please email Grants Coordinator {this.state.grantsCoordinator} at
-            aus.grants@ubc.ca if you have any questions or concerns. The
+            {this.state.grantsCoordinatorEmail} if you have any questions or concerns. The
             deadline is {this.state.grantDeadline ? this.formatDate() : null}.
           </p>
         </div>
@@ -191,7 +193,7 @@ class ServicesMain extends Component {
           </p>
           <p>
             Please email Grants Coordinator {this.state.grantsCoordinator} at
-            aus.grants@ubc.ca if you have any questions or concerns. There is no
+            {this.state.grantsCoordinatorEmail} if you have any questions or concerns. There is no
             deadline for Conference applications.
           </p>
           <p>
