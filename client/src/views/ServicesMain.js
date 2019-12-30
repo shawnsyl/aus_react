@@ -141,8 +141,7 @@ class ServicesMain extends Component {
             {this.state.departmentalClubGrantYear} Departmental Club Grant
           </a>
           <p>
-            Please email Grants Coordinator {this.state.grantsCoordinator} at 
-            {this.state.grantsCoordinatorEmail} if you have any questions or concerns. The
+            Please email Grants Coordinator {this.state.grantsCoordinator} at {this.state.grantsCoordinatorEmail} if you have any questions or concerns. The
             deadline is {this.state.grantDeadline ? this.formatDate() : null}.
           </p>
         </div>
@@ -168,8 +167,7 @@ class ServicesMain extends Component {
             2016 Departmental Club Grant
           </a>
           <p>
-            Please email Grants Coordinator {this.state.grantsCoordinator} at 
-            {this.state.grantsCoordinatorEmail} if you have any questions or concerns. The
+            Please email Grants Coordinator {this.state.grantsCoordinator} at {this.state.grantsCoordinatorEmail} if you have any questions or concerns. The
             deadline is {this.state.grantDeadline ? this.formatDate() : null}.
           </p>
         </div>
@@ -192,8 +190,7 @@ class ServicesMain extends Component {
             until the budgeted amount runs out. Apply early to ensure funding.
           </p>
           <p>
-            Please email Grants Coordinator {this.state.grantsCoordinator} at 
-            {this.state.grantsCoordinatorEmail} if you have any questions or concerns. There is no
+            Please email Grants Coordinator {this.state.grantsCoordinator} at {this.state.grantsCoordinatorEmail} if you have any questions or concerns. There is no
             deadline for Conference applications.
           </p>
           <p>
