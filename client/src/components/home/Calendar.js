@@ -24,8 +24,7 @@ class Calendar extends Component {
           let found = events.filter(item => {
             return item.month === monthNo && item.day === dayNo;
           });
-          console.log(found);
-          if (found) {
+          if (found.length !== 0) {
             this.GetEventDetail(found);
           } else {
             this.setState({

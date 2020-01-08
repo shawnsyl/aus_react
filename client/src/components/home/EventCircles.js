@@ -22,6 +22,7 @@ class EventCircles extends Component {
         eventData = eventData.sort(
           (a, b) => new Date(a.dateobject) - new Date(b.dateobject)
         );
+        console.log(eventData);
         this.setState({
           events: eventData
         });
