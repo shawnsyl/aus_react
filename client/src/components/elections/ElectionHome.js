@@ -43,25 +43,6 @@ class ElectionHome extends Component {
   render() {
     return (
       <>
-        {
-          /*remove from here*/
-          <div className="handbook">
-            <div
-              style={{
-                width: "100%",
-                height: "800px",
-                backgroundColor: "#fde05b",
-                textAlign: "center"
-              }}
-            >
-              {/*<div style={{ backgroundColor: "red", height: "81.25%" }}></div>*/}
-              <h1 style={{ color: "#60246c", height: "81.25%" }}>
-                Under Construction!
-              </h1>
-            </div>
-          </div>
-          /*to here*/
-          /*
         <div className="elections-top">
           <h1>Elections Info</h1>
           <div className="top-wrapper">
@@ -137,8 +118,7 @@ class ElectionHome extends Component {
               </a>
             </div>
           </div>
-      </div>*/
-        }
+      </div>
       </>
     );
   }

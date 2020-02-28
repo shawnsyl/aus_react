@@ -25,7 +25,8 @@ class Example extends React.Component {
       isOpen: false,
       aboutdropdownOpen: false,
       electionsdropdownOpen: false,
-      governancedropdownOpen: false
+      governancedropdownOpen: false,
+      servicesdropdownOpen: false,
     };
   }
   toggle() {
@@ -55,6 +56,8 @@ class Example extends React.Component {
       this.setState({ electionsdropdownOpen: true });
     else if (e.currentTarget.id === "governance-drop")
       this.setState({ governancedropdownOpen: true });
+    else if (e.currentTarget.id === "services-drop")
+      this.setState({ servicesdropdownOpen: true });
   };
 
   onMouseLeave(e) {
@@ -66,6 +69,8 @@ class Example extends React.Component {
       this.setState({ electionsdropdownOpen: false });
     else if (e.currentTarget.id === "governance-drop")
       this.setState({ governancedropdownOpen: false });
+      else if (e.currentTarget.id === "services-drop")
+      this.setState({ servicesdropdownOpen: false });
   }
 
   render() {
@@ -258,17 +263,52 @@ class Example extends React.Component {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
-              <NavItem>
-                <NavLink
-                  activeClassName="active"
-                  className={this.state.fold ? "fold" : "unfold"}
-                  exact
-                  to="/services"
-                  onClick={this.collapse}
-                >
-                  STUDENT SERVICES
-                </NavLink>
-              </NavItem>
+              <UncontrolledDropdown
+                nav
+                inNavbar
+                onMouseOver={e => {
+                  this.onMouseEnter(e);
+                }}
+                onMouseLeave={e => {
+                  this.onMouseLeave(e);
+                }}
+                isOpen={this.state.servicesdropdownOpen}
+                id="services-drop"
+              >
+                <NavItem style={{ marginTop: "-7.5px" }}>
+                  <DropdownToggle
+                    className="drop-toggle"
+                    style={{
+                      border: "none",
+                      outline: "none",
+                      backgroundColor: "transparent"
+                    }}
+                    outline="none"
+                    nav
+                  >
+                    <NavLink
+                      activeClassName="active"
+                      exact
+                      to="/services"
+                      onClick={this.collapse}
+                    >
+                      STUDENT SERVICES
+                    </NavLink>
+                  </DropdownToggle>
+                </NavItem>
+                <DropdownMenu right className="about-dropdown">
+                  <DropdownItem>
+                    <NavLink
+                      activeClassName="active"
+                      exact
+                      to="/services/locker-rentals"
+                      onClick={this.collapse}
+                    >
+                      Locker Rentals
+                    </NavLink>
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
               <NavItem>
                 <NavLink
                   activeClassName="active"

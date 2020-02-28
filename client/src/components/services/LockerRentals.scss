@@ -1,0 +1,84 @@
+div.lockers {
+  padding: 0 80px;
+  h1 {
+    font-size: 60px;
+    color: #60246c;
+    font-weight: bolder;
+    text-transform: uppercase;
+  
+    letter-spacing: 0.1em;
+    -webkit-transform: scale(1, 0.97);
+    -ms-transform: scale(1, 0.97);
+    transform: scale(1, 0.97);
+  }
+  
+}
+
+
+
+div.section1,
+div.section2,
+div.section3,
+div.section4 {
+  padding: 20px 80px;
+  p {
+    font-size: 18px;
+    letter-spacing: 0.03em;
+  }
+  h2 {
+    font-size: 24px;
+    letter-spacing: 0.03em;
+    font-weight: bold;
+  }
+  .button {
+    background-color: #60246c;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    //margin: 4px 2px;
+    margin-right: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-weight: 100;
+    border-radius: 8px;
+    min-width: 334px;
+
+    &:hover {
+      color: white;
+    }
+  }
+  ol {
+    list-style-position: inside;
+    font-size: 18px;
+    li {
+      margin: 15px 10px;
+    }
+  }
+}
+
+div.section2,
+div.section4 {
+  background-color: #fde05b;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  div.section1,
+  div.section2,
+  div.section3,
+  div.section4 {
+    padding: 10px 100vw * 80/1294;
+    .button {
+      min-width: 200px;
+    }
+  }
+  div.services {
+    padding: 0px 100vw * 80/1294;
+    h1 {
+      font-size: 30px;
+    }
+  }
+}

@@ -112,7 +112,7 @@ class Candidates extends FlipBook {
         candData: this.presidentData, //candidatePlatforms.president,
         forText: "For President"
       });
-      if (this.presidentData.length > 1) {
+      if (this.presidentData.length > 1 || this.presidentData.length === 0) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
@@ -129,7 +129,7 @@ class Candidates extends FlipBook {
         candData: this.vpStudentLifeData,
         forText: "For Vice President Student Life"
       });
-      if (this.vpStudentLifeData.length > 1) {
+      if (this.vpStudentLifeData.length > 1 || this.vpStudentLifeData.length === 0) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
@@ -146,7 +146,7 @@ class Candidates extends FlipBook {
         candData: this.vpAcademicData,
         forText: "For Vice President Academic"
       });
-      if (this.vpAcademicData.length > 1) {
+      if (this.vpAcademicData.length > 1 || this.vpAcademicData.length === 0) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
@@ -163,7 +163,7 @@ class Candidates extends FlipBook {
         candData: this.vpAdminData,
         forText: "For Vice President Administration"
       });
-      if (this.vpAdminData.length > 1) {
+      if (this.vpAdminData.length > 1 || this.vpAdminData.length === 0) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
@@ -180,7 +180,7 @@ class Candidates extends FlipBook {
         candData: this.vpEngagementData,
         forText: "For Vice President Engagement"
       });
-      if (this.vpEngagementData.length > 1) {
+      if (this.vpEngagementData.length > 1 || this.vpEngagementData.length === 0) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
@@ -197,7 +197,7 @@ class Candidates extends FlipBook {
         candData: this.vpExternalData,
         forText: "For Vice President External"
       });
-      if (this.vpExternalData.length > 1) {
+      if (this.vpExternalData.length > 1 || this.vpExternalData.length === 0) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
@@ -214,7 +214,7 @@ class Candidates extends FlipBook {
         candData: this.vpFinanceData,
         forText: "For Vice President Finance"
       });
-      if (this.vpFinanceData.length > 1) {
+      if (this.vpFinanceData.length > 1 || this.vpFinanceData.length === 0) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
@@ -231,7 +231,7 @@ class Candidates extends FlipBook {
         candData: this.amsRepData,
         forText: "For AMS Representative"
       });
-      if (this.amsRepData.length > 1) {
+      if (this.amsRepData.length > 1 || this.amsRepData.length === 0) {
         this.setState({
           selectedPres: "",
           selectedPresId: ""
@@ -376,23 +376,6 @@ class Candidates extends FlipBook {
     );
     return (
       <>
-        {
-          /*REMOVE FROM HERE*/
-          <div
-            style={{
-              width: "100%",
-              height: "800px",
-              backgroundColor: "#fde05b",
-              textAlign: "center"
-            }}
-          >
-            {/*<div style={{ backgroundColor: "red", height: "81.25%" }}></div>*/}
-            <h1 style={{ color: "#60246c", height: "81.25%" }}>
-              Under Construction!
-            </h1>
-          </div>
-          /*TO HERE*/
-          /*
       <div className="flipbook">
         <div
           className="chapter-opener"
@@ -599,8 +582,7 @@ class Candidates extends FlipBook {
           </div>
         </div>{" "}
         <div className="right_panel">{page}</div>
-      </div>*/
-        }
+      </div>
       </>
     );
   }

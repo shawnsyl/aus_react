@@ -164,7 +164,7 @@ class ServicesMain extends Component {
             href={this.state.departmentalSocialGrant}
             download
           >
-            2016 Departmental Club Grant
+            {this.state.schoolYear} Departmental Club Grant
           </a>
           <p>
             Please email Grants Coordinator {this.state.grantsCoordinator} at {this.state.grantsCoordinatorEmail} if you have any questions or concerns. The

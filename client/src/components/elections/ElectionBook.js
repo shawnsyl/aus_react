@@ -489,7 +489,7 @@ class ElectionBook extends FlipBook {
       <div>
         <h1 className="browser-default">Election Process and Voting</h1>
         <p className="right_content">
-          Voting polls will open on Monday March 18th at 12.01AM and close on
+          Voting polls will open on Monday March 18th at 12:01AM and close on
           Friday March 22nd at 5PM, all voting will be done electronically.
           <br />
           <br />
