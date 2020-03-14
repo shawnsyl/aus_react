@@ -296,18 +296,6 @@ class Example extends React.Component {
                     </NavLink>
                   </DropdownToggle>
                 </NavItem>
-                <DropdownMenu right className="about-dropdown">
-                  <DropdownItem>
-                    <NavLink
-                      activeClassName="active"
-                      exact
-                      to="/services/locker-rentals"
-                      onClick={this.collapse}
-                    >
-                      Locker Rentals
-                    </NavLink>
-                  </DropdownItem>
-                </DropdownMenu>
               </UncontrolledDropdown>
               <NavItem>
                 <NavLink

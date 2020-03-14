@@ -5,7 +5,7 @@ import {
   BrowserRouter as Router,
   Route
 } from "../node_modules/react-router-dom";
-import { StickyContainer, Sticky } from "react-sticky";
+import { StickyContainer, } from "react-sticky";
 import NewNav from "./components/NewNav";
 import ContactMain from "./views/ContactMain.js";
 import AboutMain from "./views/AboutMain.js";
@@ -17,7 +17,6 @@ import Footer from "./components/Footer.js";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Onboarding from "./views/Onboarding";
-import LockerRentals from "./components/services/LockerRentals";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 import "./App.css";
@@ -124,7 +123,6 @@ class App extends React.Component {
                   )}
                 />
                 <Route exact path="/services" component={ServicesMain} />
-                <Route exact path="/services/locker-rentals" component={LockerRentals} />
                 <Route exact path="/contact" component={ContactMain} />
                 <Route exact path="/governance" component={GovernanceMain} />
                 <Route exact path="/login" component={Login} />
