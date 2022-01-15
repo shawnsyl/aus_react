@@ -10,7 +10,7 @@
     "form-data": "^2.5.1",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "moment": "^2.24.0",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
